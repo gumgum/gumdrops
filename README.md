@@ -13,11 +13,11 @@ This project contains reusable JavaScript components that you can import into yo
 In your package.json, include
 "gumgum-common-js": "git+ssh://git@bitbucket.org/gumgum/common-js-components.git"
 
-In a .jsx file, just include the name of the component you want. Example:
+In a .jsx file, just include the name of the component you want and its path. Example:
 ```
-import Button from 'gumgum-common-js';
+import Button from 'gumgum-common-js/components/atoms/Button';
 ```
-Follow the docs to call your component with the correct props.
+Follow the docs to use your component with the correct props. Make sure you update your webpack config to use a loader on node_modules/gumgum-common-js .jsx files so they get parsed correctly.
 
 ### Running storybook locally
 ```
