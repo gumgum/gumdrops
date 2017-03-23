@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const Badge = ({ text, option, empty }) => {
+const Badge = ({ text, option, empty = false }) => {
 
     let classes = empty ? 'gds-badge gds-badge--empty' : 'gds-badge';
     option && (classes = `${classes} gds-badge--${option}`);
@@ -13,7 +13,7 @@ const Badge = ({ text, option, empty }) => {
 
 Badge.defaultProps = {
     text: null,
-    option: 'default',
+    option: null,
     empty: false
 };
 

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const LoadingDots = ({ whiteDots, size, style }) => {
+const LoadingDots = ({ whiteDots = false, size, style }) => {
 
     let loadingDotClasses = 'gds-loading__dot';
     whiteDots && (loadingDotClasses = `${loadingDotClasses} gds-loading__dot--white`);

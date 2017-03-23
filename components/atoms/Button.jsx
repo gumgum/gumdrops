@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
-const Button = ({ text, option, size, block, callback }) => {
+const Button = ({ text, option = 'default', size, block = false, callback }) => {
 
-    let classes = 'gds-button gds-button--default';
-    option && (classes = `gds-button gds-button--${option}`);
+    let classes = 'gds-button';
+    option && (classes = `gds-button--${option}`);
     size && (classes = `${classes} gds-button--${size}`);
     block && (classes = `${classes} gds-button--block`);
 

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const Well = ({ text, option, button, callback }) => {
+const Well = ({ text, option, button = false, callback }) => {
 
     const wellClasses = `gds-well gds-well--${option}`,
         buttonClasses = `gds-well__button gds-well__button--${option}`;

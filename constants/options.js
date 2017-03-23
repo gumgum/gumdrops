@@ -8,6 +8,13 @@ export const buttonOptions = {
     danger: 'danger'
 };
 
+export const dividerOptions = {
+    '': 'null',
+    collapsible: 'collapsible',
+    reversed: 'reversed',
+    centered: 'centered'
+};
+
 export const wellOptions = {
     '': 'null',
     success: 'success',
@@ -34,12 +41,12 @@ export const sizeOptions = {
     sm: 'sm',
     lg: 'lg',
     '': 'null'
-}
+};
 
 export const loadingSizeOptions = {
     sm: 'sm',
     lg: 'lg',
     '': 'null'
-}
+};
 
 export const callbackFunc = () => console.log('callback function');

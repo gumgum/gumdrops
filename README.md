@@ -2,7 +2,7 @@
 
 This project contains reusable JavaScript components that you can import into your project.
 
-# Prerequisites #
+# Prerequisites for running Storybook #
 
 - [Git](http://git-scm.com/)
 - [Git Flow install and Work Flow Instructions](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=138248293)
