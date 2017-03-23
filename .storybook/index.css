@@ -1,0 +1,25 @@
+#root {
+    background-color: #fff;
+    padding: 0 30px;
+}
+
+table {
+    border-spacing: 0 !important;
+    padding: 2rem 0;
+}
+
+thead {
+    background-color: #c4c4c4;
+}
+
+th {
+    text-transform: capitalize !important;
+}
+
+th, td {
+    padding: .5rem 2rem !important;
+}
+
+table, thead, th, td, tr {
+    border: none;
+}

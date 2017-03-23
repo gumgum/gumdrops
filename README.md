@@ -1,0 +1,55 @@
+## GumGum Common JS Components
+
+This project contains reusable JavaScript components that you can import into your project.
+
+### Importing Components
+In your package.json, include
+"gumgum-common-js": "git+ssh://git@bitbucket.org/gumgum/common-js-components.git"
+
+In a .jsx file, just include the name of the component you want. Example:
+```
+import Button from 'gumgum-common-js';
+```
+Follow the docs to call your component with the correct props.
+
+### Running storybook locally
+```
+yarn
+npm run storybook
+```
+
+Then open `http://localhost:6006` on your browser. For more information visit [React Storybook](https://github.com/kadirahq/react-storybook) repo.
+
+### Contributing to this project
+Please add new components as you need/create them for your project!
+
+1. Follow our [git flow guide](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=138248293) to create a new branch.
+
+2. Add your component in the correct folder in /components. Follow the format of other components, including defaultProps and propTypes.
+
+3. Hook up storybook - go to the correct file in /_stories, import your new component at the top of the file, and add a new ".addWithInfo". Store any options in /constants/options.js
+
+```
+.addWithInfo(
+    'YourComponent',
+    `Component description and notes (you can copy from the DS)
+        \n
+        propsRequiringSpecificOptions: xs, sm, lg
+        option: default, primary, secondary, success, warning, info, danger`,
+    () => (
+        <YourComponent
+            text={ text('Label', 'Default Value') }
+            size={ select('Sample Select Options', options.sizeOptions, '') }
+            block={ boolean('Boolean option', false) }
+            callback={ options.callbackFunc }
+        />
+    ),
+    { inline: true, propTables: [YourComponent]}
+)
+```
+
+Please wait for approvals before merging.
+
+### Future
+- Component Testing
+- Adding other common JS besides react components
