@@ -2,6 +2,13 @@
 
 This project contains reusable JavaScript components that you can import into your project.
 
+# Prerequisites #
+
+- [Git](http://git-scm.com/)
+- [Git Flow install and Work Flow Instructions](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=138248293)
+- [NodeJS/NPM - NodeJS and Node Package Manager](http://nodejs.org/download/): [Minimum Required Versions](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=154304684)
+- [Yarn](https://yarnpkg.com/)
+
 ### Importing Components
 In your package.json, include
 "gumgum-common-js": "git+ssh://git@bitbucket.org/gumgum/common-js-components.git"
