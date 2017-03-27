@@ -6,6 +6,7 @@ import * as options from '../constants/options';
 
 import Badge from '../components/atoms/Badge';
 import Button from '../components/atoms/Button';
+import { buttonOptions } from '../constants/atoms/button.js';
 import LoadingDots from '../components/atoms/LoadingDots';
 
 const stories = storiesOf('Atoms', module);
@@ -35,8 +36,8 @@ stories
         () => (
             <Button
                 text={ text('Label', 'Default Button') }
-                size={ select('Size', options.sizeOptions, '') }
-                option={ select('Option', options.buttonOptions, 'default') }
+                size={ select('Size', buttonOptions.size, '') }
+                option={ select('Option', buttonOptions.option, 'default') }
                 block={ boolean('Block', false) }
                 callback={ options.callbackFunc }
             />

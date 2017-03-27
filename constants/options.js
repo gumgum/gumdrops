@@ -1,13 +1,3 @@
-export const buttonOptions = {
-    default: 'default',
-    primary: 'primary',
-    secondary: 'secondary',
-    success: 'success',
-    warning: 'warning',
-    info: 'info',
-    danger: 'danger'
-};
-
 export const dividerOptions = {
     '': 'null',
     collapsible: 'collapsible',
