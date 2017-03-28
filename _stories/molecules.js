@@ -13,6 +13,8 @@ import { cardBlockOptions } from '../constants/molecules/cardBlock.js';
 import CardImage from '../components/molecules/CardImage';
 import { cardImageOptions } from '../constants/molecules/cardImage.js';
 import Divider from '../components/molecules/Divider';
+import ModalWrapper from '../components/molecules/ModalWrapper';
+import { modalWrapperOptions } from '../constants/molecules/modalWrapper.js';
 import Toggle from '../components/molecules/Toggle';
 import Well from '../components/molecules/Well';
 import MultiSelect from '../components/molecules/MultiSelect';
@@ -248,6 +250,63 @@ If you want to add an option that "checks" all the other ones. You can create a 
         { inline: true, propTables: [MultiSelect] }
     )
     // TOGGLE
+    .addWithInfo(
+        'ModalWrapper',
+        `The modal wrapper component can contain any arbitrary content.
+        Important: When the modal is shown, please add \`-has-modal\` to the <body> element to restrict vertical scrolling to the modal window only.
+        \n
+        Example:
+        ...
+        state {
+            isModalOpen: false
+        }
+        const toggleModal = () => {
+            this.setState({ isModalOpen: !this.state.isModalOpen });
+        };
+        return(
+            <ModalWrapper
+                isOpen={ this.state.isModalOpen }
+                modalClassName='gds-layout__column--md-12'
+            >
+                {/* Begin arbitrary content */}
+                <div className="gds-modal__header">
+                    <h2 className="gds-modal__title gds-text--header-sm">Example title</h2>
+                    <button className="gds-modal__close-button" />
+                </div>
+                <div className="gds-modal__body">
+                    <p className="-m-b-3">Some modal content</p>
+                </div>
+                <div className="gds-modal__footer -text-right">
+                    <button className="gds-button gds-button--default gds-button--block-sm -m-b-3-sm -m-r-3">Go Back</button>{/*
+                    */}<button className="gds-button gds-button--primary gds-button--block-sm">Proceed</button>
+                </div>
+                {/* End arbitrary content */}
+            </ModalWrapper>
+        )
+        ...
+        `,
+        () => (
+            <ModalWrapper
+                isOpen={ boolean('Open', false) }
+                modalClassName={ text('Modal Column ClassName', 'gds-layout__column--md-12') }
+            >
+                {/* Begin arbitrary content */}
+                <div className="gds-modal__header">
+                    <h2 className="gds-modal__title gds-text--header-sm">Example title</h2>
+                    <button className="gds-modal__close-button" />
+                </div>
+                <div className="gds-modal__body">
+                    <p className="-m-b-3">Some modal content</p>
+                </div>
+                <div className="gds-modal__footer -text-right">
+                    <button className="gds-button gds-button--default gds-button--block-sm -m-b-3-sm -m-r-3">Go Back</button>{/*
+                    */}<button className="gds-button gds-button--primary gds-button--block-sm">Proceed</button>
+                </div>
+                {/* End arbitrary content */}
+            </ModalWrapper>
+        ),
+        { inline: true, propTables: [ModalWrapper]}
+    )
     .addWithInfo(
         'Toggle',
         ` \`<Toggle>\` components come in two flavors: radio and checkbox. Each one behaves in the same manner as their respective standard input type.

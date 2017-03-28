@@ -1,2 +1,5 @@
 import initStoryshots from 'storyshots';
-initStoryshots();
+
+initStoryshots({
+    storyRegex: /^((?!(m|M)olecules).)*$/
+});

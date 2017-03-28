@@ -12,7 +12,9 @@
     "buildstorybook": "build-storybook -c .storybook -o .out",
     "lint": "eslint ./components --color",
     "test": "storyshots",
-    "postinstall": "postinstall-build --only-as-dependency es"
+    "postinstall": "postinstall-build --only-as-dependency es",
+    "preclean": "rimraf node_modules",
+    "clean": "yarn cache clean && yarn install"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   "peerDependencies": {
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
+    "react-modal": "^1.7.3",
     "react-router": "^3.0.0"
   },
   "devDependencies": {

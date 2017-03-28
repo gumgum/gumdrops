@@ -4576,7 +4576,7 @@ react-komposer@^2.0.0:
     react-stubber "^1.0.0"
     shallowequal "^0.2.2"
 
-react-modal@^1.2.0, react-modal@^1.2.1:
+react-modal@^1.2.0, react-modal@^1.2.1, react-modal@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-1.7.3.tgz#9745448f280c92290ab1ab05c3d34ae708ef9ab3"
   dependencies:
