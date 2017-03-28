@@ -55,6 +55,8 @@ Please add new components as you need/create them for your project!
 )
 ```
 
+4. Run [storyshot tests](https://getstorybook.io/docs/react-storybook/testing/structural-testing) using ```npm run test```.
+
 Please wait for approvals before merging.
 
 ### Future

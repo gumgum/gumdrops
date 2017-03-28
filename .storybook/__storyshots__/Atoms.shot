@@ -1,0 +1,1126 @@
+exports[`Badge`] = `
+<div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto",
+            "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+          }
+        }>
+        <h1
+          style={
+            Object {
+              "fontSize": 35,
+              "margin": "20px 0 0 0",
+              "padding": 0,
+            }
+          }>
+          Atoms
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": 22,
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }>
+          Badge
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <span
+        className="gds-badge">
+        2
+      </span>
+    </div>
+  </div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto",
+            "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }>
+        <p
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "color": "#444",
+              "fontFamily": "
+                -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto",
+                "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif
+              ",
+              "fontSize": 15,
+            }
+          }>
+          The badge component, prefixed by gds-badge, is a numerical indicator of associated items. For a simple colored circle without a number inside, pass in the “empty” prop. If empty, it will not display any text within the badge.
+        </p>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, "Courier New", monospace",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <code
+            style={
+              Object {
+                "backgroundColor": "#fafafa",
+                "fontFamily": "Menlo, Monaco, "Courier New", monospace",
+              }
+            }>
+                    option: inverse, success, success-inverse, info, info-inverse, warning, warning-inverse, danger, danger-inverse
+          </code>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Story Source
+        </h1>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, "Courier New", monospace",
+              "fontSize": ".88em",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "paddingLeft": 18,
+                "paddingRight": 3,
+              }
+            }>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              <
+              Badge
+            </span>
+            <span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  text
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      "
+                      2
+                      "
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  option
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      "
+                      
+                      "
+                    </span>
+                  </span>
+                </span>
+                 
+              </span>
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              />
+            </span>
+          </div>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            "
+            Badge
+            " Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  empty
+                </td>
+                <td>
+                  bool
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#a11",
+                        }
+                      }>
+                      false
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  option
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  text
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Button`] = `
+<div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+          }
+        }>
+        <h1
+          style={
+            Object {
+              "fontSize": 35,
+              "margin": "20px 0 0 0",
+              "padding": 0,
+            }
+          }>
+          Atoms
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": 22,
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }>
+          Button
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <button
+        className="gds-button gds-button--default"
+        onClick={[Function]}>
+        Default Button
+      </button>
+    </div>
+  </div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }>
+        <p
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "color": "#444",
+              "fontFamily": "
+                -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+                \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+              ",
+              "fontSize": 15,
+            }
+          }>
+          The button component, prefixed by gds-button, is used to style <button> tags.
+        </p>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <code
+            style={
+              Object {
+                "backgroundColor": "#fafafa",
+                "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              }
+            }>
+                    size: xs, sm, lg
+                    option: default, primary, secondary, success, warning, info, danger
+          </code>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Story Source
+        </h1>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "fontSize": ".88em",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "paddingLeft": 18,
+                "paddingRight": 3,
+              }
+            }>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              <
+              Button
+            </span>
+            <span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  text
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      Default Button
+                      \"
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  size
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      
+                      \"
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  callback
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#170",
+                          }
+                        }>
+                        callbackFunc()
+                      </span>
+                      }
+                    </span>
+                  </span>
+                </span>
+                 
+              </span>
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              />
+            </span>
+          </div>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            Button
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  block
+                </td>
+                <td>
+                  bool
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#a11",
+                        }
+                      }>
+                      false
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  callback
+                </td>
+                <td>
+                  func
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  option
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span
+                    style={
+                      Object {
+                        "color": "#22a",
+                        "wordBreak": "break-word",
+                      }
+                    }>
+                    \"
+                    default
+                    \"
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  size
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  text
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Loading Dots`] = `
+<div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+          }
+        }>
+        <h1
+          style={
+            Object {
+              "fontSize": 35,
+              "margin": "20px 0 0 0",
+              "padding": 0,
+            }
+          }>
+          Atoms
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": 22,
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }>
+          Loading Dots
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div
+        style={
+          Object {
+            "padding": "3rem",
+          }
+        }>
+        <div
+          className="gds-loading">
+          <div
+            className="gds-loading__dot" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }>
+        <p
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "color": "#444",
+              "fontFamily": "
+                -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+                \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+              ",
+              "fontSize": 15,
+            }
+          }>
+          The loading component, prefixed by gds-loading, is used to indicate asynchronous loading of content. This example is using a style object so it looks nice on the page.
+        </p>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Story Source
+        </h1>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "fontSize": ".88em",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "paddingLeft": 18,
+                "paddingRight": 3,
+              }
+            }>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              <
+              LoadingDots
+            </span>
+            <span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  size
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      
+                      \"
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  style
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }>
+                        {
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }>
+                          padding
+                        </span>
+                        : 
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }>
+                          \"
+                          3rem
+                          \"
+                        </span>
+                        }
+                      </span>
+                      }
+                    </span>
+                  </span>
+                </span>
+                 
+              </span>
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              />
+            </span>
+          </div>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            LoadingDots
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  size
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  style
+                </td>
+                <td>
+                  object
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  whiteDots
+                </td>
+                <td>
+                  bool
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#a11",
+                        }
+                      }>
+                      false
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
