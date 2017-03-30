@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 
-const LayoutContainer = ({ className, fullWidth, ...props }, children) => (
+const LayoutContainer = ({ className, fullWidth, children, ...props }) => (
     <div
         className={ `gds-layout__container ${fullWidth ? 'gds-layout__container–full-width' : ''} ${className}` }
         { ...props }>
-        { [...children] }
+        { children }
     </div>
 );
 
@@ -14,6 +14,7 @@ LayoutContainer.defaultProps = {
 };
 
 LayoutContainer.propTypes = {
+    children: PropTypes.element.isRequired,
     className: PropTypes.string,
     fullWidth: PropTypes.bool
 };

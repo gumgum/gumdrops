@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const Column = (options, children) => {
+const Column = (options) => {
     const
         { xs
         , sm
@@ -8,6 +8,7 @@ const Column = (options, children) => {
         , lg
         , xl
         , className
+        , children
         , ...props
         } = options;
     const sizes = { xs, sm, md, lg, xl };
@@ -24,7 +25,7 @@ const Column = (options, children) => {
         .concat(className || []);
     return (
         <div className={ classList.join(' ') } { ...props }>
-            { [...children] }
+            { children }
         </div>
     );
 };
@@ -34,6 +35,7 @@ Column.defaultProps = {
 };
 
 Column.propTypes = {
+    children: PropTypes.element.isRequired,
     xs: PropTypes.string,
     sm: PropTypes.string,
     md: PropTypes.string,

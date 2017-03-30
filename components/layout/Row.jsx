@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-const Row = ({ className, ...props }, children) => (
+const Row = ({ className, children, ...props }) => (
     <div className={ `gds-layout__row ${className}` } { ...props }>
-        { [...children] }
+        { children }
     </div>
 );
 
@@ -11,6 +11,7 @@ Row.defaultProps = {
 };
 
 Row.propTypes = {
+    children: PropTypes.element.isRequired,
     className: PropTypes.string
 };
 
