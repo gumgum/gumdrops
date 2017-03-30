@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import { withKnobs, text, boolean, select, object } from '@kadira/storybook-addon-knobs';
+import { withKnobs, text, number, boolean, select, object } from '@kadira/storybook-addon-knobs';
 
 import * as options from '../constants/options';
 
@@ -19,11 +19,15 @@ stories
         \nBy default, the LayoutContainer has a max-width of 1200px. For a 100% width container, use the attribute full={ true }`,
         () => (
             <LayoutContainer
-                fullWidth
-                className="extra attributes are welcome"
-                id="some-id"
+                fullWidth={ boolean('Full width', false) }
+                className={ text('Extra classes') }
+                id={ text('Ids') }
                 onClick={ options.callbackFunc }>
-                Example
+                <Row>
+                    <Column md="4">Example</Column>
+                    <Column md="4">Example</Column>
+                    <Column md="4">Example</Column>
+                </Row>
             </LayoutContainer>
         ),
         { inline: true, propTables: [LayoutContainer]}
@@ -34,7 +38,7 @@ stories
         () => (
             <Row
                 className="extra-classes are welcome"
-                style={ { border: '1px deashed red' } }>
+                style={ object('style', { border: '1px dashed red' }) }>
                 Example
             </Row>
         ),
@@ -47,10 +51,20 @@ stories
         \nThe Design System uses a standard 12-column grid, so at a given breakpoint, columns ending in-3 will be 25% wide (3 of the 12 columns), columns ending in-6 will be 50% wide (6 of the 12 columns), columns ending in-9 will be 75% wide (9 of the 12 columns), and so on.`,
         () => (
             <Row>
-                <Column md="6" xs="12">
+                <Column
+                    xs={ number('Extra Small') }
+                    sm={ number('Small') }
+                    md={ number('Medium', 6) }
+                    lg={ number('Large') }
+                    xl={ number('Extra large') }>
                     column a
                 </Column>
-                <Column md="6" xs="12">
+                <Column
+                    xs={ number('Extra Small') }
+                    sm={ number('Small') }
+                    md={ number('Medium', 6) }
+                    lg={ number('Large') }
+                    xl={ number('Extra large') }>
                     column b
                 </Column>
             </Row>
