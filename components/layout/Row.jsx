@@ -11,7 +11,7 @@ Row.defaultProps = {
 };
 
 Row.propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.node,
     className: PropTypes.string
 };
 

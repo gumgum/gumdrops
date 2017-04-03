@@ -24,9 +24,9 @@ stories
                 id={ text('Ids') }
                 onClick={ options.callbackFunc }>
                 <Row>
-                    <Column md="4">Example</Column>
-                    <Column md="4">Example</Column>
-                    <Column md="4">Example</Column>
+                    <Column md={ 4 }>Example</Column>
+                    <Column md={ 4 }>Example</Column>
+                    <Column md={ 4 }>Example</Column>
                 </Row>
             </LayoutContainer>
         ),

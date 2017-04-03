@@ -35,12 +35,12 @@ Column.defaultProps = {
 };
 
 Column.propTypes = {
-    children: PropTypes.element.isRequired,
-    xs: PropTypes.string,
-    sm: PropTypes.string,
-    md: PropTypes.string,
-    lg: PropTypes.string,
-    xl: PropTypes.string
+    children: PropTypes.node,
+    xs: PropTypes.number,
+    sm: PropTypes.number,
+    md: PropTypes.number,
+    lg: PropTypes.number,
+    xl: PropTypes.number
 };
 
 export default Column;
