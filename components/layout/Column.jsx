@@ -31,7 +31,7 @@ const Column = (options) => {
 };
 
 Column.defaultProps = {
-    md: '12'
+    md: 12
 };
 
 Column.propTypes = {
