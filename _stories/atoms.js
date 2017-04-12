@@ -29,18 +29,19 @@ stories
     )
     .addWithInfo(
         'Button',
-        `The button component, prefixed by gds-button, is used to style <button> tags.
-            \n
-            size: xs, sm, lg
-            option: default, primary, secondary, success, warning, info, danger`,
+        `The \`<Button>\` can wrap any arbitrary components or JSX markup into a clickable button.
+        `,
         () => (
             <Button
-                text={ text('Label', 'Default Button') }
                 size={ select('Size', buttonOptions.size, '') }
                 option={ select('Option', buttonOptions.option, 'default') }
-                block={ boolean('Block', false) }
+                className={ text('ClassName', '') }
+                style={ object('Style', {}) }
                 callback={ options.callbackFunc }
-            />
+            >
+                <i className="fa fa-check -m-r-2" />
+                Great Success
+            </Button>
         ),
         { inline: true, propTables: [Button]}
     )

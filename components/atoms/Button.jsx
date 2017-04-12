@@ -1,32 +1,34 @@
 import React, { PropTypes } from 'react';
 
-const Button = ({ text, option = 'default', size, block = false, callback }) => {
+const Button = ({ option = 'default', size, callback, className, style, children }) => {
 
-    let classes = 'gds-button';
-    option && (classes = `${classes} gds-button--${option}`);
-    size && (classes = `${classes} gds-button--${size}`);
-    block && (classes = `${classes} gds-button--block`);
+    const baseClass = 'gds-button',
+        optionClass = (option) ? `${baseClass}--${option}` : '',
+        sizeClass = (size) ? `${baseClass}--${size}` : '';
+
+    const classNames = `${baseClass} ${optionClass} ${sizeClass} ${className}`;
 
     return (
-        <button className={ classes } onClick={ callback }>{ text }</button>
+        <button className={ classNames } style={ style } onClick={ callback }>{ children }</button>
     );
 
 };
 
 Button.defaultProps = {
-    text: null,
     option: 'default',
     size: null,
-    block: false,
-    callback: null
+    callback: null,
+    className: '',
+    style: null
 };
 
 Button.propTypes = {
-    text: PropTypes.string,
     option: PropTypes.string,
     size: PropTypes.string,
-    block: PropTypes.bool,
-    callback: PropTypes.func
+    callback: PropTypes.func,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    children: PropTypes.node
 };
 
 export default Button;
