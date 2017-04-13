@@ -14,7 +14,7 @@ LayoutContainer.defaultProps = {
 };
 
 LayoutContainer.propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.node,
     className: PropTypes.string,
     fullWidth: PropTypes.bool
 };
