@@ -3,37 +3,38 @@ import stylePropType from 'react-style-proptype';
 
 const Tag = ({ context, className, eventHandlers, hasButton, small, style, text, value }) => {
 
-    let tagClass = 'gds-tag',
-        contextClass = '',
-        hasButtonClass = '',
-        sizeClass = '',
-        buttonClass = 'gds-tag__button',
-        buttonContextClass = '';
+    const isNormal = context && context === 'normal',
+        tagClass = 'gds-tag',
+        hasButtonClass = hasButton
+            ? `gds-tag--with-button${small ? '-sm' : ''}`
+            : '',
+        contextClass = isNormal
+            ? ''
+            : `gds-tag--${context}`,
+        buttonContextClass = isNormal
+            ? ''
+            : `gds-tag__button--${context}`,
+        buttonClass = small
+            ? 'gds-tag__button gds-tag__button--sm'
+            : 'gds-tag__button',
+        sizeClass = small
+            ? 'gds-tag--sm'
+            : '';
 
-    if (hasButton) hasButtonClass = 'gds-tag--with-button';
+    const classNames = `${tagClass} ${hasButtonClass} ${contextClass} ${sizeClass}`;
+    const buttonClassNames = `${buttonClass} ${buttonContextClass}`;
 
-    if (context && context != 'normal') {
-        contextClass = `gds-tag--${context}`;
-        buttonContextClass = `gds-tag__button--${context}`;
-    }
-    if (small) {
-        sizeClass = 'gds-tag--sm';
-        if (hasButton) {
-            hasButtonClass = 'gds-tag--with-button-sm';
-            buttonClass = 'gds-tag__button gds-tag__button--sm';
-        }
-    }
     const clickHandler = () => eventHandlers.click(value);
     const mouseoverHandler = () => eventHandlers.mouseover(value);
     const mouseoutHandler = () => eventHandlers.mouseout(value);
 
     return (
-        <div className={ `${tagClass} ${hasButtonClass} ${contextClass} ${sizeClass}` }
+        <div className={ classNames }
             onClick={ clickHandler }
             onMouseOver={ mouseoverHandler }
             onMouseOut={ mouseoutHandler }>
             { text }
-            { hasButton && <button className={ `${buttonClass} ${buttonContextClass}` }/> }
+            { hasButton && <button className={ buttonClassNames }/> }
         </div>
     );
 
