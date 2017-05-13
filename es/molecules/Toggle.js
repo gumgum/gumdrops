@@ -34,9 +34,4 @@ Toggle.defaultProps = {
     label: null
 };
 
-Toggle.propTypes = {
-    type: _react.PropTypes.string,
-    label: _react.PropTypes.string
-};
-
 exports.default = Toggle;

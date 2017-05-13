@@ -38,10 +38,4 @@ LoadingDots.defaultProps = {
     style: null
 };
 
-LoadingDots.propTypes = {
-    whiteDots: _react.PropTypes.bool,
-    size: _react.PropTypes.string,
-    style: _react.PropTypes.object
-};
-
 exports.default = LoadingDots;

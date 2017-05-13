@@ -36,12 +36,4 @@ CardImage.defaultProps = {
     option: 'top'
 };
 
-CardImage.propTypes = {
-    url: _react.PropTypes.string.isRequired,
-    option: _react.PropTypes.string,
-    size: _react.PropTypes.string,
-    className: _react.PropTypes.string,
-    style: _react.PropTypes.object
-};
-
 exports.default = CardImage;

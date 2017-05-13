@@ -48,13 +48,4 @@ Column.defaultProps = {
     md: 12
 };
 
-Column.propTypes = {
-    children: _react.PropTypes.node,
-    xs: _react.PropTypes.number,
-    sm: _react.PropTypes.number,
-    md: _react.PropTypes.number,
-    lg: _react.PropTypes.number,
-    xl: _react.PropTypes.number
-};
-
 exports.default = Column;

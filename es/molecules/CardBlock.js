@@ -29,11 +29,4 @@ var CardBlock = function CardBlock(_ref) {
     );
 };
 
-CardBlock.propTypes = {
-    option: _react.PropTypes.string,
-    className: _react.PropTypes.string,
-    style: _react.PropTypes.object,
-    children: _react.PropTypes.node
-};
-
 exports.default = CardBlock;

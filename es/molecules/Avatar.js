@@ -73,12 +73,4 @@ Avatar.defaultProps = {
     menuOptions: null
 };
 
-Avatar.propTypes = {
-    open: _react.PropTypes.bool,
-    callback: _react.PropTypes.func,
-    username: _react.PropTypes.string,
-    img: _react.PropTypes.string,
-    menuOptions: _react.PropTypes.array
-};
-
 exports.default = Avatar;

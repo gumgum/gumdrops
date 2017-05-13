@@ -31,12 +31,4 @@ var Card = function Card(_ref) {
     );
 };
 
-Card.propTypes = {
-    option: _react.PropTypes.string,
-    size: _react.PropTypes.string,
-    className: _react.PropTypes.string,
-    style: _react.PropTypes.object,
-    children: _react.PropTypes.node
-};
-
 exports.default = Card;

@@ -33,10 +33,4 @@ Badge.defaultProps = {
     empty: false
 };
 
-Badge.propTypes = {
-    text: _react.PropTypes.string,
-    option: _react.PropTypes.string,
-    empty: _react.PropTypes.bool
-};
-
 exports.default = Badge;

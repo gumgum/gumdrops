@@ -37,10 +37,4 @@ LayoutContainer.defaultProps = {
     fullWidth: false
 };
 
-LayoutContainer.propTypes = {
-    children: _react.PropTypes.node,
-    className: _react.PropTypes.string,
-    fullWidth: _react.PropTypes.bool
-};
-
 exports.default = LayoutContainer;

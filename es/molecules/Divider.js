@@ -48,12 +48,4 @@ Divider.defaultProps = {
     callback: null
 };
 
-Divider.propTypes = {
-    label: _react.PropTypes.string,
-    centered: _react.PropTypes.bool,
-    collapsible: _react.PropTypes.bool,
-    open: _react.PropTypes.bool,
-    callback: _react.PropTypes.func
-};
-
 exports.default = Divider;

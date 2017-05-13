@@ -33,9 +33,4 @@ Row.defaultProps = {
     className: ''
 };
 
-Row.propTypes = {
-    children: _react.PropTypes.node,
-    className: _react.PropTypes.string
-};
-
 exports.default = Row;

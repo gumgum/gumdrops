@@ -40,11 +40,4 @@ Well.defaultProps = {
     callback: null
 };
 
-Well.propTypes = {
-    text: _react.PropTypes.string,
-    option: _react.PropTypes.string,
-    button: _react.PropTypes.bool,
-    callback: _react.PropTypes.func
-};
-
 exports.default = Well;
