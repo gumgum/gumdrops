@@ -38,3 +38,9 @@ export const loadingSizeOptions = {
     lg: 'lg',
     '': 'null'
 };
+
+export const multiSelectOptions = {
+    sm: 'sm',
+    xs: 'xs',
+    '': 'null'
+};

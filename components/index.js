@@ -13,5 +13,6 @@ export CardBlock from './molecules/CardBlock';
 export CardImage from './molecules/CardImage';
 export Card from './molecules/Card';
 export Divider from './molecules/Divider';
+export MultiSelect from './molecules/MultiSelect';
 export Toggle from './molecules/Toggle';
 export Well from './molecules/Well';
