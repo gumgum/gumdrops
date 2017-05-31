@@ -42,6 +42,7 @@ const Tag = ({ context, className, eventHandlers, hasOption, optionIcon, small, 
 Tag.defaultProps = {
     className: '',
     hasOption: false,
+    optionIcon: 'bt-times',
     small: false
 };
 
