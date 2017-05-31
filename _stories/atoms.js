@@ -8,6 +8,7 @@ import Badge from '../components/atoms/Badge';
 import Button from '../components/atoms/Button';
 import { buttonOptions } from '../constants/atoms/button.js';
 import LoadingDots from '../components/atoms/LoadingDots';
+import Tag from '../components/atoms/Tag';
 
 const stories = storiesOf('Atoms', module);
 stories.addDecorator(withKnobs);
@@ -57,5 +58,32 @@ stories
             />
         ),
         { inline: true, propTables: [LoadingDots]}
+    )
+    .addWithInfo(
+        'Tags',
+        `The tag component is used to indicate active or selected items, filters or options. Refer to [this](http://design-prototypes.gumgum.com/black-tie/documentation/#icons-btl) page for icon names.
+            \n`,
+        () => {
+            const eventHandlers = {
+                click: action('tag-click'),
+                mouseover: action('tag-mouseover'),
+                mouseout: action('tag-mouseout')
+            };
+
+            return (
+                <Tag
+                    context={ select('Context', ['normal', 'primary', 'success', 'warning', 'danger'], 'normal') }
+                    className={ text('Classes', '') }
+                    eventHandlers={ eventHandlers }
+                    hasOption={ boolean('Has Option', false) }
+                    optionIcon={ text('Option Icon', 'bt-times') }
+                    small={ boolean('Small', false) }
+                    style={ object('Style', {}) }
+                    text={ text('Text', 'Sample Text') }
+                    value={ text('Value', '0') }
+                />
+            );
+        },
+        { inline: true, propTables: [Tag]}
     )
     ;
