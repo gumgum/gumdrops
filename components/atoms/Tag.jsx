@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react';
-import stylePropType from 'react-style-proptype';
 
-const Tag = ({ context, className, eventHandlers, hasButton, small, style, text, value }) => {
+const Tag = ({ context, className, eventHandlers, hasOption, optionIcon, small, style, text, value }) => {
 
     const isNormal = context && context === 'normal',
         tagClass = 'gds-tag',
-        hasButtonClass = hasButton
+        hasButtonClass = hasOption
             ? `gds-tag--with-button${small ? '-sm' : ''}`
             : '',
         contextClass = isNormal
@@ -13,16 +12,16 @@ const Tag = ({ context, className, eventHandlers, hasButton, small, style, text,
             : `gds-tag--${context}`,
         buttonContextClass = isNormal
             ? ''
-            : `gds-tag__button--${context}`,
+            : `gds-tag__option--${context}`,
         buttonClass = small
-            ? 'gds-tag__button gds-tag__button--sm'
-            : 'gds-tag__button',
+            ? 'gds-tag__option gds-tag__option--sm'
+            : 'gds-tag__option',
         sizeClass = small
             ? 'gds-tag--sm'
             : '';
 
     const classNames = `${tagClass} ${hasButtonClass} ${contextClass} ${sizeClass}`;
-    const buttonClassNames = `${buttonClass} ${buttonContextClass}`;
+    const optionClassNames = `${buttonClass} ${buttonContextClass}`;
 
     const clickHandler = () => eventHandlers.click(value);
     const mouseoverHandler = () => eventHandlers.mouseover(value);
@@ -34,7 +33,7 @@ const Tag = ({ context, className, eventHandlers, hasButton, small, style, text,
             onMouseOver={ mouseoverHandler }
             onMouseOut={ mouseoutHandler }>
             { text }
-            { hasButton && <button className={ buttonClassNames }/> }
+            { hasOption && <button className={ optionClassNames }><i className={ `btl bt-fw ${optionIcon}`}/></button> }
         </div>
     );
 
@@ -42,7 +41,7 @@ const Tag = ({ context, className, eventHandlers, hasButton, small, style, text,
 
 Tag.defaultProps = {
     className: '',
-    hasButton: false,
+    hasOption: false,
     small: false
 };
 
@@ -54,9 +53,10 @@ Tag.propTypes = {
         mouseover: PropTypes.func,
         mouseout: PropTypes.func
     }),
-    hasButton: PropTypes.bool,
+    hasOption: PropTypes.bool,
+    optionIcon: PropTypes.string,
     small: PropTypes.bool,
-    style: stylePropType,
+    style: PropTypes.object,
     text: PropTypes.string.isRequired,
     value: PropTypes.string
 };

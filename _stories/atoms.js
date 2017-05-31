@@ -61,7 +61,7 @@ stories
     )
     .addWithInfo(
         'Tags',
-        `The tag component is used to indicate active or selected items, filters or options.  
+        `The tag component is used to indicate active or selected items, filters or options. Refer to [this](http://design-prototypes.gumgum.com/black-tie/documentation/#icons-btl) page for icon names.
             \n`,
         () => {
             const eventHandlers = {
@@ -75,7 +75,8 @@ stories
                     context={ select('Context', ['normal', 'primary', 'success', 'warning', 'danger'], 'normal') }
                     className={ text('Classes', '') }
                     eventHandlers={ eventHandlers }
-                    hasButton={ boolean('Close Button', false) }
+                    hasOption={ boolean('Has Option', false) }
+                    optionIcon={ text('Option Icon', 'bt-times') }
                     small={ boolean('Small', false) }
                     style={ object('Style', {}) }
                     text={ text('Text', 'Sample Text') }
