@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import { withKnobs, text, object, boolean, select } from '@kadira/storybook-addon-knobs';
+import { withKnobs, text, object, number, boolean, select } from '@kadira/storybook-addon-knobs';
 
 import * as options from '../constants/options';
 import AvatarMenu from '../constants/AvatarMenu';
@@ -13,8 +13,7 @@ import { cardBlockOptions } from '../constants/molecules/cardBlock.js';
 import CardImage from '../components/molecules/CardImage';
 import { cardImageOptions } from '../constants/molecules/cardImage.js';
 import Divider from '../components/molecules/Divider';
-import ModalWrapper from '../components/molecules/ModalWrapper';
-import { modalWrapperOptions } from '../constants/molecules/modalWrapper.js';
+import Modal from '../components/molecules/Modal';
 import Toggle from '../components/molecules/Toggle';
 import Well from '../components/molecules/Well';
 import MultiSelect from '../components/molecules/MultiSelect';
@@ -251,61 +250,46 @@ If you want to add an option that "checks" all the other ones. You can create a 
     )
     // TOGGLE
     .addWithInfo(
-        'ModalWrapper',
+        'Modal',
         `The modal wrapper component can contain any arbitrary content.
-        Important: When the modal is shown, please add \`-has-modal\` to the <body> element to restrict vertical scrolling to the modal window only.
+        title and onClose props are optional and will render the modal header.
         \n
         Example:
         ...
         state {
             isModalOpen: false
         }
-        const toggleModal = () => {
-            this.setState({ isModalOpen: !this.state.isModalOpen });
-        };
+        const toggleModal = () => this.setState({ isModalOpen: !this.state.isModalOpen });
         return(
-            <ModalWrapper
+            <Modal
+                title="Sample modal"
+                onClose={ this.toggleModal }
                 isOpen={ this.state.isModalOpen }
-                modalClassName='gds-layout__column--md-12'
+                md={ 6 }
             >
                 {/* Begin arbitrary content */}
-                <div className="gds-modal__header">
-                    <h2 className="gds-modal__title gds-text--header-sm">Example title</h2>
-                    <button className="gds-modal__close-button" />
-                </div>
-                <div className="gds-modal__body">
-                    <p className="-m-b-3">Some modal content</p>
-                </div>
-                <div className="gds-modal__footer -text-right">
-                    <button className="gds-button gds-button--default gds-button--block-sm -m-b-3-sm -m-r-3">Go Back</button>{/*
-                    */}<button className="gds-button gds-button--primary gds-button--block-sm">Proceed</button>
-                </div>
+                <p className="-m-b-3">Toggle the modal in the knobs section.</p>
                 {/* End arbitrary content */}
-            </ModalWrapper>
+            </Modal>
         )
         ...
         `,
         () => (
-            <ModalWrapper
-                isOpen={ boolean('Open', false) }
-                modalClassName={ text('Modal Column ClassName', 'gds-layout__column--md-12') }
+            <Modal
+                isOpen={ boolean('Open', true) }
+                title={ text('Title', 'Sample modal') }
+                md={ number('Column size', 6) }
+                onClose={ action('Close modal') }
+                className={ text('Modal Column ClassName', '') }
+                overlayClassName={ text('Overlay ClassName', '') }
+                style={ object('Style', {}) }
             >
                 {/* Begin arbitrary content */}
-                <div className="gds-modal__header">
-                    <h2 className="gds-modal__title gds-text--header-sm">Example title</h2>
-                    <button className="gds-modal__close-button" />
-                </div>
-                <div className="gds-modal__body">
-                    <p className="-m-b-3">Some modal content</p>
-                </div>
-                <div className="gds-modal__footer -text-right">
-                    <button className="gds-button gds-button--default gds-button--block-sm -m-b-3-sm -m-r-3">Go Back</button>{/*
-                    */}<button className="gds-button gds-button--primary gds-button--block-sm">Proceed</button>
-                </div>
+                <p className="-m-b-3">Toggle the modal in the KNOBS section.</p>
                 {/* End arbitrary content */}
-            </ModalWrapper>
+            </Modal>
         ),
-        { inline: true, propTables: [ModalWrapper]}
+        { inline: true, propTables: [Modal]}
     )
     .addWithInfo(
         'Toggle',

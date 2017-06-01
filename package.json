@@ -20,12 +20,6 @@
     "type": "git",
     "url": "https://bitbucket.org/gumgum/common-js-components.git"
   },
-  "peerDependencies": {
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "react-modal": "^1.7.3",
-    "react-router": "^3.0.0"
-  },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@kadira/storybook": "^2.21.0",
@@ -56,6 +50,7 @@
     "style-loader": "^0.12.3"
   },
   "dependencies": {
+    "react-modal": "^1.7.3",
     "postinstall-build": "^5.0.0"
   }
 }
