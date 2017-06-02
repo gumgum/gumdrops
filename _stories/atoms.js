@@ -40,6 +40,7 @@ stories
             <Button
                 size={ select('Size', buttonOptions.size, '') }
                 context={ select('Context', buttonOptions.context, 'default') }
+                group={ boolean('Group', false) }
                 className={ text('ClassName', '') }
                 style={ object('Style', {}) }
                 callback={ action('button_clicked') }
@@ -53,7 +54,7 @@ stories
     // BUTTON GROUP
     .addWithInfo(
         'ButtonGroup',
-        `The \`<ButtonGroup>\` wraps a series of \`<Button>\` components with className of 'gds-button-group__button'.
+        `The \`<ButtonGroup>\` wraps a series of \`<Button>\` components with a group prop.
         `,
         () => (
             <ButtonGroup
@@ -63,17 +64,17 @@ stories
                 style={ object('Style', {}) }
             >
                 <Button
-                    className="gds-button-group__button"
+                    group
                     context="default">
                     Button 1
                 </Button>
                 <Button
-                    className="gds-button-group__button"
+                    group
                     context="primary">
                     Button 2
                 </Button>
                 <Button
-                    className="gds-button-group__button"
+                    group
                     context="secondary">
                     Button 3
                 </Button>
