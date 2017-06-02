@@ -18,7 +18,9 @@ const CardImage = ({ url, option, size, className, style }) => {
 };
 
 CardImage.defaultProps = {
-    option: 'top'
+    option: 'top',
+    className: '',
+    style: {}
 };
 
 CardImage.propTypes = {

@@ -1,12 +1,14 @@
 import React, { PropTypes } from 'react';
 
-const Well = ({ text, option, button = false, callback }) => {
+const Well = ({ text, context, button = false, callback, className, style }) => {
 
-    const wellClasses = `gds-well gds-well--${option}`,
-        buttonClasses = `gds-well__button gds-well__button--${option}`;
+    const baseClasses = `gds-well gds-well--${context}`,
+        buttonClasses = `gds-well__button gds-well__button--${context}`;
+
+    const classNames = `${baseClasses} ${className}`;
 
     return (
-        <div className={ wellClasses }>
+        <div className={ classNames } style={ style }>
             <p className= "gds-well__text">{ text }</p>
             { button && callback && <button className={ buttonClasses } onClick={ callback } /> }
         </div>
@@ -16,16 +18,20 @@ const Well = ({ text, option, button = false, callback }) => {
 
 Well.defaultProps = {
     text: null,
-    option: null,
+    context: null,
     button: false,
-    callback: null
+    callback: null,
+    className: '',
+    style: {}
 };
 
 Well.propTypes = {
     text: PropTypes.string,
-    option: PropTypes.string,
+    context: PropTypes.string,
     button: PropTypes.bool,
-    callback: PropTypes.func
+    callback: PropTypes.func,
+    className: PropTypes.string,
+    style: PropTypes.object
 };
 
 export default Well;

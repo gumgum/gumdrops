@@ -5,7 +5,7 @@ export const dividerOptions = {
     centered: 'centered'
 };
 
-export const wellOptions = {
+export const wellContexts = {
     '': 'null',
     success: 'success',
     warning: 'warning',
@@ -13,7 +13,7 @@ export const wellOptions = {
     danger: 'danger'
 };
 
-export const badgeOptions = {
+export const badgeContexts = {
     '': 'null',
     inverse: 'inverse',
     success: 'success',
@@ -38,5 +38,3 @@ export const loadingSizeOptions = {
     lg: 'lg',
     '': 'null'
 };
-
-export const callbackFunc = () => console.log('callback function');

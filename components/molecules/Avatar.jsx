@@ -8,11 +8,18 @@ const Avatar = (props) => {
         callback,
         username,
         img,
-        menuOptions
+        menuOptions,
+        className,
+        style
     } = props;
 
+    const baseClass = 'gds-avatar',
+        openClasses = (open) ? `${baseClass}--menu-open` : '';
+
+    const classNames = `${baseClass} ${openClasses} ${className}`;
+
     return (
-        <div className={ `gds-avatar ${open && 'gds-avatar--menu-open'}` } onClick={ callback }>
+        <div className={ classNames } style={ style } onClick={ callback }>
             { img ?
                 <div className="gds-avatar__image">
                     <img src={ img } height="100%" alt={ username } />
@@ -50,7 +57,9 @@ Avatar.defaultProps = {
     callback: null,
     username: null,
     img: null,
-    menuOptions: null
+    menuOptions: null,
+    className: '',
+    style: {}
 };
 
 Avatar.propTypes = {
@@ -58,7 +67,9 @@ Avatar.propTypes = {
     callback: PropTypes.func,
     username: PropTypes.string,
     img: PropTypes.string,
-    menuOptions: PropTypes.array
+    menuOptions: PropTypes.array,
+    className: PropTypes.string,
+    style: PropTypes.object
 };
 
 export default Avatar;

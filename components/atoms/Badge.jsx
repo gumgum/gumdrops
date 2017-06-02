@@ -1,26 +1,33 @@
 import React, { PropTypes } from 'react';
 
-const Badge = ({ text, option, empty = false }) => {
+const Badge = ({ text, context, empty = false, className, style }) => {
 
-    let classes = empty ? 'gds-badge gds-badge--empty' : 'gds-badge';
-    option && (classes = `${classes} gds-badge--${option}`);
+    const baseClass = 'gds-badge',
+        contextClass = (context) ? `${baseClass}--${context}` : '',
+        emptyClass = (empty) ? `${baseClass}--empty` : '';
+
+    const classNames = `${baseClass} ${contextClass} ${emptyClass} ${className}`;
 
     return (
-        <span className={ classes }>{ !empty && text }</span>
+        <span className={ classNames }>{ !empty && text }</span>
     );
 
 };
 
 Badge.defaultProps = {
     text: null,
-    option: null,
-    empty: false
+    context: null,
+    empty: false,
+    className: '',
+    style: {}
 };
 
 Badge.propTypes = {
     text: PropTypes.string,
-    option: PropTypes.string,
-    empty: PropTypes.bool
+    context: PropTypes.string,
+    empty: PropTypes.bool,
+    className: PropTypes.string,
+    style: PropTypes.object
 };
 
 export default Badge;

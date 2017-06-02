@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 
-const Button = ({ option = 'default', size, callback, className, style, children }) => {
+const Button = ({ context = 'default', size, callback, className, style, children }) => {
 
     const baseClass = 'gds-button',
-        optionClass = (option) ? `${baseClass}--${option}` : '',
+        contextClass = (context) ? `${baseClass}--${context}` : '',
         sizeClass = (size) ? `${baseClass}--${size}` : '';
 
-    const classNames = `${baseClass} ${optionClass} ${sizeClass} ${className}`;
+    const classNames = `${baseClass} ${contextClass} ${sizeClass} ${className}`;
 
     return (
         <button className={ classNames } style={ style } onClick={ callback }>{ children }</button>
@@ -15,15 +15,15 @@ const Button = ({ option = 'default', size, callback, className, style, children
 };
 
 Button.defaultProps = {
-    option: 'default',
+    context: 'default',
     size: null,
     callback: null,
     className: '',
-    style: null
+    style: {}
 };
 
 Button.propTypes = {
-    option: PropTypes.string,
+    context: PropTypes.string,
     size: PropTypes.string,
     callback: PropTypes.func,
     className: PropTypes.string,
