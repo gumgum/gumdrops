@@ -1,5 +1,5 @@
 export const buttonOptions = {
-    option: {
+    context: {
         default: 'default',
         outline: 'outline',
         primary: 'primary',

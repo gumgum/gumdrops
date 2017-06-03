@@ -20,7 +20,7 @@ const Tag = ({ context, className, eventHandlers, hasOption, optionIcon, small, 
             ? 'gds-tag--sm'
             : '';
 
-    const classNames = `${tagClass} ${hasButtonClass} ${contextClass} ${sizeClass}`;
+    const classNames = `${tagClass} ${hasButtonClass} ${contextClass} ${sizeClass} ${className}`;
     const optionClassNames = `${buttonClass} ${buttonContextClass}`;
 
     const clickHandler = () => eventHandlers.click(value);
@@ -29,11 +29,12 @@ const Tag = ({ context, className, eventHandlers, hasOption, optionIcon, small, 
 
     return (
         <div className={ classNames }
+            style={ style }
             onClick={ clickHandler }
             onMouseOver={ mouseoverHandler }
             onMouseOut={ mouseoutHandler }>
             { text }
-            { hasOption && <button className={ optionClassNames }><i className={ `btl bt-fw ${optionIcon}`}/></button> }
+            { hasOption && <button className={ optionClassNames }><i className={ `btl bt-fw ${optionIcon}` }/></button> }
         </div>
     );
 
@@ -43,7 +44,8 @@ Tag.defaultProps = {
     className: '',
     hasOption: false,
     optionIcon: 'bt-times',
-    small: false
+    small: false,
+    style: {}
 };
 
 Tag.propTypes = {

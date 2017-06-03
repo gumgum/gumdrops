@@ -20,9 +20,10 @@ const stories = storiesOf('Molecules', module);
 stories.addDecorator(withKnobs);
 
 stories
+    // AVATAR
     .addWithInfo(
         'Avatar',
-        `The avatar component can display a user's photo, a brand's logo, or a flag icon for internationalization. The avatar can include a dropdown menu, which is meant to be shown when the avatar is clicked on.
+        `The \`<Avatar>\` component can display a user's photo, a brand's logo, or a flag icon for internationalization. The avatar can include a dropdown menu, which is meant to be shown when the avatar is clicked on.
         If the avatar is expandable, pass in a callback function that sets the state, and include the state in your component. You must also pass in an array of objects of names and paths for the menu. (see ../constants/AvatarMenu.js)
         \n
         Example:
@@ -45,17 +46,20 @@ stories
         () => (
             <Avatar
                 open={ boolean('Open', false) }
-                callback={ options.callbackFunc }
+                callback={ action('avatar_menu_toggled') }
                 username={ text('Username', 'Michele') }
                 img={ text('Image url', '') }
                 menuOptions={ AvatarMenu }
+                className={ text('ClassName', '') }
+                style={ object('Style', {}) }
             />
         ),
         { inline: true, propTables: [Avatar]}
     )
+    // CARD
     .addWithInfo(
         'Card',
-        `The \`<Card>\` is a standard container component, designed to hold groups of related information. Cards are usually arranged in a uniform grid.
+        `The \`<Card>\` component is a standard container component, designed to hold groups of related information. Cards are usually arranged in a uniform grid.
         `,
         () => (
             <div>
@@ -103,9 +107,10 @@ stories
         ),
         { inline: true, propTables: [Card]}
     )
+    // CARD BLOCK
     .addWithInfo(
         'CardBlock',
-        `The \`<CardBlock>\` should be nested within a \`<Card>\` to wrap the card's content into distinct chunks. Use the \`option\` prop to add a divider line on the top or bottom of the \`<CardBlock>\`, to make the separation more clear.
+        `The \`<CardBlock>\` component should be nested within a \`<Card>\` component to wrap the card's content into distinct chunks. Use the \`option\` prop to add a divider line on the top or bottom of the \`<CardBlock>\` component, to make the separation more clear.
         `,
         () => (
             <Card>
@@ -120,9 +125,10 @@ stories
         ),
         { inline: true, propTables: [Card]}
     )
+    // CARD IMAGE
     .addWithInfo(
         'CardImage',
-        `The \`<CardImage>\` is used to append images inside of a \`<Card>\`. It can add an image to the top or bottom of the card.
+        `The \`<CardImage>\` component is used to append images inside of a \`<Card>\`. It can add an image to the top or bottom of the card.
         `,
         () => (
             <Card>
@@ -137,12 +143,13 @@ stories
         ),
         { inline: true, propTables: [CardImage]}
     )
+    // DIVIDER
     .addWithInfo(
         'Divider',
-        `The standard divider component is used to separate distinct segments of content.
+        `The standard  \`<Divider>\` component is used to separate distinct segments of content.
         If the divider is collapsible, pass in a callback function that sets the state, and include the state in your component.
         \n
-        Example:
+        \`Example:\`
         ...
         state {
             open: false
@@ -169,35 +176,41 @@ stories
                 centered={ boolean('Centered', false) }
                 collapsible={ boolean('Collapsible', false) }
                 open={ boolean('Open', false) }
-                callback={ options.callbackFunc }
+                className={ text('ClassName', '') }
+                style={ object('Style', {}) }
+                callback={ action('divider_toggled') }
             />
         ),
         { inline: true, propTables: [Divider]}
     )
+    // TOGGLE
     .addWithInfo(
         'Toggle',
-        `Toggle switches come in two flavors: radio and checkbox. Each one behaves in the same manner as their respective standard input type.
-            \n
-            type: checkbox, radio`,
+        ` \`<Toggle>\` components come in two flavors: radio and checkbox. Each one behaves in the same manner as their respective standard input type.
+        `,
         () => (
             <Toggle
                 label={ text('Label', 'Default Toggle') }
                 type={ select('Type', { checkbox: 'checkbox', radio: 'radio' }, 'checkbox') }
+                className={ text('ClassName', '') }
+                style={ object('Style', {}) }
             />
         ),
         { inline: true, propTables: [Toggle]}
     )
+    // WELL
     .addWithInfo(
         'Well',
-        `The well component can be used for alert messages or other user notifications. If you pass in a button=true and a callback function, the component will call that function when a user clicks on the x.
-            \n
-            option: success, warning, info, danger`,
+        `The \`<Well> component can be used for alert messages or other user notifications. If you pass in  \`button \` and a callback function, the component will call that function when a user clicks on the x.
+        `,
         () => (
             <Well
                 text={ text('Label', 'Default Well') }
-                option={ select('Type', options.wellOptions, undefined) }
+                context={ select('Context', options.wellContexts, undefined) }
                 button={ boolean('Button', false) }
-                callback={ options.callbackFunc }
+                callback={ action('well_closed') }
+                className={ text('ClassName', '') }
+                style={ object('Style', {}) }
             />
         ),
         { inline: true, propTables: [Well]}

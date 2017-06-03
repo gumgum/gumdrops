@@ -1,15 +1,17 @@
 import React, { PropTypes } from 'react';
 
-const LoadingDots = ({ whiteDots = false, size, style }) => {
+const LoadingDots = ({ whiteDots = false, size, className, style }) => {
 
-    let loadingDotClasses = 'gds-loading__dot';
-    whiteDots && (loadingDotClasses = `${loadingDotClasses} gds-loading__dot--white`);
-    size && (loadingDotClasses = `${loadingDotClasses} gds-loading__dot--${size}`);
+    const baseClass = 'gds-loading__dot',
+        whiteDotsClass = (whiteDots) ? `${baseClass}--white` : '',
+        sizeClass = (size) ? `${baseClass}--${size}` : '';
+
+    const classNames = `${baseClass} ${whiteDotsClass} ${sizeClass}`;
 
     return (
-        <div style={ style }>
+        <div style={ style } className={ className }>
             <div className="gds-loading">
-                <div className={ loadingDotClasses }/>
+                <div className={ classNames }/>
             </div>
         </div>
     );
@@ -18,12 +20,14 @@ const LoadingDots = ({ whiteDots = false, size, style }) => {
 LoadingDots.defaultProps = {
     whiteDots: false,
     size: null,
-    style: null
+    className: '',
+    style: {}
 };
 
 LoadingDots.propTypes = {
     whiteDots: PropTypes.bool,
     size: PropTypes.string,
+    className: PropTypes.string,
     style: PropTypes.object
 };
 
