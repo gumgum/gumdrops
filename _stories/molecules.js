@@ -13,6 +13,7 @@ import { cardBlockOptions } from '../constants/molecules/cardBlock.js';
 import CardImage from '../components/molecules/CardImage';
 import { cardImageOptions } from '../constants/molecules/cardImage.js';
 import Divider from '../components/molecules/Divider';
+import Modal from '../components/molecules/Modal';
 import Toggle from '../components/molecules/Toggle';
 import Well from '../components/molecules/Well';
 import MultiSelect from '../components/molecules/MultiSelect';
@@ -248,6 +249,48 @@ If you want to add an option that "checks" all the other ones. You can create a 
         { inline: true, propTables: [MultiSelect] }
     )
     // TOGGLE
+    .addWithInfo(
+        'Modal',
+        `The modal wrapper component can contain any arbitrary content.
+        title and onClose props are optional and will render the modal header.
+        \n
+        Example:
+        ...
+        state {
+            isModalOpen: false
+        }
+        const toggleModal = () => this.setState({ isModalOpen: !this.state.isModalOpen });
+        return(
+            <Modal
+                title="Sample modal"
+                onClose={ this.toggleModal }
+                isOpen={ this.state.isModalOpen }
+                md="6"
+            >
+                {/* Begin arbitrary content */}
+                <p className="-m-b-3">Toggle the modal in the knobs section.</p>
+                {/* End arbitrary content */}
+            </Modal>
+        )
+        ...
+        `,
+        () => (
+            <Modal
+                isOpen={ boolean('Open', true) }
+                title={ text('Title', 'Sample modal') }
+                md={ text('Column size', '6') }
+                onClose={ action('Close modal') }
+                className={ text('Modal Column ClassName', '') }
+                overlayClassName={ text('Overlay ClassName', '') }
+                style={ object('Style', {}) }
+            >
+                {/* Begin arbitrary content */}
+                <p className="-m-b-3">Toggle the modal in the KNOBS section.</p>
+                {/* End arbitrary content */}
+            </Modal>
+        ),
+        { inline: true, propTables: [Modal]}
+    )
     .addWithInfo(
         'Toggle',
         ` \`<Toggle>\` components come in two flavors: radio and checkbox. Each one behaves in the same manner as their respective standard input type.

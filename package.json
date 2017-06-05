@@ -2,26 +2,24 @@
   "name": "gumgum-common-js",
   "version": "1.0.0",
   "description": "GumGum JavaScript Components",
-  "main": "components/index",
-  "module": "es/index",
-  "jsnext:main": "es/index",
+  "main": "dist/index",
+  "module": "dist-es6/index",
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "prebuild": "rimraf es",
-    "build": "BABEL_ENV=es babel --out-dir es ./components",
+    "prebuild": "rimraf dist dist-es6",
+    "build": "yarn build:es5 && yarn build:es6",
+    "build:es5": "babel components --out-dir dist --plugins=transform-es2015-modules-commonjs --source-maps inline",
+    "build:es6": "babel components --out-dir dist-es6 --source-maps inline",
     "buildstorybook": "build-storybook -c .storybook -o .out",
     "lint": "eslint ./components --color",
     "test": "storyshots",
-    "postinstall": "postinstall-build --only-as-dependency es"
+    "postinstall": "postinstall-build --only-as-dependency dist",
+    "preclean": "rimraf node_modules",
+    "clean": "yarn cache clean && yarn install"
   },
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/gumgum/common-js-components.git"
-  },
-  "peerDependencies": {
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "react-router": "^3.0.0"
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
@@ -53,6 +51,8 @@
     "style-loader": "^0.12.3"
   },
   "dependencies": {
-    "postinstall-build": "^5.0.0"
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "postinstall-build": "^5.0.0",
+    "react-modal": "^1.7.3"
   }
 }
