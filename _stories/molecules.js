@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import { withKnobs, text, object, number, boolean, select } from '@kadira/storybook-addon-knobs';
+import { withKnobs, text, object, boolean, select } from '@kadira/storybook-addon-knobs';
 
 import * as options from '../constants/options';
 import AvatarMenu from '../constants/AvatarMenu';
@@ -265,7 +265,7 @@ If you want to add an option that "checks" all the other ones. You can create a 
                 title="Sample modal"
                 onClose={ this.toggleModal }
                 isOpen={ this.state.isModalOpen }
-                md={ 6 }
+                md="6"
             >
                 {/* Begin arbitrary content */}
                 <p className="-m-b-3">Toggle the modal in the knobs section.</p>
@@ -278,7 +278,7 @@ If you want to add an option that "checks" all the other ones. You can create a 
             <Modal
                 isOpen={ boolean('Open', true) }
                 title={ text('Title', 'Sample modal') }
-                md={ number('Column size', 6) }
+                md={ text('Column size', '6') }
                 onClose={ action('Close modal') }
                 className={ text('Modal Column ClassName', '') }
                 overlayClassName={ text('Overlay ClassName', '') }

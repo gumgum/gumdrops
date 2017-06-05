@@ -35,7 +35,7 @@ Modal.defaultProps = {
     isOpen: false,
     className: '',
     overlayClassName: '',
-    number: 12,
+    md: '12',
     style: {}
 };
 
@@ -46,7 +46,7 @@ Modal.propTypes = {
     className: PropTypes.string,
     overlayClassName: PropTypes.string,
     style: PropTypes.object,
-    md: PropTypes.number,
+    md: PropTypes.string,
     children: PropTypes.element.isRequired
 };
 
