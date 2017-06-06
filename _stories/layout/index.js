@@ -2,9 +2,9 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, text, number, boolean, select, object } from '@kadira/storybook-addon-knobs';
 
-import Row from '../components/layout/Row';
-import Column from '../components/layout/Column';
-import LayoutContainer from '../components/layout/LayoutContainer';
+import Row from '../../components/layout/Row';
+import Column from '../../components/layout/Column';
+import LayoutContainer from '../../components/layout/LayoutContainer';
 
 const stories = storiesOf('Layout', module);
 stories.addDecorator(withKnobs);

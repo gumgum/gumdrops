@@ -2,29 +2,31 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, text, object, boolean, select } from '@kadira/storybook-addon-knobs';
 
-import * as options from '../constants/options';
-import AvatarMenu from '../constants/AvatarMenu';
+import * as options from '../../constants/options';
+import AvatarMenu from '../../constants/AvatarMenu';
 
-import Button from '../components/atoms/Button';
-import ButtonGroup from '../components/atoms/ButtonGroup';
+import Button from '../../components/atoms/Button';
+import ButtonGroup from '../../components/atoms/ButtonGroup';
 
-import Avatar from '../components/molecules/Avatar';
-import Card from '../components/molecules/Card';
-import { cardOptions } from '../constants/molecules/card.js';
-import CardBlock from '../components/molecules/CardBlock';
-import { cardBlockOptions } from '../constants/molecules/cardBlock.js';
-import CardImage from '../components/molecules/CardImage';
-import { cardImageOptions } from '../constants/molecules/cardImage.js';
-import Divider from '../components/molecules/Divider';
-import Modal from '../components/molecules/Modal';
-import ModalHeader from '../components/atoms/ModalHeader';
-import ModalBody from '../components/atoms/ModalBody';
-import ModalFooter from '../components/atoms/ModalFooter';
-import ModalForm from '../components/atoms/ModalForm';
-import Toggle from '../components/molecules/Toggle';
-import Well from '../components/molecules/Well';
-import MultiSelect from '../components/molecules/MultiSelect';
-import multiSelectOptions from '../constants/molecules/multiSelectOptions';
+import Avatar from '../../components/molecules/Avatar';
+import Card from '../../components/molecules/Card';
+import { cardOptions } from '../../constants/molecules/card.js';
+import CardBlock from '../../components/molecules/CardBlock';
+import { cardBlockOptions } from '../../constants/molecules/cardBlock.js';
+import CardImage from '../../components/molecules/CardImage';
+import { cardImageOptions } from '../../constants/molecules/cardImage.js';
+import Divider from '../../components/molecules/Divider';
+import Modal from '../../components/molecules/Modal';
+import ModalHeader from '../../components/atoms/ModalHeader';
+import ModalBody from '../../components/atoms/ModalBody';
+import ModalFooter from '../../components/atoms/ModalFooter';
+import ModalForm from '../../components/atoms/ModalForm';
+import MultiSelect from '../../components/molecules/MultiSelect';
+import multiSelectOptions from '../../constants/molecules/multiSelectOptions';
+import Toggle from '../../components/molecules/Toggle';
+import Well from '../../components/molecules/Well';
+
+import FormGroup from './FormGroup';
 
 const stories = storiesOf('Molecules', module);
 stories.addDecorator(withKnobs);
@@ -193,6 +195,7 @@ stories
         ),
         { inline: true, propTables: [Divider]}
     )
+    .addWithInfo(...FormGroup)
     // MULTI SELECT
     .addWithInfo(
         'Multi Select',

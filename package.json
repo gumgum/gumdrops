@@ -5,6 +5,7 @@
   "main": "dist/index",
   "module": "dist-es6/index",
   "scripts": {
+    "start": "yarn run storybook",
     "storybook": "start-storybook -p 6006",
     "prebuild": "rimraf dist dist-es6",
     "build": "yarn build:es5 && yarn build:es6",

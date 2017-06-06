@@ -2,16 +2,20 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, text, boolean, select, object } from '@kadira/storybook-addon-knobs';
 
-import * as options from '../constants/options';
+import * as options from '../../constants/options';
 
-import Badge from '../components/atoms/Badge';
-import Button from '../components/atoms/Button';
-import ButtonGroup from '../components/atoms/ButtonGroup';
-import { buttonOptions } from '../constants/atoms/button.js';
-import LoadingDots from '../components/atoms/LoadingDots';
-import NumberCircle from '../components/atoms/NumberCircle';
-import Tag from '../components/atoms/Tag';
-import Trend from '../components/atoms/Trend';
+import Badge from '../../components/atoms/Badge';
+import Button from '../../components/atoms/Button';
+import ButtonGroup from '../../components/atoms/ButtonGroup';
+import { buttonOptions } from '../../constants/atoms/button.js';
+import LoadingDots from '../../components/atoms/LoadingDots';
+import NumberCircle from '../../components/atoms/NumberCircle';
+import Tag from '../../components/atoms/Tag';
+import Trend from '../../components/atoms/Trend';
+
+import FormGroupLabel from './FormGroupLabel';
+import FormGroupTextHelp from './FormGroupTextHelp';
+import TextInput from './TextInput';
 
 const stories = storiesOf('Atoms', module);
 stories.addDecorator(withKnobs);
@@ -85,6 +89,8 @@ stories
         ),
         { inline: true, propTables: [ButtonGroup]}
     )
+    .addWithInfo(...FormGroupLabel)
+    .addWithInfo(...FormGroupTextHelp)
     // LOADING DOTS
     .addWithInfo(
         'Loading Dots',
@@ -152,4 +158,5 @@ stories
         ),
         { inline: true, propTables: [Trend]}
     )
+    .addWithInfo(...TextInput)
     ;

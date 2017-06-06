@@ -1,3 +1,3 @@
-import './layout';
-import './atoms';
-import './molecules';
+import './layout/index.js';
+import './atoms/index.js';
+import './molecules/index.js';
