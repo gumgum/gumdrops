@@ -15,7 +15,8 @@ In your package.json, include
 
 In a .jsx file, just include the name of the component you want and its path. Example:
 ```
-import Button from 'gumgum-common-js/components/atoms/Button';
+import { Button, Badge, Toggle } from 'gumgum-common-js';
+
 ```
 Follow the docs to use your component with the correct props. Make sure you update your webpack config to use a loader on node_modules/gumgum-common-js .jsx files so they get parsed correctly.
 
@@ -34,7 +35,9 @@ Please add new components as you need/create them for your project!
 
 2. Add your component in the correct folder in /components. Follow the format of other components, including defaultProps and propTypes.
 
-3. Hook up storybook - go to the correct file in /_stories, import your new component at the top of the file, and add a new ".addWithInfo". Store any options in /constants/options.js
+3. Add the path to your component in components/index.js.
+
+4. Hook up storybook - go to the correct file in /_stories, import your new component at the top of the file, and add a new ".addWithInfo". Store any options in /constants/options.js
 
 ```
 .addWithInfo(
@@ -54,6 +57,8 @@ Please add new components as you need/create them for your project!
     { inline: true, propTables: [YourComponent]}
 )
 ```
+
+4. Run [storyshot tests](https://getstorybook.io/docs/react-storybook/testing/structural-testing) using ```npm run test```.
 
 Please wait for approvals before merging.
 

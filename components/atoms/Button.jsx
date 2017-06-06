@@ -1,32 +1,37 @@
 import React, { PropTypes } from 'react';
 
-const Button = ({ text, option = 'default', size, block = false, callback }) => {
+const Button = ({ context = 'default', size, group, callback, className, style, children }) => {
 
-    let classes = 'gds-button';
-    option && (classes = `gds-button--${option}`);
-    size && (classes = `${classes} gds-button--${size}`);
-    block && (classes = `${classes} gds-button--block`);
+    const baseClass = 'gds-button',
+        contextClass = (context) ? `${baseClass}--${context}` : '',
+        sizeClass = (size) ? `${baseClass}--${size}` : '',
+        groupClass = (group) ? `${baseClass}--group__button` : '';
+
+    const classNames = `${baseClass} ${contextClass} ${sizeClass} ${groupClass} ${className}`;
 
     return (
-        <button className={ classes } onClick={ callback }>{ text }</button>
+        <button className={ classNames } style={ style } onClick={ callback }>{ children }</button>
     );
 
 };
 
 Button.defaultProps = {
-    text: null,
-    option: 'default',
+    context: 'default',
     size: null,
-    block: false,
-    callback: null
+    group: false,
+    callback: null,
+    className: '',
+    style: {}
 };
 
 Button.propTypes = {
-    text: PropTypes.string,
-    option: PropTypes.string,
+    context: PropTypes.string,
     size: PropTypes.string,
-    block: PropTypes.bool,
-    callback: PropTypes.func
+    group: PropTypes.bool,
+    callback: PropTypes.func,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    children: PropTypes.node
 };
 
 export default Button;

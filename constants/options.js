@@ -1,13 +1,3 @@
-export const buttonOptions = {
-    default: 'default',
-    primary: 'primary',
-    secondary: 'secondary',
-    success: 'success',
-    warning: 'warning',
-    info: 'info',
-    danger: 'danger'
-};
-
 export const dividerOptions = {
     '': 'null',
     collapsible: 'collapsible',
@@ -15,7 +5,7 @@ export const dividerOptions = {
     centered: 'centered'
 };
 
-export const wellOptions = {
+export const wellContexts = {
     '': 'null',
     success: 'success',
     warning: 'warning',
@@ -23,7 +13,7 @@ export const wellOptions = {
     danger: 'danger'
 };
 
-export const badgeOptions = {
+export const badgeContexts = {
     '': 'null',
     inverse: 'inverse',
     success: 'success',
@@ -49,4 +39,8 @@ export const loadingSizeOptions = {
     '': 'null'
 };
 
-export const callbackFunc = () => console.log('callback function');
+export const multiSelectOptions = {
+    sm: 'sm',
+    xs: 'xs',
+    '': 'null'
+};

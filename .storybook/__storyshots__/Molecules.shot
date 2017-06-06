@@ -1,0 +1,4392 @@
+exports[`Avatar`] = `
+<div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+          }
+        }>
+        <h1
+          style={
+            Object {
+              "fontSize": 35,
+              "margin": "20px 0 0 0",
+              "padding": 0,
+            }
+          }>
+          Molecules
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": 22,
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }>
+          Avatar
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div
+        className="gds-avatar false"
+        onClick={[Function]}>
+        <div
+          className="gds-avatar__image -text-center -text-tr-cap">
+          M
+        </div>
+        <div
+          className="gds-avatar__menu">
+          <ul
+            className="gds-avatar__menu-list">
+            <li
+              className="gds-avatar__menu-list-item -color-tx-lt-5 -ellipsis -p-h-3 -p-v-2">
+              Michele
+            </li>
+            <li
+              className="gds-avatar__menu-list-divider" />
+            <li
+              className="gds-avatar__menu-list-item -ellipsis">
+              <a
+                className="gds-avatar__menu-list-link"
+                href="#"
+                onClick={[Function]}
+                style={Object {}}>
+                Change Password
+              </a>
+            </li>
+            <li
+              className="gds-avatar__menu-list-item -ellipsis">
+              <a
+                className="gds-avatar__menu-list-link"
+                href="#"
+                onClick={[Function]}
+                style={Object {}}>
+                Change Brand
+              </a>
+            </li>
+            <li
+              className="gds-avatar__menu-list-item -ellipsis">
+              <a
+                className="gds-avatar__menu-list-link"
+                href="#"
+                onClick={[Function]}
+                style={Object {}}>
+                Login to Twitter
+              </a>
+            </li>
+            <li
+              className="gds-avatar__menu-list-item -ellipsis">
+              <a
+                className="gds-avatar__menu-list-link"
+                href="#"
+                onClick={[Function]}
+                style={Object {}}>
+                Switch to Annotator
+              </a>
+            </li>
+            <li
+              className="gds-avatar__menu-list-item -ellipsis">
+              <a
+                className="gds-avatar__menu-list-link"
+                href="#"
+                onClick={[Function]}
+                style={Object {}}>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }>
+        <p
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "color": "#444",
+              "fontFamily": "
+                -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+                \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+              ",
+              "fontSize": 15,
+            }
+          }>
+          The avatar component can display a user’s photo, a brand’s logo, or a flag icon for internationalization. The avatar can include a dropdown menu, which is meant to be shown when the avatar is clicked on.
+                  If the avatar is expandable, pass in a callback function that sets the state, and include the state in your component. You must also pass in an array of objects of names and paths for the menu. (see ../constants/AvatarMenu.js)
+        </p>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <code
+            style={
+              Object {
+                "backgroundColor": "#fafafa",
+                "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              }
+            }>
+                Example:
+                ...
+                state {
+                    avatarOpen: false
+                }
+                const toggleAvatar = () => {
+                    this.setState({ open: !this.state.toggleAvatar });
+                };
+                return(
+                    <Avatar
+                        open={ this.state.avatarOpen }
+                        callback={ this.toggleAvatar }
+                        menuOptions={ AvatarMenu }
+                    />
+                )
+                ...
+          </code>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Story Source
+        </h1>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "fontSize": ".88em",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "paddingLeft": 18,
+                "paddingRight": 3,
+              }
+            }>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              <
+              Avatar
+            </span>
+            <span>
+              <span>
+                <span>
+                  <br />
+                    
+                </span>
+                <span
+                  style={Object {}}>
+                  callback
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#170",
+                          }
+                        }>
+                        callbackFunc()
+                      </span>
+                      }
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>
+                <span>
+                  <br />
+                    
+                </span>
+                <span
+                  style={Object {}}>
+                  username
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      Michele
+                      \"
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>
+                <span>
+                  <br />
+                    
+                </span>
+                <span
+                  style={Object {}}>
+                  img
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      
+                      \"
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>
+                <span>
+                  <br />
+                    
+                </span>
+                <span
+                  style={Object {}}>
+                  menuOptions
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#666",
+                          }
+                        }>
+                        [
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              name
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }>
+                              \"
+                              Change Password
+                              \"
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              path
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }>
+                              \"
+                              /account/change-password
+                              \"
+                            </span>
+                            }
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              name
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }>
+                              \"
+                              Change Brand
+                              \"
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              path
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }>
+                              \"
+                              /account/change-brand
+                              \"
+                            </span>
+                            }
+                          </span>
+                          }
+                        </span>
+                        , 
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              name
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }>
+                              \"
+                              Login to Twitter
+                              \"
+                            </span>
+                            , 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#666",
+                                }
+                              }>
+                              path
+                            </span>
+                            : 
+                            <span
+                              style={
+                                Object {
+                                  "color": "#22a",
+                                  "wordBreak": "break-word",
+                                }
+                              }>
+                              \"
+                              /account/twitter-login
+                              \"
+                            </span>
+                            }
+                          </span>
+                          }
+                        </span>
+                        , 
+                        …
+                        ]
+                      </span>
+                      }
+                    </span>
+                  </span>
+                </span>
+                <br />
+              </span>
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              />
+            </span>
+          </div>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            Avatar
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  callback
+                </td>
+                <td>
+                  func
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  img
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  menuOptions
+                </td>
+                <td>
+                  array
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  open
+                </td>
+                <td>
+                  bool
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#a11",
+                        }
+                      }>
+                      false
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  username
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card`] = `
+<div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+          }
+        }>
+        <h1
+          style={
+            Object {
+              "fontSize": 35,
+              "margin": "20px 0 0 0",
+              "padding": 0,
+            }
+          }>
+          Molecules
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": 22,
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }>
+          Card
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div
+          className="gds-card   undefined"
+          style={undefined}>
+          <div
+            className="gds-card__block  undefined"
+            style={undefined}>
+            <p>
+              Content in a plain Card.
+            </p>
+          </div>
+        </div>
+        <div
+          className="gds-card   "
+          style={Object {}}>
+          <div
+            className="gds-card__block  undefined"
+            style={undefined}>
+            <p>
+              Content in a plain CardBlock.
+            </p>
+          </div>
+          <div
+            className="gds-card__block gds-card__block--divide-top undefined"
+            style={undefined}>
+            <p>
+              Content in a CardBlock with a top divider.
+            </p>
+          </div>
+        </div>
+        <div
+          className="gds-card   undefined"
+          style={undefined}>
+          <div
+            className="gds-card__img-container gds-card__img-container--top  undefined"
+            style={undefined}>
+            <img
+              className="gds-card__img"
+              src="https://c.gumgum.com/ads/com/gumgum/mantii/internal_mobile_inscreen_test/full_canvas/01/mantii_fullscreen.hyperesources/girl@2x.png" />
+            <div
+              className="gds-card__img-helper" />
+          </div>
+          <div
+            className="gds-card__block gds-card__block--divide-top undefined"
+            style={undefined}>
+            <p>
+              Card with a CardImage and a CardBlock.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }>
+        <p
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "color": "#444",
+              "fontFamily": "
+                -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+                \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+              ",
+              "fontSize": 15,
+            }
+          }>
+          The card component, prefixed by 
+          <code>
+            gds-card
+          </code>
+          , is a standard container component, designed to hold groups of related information.
+        </p>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Story Source
+        </h1>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "fontSize": ".88em",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <div>
+            <div
+              style={
+                Object {
+                  "paddingLeft": 18,
+                  "paddingRight": 3,
+                }
+              }>
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                <
+                div
+              </span>
+              <span />
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                >
+              </span>
+            </div>
+            <div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  Card
+                </span>
+                <span>
+                  <span>
+                     
+                    <span
+                      style={Object {}}>
+                      option
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#777",
+                              }
+                            }>
+                            undefined
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                     
+                    <span
+                      style={Object {}}>
+                      size
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#777",
+                              }
+                            }>
+                            undefined
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                     
+                    <span
+                      style={Object {}}>
+                      style
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#777",
+                              }
+                            }>
+                            undefined
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  >
+                </span>
+              </div>
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 48,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    <
+                    CardBlock
+                  </span>
+                  <span />
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    >
+                  </span>
+                </div>
+                <div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 63,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      <
+                      p
+                    </span>
+                    <span />
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      >
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 78,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      Content in a plain Card.
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 63,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      </
+                      p
+                      >
+                    </span>
+                  </div>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 48,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    </
+                    CardBlock
+                    >
+                  </span>
+                </div>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  </
+                  Card
+                  >
+                </span>
+              </div>
+            </div>
+            <div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  Card
+                </span>
+                <span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      option
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#777",
+                              }
+                            }>
+                            undefined
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      size
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#777",
+                              }
+                            }>
+                            undefined
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      className
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }>
+                          \"
+                          
+                          \"
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                    <span>
+                      <br />
+                        
+                    </span>
+                    <span
+                      style={Object {}}>
+                      style
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            {
+                            }
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    <br />
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  >
+                </span>
+              </div>
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 48,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    <
+                    CardBlock
+                  </span>
+                  <span />
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    >
+                  </span>
+                </div>
+                <div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 63,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      <
+                      p
+                    </span>
+                    <span />
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      >
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 78,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      Content in a plain CardBlock.
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 63,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      </
+                      p
+                      >
+                    </span>
+                  </div>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 48,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    </
+                    CardBlock
+                    >
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 48,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    <
+                    CardBlock
+                  </span>
+                  <span>
+                    <span>
+                       
+                      <span
+                        style={Object {}}>
+                        option
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}>
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }>
+                            \"
+                            divide-top
+                            \"
+                          </span>
+                        </span>
+                      </span>
+                      
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    >
+                  </span>
+                </div>
+                <div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 63,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      <
+                      p
+                    </span>
+                    <span />
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      >
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 78,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      Content in a CardBlock with a top divider.
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 63,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      </
+                      p
+                      >
+                    </span>
+                  </div>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 48,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    </
+                    CardBlock
+                    >
+                  </span>
+                </div>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  </
+                  Card
+                  >
+                </span>
+              </div>
+            </div>
+            <div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  Card
+                </span>
+                <span>
+                  <span>
+                     
+                    <span
+                      style={Object {}}>
+                      option
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#777",
+                              }
+                            }>
+                            undefined
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  >
+                </span>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 78,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  CardImage
+                </span>
+                <span>
+                  <span>
+                     
+                    <span
+                      style={Object {}}>
+                      url
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }>
+                          \"
+                          https://c.gumgum.com/ads/com/gumgum/mantii/interna…
+                          \"
+                        </span>
+                      </span>
+                    </span>
+                     
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  />
+                </span>
+              </div>
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 48,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    <
+                    CardBlock
+                  </span>
+                  <span>
+                    <span>
+                       
+                      <span
+                        style={Object {}}>
+                        option
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}>
+                          <span
+                            style={
+                              Object {
+                                "color": "#22a",
+                                "wordBreak": "break-word",
+                              }
+                            }>
+                            \"
+                            divide-top
+                            \"
+                          </span>
+                        </span>
+                      </span>
+                      
+                    </span>
+                  </span>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    >
+                  </span>
+                </div>
+                <div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 63,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      <
+                      p
+                    </span>
+                    <span />
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      >
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 78,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      Card with a CardImage and a CardBlock.
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 63,
+                        "paddingRight": 3,
+                      }
+                    }>
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      </
+                      p
+                      >
+                    </span>
+                  </div>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 48,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    </
+                    CardBlock
+                    >
+                  </span>
+                </div>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  </
+                  Card
+                  >
+                </span>
+              </div>
+            </div>
+            <div
+              style={
+                Object {
+                  "paddingLeft": 18,
+                  "paddingRight": 3,
+                }
+              }>
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                </
+                div
+                >
+              </span>
+            </div>
+          </div>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            Card
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  children
+                </td>
+                <td>
+                  node
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  className
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  option
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  size
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  style
+                </td>
+                <td>
+                  other
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            CardBlock
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  children
+                </td>
+                <td>
+                  node
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  className
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  option
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  style
+                </td>
+                <td>
+                  other
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            CardImage
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  className
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  option
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span
+                    style={
+                      Object {
+                        "color": "#22a",
+                        "wordBreak": "break-word",
+                      }
+                    }>
+                    \"
+                    top
+                    \"
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  size
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  style
+                </td>
+                <td>
+                  other
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  url
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  yes
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CardBlock`] = `
+<div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+          }
+        }>
+        <h1
+          style={
+            Object {
+              "fontSize": 35,
+              "margin": "20px 0 0 0",
+              "padding": 0,
+            }
+          }>
+          Molecules
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": 22,
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }>
+          CardBlock
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div
+        className="gds-card   undefined"
+        style={undefined}>
+        <div
+          className="gds-card__block  "
+          style={Object {}}>
+          <p>
+            Content in a CardBlock.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }>
+        <p
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "color": "#444",
+              "fontFamily": "
+                -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+                \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+              ",
+              "fontSize": 15,
+            }
+          }>
+          Use 
+          <code>
+            gds-card__block
+          </code>
+           to wrap a card’s content into distinct chunks.
+        </p>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Story Source
+        </h1>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "fontSize": ".88em",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <div>
+            <div
+              style={
+                Object {
+                  "paddingLeft": 18,
+                  "paddingRight": 3,
+                }
+              }>
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                <
+                Card
+              </span>
+              <span />
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                >
+              </span>
+            </div>
+            <div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  <
+                  CardBlock
+                </span>
+                <span>
+                  <span>
+                     
+                    <span
+                      style={Object {}}>
+                      option
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#777",
+                              }
+                            }>
+                            undefined
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                     
+                    <span
+                      style={Object {}}>
+                      className
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span
+                          style={
+                            Object {
+                              "color": "#22a",
+                              "wordBreak": "break-word",
+                            }
+                          }>
+                          \"
+                          
+                          \"
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                  <span>
+                     
+                    <span
+                      style={Object {}}>
+                      style
+                    </span>
+                    <span>
+                      =
+                      <span
+                        style={Object {}}>
+                        <span>
+                          {
+                          <span
+                            style={
+                              Object {
+                                "color": "#666",
+                              }
+                            }>
+                            {
+                            }
+                          </span>
+                          }
+                        </span>
+                      </span>
+                    </span>
+                    
+                  </span>
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  >
+                </span>
+              </div>
+              <div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 48,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    <
+                    p
+                  </span>
+                  <span />
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    >
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 63,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    Content in a CardBlock.
+                  </span>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "paddingLeft": 48,
+                      "paddingRight": 3,
+                    }
+                  }>
+                  <span
+                    style={
+                      Object {
+                        "color": "#777",
+                      }
+                    }>
+                    </
+                    p
+                    >
+                  </span>
+                </div>
+              </div>
+              <div
+                style={
+                  Object {
+                    "paddingLeft": 33,
+                    "paddingRight": 3,
+                  }
+                }>
+                <span
+                  style={
+                    Object {
+                      "color": "#777",
+                    }
+                  }>
+                  </
+                  CardBlock
+                  >
+                </span>
+              </div>
+            </div>
+            <div
+              style={
+                Object {
+                  "paddingLeft": 18,
+                  "paddingRight": 3,
+                }
+              }>
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                </
+                Card
+                >
+              </span>
+            </div>
+          </div>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            Card
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  children
+                </td>
+                <td>
+                  node
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  className
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  option
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  size
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  style
+                </td>
+                <td>
+                  other
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            CardBlock
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  children
+                </td>
+                <td>
+                  node
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  className
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  option
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  style
+                </td>
+                <td>
+                  other
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CardImage`] = `
+<div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+          }
+        }>
+        <h1
+          style={
+            Object {
+              "fontSize": 35,
+              "margin": "20px 0 0 0",
+              "padding": 0,
+            }
+          }>
+          Molecules
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": 22,
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }>
+          CardImage
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div
+        className="gds-card   undefined"
+        style={undefined}>
+        <div
+          className="gds-card__img-container gds-card__img-container--top  "
+          style={Object {}}>
+          <img
+            className="gds-card__img"
+            src="https://c.gumgum.com/ads/com/gumgum/mantii/internal_mobile_inscreen_test/full_canvas/01/mantii_fullscreen.hyperesources/girl@2x.png" />
+          <div
+            className="gds-card__img-helper" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }>
+        <p
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "color": "#444",
+              "fontFamily": "
+                -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+                \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+              ",
+              "fontSize": 15,
+            }
+          }>
+          Used to append images inside cards.
+        </p>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Story Source
+        </h1>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "fontSize": ".88em",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <div>
+            <div
+              style={
+                Object {
+                  "paddingLeft": 18,
+                  "paddingRight": 3,
+                }
+              }>
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                <
+                Card
+              </span>
+              <span />
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                >
+              </span>
+            </div>
+            <div
+              style={
+                Object {
+                  "paddingLeft": 33,
+                  "paddingRight": 3,
+                }
+              }>
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                <
+                CardImage
+              </span>
+              <span>
+                <span>
+                   
+                  <span
+                    style={Object {}}>
+                    url
+                  </span>
+                  <span>
+                    =
+                    <span
+                      style={Object {}}>
+                      <span
+                        style={
+                          Object {
+                            "color": "#22a",
+                            "wordBreak": "break-word",
+                          }
+                        }>
+                        \"
+                        https://c.gumgum.com/ads/com/gumgum/mantii/interna…
+                        \"
+                      </span>
+                    </span>
+                  </span>
+                </span>
+                <span>
+                   
+                  <span
+                    style={Object {}}>
+                    className
+                  </span>
+                  <span>
+                    =
+                    <span
+                      style={Object {}}>
+                      <span
+                        style={
+                          Object {
+                            "color": "#22a",
+                            "wordBreak": "break-word",
+                          }
+                        }>
+                        \"
+                        
+                        \"
+                      </span>
+                    </span>
+                  </span>
+                </span>
+                <span>
+                   
+                  <span
+                    style={Object {}}>
+                    style
+                  </span>
+                  <span>
+                    =
+                    <span
+                      style={Object {}}>
+                      <span>
+                        {
+                        <span
+                          style={
+                            Object {
+                              "color": "#666",
+                            }
+                          }>
+                          {
+                          }
+                        </span>
+                        }
+                      </span>
+                    </span>
+                  </span>
+                   
+                </span>
+              </span>
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                />
+              </span>
+            </div>
+            <div
+              style={
+                Object {
+                  "paddingLeft": 18,
+                  "paddingRight": 3,
+                }
+              }>
+              <span
+                style={
+                  Object {
+                    "color": "#777",
+                  }
+                }>
+                </
+                Card
+                >
+              </span>
+            </div>
+          </div>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            Card
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  children
+                </td>
+                <td>
+                  node
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  className
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  option
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  size
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  style
+                </td>
+                <td>
+                  other
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            CardImage
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  className
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  option
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span
+                    style={
+                      Object {
+                        "color": "#22a",
+                        "wordBreak": "break-word",
+                      }
+                    }>
+                    \"
+                    top
+                    \"
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  size
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  style
+                </td>
+                <td>
+                  other
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  url
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  yes
+                </td>
+                <td>
+                  -
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Divider`] = `
+<div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+          }
+        }>
+        <h1
+          style={
+            Object {
+              "fontSize": 35,
+              "margin": "20px 0 0 0",
+              "padding": 0,
+            }
+          }>
+          Molecules
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": 22,
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }>
+          Divider
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div
+        className="gds-divider"
+        onClick={[Function]}>
+        <span
+          className="gds-divider__label gds-form-group__label">
+          Default Divider
+        </span>
+        <span
+          className="gds-divider__line" />
+      </div>
+    </div>
+  </div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }>
+        <p
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "color": "#444",
+              "fontFamily": "
+                -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+                \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+              ",
+              "fontSize": 15,
+            }
+          }>
+          The standard divider component is used to separate distinct segments of content.
+                  If the divider is collapsible, pass in a callback function that sets the state, and include the state in your component.
+        </p>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <code
+            style={
+              Object {
+                "backgroundColor": "#fafafa",
+                "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              }
+            }>
+                Example:
+                ...
+                state {
+                    open: false
+                }
+                const toggle = () => {
+                    this.setState({ open: !this.state.open });
+                };
+                return(
+                    <div>
+                        <Divider
+                            label=\"Collapsible Label\"
+                            collapsible
+                            open={ this.state.open }
+                            callback= { this.toggle }
+                        />
+                        this.state.open && <div>Content to show when toggled open</div>
+                    </div>
+                )
+                ...
+          </code>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Story Source
+        </h1>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "fontSize": ".88em",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "paddingLeft": 18,
+                "paddingRight": 3,
+              }
+            }>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              <
+              Divider
+            </span>
+            <span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  label
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      Default Divider
+                      \"
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  open
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#a11",
+                          }
+                        }>
+                        false
+                      </span>
+                      }
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  callback
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#170",
+                          }
+                        }>
+                        callbackFunc()
+                      </span>
+                      }
+                    </span>
+                  </span>
+                </span>
+                 
+              </span>
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              />
+            </span>
+          </div>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            Divider
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  callback
+                </td>
+                <td>
+                  func
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  centered
+                </td>
+                <td>
+                  bool
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#a11",
+                        }
+                      }>
+                      false
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  collapsible
+                </td>
+                <td>
+                  bool
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#a11",
+                        }
+                      }>
+                      false
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  label
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  open
+                </td>
+                <td>
+                  bool
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Toggle`] = `
+<div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+          }
+        }>
+        <h1
+          style={
+            Object {
+              "fontSize": 35,
+              "margin": "20px 0 0 0",
+              "padding": 0,
+            }
+          }>
+          Molecules
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": 22,
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }>
+          Toggle
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div
+        className="gds-form-group__toggleswitch">
+        <label
+          className="gds-form-group__toggleswitch-label">
+          <input
+            className="gds-form-group__toggleswitch-input"
+            type="checkbox"
+            value="" />
+          <span
+            className="gds-form-group__toggleswitch-indicator" />
+          Default Toggle
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }>
+        <p
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "color": "#444",
+              "fontFamily": "
+                -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+                \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+              ",
+              "fontSize": 15,
+            }
+          }>
+          Toggle switches come in two flavors: radio and checkbox. Each one behaves in the same manner as their respective standard input type.
+        </p>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <code
+            style={
+              Object {
+                "backgroundColor": "#fafafa",
+                "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              }
+            }>
+                    type: checkbox, radio
+          </code>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Story Source
+        </h1>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "fontSize": ".88em",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "paddingLeft": 18,
+                "paddingRight": 3,
+              }
+            }>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              <
+              Toggle
+            </span>
+            <span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  label
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      Default Toggle
+                      \"
+                    </span>
+                  </span>
+                </span>
+                 
+              </span>
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              />
+            </span>
+          </div>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            Toggle
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  label
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  type
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span
+                    style={
+                      Object {
+                        "color": "#22a",
+                        "wordBreak": "break-word",
+                      }
+                    }>
+                    \"
+                    checkbox
+                    \"
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Well`] = `
+<div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #eee",
+            "marginBottom": 10,
+          }
+        }>
+        <h1
+          style={
+            Object {
+              "fontSize": 35,
+              "margin": "20px 0 0 0",
+              "padding": 0,
+            }
+          }>
+          Molecules
+        </h1>
+        <h2
+          style={
+            Object {
+              "fontSize": 22,
+              "fontWeight": 400,
+              "margin": "0 0 10px 0",
+              "padding": 0,
+            }
+          }>
+          Well
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div
+        className="gds-well gds-well--null">
+        <p
+          className="gds-well__text">
+          Default Well
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    style={undefined}>
+    <div
+      style={
+        Object {
+          "WebkitFontSmoothing": "antialiased",
+          "color": "#444",
+          "fontFamily": "
+            -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+            \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+          ",
+          "fontSize": 15,
+          "fontWeight": 300,
+          "lineHeight": 1.45,
+        }
+      }>
+      <div
+        style={
+          Object {
+            "marginBottom": 0,
+          }
+        }>
+        <p
+          style={
+            Object {
+              "WebkitFontSmoothing": "antialiased",
+              "color": "#444",
+              "fontFamily": "
+                -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"Roboto\",
+                \"Segoe UI\", \"Helvetica Neue\", \"Lucida Grande\", sans-serif
+              ",
+              "fontSize": 15,
+            }
+          }>
+          The well component can be used for alert messages or other user notifications. If you pass in a button=true and a callback function, the component will call that function when a user clicks on the x.
+        </p>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <code
+            style={
+              Object {
+                "backgroundColor": "#fafafa",
+                "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              }
+            }>
+                    option: success, warning, info, danger
+          </code>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Story Source
+        </h1>
+        <pre
+          style={
+            Object {
+              "backgroundColor": "#fafafa",
+              "fontFamily": "Menlo, Monaco, \"Courier New\", monospace",
+              "fontSize": ".88em",
+              "lineHeight": 1.5,
+              "overflowX": "scroll",
+              "padding": ".5rem",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "paddingLeft": 18,
+                "paddingRight": 3,
+              }
+            }>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              <
+              Well
+            </span>
+            <span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  text
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span
+                      style={
+                        Object {
+                          "color": "#22a",
+                          "wordBreak": "break-word",
+                        }
+                      }>
+                      \"
+                      Default Well
+                      \"
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span>
+                 
+                <span
+                  style={Object {}}>
+                  callback
+                </span>
+                <span>
+                  =
+                  <span
+                    style={Object {}}>
+                    <span>
+                      {
+                      <span
+                        style={
+                          Object {
+                            "color": "#170",
+                          }
+                        }>
+                        callbackFunc()
+                      </span>
+                      }
+                    </span>
+                  </span>
+                </span>
+                 
+              </span>
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#777",
+                }
+              }>
+              />
+            </span>
+          </div>
+        </pre>
+      </div>
+      <div>
+        <h1
+          style={
+            Object {
+              "borderBottom": "1px solid #EEE",
+              "fontSize": 25,
+              "margin": "20px 0 0 0",
+              "padding": "0 0 5px 0",
+            }
+          }>
+          Prop Types
+        </h1>
+        <div>
+          <h2
+            style={
+              Object {
+                "margin": "20px 0 0 0",
+              }
+            }>
+            \"
+            Well
+            \" Component
+          </h2>
+          <table
+            style={
+              Object {
+                "borderCollapse": "separate",
+                "borderSpacing": "10px 5px",
+                "marginLeft": -10,
+              }
+            }>
+            <thead>
+              <tr>
+                <th>
+                  property
+                </th>
+                <th>
+                  propType
+                </th>
+                <th>
+                  required
+                </th>
+                <th>
+                  default
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  button
+                </td>
+                <td>
+                  bool
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#a11",
+                        }
+                      }>
+                      false
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  callback
+                </td>
+                <td>
+                  func
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  option
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  text
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  no
+                </td>
+                <td>
+                  <span>
+                    {
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }>
+                      null
+                    </span>
+                    }
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
