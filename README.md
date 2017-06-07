@@ -9,9 +9,8 @@ This project contains reusable JavaScript components that you can import into yo
 - [NodeJS/NPM - NodeJS and Node Package Manager](http://nodejs.org/download/): [Minimum Required Versions](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=154304684)
 - [Yarn](https://yarnpkg.com/)
 
-### Importing Components
-In your package.json, include
-"gumgum-common-js": "git+ssh://git@bitbucket.org/gumgum/common-js-components.git"
+### Installation
+To install in a different project, run: `yarn add git+ssh://git@bitbucket.org/gumgum/common-js-components.git`
 
 In a .jsx file, just include the name of the component you want and its path. Example:
 ```
