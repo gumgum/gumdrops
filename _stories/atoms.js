@@ -9,6 +9,7 @@ import Button from '../components/atoms/Button';
 import ButtonGroup from '../components/atoms/ButtonGroup';
 import { buttonOptions } from '../constants/atoms/button.js';
 import LoadingDots from '../components/atoms/LoadingDots';
+import NumberCircle from '../components/atoms/NumberCircle';
 import Tag from '../components/atoms/Tag';
 
 const stories = storiesOf('Atoms', module);
@@ -97,6 +98,22 @@ stories
             />
         ),
         { inline: true, propTables: [LoadingDots]}
+    )
+    // NUMBER CIRCLE
+    .addWithInfo(
+        'Number Circle',
+        `The \`<NumberCircle>\` component is used to indicate numeric rankings for associated content.
+            \n`,
+        () => (
+            <NumberCircle
+                text={ text('Text', '1') }
+                size={ select('Size', options.numberCircleSizeOptions, '') }
+                context={ select('Context', options.numberCircleContexts, '') }
+                className={ text('ClassName', '') }
+                style={ object('Styles', {}) }
+            />
+        ),
+        { inline: true, propTables: [NumberCircle]}
     )
     // TAG
     .addWithInfo(

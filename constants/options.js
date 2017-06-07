@@ -26,6 +26,16 @@ export const badgeContexts = {
     'danger-inverse': 'danger-inverse'
 };
 
+export const numberCircleContexts = {
+    '': 'null',
+    secondary: 'secondary',
+    success: 'success',
+    info: 'info',
+    warning: 'warning',
+    danger: 'danger',
+    white: 'white'
+};
+
 export const sizeOptions = {
     xs: 'xs',
     sm: 'sm',
@@ -36,6 +46,14 @@ export const sizeOptions = {
 export const loadingSizeOptions = {
     sm: 'sm',
     lg: 'lg',
+    '': 'null'
+};
+
+export const numberCircleSizeOptions = {
+    xs: 'xs',
+    sm: 'sm',
+    lg: 'lg',
+    xl: 'xl',
     '': 'null'
 };
 
