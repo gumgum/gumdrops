@@ -35,7 +35,7 @@ Please add new components as you need/create them for your project!
 
 2. Add your component in the correct folder in /components. Follow the format of other components, including defaultProps and propTypes.
 
-3. Add the path to your component in components/index.js.
+3. Add the path to the new component to `components/index.js` to make it accesible from outside.
 
 4. Hook up storybook - go to the correct file in /_stories, import your new component at the top of the file, and add a new ".addWithInfo". Store any options in /constants/options.js
 
@@ -58,9 +58,20 @@ Please add new components as you need/create them for your project!
 )
 ```
 
-4. Run [storyshot tests](https://getstorybook.io/docs/react-storybook/testing/structural-testing) using ```npm run test```.
-
 Please wait for approvals before merging.
+
+#### Development
+
+This library can be installed into a different project for local testing/development:
+
+1. run `rm -rf node_modules` in the root directory of this project, otherwise, `devDependencies` will be installed into the target project, which results in duplicated dependencies and the [Refs Must Have Owner Warning](https://facebook.github.io/react/warnings/refs-must-have-owner.html).
+2. run `yarn add file:/path/to/this/project` in the root directory of the project that will use this library.
+3. you will need to reinstall this library in the target project to see any updates.
+**To uninstall**, run `yarn remove gumgum-common-js`
+
+If `yarn add file:/path/to/this/project` fails, you may need to upgrade yarn.
+
+****
 
 ### Future
 - Component Testing
