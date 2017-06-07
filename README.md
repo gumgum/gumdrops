@@ -10,7 +10,8 @@ This project contains reusable JavaScript components that you can import into yo
 - [Yarn](https://yarnpkg.com/)
 
 ### Installation
-To install in a different project, run: `yarn add git+ssh://git@bitbucket.org/gumgum/common-js-components.git`
+To install in a different project, run: `yarn add git+ssh://git@bitbucket.org/gumgum/common-js-components.git#THE-VERSION-NUMBER-YOU-WANT`.
+For example: `yarn add git+ssh://git@bitbucket.org/gumgum/common-js-components.git#0.2.0`
 
 In a .jsx file, just include the name of the component you want and its path. Example:
 ```
@@ -34,28 +35,9 @@ Please add new components as you need/create them for your project!
 
 2. Add your component in the correct folder in /components. Follow the format of other components, including defaultProps and propTypes.
 
-3. Add the path to the new component to `components/index.js` to make it accesible from outside.
+3. Add the path to the new component to `components/index.js` to make it accessible from outside.
 
 4. Hook up storybook - go to the correct file in /_stories, import your new component at the top of the file, and add a new ".addWithInfo". Store any options in /constants/options.js
-
-```
-.addWithInfo(
-    'YourComponent',
-    `Component description and notes (you can copy from the DS)
-        \n
-        propsRequiringSpecificOptions: xs, sm, lg
-        option: default, primary, secondary, success, warning, info, danger`,
-    () => (
-        <YourComponent
-            text={ text('Label', 'Default Value') }
-            size={ select('Sample Select Options', options.sizeOptions, '') }
-            block={ boolean('Boolean option', false) }
-            callback={ options.callbackFunc }
-        />
-    ),
-    { inline: true, propTables: [YourComponent]}
-)
-```
 
 Please wait for approvals before merging.
 

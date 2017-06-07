@@ -4,7 +4,6 @@ import { withKnobs, text, object, boolean, select } from '@kadira/storybook-addo
 
 import * as options from '../../constants/options';
 import AvatarMenu from '../../constants/AvatarMenu';
-
 import Button from '../../components/atoms/Button';
 import ButtonGroup from '../../components/atoms/ButtonGroup';
 
@@ -26,6 +25,7 @@ import multiSelectOptions from '../../constants/molecules/multiSelectOptions';
 import Toggle from '../../components/molecules/Toggle';
 import Well from '../../components/molecules/Well';
 
+import Checkbox from './Checkbox';
 import FormGroup from './FormGroup';
 
 const stories = storiesOf('Molecules', module);
@@ -155,6 +155,9 @@ stories
         ),
         { inline: true, propTables: [CardImage]}
     )
+    // CHECKBOX
+    .addWithInfo(...Checkbox)
+
     // DIVIDER
     .addWithInfo(
         'Divider',

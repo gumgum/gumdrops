@@ -21,6 +21,7 @@ export Avatar from './molecules/Avatar';
 export CardBlock from './molecules/CardBlock';
 export CardImage from './molecules/CardImage';
 export Card from './molecules/Card';
+export Checkbox from './molecules/Checkbox';
 export Divider from './molecules/Divider';
 export Modal from './molecules/Modal';
 export MultiSelect from './molecules/MultiSelect';
