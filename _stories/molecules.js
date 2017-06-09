@@ -5,6 +5,9 @@ import { withKnobs, text, object, boolean, select } from '@kadira/storybook-addo
 import * as options from '../constants/options';
 import AvatarMenu from '../constants/AvatarMenu';
 
+import Button from '../components/atoms/Button';
+import ButtonGroup from '../components/atoms/ButtonGroup';
+
 import Avatar from '../components/molecules/Avatar';
 import Card from '../components/molecules/Card';
 import { cardOptions } from '../constants/molecules/card.js';
@@ -257,17 +260,21 @@ If you want to add an option that "checks" all the other ones. You can create a 
         `The <Modal> component can contain any arbitrary content.
         Additionally, the following atom components can be used to wrap content inside the appropriate DS modal classeNames:
 
-        \`<ModalHeader>\`:
+        <ModalHeader>
             Renders DS modal header. Self closing.
             Optional props:
-            - \`title\`: renders the modal title
-            - \`onClose\`: renders the close button
+            - title: renders the modal title
+            - onClose: renders the close button
 
-        \`<ModalBody>\`:
-            Renders DS modal content, does not have any props, only renders it's children.
+        <ModalBody>
+            Renders DS modal content.
+            Has optional className and style props
+            Requires a children component.
 
-        \`<ModalFooter>\`
-            Renders DS Footer content, does not have any props, only renders it's children.
+        <ModalFooter>
+            Renders DS footer content.
+            Has optional className and style props
+            Requires a children component.
         \n
         Example:
         ...
@@ -283,8 +290,8 @@ If you want to add an option that "checks" all the other ones. You can create a 
                     <p>Toggle the modal in the knobs section.</p>
                 </ModalBody>
                 <ModalFooter>
-                    <button className="gds-button gds-button--default gds-button--block-sm -m-b-3-sm -m-r-3">Cancel</button>
-                    <button className="gds-button gds-button--primary gds-button--block-sm">Save Changes</button>
+                    <Button size="sm" onClick={ this.toggleModal } >Cancel</Button>
+                    <Button context="primary" size="sm" onClick={ this.toggleModal } >Save Changes</Button>
                 </ModalFooter>
                 {/* End arbitrary content */}
             </Modal>
@@ -309,8 +316,8 @@ If you want to add an option that "checks" all the other ones. You can create a 
                     <p>Toggle the modal in the knobs section.</p>
                 </ModalBody>
                 <ModalFooter>
-                    <button onClick={ action('Cancel') } className="gds-button gds-button--default gds-button--block-sm -m-b-3-sm -m-r-3">Cancel</button>
-                    <button onClick={ action('Save') } className="gds-button gds-button--primary gds-button--block-sm">Save Changes</button>
+                    <Button size="sm" onClick={  action('Cancel') } >Cancel</Button>
+                    <Button context="primary" size="sm" onClick={ action('Save changes')  } >Save Changes</Button>
                 </ModalFooter>
                 {/* End arbitrary content */}
             </Modal>
