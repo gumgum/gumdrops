@@ -3,6 +3,9 @@ export Badge from './atoms/Badge';
 export Button from './atoms/Button';
 export ButtonGroup from './atoms/ButtonGroup';
 export LoadingDots from './atoms/LoadingDots';
+export ModalHeader from './atoms/ModalHeader';
+export ModalBody from './atoms/ModalBody';
+export ModalFooter from './atoms/ModalFooter';
 export Tag from './atoms/Tag';
 // export layout
 export Column from './layout/Column';
