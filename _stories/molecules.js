@@ -5,6 +5,9 @@ import { withKnobs, text, object, boolean, select } from '@kadira/storybook-addo
 import * as options from '../constants/options';
 import AvatarMenu from '../constants/AvatarMenu';
 
+import Button from '../components/atoms/Button';
+import ButtonGroup from '../components/atoms/ButtonGroup';
+
 import Avatar from '../components/molecules/Avatar';
 import Card from '../components/molecules/Card';
 import { cardOptions } from '../constants/molecules/card.js';
@@ -14,6 +17,9 @@ import CardImage from '../components/molecules/CardImage';
 import { cardImageOptions } from '../constants/molecules/cardImage.js';
 import Divider from '../components/molecules/Divider';
 import Modal from '../components/molecules/Modal';
+import ModalHeader from '../components/atoms/ModalHeader';
+import ModalBody from '../components/atoms/ModalBody';
+import ModalFooter from '../components/atoms/ModalFooter';
 import Toggle from '../components/molecules/Toggle';
 import Well from '../components/molecules/Well';
 import MultiSelect from '../components/molecules/MultiSelect';
@@ -248,11 +254,27 @@ If you want to add an option that "checks" all the other ones. You can create a 
         ),
         { inline: true, propTables: [MultiSelect] }
     )
-    // TOGGLE
+    // MODAL
     .addWithInfo(
         'Modal',
-        `The modal wrapper component can contain any arbitrary content.
-        title and onClose props are optional and will render the modal header.
+        `The <Modal> component can contain any arbitrary content.
+        Additionally, the following atom components can be used to wrap content inside the appropriate DS modal classeNames:
+
+        <ModalHeader>
+            Renders DS modal header. Self closing.
+            Optional props:
+            - title: renders the modal title
+            - onClose: renders the close button
+
+        <ModalBody>
+            Renders DS modal content.
+            Has optional className and style props
+            Requires a children component.
+
+        <ModalFooter>
+            Renders DS footer content.
+            Has optional className and style props
+            Requires a children component.
         \n
         Example:
         ...
@@ -261,14 +283,16 @@ If you want to add an option that "checks" all the other ones. You can create a 
         }
         const toggleModal = () => this.setState({ isModalOpen: !this.state.isModalOpen });
         return(
-            <Modal
-                title="Sample modal"
-                onClose={ this.toggleModal }
-                isOpen={ this.state.isModalOpen }
-                md="6"
-            >
+            <Modal onClose={ this.toggleModal } isOpen={ this.state.isModalOpen } md="6" >
                 {/* Begin arbitrary content */}
-                <p className="-m-b-3">Toggle the modal in the knobs section.</p>
+                <ModalHeader title="A sample title" onClose={ this.toggleModal } />
+                <ModalBody>
+                    <p>Toggle the modal in the knobs section.</p>
+                </ModalBody>
+                <ModalFooter>
+                    <Button size="sm" onClick={ this.toggleModal } >Cancel</Button>
+                    <Button context="primary" size="sm" onClick={ this.toggleModal } >Save Changes</Button>
+                </ModalFooter>
                 {/* End arbitrary content */}
             </Modal>
         )
@@ -276,20 +300,29 @@ If you want to add an option that "checks" all the other ones. You can create a 
         `,
         () => (
             <Modal
+                onClose={ action('Close modal from overlay', 'wasuwasol') }
                 isOpen={ boolean('Open', true) }
-                title={ text('Title', 'Sample modal') }
                 md={ text('Column size', '6') }
-                onClose={ action('Close modal') }
-                className={ text('Modal Column ClassName', '') }
+                className={ text('Container ClassName', '') }
                 overlayClassName={ text('Overlay ClassName', '') }
                 style={ object('Style', {}) }
             >
                 {/* Begin arbitrary content */}
-                <p className="-m-b-3">Toggle the modal in the KNOBS section.</p>
+                <ModalHeader
+                    title={ text('title', 'A sample title') }
+                    onClose={ action('Close modal') }
+                />
+                <ModalBody>
+                    <p>Toggle the modal in the knobs section.</p>
+                </ModalBody>
+                <ModalFooter>
+                    <Button size="sm" onClick={  action('Cancel') } >Cancel</Button>
+                    <Button context="primary" size="sm" onClick={ action('Save changes')  } >Save Changes</Button>
+                </ModalFooter>
                 {/* End arbitrary content */}
             </Modal>
         ),
-        { inline: true, propTables: [Modal]}
+        { inline: true, propTables: [Modal, ModalHeader, ModalBody, ModalFooter]}
     )
     .addWithInfo(
         'Toggle',

@@ -38,12 +38,13 @@ stories
         `,
         () => (
             <Button
+                type={ text('Type', 'button') }
                 size={ select('Size', buttonOptions.size, '') }
                 context={ select('Context', buttonOptions.context, 'default') }
                 group={ boolean('Group', false) }
                 className={ text('ClassName', '') }
                 style={ object('Style', {}) }
-                callback={ action('button_clicked') }
+                onClick={ action('button_clicked') }
             >
                 <i className="fa fa-check -m-r-2" />
                 Great Success
