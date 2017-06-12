@@ -12,4 +12,9 @@ ModalFooter.propTypes = {
     children: PropTypes.element.isRequired
 };
 
+ModalFooter.defaultProps = {
+    className: '',
+    style: {}
+};
+
 export default ModalFooter;

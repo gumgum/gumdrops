@@ -14,4 +14,10 @@ ModalHeader.propTypes = {
     style: PropTypes.object
 };
 
+ModalHeader.defaultProps = {
+    title: '',
+    className: '',
+    style: {}
+};
+
 export default ModalHeader;
