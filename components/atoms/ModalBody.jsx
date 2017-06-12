@@ -14,4 +14,9 @@ ModalBody.propTypes = {
     children: PropTypes.element.isRequired
 };
 
+ModalBody.defaultProps = {
+    className: '',
+    style: {}
+};
+
 export default ModalBody;
