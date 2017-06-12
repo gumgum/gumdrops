@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const Tag = ({ context, className, eventHandlers, hasOption, optionIcon, small, style, text, value }) => {
+const Tag = ({ context, className, onClick, hasOption, optionIcon, small, style, text, value }) => {
 
     const isNormal = context && context === 'normal',
         tagClass = 'gds-tag',
@@ -23,16 +23,11 @@ const Tag = ({ context, className, eventHandlers, hasOption, optionIcon, small, 
     const classNames = `${tagClass} ${hasButtonClass} ${contextClass} ${sizeClass} ${className}`;
     const optionClassNames = `${buttonClass} ${buttonContextClass}`;
 
-    const clickHandler = () => eventHandlers.click(value);
-    const mouseoverHandler = () => eventHandlers.mouseover(value);
-    const mouseoutHandler = () => eventHandlers.mouseout(value);
-
     return (
         <div className={ classNames }
             style={ style }
-            onClick={ clickHandler }
-            onMouseOver={ mouseoverHandler }
-            onMouseOut={ mouseoutHandler }>
+            onClick={ onClick }
+        >
             { text }
             { hasOption && <button className={ optionClassNames }><i className={ `btl bt-fw ${optionIcon}` }/></button> }
         </div>
@@ -51,11 +46,7 @@ Tag.defaultProps = {
 Tag.propTypes = {
     context: PropTypes.string,
     className: PropTypes.string,
-    eventHandlers: React.PropTypes.shape({
-        click: PropTypes.func,
-        mouseover: PropTypes.func,
-        mouseout: PropTypes.func
-    }),
+    onClick: React.PropTypes.func,
     hasOption: PropTypes.bool,
     optionIcon: PropTypes.string,
     small: PropTypes.bool,
