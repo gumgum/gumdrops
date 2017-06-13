@@ -29,6 +29,7 @@ $RECYCLE.BIN/
 
 # App specific
 .out/
+build/
 node_modules/
 dist/
 dist-es6/
