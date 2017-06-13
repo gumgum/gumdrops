@@ -11,6 +11,7 @@ import { buttonOptions } from '../constants/atoms/button.js';
 import LoadingDots from '../components/atoms/LoadingDots';
 import NumberCircle from '../components/atoms/NumberCircle';
 import Tag from '../components/atoms/Tag';
+import Trend from '../components/atoms/Trend';
 
 const stories = storiesOf('Atoms', module);
 stories.addDecorator(withKnobs);
@@ -134,5 +135,21 @@ stories
             />
         ),
         { inline: true, propTables: [Tag]}
+    )
+    // TREND
+    .addWithInfo(
+        'Trend',
+        `The \`<Trend>\` component is used to indicate a positive, neutral, or negative delta of a given value.
+            \n`,
+        () => (
+            <Trend
+                context={ select('Context', ['up', 'same', 'down'], 'up') }
+                className={ text('Classes', '') }
+                style={ object('Style', {}) }
+                value={ text('Value', '42') }
+                unit={ text('Unit', '%') }
+            />
+        ),
+        { inline: true, propTables: [Trend]}
     )
     ;

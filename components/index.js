@@ -1,4 +1,4 @@
-// export atoms
+// Export Atoms
 export Badge from './atoms/Badge';
 export Button from './atoms/Button';
 export ButtonGroup from './atoms/ButtonGroup';
@@ -8,11 +8,14 @@ export ModalBody from './atoms/ModalBody';
 export ModalFooter from './atoms/ModalFooter';
 export NumberCircle from './atoms/NumberCircle';
 export Tag from './atoms/Tag';
-// export layout
+export Trend from './atoms/Trend';
+
+// Export Layout
 export Column from './layout/Column';
 export LayoutContainer from './layout/LayoutContainer';
 export Row from './layout/Row';
-// export molecules
+
+// Export Molecules
 export Avatar from './molecules/Avatar';
 export CardBlock from './molecules/CardBlock';
 export CardImage from './molecules/CardImage';
