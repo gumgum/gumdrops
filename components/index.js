@@ -6,6 +6,7 @@ export LoadingDots from './atoms/LoadingDots';
 export ModalHeader from './atoms/ModalHeader';
 export ModalBody from './atoms/ModalBody';
 export ModalFooter from './atoms/ModalFooter';
+export ModalForm from './atoms/ModalForm';
 export NumberCircle from './atoms/NumberCircle';
 export Tag from './atoms/Tag';
 export Trend from './atoms/Trend';

@@ -20,6 +20,7 @@ import Modal from '../components/molecules/Modal';
 import ModalHeader from '../components/atoms/ModalHeader';
 import ModalBody from '../components/atoms/ModalBody';
 import ModalFooter from '../components/atoms/ModalFooter';
+import ModalForm from '../components/atoms/ModalForm';
 import Toggle from '../components/molecules/Toggle';
 import Well from '../components/molecules/Well';
 import MultiSelect from '../components/molecules/MultiSelect';
@@ -258,7 +259,12 @@ If you want to add an option that "checks" all the other ones. You can create a 
     .addWithInfo(
         'Modal',
         `The <Modal> component can contain any arbitrary content.
-        Additionally, the following atom components can be used to wrap content inside the appropriate DS modal classeNames:
+        Additionally, the following atom components are optional and can be used to wrap content inside the appropriate DS modal classeNames:
+
+        <ModalForm>
+            Renders a form to be used inside a modal. Allows scrolling inside ModalBody.
+            This component must be a direct child of Modal, and must contain the other Modal components or any arbitrary content.
+            Can receive any props. Using onSubmit is recomended.
 
         <ModalHeader>
             Renders DS modal header. Self closing.
@@ -268,12 +274,12 @@ If you want to add an option that "checks" all the other ones. You can create a 
 
         <ModalBody>
             Renders DS modal content.
-            Has optional className and style props
+            Has optional className and style
             Requires a children component.
 
         <ModalFooter>
             Renders DS footer content.
-            Has optional className and style props
+            Has optional className and style
             Requires a children component.
         \n
         Example:
@@ -285,22 +291,29 @@ If you want to add an option that "checks" all the other ones. You can create a 
         return(
             <Modal onClose={ this.toggleModal } isOpen={ this.state.isModalOpen } md="6" >
                 {/* Begin arbitrary content */}
-                <ModalHeader title="A sample title" onClose={ this.toggleModal } />
-                <ModalBody>
-                    <p>Toggle the modal in the knobs section.</p>
-                </ModalBody>
-                <ModalFooter>
-                    <Button size="sm" onClick={ this.toggleModal } >Cancel</Button>
-                    <Button context="primary" size="sm" onClick={ this.toggleModal } >Save Changes</Button>
-                </ModalFooter>
+                <ModalForm onSubmit={ this.submitForm } >
+                    <ModalHeader title="A sample title" onClose={ this.toggleModal } />
+                    <ModalBody>
+                        <p>Toggle the modal in the knobs section.</p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button size="sm" onClick={ this.toggleModal } >Cancel</Button>
+                        <Button context="primary" size="sm" onClick={ this.toggleModal } >Save Changes</Button>
+                    </ModalFooter>
+                </ModalForm>
                 {/* End arbitrary content */}
             </Modal>
         )
         ...
         `,
-        () => (
-            <Modal
-                onClose={ action('Close modal from overlay', 'wasuwasol') }
+        () => {
+            const submitAction = action('Submit form');
+            const formSubmit = e => {
+                e.preventDefault();
+                submitAction();
+            };
+            return (<Modal
+                onClose={ action('Close modal from overlay') }
                 isOpen={ boolean('Open', true) }
                 md={ text('Column size', '6') }
                 className={ text('Container ClassName', '') }
@@ -308,20 +321,22 @@ If you want to add an option that "checks" all the other ones. You can create a 
                 style={ object('Style', {}) }
             >
                 {/* Begin arbitrary content */}
-                <ModalHeader
-                    title={ text('title', 'A sample title') }
-                    onClose={ action('Close modal') }
-                />
-                <ModalBody>
-                    <p>Toggle the modal in the knobs section.</p>
-                </ModalBody>
-                <ModalFooter>
-                    <Button size="sm" onClick={  action('Cancel') } >Cancel</Button>
-                    <Button context="primary" size="sm" onClick={ action('Save changes')  } >Save Changes</Button>
-                </ModalFooter>
+                <ModalForm onSubmit={ formSubmit } >
+                    <ModalHeader
+                        title={ text('title', 'A sample title') }
+                        onClose={ action('Close modal') }
+                    />
+                    <ModalBody>
+                        <p>Toggle the modal in the knobs section.</p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button size="sm" onClick={  action('Cancel') } >Cancel</Button>
+                        <Button type="submit" context="primary" size="sm" >Save Changes</Button>
+                    </ModalFooter>
+                </ModalForm>
                 {/* End arbitrary content */}
-            </Modal>
-        ),
+            </Modal>);
+        },
         { inline: true, propTables: [Modal, ModalHeader, ModalBody, ModalFooter]}
     )
     .addWithInfo(
