@@ -2,14 +2,20 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, text, boolean, select, object } from '@kadira/storybook-addon-knobs';
 
-import * as options from '../constants/options';
+import * as options from '../../constants/options';
 
-import Badge from '../components/atoms/Badge';
-import Button from '../components/atoms/Button';
-import ButtonGroup from '../components/atoms/ButtonGroup';
-import { buttonOptions } from '../constants/atoms/button.js';
-import LoadingDots from '../components/atoms/LoadingDots';
-import Tag from '../components/atoms/Tag';
+import Badge from '../../components/atoms/Badge';
+import Button from '../../components/atoms/Button';
+import ButtonGroup from '../../components/atoms/ButtonGroup';
+import { buttonOptions } from '../../constants/atoms/button.js';
+import LoadingDots from '../../components/atoms/LoadingDots';
+import NumberCircle from '../../components/atoms/NumberCircle';
+import Tag from '../../components/atoms/Tag';
+import Trend from '../../components/atoms/Trend';
+
+import FormGroupLabel from './FormGroupLabel';
+import FormGroupTextHelp from './FormGroupTextHelp';
+import TextInput from './TextInput';
 
 const stories = storiesOf('Atoms', module);
 stories.addDecorator(withKnobs);
@@ -83,6 +89,8 @@ stories
         ),
         { inline: true, propTables: [ButtonGroup]}
     )
+    .addWithInfo(...FormGroupLabel)
+    .addWithInfo(...FormGroupTextHelp)
     // LOADING DOTS
     .addWithInfo(
         'Loading Dots',
@@ -98,32 +106,57 @@ stories
         ),
         { inline: true, propTables: [LoadingDots]}
     )
+    // NUMBER CIRCLE
+    .addWithInfo(
+        'Number Circle',
+        `The \`<NumberCircle>\` component is used to indicate numeric rankings for associated content.
+            \n`,
+        () => (
+            <NumberCircle
+                text={ text('Text', '1') }
+                size={ select('Size', options.numberCircleSizeOptions, '') }
+                context={ select('Context', options.numberCircleContexts, '') }
+                className={ text('ClassName', '') }
+                style={ object('Styles', {}) }
+            />
+        ),
+        { inline: true, propTables: [NumberCircle]}
+    )
     // TAG
     .addWithInfo(
         'Tag',
         `The \`<Tag>\` component is used to indicate active or selected items, filters or options. Refer to [this](http://design-prototypes.gumgum.com/black-tie/documentation/#icons-btl) page for icon names.
             \n`,
-        () => {
-            const eventHandlers = {
-                click: action('tag_click'),
-                mouseover: action('tag_mouseover'),
-                mouseout: action('tag_mouseout')
-            };
-
-            return (
-                <Tag
-                    context={ select('Context', ['normal', 'primary', 'success', 'warning', 'danger'], 'normal') }
-                    className={ text('Classes', '') }
-                    eventHandlers={ eventHandlers }
-                    hasOption={ boolean('Has Option', false) }
-                    optionIcon={ text('Option Icon', 'bt-times') }
-                    small={ boolean('Small', false) }
-                    style={ object('Style', {}) }
-                    text={ text('Text', 'Sample Text') }
-                    value={ text('Value', '0') }
-                />
-            );
-        },
+        () => (
+            <Tag
+                context={ select('Context', ['normal', 'primary', 'success', 'warning', 'danger'], 'normal') }
+                className={ text('Classes', '') }
+                onClick={ action('tag_click') }
+                hasOption={ boolean('Has Option', false) }
+                optionIcon={ text('Option Icon', 'bt-times') }
+                small={ boolean('Small', false) }
+                style={ object('Style', {}) }
+                text={ text('Text', 'Sample Text') }
+                value={ text('Value', '0') }
+            />
+        ),
         { inline: true, propTables: [Tag]}
     )
+    // TREND
+    .addWithInfo(
+        'Trend',
+        `The \`<Trend>\` component is used to indicate a positive, neutral, or negative delta of a given value.
+            \n`,
+        () => (
+            <Trend
+                context={ select('Context', ['up', 'same', 'down'], 'up') }
+                className={ text('Classes', '') }
+                style={ object('Style', {}) }
+                value={ text('Value', '42') }
+                unit={ text('Unit', '%') }
+            />
+        ),
+        { inline: true, propTables: [Trend]}
+    )
+    .addWithInfo(...TextInput)
     ;
