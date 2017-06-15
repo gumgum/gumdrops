@@ -16,6 +16,7 @@ import Trend from '../../components/atoms/Trend';
 import FormGroupLabel from './FormGroupLabel';
 import FormGroupTextHelp from './FormGroupTextHelp';
 import TextInput from './TextInput';
+import Select from './Select';
 
 const stories = storiesOf('Atoms', module);
 stories.addDecorator(withKnobs);
@@ -89,7 +90,9 @@ stories
         ),
         { inline: true, propTables: [ButtonGroup]}
     )
+    // FORM GROUP LABEL
     .addWithInfo(...FormGroupLabel)
+    // FORM GROUP TEXT HELP
     .addWithInfo(...FormGroupTextHelp)
     // LOADING DOTS
     .addWithInfo(
@@ -122,6 +125,8 @@ stories
         ),
         { inline: true, propTables: [NumberCircle]}
     )
+    // SELECT
+    .addWithInfo(...Select)
     // TAG
     .addWithInfo(
         'Tag',
@@ -158,5 +163,6 @@ stories
         ),
         { inline: true, propTables: [Trend]}
     )
+    // TEXT INPUT
     .addWithInfo(...TextInput)
     ;
