@@ -7,6 +7,7 @@ import AvatarMenu from '../../constants/AvatarMenu';
 import Button from '../../components/atoms/Button';
 import ButtonGroup from '../../components/atoms/ButtonGroup';
 
+// Old format (DEPRECATED)
 import Avatar from '../../components/molecules/Avatar';
 import Card from '../../components/molecules/Card';
 import { cardOptions } from '../../constants/molecules/card.js';
@@ -25,8 +26,10 @@ import multiSelectOptions from '../../constants/molecules/multiSelectOptions';
 import Toggle from '../../components/molecules/Toggle';
 import Well from '../../components/molecules/Well';
 
+// New format
 import Checkbox from './Checkbox';
 import FormGroup from './FormGroup';
+import SearchMultiSelect from './SearchMultiSelect';
 
 const stories = storiesOf('Molecules', module);
 stories.addDecorator(withKnobs);
@@ -345,6 +348,7 @@ If you want to add an option that "checks" all the other ones. You can create a 
         },
         { inline: true, propTables: [Modal, ModalHeader, ModalBody, ModalFooter]}
     )
+    .addWithInfo(...SearchMultiSelect)
     .addWithInfo(
         'Toggle',
         ` \`<Toggle>\` components come in two flavors: radio and checkbox. Each one behaves in the same manner as their respective standard input type.
