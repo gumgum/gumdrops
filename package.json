@@ -1,6 +1,6 @@
 {
   "name": "gumgum-common-js",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "GumGum JavaScript Components",
   "main": "dist/index",
   "module": "dist-es6/index",
@@ -47,13 +47,13 @@
     "raw-loader": "^0.5.1",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
-    "react-router": "^3.0.0",
     "rimraf": "^2.6.1",
     "style-loader": "^0.12.3"
   },
   "dependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "postinstall-build": "^5.0.0",
-    "react-modal": "^1.7.3"
+    "react-modal": "^1.7.3",
+    "react-router": "^3.0.0"
   }
 }

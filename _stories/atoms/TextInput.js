@@ -7,7 +7,7 @@ const title = 'TextInput';
 
 const description = `&nbsp;
 \n
-The \`<TextInput>\` component can be user for any single-lined text or password input. It is recommended that you wrap it on the \`<FormGroup>\` component. \n
+The \`<TextInput>\` component can be user for any single-lined text or password input. It is recommended that you wrap it with the \`<FormGroup>\` component. \n
 &nbsp; \n
 ##### Uncontrolled example:
 \`\`\`
@@ -15,7 +15,7 @@ _handleSubmit = ({ target }) => console.log(target.username.value);
 
 render() {
     return (
-        <form onSubmit={ this._handleSubmit }
+        <form onSubmit={ this._handleSubmit }>
             <TextInput
                 name="username"
                 type="text"

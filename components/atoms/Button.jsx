@@ -5,7 +5,7 @@ const Button = ({ context, type, size, group, onClick, className, style, childre
     const baseClass = 'gds-button',
         contextClass = (context) ? `${baseClass}--${context}` : '',
         sizeClass = (size) ? `${baseClass}--${size}` : '',
-        groupClass = (group) ? `${baseClass}--group__button` : '';
+        groupClass = (group) ? `${baseClass}-group__button` : '';
 
     const classNames = `${baseClass} ${contextClass} ${sizeClass} ${groupClass} ${className}`;
 
