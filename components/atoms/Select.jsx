@@ -38,7 +38,7 @@ Select.defaultProps = {
     options: [],
     customValue: 'value',
     customName: 'name',
-    context: 'primary'
+    context: ''
 };
 
 Select.propTypes = {
