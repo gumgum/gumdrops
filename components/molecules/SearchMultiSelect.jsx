@@ -156,7 +156,7 @@ class SearchMultiSelect extends React.Component {
 
     render() {
         const { isOpen, isTagsOpen, currentIndex, searchTerm, matchingIndexes } = this.state;
-        const { options, context } = this.props;
+        const { options, context, placeholder } = this.props;
 
         const numberSelected = options
             .filter(o => o.isSelected)
@@ -189,7 +189,7 @@ class SearchMultiSelect extends React.Component {
                         onClick={ this._openSelect }
                         onChange={ this._updateSearchTerm }
                         type="text"
-                        placeholder="Choose a Name..."
+                        placeholder={ placeholder}
                         className={ `gds-search-select__input ${(numberSelected > 0) ? hasTags : ''}` }
                     />
                     <button className="gds-search-select__toggle-button -cursor--pointer" onClick={ this._toggleSelect } />
@@ -279,11 +279,13 @@ const getMatchingIndexes = (options, term) => {
 SearchMultiSelect.propTypes = {
     options: PropTypes.array.isRequired,
     update: PropTypes.func.isRequired,
-    context: PropTypes.string
+    context: PropTypes.string,
+    placeholder: PropTypes.string
 };
 
 SearchMultiSelect.defaultProps = {
-    context: 'primary'
+    context: 'primary',
+    placeholder: ''
 };
 
 export default SearchMultiSelect;
