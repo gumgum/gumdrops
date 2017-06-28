@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { action } from '@kadira/storybook';
-import { array, boolean, select } from '@kadira/storybook-addon-knobs';
+import { array, boolean, select, text } from '@kadira/storybook-addon-knobs';
 
 import { contextPalette } from '../../constants/molecules/searchMultiSelect';
 
@@ -28,6 +28,7 @@ render() {
         <FormGroup>
            <FormGroupLabel text="names" />
            <SearchMultiSelect
+               placeholder="some placeholder text"
                options={ this.state.names }
                update={ this._updateNames }
                context="primary"
@@ -62,11 +63,12 @@ key        | uniquely identifies each options (key must be \`unique\`)
 
 &nbsp; \n
 #### Props:
-prop name  | description
------------|------------
-options    | list of options {array of objects}
-update     | callback that returns the latest change on options {function}
-context    | for now, this only affects the color of the Tag elements. (For not it only affects the tags, but it will support the input itself soon).
+prop name   | description
+------------|------------
+options     | list of options {array of objects}
+update      | callback that returns the latest change on options {function}
+context     | for now, this only affects the color of the Tag elements. (For not it only affects the tags, but it will support the input itself soon).
+placeholder | placeholder text {String}
 
 #### Context list:
 'primary', 'secondary', 'success', 'warning', 'info', 'danger', 'white'\n
@@ -97,6 +99,7 @@ class TestSearchMultiSelect extends React.Component {
             <FormGroup>
                 <FormGroupLabel text="names" />
                 <SearchMultiSelect
+                    placeholder={ text('Placeholder', 'My placeholder') }
                     options={ this.state.names }
                     update={ this._updateNames }
                     context={ select('Context', contextPalette, 'primary') }
