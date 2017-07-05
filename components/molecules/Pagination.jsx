@@ -7,46 +7,24 @@ const linkClassName = 'gds-pagination__page-link';
 const fixedItemClass = `${itemClassName} ${itemClassName}--fixed`;
 const fixedLinkClass = `${linkClassName} ${linkClassName}--fixed`;
 
-class Pagination extends React.Component {
-    constructor({ totalItems, currentPage, itemsPerPage, onChange, justify }) {
-        super();
-        const totalPages = this.getTotalPages(totalItems, itemsPerPage);
-        const { itemClass, linkClass } = this.setContentClasses(justify);
-        this.state = {
-            totalItems,
-            totalPages,
-            currentPage,
-            itemsPerPage,
-            itemClass,
-            linkClass
-        };
-        this.callback = onChange;
-    }
+const Pagination = (props) => {
+    const {
+        className: wrapperClassName,
+        boundaries,
+        activePage,
+        lastPage,
+        justify,
+        onChange,
+        size
+    } = props;
 
-    componentWillReceiveProps({ totalItems, currentPage, itemsPerPage, justify }) {
-        const totalPages = this.getTotalPages(totalItems, itemsPerPage);
-        const { itemClass, linkClass } = this.setContentClasses(justify);
-        this.setState({
-            totalItems,
-            totalPages,
-            currentPage,
-            itemsPerPage,
-            itemClass,
-            linkClass
-        });
-    }
+    const itemClass = justify ? itemClassName : fixedItemClass;
+    const linkClass = justify ? linkClassName : fixedLinkClass;
+    const sizeClass = size ? `gds-pagination--${size}` : '';
+    const widthClass = justify ? '' : 'gds-pagination--fixed';
+    const className = `gds-pagination ${sizeClass} gds-pagination--mobile-arrows ${widthClass}`;
 
-    setContentClasses = (justify) => ({
-        itemClass: justify ? itemClassName : fixedItemClass,
-        linkClass: justify ? linkClassName : fixedLinkClass
-    })
-
-    getTotalPages = (totalItems, itemsPerPage) =>
-        Math.ceil(parseInt(totalItems) / itemsPerPage)
-
-    createPages = () => {
-        const { boundaries } = this.props;
-        const { totalPages, currentPage } = this.state;
+    const createPages = () => {
         // Beyond this number of results, the indicator doesn't work
         const displayLimit = 7;
         // Number of pages adjacent to the center
@@ -56,148 +34,120 @@ class Pagination extends React.Component {
             ? displayLimit - 2
             : displayLimit - 1;
         // Set limits on the last section of pages
-        const lastSetStart = totalPages > displayLimit
-            ? (totalPages - firstSetEnd)
+        const lastSetStart = lastPage > displayLimit
+            ? (lastPage - firstSetEnd)
             : 1;
 
         // Generate pages not in first or last sections
         const getMiddleRange = () => {
-            const lowerLimit = currentPage - neighbors;
-            const higherLimit = currentPage + neighbors;
+            const lowerLimit = activePage - neighbors;
+            const higherLimit = activePage + neighbors;
             return createRange(lowerLimit, higherLimit);
         };
         // Add first and last pages to current set
         const addBoundaries = (range, type) => {
             const limits = () => ({
-                'last': [...range.slice(0, -1), totalPages],
+                'last': [...range.slice(0, -1), lastPage],
                 'first': [1, ...range.slice(-(displayLimit - 1))]
-            })[type] || [1, ...range, totalPages];
+            })[type] || [1, ...range, lastPage];
             return boundaries ? limits() : range;
         };
 
         // Total number of pages is below display limit
-        const isBelowLimit = totalPages <= displayLimit;
+        const isBelowLimit = lastPage <= displayLimit;
         // Current page is within first section
-        const isFirstSet = !isBelowLimit && (currentPage <= firstSetEnd);
+        const isFirstSet = !isBelowLimit && (activePage <= firstSetEnd);
         // Current page is within last section
-        const isLastSet = !isFirstSet && (currentPage > lastSetStart);
+        const isLastSet = !isFirstSet && (activePage > lastSetStart);
 
         // Set of pages when total is below display limit
-        const shortSet = isBelowLimit && createRange(1, totalPages);
+        const shortSet = isBelowLimit && createRange(1, lastPage);
         // First set of pages
         const firstSet = isFirstSet && addBoundaries(createRange(1, displayLimit), 'last');
         // Last set of pages
-        const lastSet = isLastSet && addBoundaries(createRange(lastSetStart, totalPages), 'first');
+        const lastSet = isLastSet && addBoundaries(createRange(lastSetStart, lastPage), 'first');
 
-        return shortSet || firstSet || lastSet || addBoundaries(getMiddleRange());
-    }
+        const currentSet = shortSet || firstSet || lastSet || addBoundaries(getMiddleRange());
 
-    changePage = (page = 1) => {
-        const {
-            totalPages,
-            currentPage,
-            itemsPerPage
-        } = this.state;
-
-        // Find next page
-        const newPage = {
-            next: currentPage + 1,
-            back: currentPage - 1
-        }[page] || page;
-
-        const notNumber = isNaN(newPage);
-        // Do nothing
-        if (notNumber || newPage < 1 || newPage > totalPages) return;
-
-        // Find next offset
-        const offset = ((newPage * itemsPerPage) - itemsPerPage) || 0;
-
-        // Pass next page and offset to callback
-        this.callback && this.callback({
-            offset,
-            page: newPage
+        return currentSet.map((page) => {
+            const isActive = page === activePage;
+            const eltClass = `${itemClass} ${isActive ? activeClass : ''}`;
+            const changeConfig = { lastPage, activePage };
+            const callback = () => changePage(page, activePage, lastPage);
+            return { page, eltClass, callback };
         });
-    }
+    };
 
-    goBack = () => this.changePage('back')
+    const changePage = (page) => {
+        let newPage = page;
+        // Find next page
+        if (isNaN(page)) {
+            newPage = {
+                next: activePage + 1,
+                back: activePage - 1
+            }[page];
+        }
 
-    goForward = () => this.changePage('next')
+        if (newPage < 1) newPage = 1;
+        if (newPage > lastPage) newPage = lastPage;
 
-    // Generate a page element
-    createPageElement = (page) => {
-        const { currentPage, itemClass, linkClass } = this.state;
-        const { justify } = this.props;
-        const isActive = page === currentPage;
-        const eltClass = `${itemClass} ${isActive ? activeClass : ''}`;
-        const changePage = () => this.changePage(page);
-        return (
-            <div key={ page } className={ eltClass } >
-                <a onClick={ changePage } className={ linkClass } >
-                    { page }
-                </a>
-            </div>
-        );
-    }
+        // Pass next page to callback
+        onChange && onChange(newPage);
+    };
+    const goBack = () => changePage('back');
+    const goForward = () => changePage('next');
 
-    render() {
-        const {
-            totalPages,
-            currentPage,
-            itemClass,
-            linkClass
-        } = this.state;
-        const { size, justify } = this.props;
-        if (totalPages <= 1) return null;
-        const pages = this.createPages();
-        const sizeClass = size ? `gds-pagination--${size}` : '';
-        const widthClass = justify ? '' : 'gds-pagination--fixed';
-        const className = `gds-pagination ${sizeClass} gds-pagination--mobile-arrows ${widthClass}`;
+    const pages = createPages();
 
-        return (
-            <nav>
-                <div className={ className } >
+    return (
+        <nav className={ wrapperClassName }>
+            <div className={ className } >
 
-                    <div className={ itemClass } >
-                        <a onClick={ this.goBack } className={ linkClass } >
-                            <span className="-vis-hidden">&laquo;</span>
-                            <span className="-sr-only">Previous</span>
-                        </a>
-                    </div>
-
-                    { pages.map(this.createPageElement) }
-
-                    <div className={ itemClass } >
-                        <a onClick={ this.goForward } className={ linkClass } >
-                            <span className="-vis-hidden" aria-hidden="true">&raquo;</span>
-                            <span className="-sr-only">Next</span>
-                        </a>
-                    </div>
-
-                    <span className="gds-pagination__page-indicator" />
-
+                <div className={ itemClass } >
+                    <a onClick={ goBack } className={ linkClass } >
+                        <span className="-vis-hidden">&laquo;</span>
+                        <span className="-sr-only">Previous</span>
+                    </a>
                 </div>
-            </nav>
-        );
 
-    }
+                { pages.map(({ page, eltClass, callback }) => (
+                    <div key={ page } className={ eltClass } >
+                        <a onClick={ callback } className={ linkClass } >
+                            { page }
+                        </a>
+                    </div>
+                )) }
 
-}
+                <div className={ itemClass } >
+                    <a onClick={ goForward } className={ linkClass } >
+                        <span className="-vis-hidden" aria-hidden="true">&raquo;</span>
+                        <span className="-sr-only">Next</span>
+                    </a>
+                </div>
+
+                <span className="gds-pagination__page-indicator" />
+
+            </div>
+        </nav>
+    );
+};
 
 Pagination.propTypes = {
-    totalItems: PropTypes.number.isRequired,
     onChange: PropTypes.func.isRequired,
-    currentPage: PropTypes.number,
-    itemsPerPage: PropTypes.number,
+    lastPage: PropTypes.number.isRequired,
+    activePage: PropTypes.number,
     boundaries: PropTypes.bool,
     justify: PropTypes.bool,
-    size: PropTypes.string
+    size: PropTypes.string,
+    className: PropTypes.string
 };
 
 Pagination.defaultProps = {
-    currentPage: 1,
+    activePage: 1,
     itemsPerPage: 10,
     boundaries: false,
-    justify: false
+    justify: false,
+    className: ''
 };
 
 export default Pagination;
