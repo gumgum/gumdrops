@@ -21,6 +21,12 @@ class SearchMultiSelect extends React.Component {
         window.addEventListener('click', this._closeOnClickOutside);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.options !== this.props.options) {
+            this.setState({ matchingIndexes: getMatchingIndexes(nextProps.options, '') });
+        }
+    }
+
     componentWillUpdate(_, { searchTerm }) {
         const { options } = this.props;
         const { searchTerm: oldTerm, currentIndex, isOpen } = this.state;
