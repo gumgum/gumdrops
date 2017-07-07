@@ -30,6 +30,7 @@ export Divider from './molecules/Divider';
 export FormGroup from './molecules/FormGroup';
 export Modal from './molecules/Modal';
 export MultiSelect from './molecules/MultiSelect';
+export Pagination from './molecules/Pagination';
 export SearchMultiSelect from './molecules/SearchMultiSelect';
 export Toggle from './molecules/Toggle';
 export Well from './molecules/Well';
