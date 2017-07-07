@@ -30,6 +30,7 @@ import Well from '../../components/molecules/Well';
 import Checkbox from './Checkbox';
 import FormGroup from './FormGroup';
 import SearchMultiSelect from './SearchMultiSelect';
+import Pagination from './Pagination';
 
 const stories = storiesOf('Molecules', module);
 stories.addDecorator(withKnobs);
@@ -348,6 +349,7 @@ If you want to add an option that "checks" all the other ones. You can create a 
         },
         { inline: true, propTables: [Modal, ModalHeader, ModalBody, ModalFooter]}
     )
+    .addWithInfo(...Pagination)
     .addWithInfo(...SearchMultiSelect)
     .addWithInfo(
         'Toggle',
