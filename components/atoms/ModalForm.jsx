@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const ModalForm = ({ className, children, ...otherProps }) => (
     <form className={ `gds-modal__form ${className}` } { ...otherProps } >

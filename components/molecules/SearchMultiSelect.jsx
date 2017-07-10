@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchMultiSelect extends React.Component {
 
@@ -189,7 +190,7 @@ class SearchMultiSelect extends React.Component {
                         onClick={ this._openSelect }
                         onChange={ this._updateSearchTerm }
                         type="text"
-                        placeholder={ placeholder}
+                        placeholder={ placeholder }
                         className={ `gds-search-select__input ${(numberSelected > 0) ? hasTags : ''}` }
                     />
                     <button className="gds-search-select__toggle-button -cursor--pointer" onClick={ this._toggleSelect } />

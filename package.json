@@ -53,6 +53,7 @@
     "@storybook/react": "^3.1.8",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "postinstall-build": "^5.0.0",
+    "prop-types": "^15.5.10",
     "react-modal": "^1.7.3",
     "react-router": "^3.0.0"
   }

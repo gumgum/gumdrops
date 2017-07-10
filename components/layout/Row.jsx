@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Row = ({ className, children, ...props }) => (
     <div className={ `gds-layout__row ${className}` } { ...props }>
