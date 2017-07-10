@@ -1,6 +1,7 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
-import { withKnobs, text, object, boolean, select } from '@kadira/storybook-addon-knobs';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { withKnobs, text, object, boolean, select } from '@storybook/addon-knobs';
 
 import * as options from '../../constants/options';
 import AvatarMenu from '../../constants/AvatarMenu';
@@ -126,8 +127,7 @@ stories
     // CARD BLOCK
     .addWithInfo(
         'CardBlock',
-        `The \`<CardBlock>\` component should be nested within a \`<Card>\` component to wrap the card's content into distinct chunks. Use the \`option\` prop to add a divider line on the top or bottom of the \`<CardBlock>\` component, to make the separation more clear.
-        `,
+        'The **_<CardBlock>_** component should be nested within a **_<Card>_** component to wrap the card\'s content into distinct chunks. Use the **option** prop to add a divider line on the top or bottom of the **_<CardBlock>_** component, to make the separation more clear.',
         () => (
             <Card>
                 <CardBlock

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { action } from '@kadira/storybook';
-import { text } from '@kadira/storybook-addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { text } from '@storybook/addon-knobs';
 
 import FormGroup from '../../components/molecules/FormGroup';
 import Checkbox from '../../components/molecules/Checkbox';

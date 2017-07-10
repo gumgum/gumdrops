@@ -1,6 +1,6 @@
 import React from 'react';
-import { action } from '@kadira/storybook';
-import { text, boolean, select, object } from '@kadira/storybook-addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { text, boolean, select, object } from '@storybook/addon-knobs';
 import TextInput from '../../components/atoms/TextInput';
 
 const title = 'TextInput';

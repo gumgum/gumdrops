@@ -1,5 +1,5 @@
 import React from 'react';
-import { text, object } from '@kadira/storybook-addon-knobs';
+import { text, object } from '@storybook/addon-knobs';
 import FormGroupLabel from '../../components/atoms/FormGroupLabel';
 import TextInput from '../../components/atoms/TextInput';
 import FormGroup from '../../components/molecules/FormGroup';

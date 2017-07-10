@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { action } from '@kadira/storybook';
-import { number, boolean, select } from '@kadira/storybook-addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { number, boolean, select } from '@storybook/addon-knobs';
 
 import Pagination from '../../components/molecules/Pagination';
 

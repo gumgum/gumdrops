@@ -1,6 +1,6 @@
 import React from 'react';
-import { action } from '@kadira/storybook';
-import { text, object, boolean } from '@kadira/storybook-addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { text, object, boolean } from '@storybook/addon-knobs';
 import Select from '../../components/atoms/Select';
 import FormGroup from '../../components/molecules/FormGroup';
 import FormGroupLabel from '../../components/atoms/FormGroupLabel';

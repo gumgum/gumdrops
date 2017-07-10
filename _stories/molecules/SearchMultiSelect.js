@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { action } from '@kadira/storybook';
-import { array, boolean, select, text } from '@kadira/storybook-addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { array, boolean, select, text } from '@storybook/addon-knobs';
 
 import { contextPalette } from '../../constants/molecules/searchMultiSelect';
 
