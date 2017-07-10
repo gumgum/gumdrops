@@ -2,7 +2,7 @@
 
 This project contains reusable JavaScript components that you can import into your project.
 
-# Prerequisites for running Storybook #
+# Prerequisites for Storybook #
 
 - [Git](http://git-scm.com/)
 - [Git Flow install and Work Flow Instructions](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=138248293)
@@ -35,9 +35,9 @@ Please add new components as you need/create them for your project!
 
 2. Add your component in the correct folder in /components. Follow the format of other components, including defaultProps and propTypes.
 
-3. Add the path to the new component to `components/index.js` to make it accessible from outside.
+3. Add the path to the new component to `components/index.js` to make it accessible from outside!!!!
 
-4. Hook up storybook - go to the correct file in /_stories, import your new component at the top of the file, and add a new ".addWithInfo". Store any options in /constants/options.js
+4. Write a story: go to the correct category in /_stories, create a new folder, and create an index.js and README.md following the format of the other stories. Be sure to .addWithInfo and import it into the parent index.js file.
 
 Please wait for approvals before merging.
 

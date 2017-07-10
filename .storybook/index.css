@@ -3,10 +3,6 @@ body {
     margin-top: 0;
 }
 
-#root > div:first-child > div:nth-child(2) {
-    margin: 30px;
-}
-
 table {
     border-spacing: 0 !important;
     padding: 2rem 0;

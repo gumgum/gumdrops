@@ -7,6 +7,10 @@ module.exports = {
                 test: /\.css?$/,
                 use: ['style-loader', 'raw-loader'],
                 include: path.resolve(__dirname, '../')
+            },
+            {
+                test: /\.md$/,
+                use: 'raw-loader'
             }
         ]
     }
