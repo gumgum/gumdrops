@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const ModalHeader = ({ title, onClose, className, style }) => (
     <div className={ `gds-modal__header ${className}` } style={ style } >
