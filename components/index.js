@@ -28,6 +28,7 @@ export Card from './molecules/Card';
 export Checkbox from './molecules/Checkbox';
 export Divider from './molecules/Divider';
 export FormGroup from './molecules/FormGroup';
+export LoginForm from './molecules/LoginForm';
 export Modal from './molecules/Modal';
 export MultiSelect from './molecules/MultiSelect';
 export Pagination from './molecules/Pagination';

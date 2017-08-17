@@ -10,6 +10,7 @@ import CardImage from './CardImage/';
 import Checkbox from './Checkbox/';
 import Divider from './Divider/';
 import FormGroup from './FormGroup/';
+import LoginForm from './LoginForm/';
 import MultiSelect from './MultiSelect/';
 import Modal from './Modal/';
 import Pagination from './Pagination/';
@@ -36,6 +37,7 @@ stories
     .addWithInfo('Checkbox', withReadme(...Checkbox))
     .addWithInfo('Divider', withReadme(...Divider))
     .addWithInfo('FormGroup', withReadme(...FormGroup))
+    .addWithInfo('LoginForm', withReadme(...LoginForm))
     .addWithInfo('MultiSelect', withReadme(...MultiSelect))
     .addWithInfo('Modal', withReadme(...Modal))
     .addWithInfo('Pagination', Pagination[2], withReadme(...Pagination))
