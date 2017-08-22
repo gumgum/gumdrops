@@ -16,8 +16,8 @@ const CircularThumbnail = ({ context, size, className, ...otherProps }) => {
 };
 
 CircularThumbnail.defaultProps = {
-    context: null,
-    size: null,
+    context: 'default',
+    size: 'default',
     className: ''
 };
 

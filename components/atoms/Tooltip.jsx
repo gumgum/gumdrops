@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Tooltip = ({ message, position, context, size, variations, className, children, ...otherProps }) => {
+const Tooltip = ({ text, position, context, size, variations, className, children, ...otherProps }) => {
 
     const baseClass = 'gds-tooltip',
         positionClass = position ? `${baseClass}--${position}` : '',
@@ -12,22 +12,22 @@ const Tooltip = ({ message, position, context, size, variations, className, chil
     const classNames = `${positionClass} ${contextClass} ${sizeClass} ${variationsClass} ${className}`;
 
     return (
-        <div className={ classNames } data-tooltip={ message } { ...otherProps }>{ children }</div>
+        <div className={ classNames } data-tooltip={ text } { ...otherProps }>{ children }</div>
     );
 
 };
 
 Tooltip.defaultProps = {
-    message: null,
+    text: 'default',
     position: 'top',
-    context: null,
-    size: null,
-    variations: null,
+    context: 'default',
+    size: 'default',
+    variations: 'default',
     className: ''
 };
 
 Tooltip.propTypes = {
-    message: PropTypes.string,
+    text: PropTypes.string,
     position: PropTypes.oneOf(['top','top-right','right','bottom-right','bottom','bottom-left','left','top-left']),
     context: PropTypes.oneOf(['success', 'warning', 'info', 'danger']),
     size: PropTypes.oneOf(['lg']),

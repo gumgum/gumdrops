@@ -16,7 +16,7 @@ const tooltipPositions = {
 };
 
 const tooltipContexts = {
-    '': 'null',
+    '': 'default',
     success: 'success',
     warning: 'warning',
     info: 'info',
@@ -25,19 +25,19 @@ const tooltipContexts = {
 
 const tooltipSizeOptions = {
     lg: 'lg',
-    '': 'null'
+    '': 'default'
 };
 
 const tooltipVariationsOptions = {
     always: 'always',
     'no-animate': 'no-animate',
     bounce: 'bounce',
-    '': 'null'
+    '': 'default'
 };
 
 const component = () => (
     <Tooltip
-        message={ text('Message', 'I am a tooltip!') }
+        text={ text('Text', 'I am a tooltip!') }
         position={ select('Position', tooltipPositions) }
         context={ select('Context', tooltipContexts, '') }
         size={ select('Size', tooltipSizeOptions, '') }
