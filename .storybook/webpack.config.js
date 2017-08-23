@@ -2,11 +2,15 @@ const path = require('path');
 
 module.exports = {
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.css?$/,
-                loaders: ['style', 'raw'],
+                use: ['style-loader', 'raw-loader'],
                 include: path.resolve(__dirname, '../')
+            },
+            {
+                test: /\.md$/,
+                use: 'raw-loader'
             }
         ]
     }

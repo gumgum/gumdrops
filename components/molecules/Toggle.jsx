@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Toggle = ({ type = 'checkbox', label, style, className }) => {
     const classNames = (className) ? `gds-form-group__toggleswitch ${className}` : 'gds-form-group__toggleswitch';

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import createRange from '../utils/createRange';
 
 const activeClass = 'gds-pagination__page-item--active';

@@ -1,6 +1,6 @@
 {
   "name": "gumgum-common-js",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "GumGum JavaScript Components",
   "main": "dist/index",
   "module": "dist-es6/index",
@@ -23,11 +23,6 @@
     "url": "https://bitbucket.org/gumgum/common-js-components.git"
   },
   "devDependencies": {
-    "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@kadira/storybook": "^2.21.0",
-    "@kadira/storybook-addon-knobs": "^1.7.1",
-    "@kadira/storybook-deployer": "^1.0.0",
-    "@kadira/storyshots": "^2.1.0",
     "babel": "^6.5.2",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.14.0",
@@ -51,9 +46,17 @@
     "style-loader": "^0.12.3"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^3.1.8",
+    "@storybook/addon-info": "^3.1.6",
+    "@storybook/addon-knobs": "^3.1.8",
+    "@storybook/addon-links": "^3.1.6",
+    "@storybook/addon-options": "^3.1.6",
+    "@storybook/react": "^3.1.8",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "postinstall-build": "^5.0.0",
+    "prop-types": "^15.5.10",
     "react-modal": "^1.7.3",
-    "react-router": "^3.0.0"
+    "react-router": "^3.0.0",
+    "storybook-readme": "^3.0.5"
   }
 }

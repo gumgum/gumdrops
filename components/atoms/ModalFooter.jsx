@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const ModalFooter = ({ className, style, children }) => (
     <div className={ `gds-modal__footer -text-right ${className}` } style={ style } >
