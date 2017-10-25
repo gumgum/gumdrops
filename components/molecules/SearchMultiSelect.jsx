@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import arraysEqual from '../../utils/arraysEqual';
 
 class SearchMultiSelect extends React.Component {
 
@@ -21,6 +22,14 @@ class SearchMultiSelect extends React.Component {
         window.addEventListener('click', this._closeOnClickOutside);
     }
 
+    componentWillReceiveProps({ options }) {
+        const old = this.props;
+        if (!arraysEqual(options, old.options)) {
+            const matchingIndexes = getMatchingIndexes(options, this.state.searchTerm);
+            this.setState({ matchingIndexes });
+        }
+    }
+
     componentWillUpdate(_, { searchTerm }) {
         const { options } = this.props;
         const { searchTerm: oldTerm, currentIndex, isOpen } = this.state;
@@ -35,8 +44,8 @@ class SearchMultiSelect extends React.Component {
         // If the previous selected option is not in the matched list
         // move to the first matching
         const nextIndex = matchingIndexes.includes(currentIndex)
-                        ? currentIndex
-                        : matchingIndexes[0];
+            ? currentIndex
+            : matchingIndexes[0];
 
         this.setState({ currentIndex: nextIndex, matchingIndexes });
     }
@@ -89,10 +98,11 @@ class SearchMultiSelect extends React.Component {
         const oldOption = options[index];
         const newOptions = options.slice();
         newOptions[index] = { ...oldOption, isSelected: false };
-        const tagCount = newOptions.reduce((acc, { isSelected }) => (isSelected
-            ? acc + 1
-            : acc
-        ), 0);
+        const tagCount = newOptions
+            .reduce((acc, { isSelected }) => isSelected
+                ? acc + 1
+                : acc
+            , 0);
         if (tagCount < 1) this.setState({ isTagsOpen: false });
         update(newOptions);
     };
