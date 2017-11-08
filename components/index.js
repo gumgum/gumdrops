@@ -1,4 +1,6 @@
 // Export Atoms
+export AccordionItem from './atoms/AccordionItem';
+export AccordionItemContent from './atoms/AccordionItemContent';
 export Badge from './atoms/Badge';
 export Button from './atoms/Button';
 export ButtonGroup from './atoms/ButtonGroup';
@@ -23,6 +25,7 @@ export LayoutContainer from './layout/LayoutContainer';
 export Row from './layout/Row';
 
 // Export Molecules
+export Accordion from './atoms/Accordion';
 export Avatar from './molecules/Avatar';
 export CardBlock from './molecules/CardBlock';
 export CardImage from './molecules/CardImage';

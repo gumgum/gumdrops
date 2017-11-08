@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import withReadme from 'storybook-readme/with-readme';
 import { withKnobs } from '@storybook/addon-knobs';
 
+import Accordion from './Accordion';
 import Avatar from './Avatar/';
 import Card from './Card/';
 import CardBlock from './CardBlock/';
@@ -30,6 +31,7 @@ const storyWrapper = (story) => {
 stories
     .addDecorator(storyWrapper)
     .addDecorator(withKnobs)
+    .addWithInfo('Accordion', withReadme(...Accordion))
     .addWithInfo('Avatar', withReadme(...Avatar))
     .addWithInfo('Card', withReadme(...Card))
     .addWithInfo('CardBlock', withReadme(...CardBlock))
