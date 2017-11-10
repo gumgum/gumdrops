@@ -167,7 +167,7 @@ class SearchMultiSelect extends React.Component {
 
     render() {
         const { isOpen, isTagsOpen, currentIndex, searchTerm, matchingIndexes } = this.state;
-        const { options, context, placeholder } = this.props;
+        const { options, context, placeholder, size } = this.props;
 
         const numberSelected = options
             .filter(o => o.isSelected)
@@ -176,6 +176,10 @@ class SearchMultiSelect extends React.Component {
         const regEx = new RegExp(searchTerm, 'ig');
         const openClass = (isOpen) ? 'gds-search-select--open' : '';
         const openTagsClass = (isTagsOpen) ? 'gds-search-select__tag-holder--bubble-active' : '';
+        const tagSize = size === 'sm' ? 'xs' : 'sm';
+
+        const TagIndicatorClasses = `gds-search-select__tag-indicator gds-tag gds-tag--${tagSize} gds-tag--with-button`;
+        const tagStyle = size === 'sm' ? { top: '0.4rem' } : {};
 
         return (
             <div ref={ this._getContainer } className={ `gds-search-select ${openClass}` }>
@@ -185,6 +189,7 @@ class SearchMultiSelect extends React.Component {
                         <div
                             onClick={ this._toggleTags }
                             className={ `${TagIndicatorClasses} gds-tag--${context}` }
+                            style={ tagStyle }
                         >
                             <span className="-user-select--none">{ `${numberSelected} Selected` }</span>
                             <button
@@ -201,7 +206,7 @@ class SearchMultiSelect extends React.Component {
                         onChange={ this._updateSearchTerm }
                         type="text"
                         placeholder={ placeholder }
-                        className={ `gds-search-select__input ${(numberSelected > 0) ? hasTags : ''}` }
+                        className={ `gds-search-select__input gds-search-select__input--${size} ${(numberSelected > 0) ? hasTags : ''}` }
                     />
                     <button className="gds-search-select__toggle-button -cursor--pointer" onClick={ this._toggleSelect } />
                 </div>
@@ -267,13 +272,6 @@ class SearchMultiSelect extends React.Component {
 const TagHolderClasses = `gds-search-select__tag-holder
     gds-search-select__tag-holder--bubble`;
 
-const TagIndicatorClasses = `gds-search-select__tag-indicator
-    gds-search-select__tag-indicator-sm
-    gds-tag
-    gds-tag--sm
-    gds-tag--with-button
-    gds-tag--with-button--sm`;
-
 const hasTags = 'gds-search-select__input--has-tag';
 
 // Given an array of options, it returns the indexes where
@@ -291,12 +289,14 @@ SearchMultiSelect.propTypes = {
     options: PropTypes.array.isRequired,
     update: PropTypes.func.isRequired,
     context: PropTypes.string,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    size: PropTypes.oneOf(['sm', 'md'])
 };
 
 SearchMultiSelect.defaultProps = {
     context: 'primary',
-    placeholder: ''
+    placeholder: '',
+    size: 'md'
 };
 
 export default SearchMultiSelect;

@@ -19,6 +19,7 @@ render() {
                options={ this.state.names }
                update={ this._updateNames }
                context="primary"
+               size="sm"
            />
         </FormGroup>
     );
@@ -54,6 +55,7 @@ options     | list of options {array of objects}
 update      | callback that returns the latest change on options {function}
 context     | for now, this only affects the color of the Tag elements. (For not it only affects the tags, but it will support the input itself soon).
 placeholder | placeholder text {String}
+size        | size for the input, only md or sm are allowed {String}
 
 **Context list**:
 'primary', 'secondary', 'success', 'warning', 'info', 'danger', 'white'
