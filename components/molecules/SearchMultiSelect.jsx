@@ -211,27 +211,29 @@ class SearchMultiSelect extends React.Component {
                     <button className="gds-search-select__toggle-button -cursor--pointer" onClick={ this._toggleSelect } />
                 </div>
                 <div className={ `${TagHolderClasses} ${openTagsClass}` } >
-                    {
-                        options.map(({ name, key, isSelected }, index) => {
-                            const removeOption = () => this._removeOption(index);
-                            if (!isSelected) return;
-                            return (
+                     <div className="gds-search-select__tag-overflow">
+                        {
+                            options.map(({ name, key, isSelected }, index) => {
+                                const removeOption = () => this._removeOption(index);
+                                if (!isSelected) return;
+                                return (
 
-                                <div
-                                    key={ key }
-                                    className={ `-m-a-1 gds-tag gds-tag--sm gds-tag--${context} gds-tag--with-button gds-tag--with-button-sm` }
-                                >
-                                    { name }
-                                    <button
-                                        onClick={ removeOption }
-                                        className={ `gds-tag__option gds-tag__option--sm gds-tag__option--${context}` }>
-                                        <i className="btl bt-fw bt-times" />
-                                    </button>
-                                </div>
+                                    <div
+                                        key={ key }
+                                        className={ `-m-a-1 gds-tag gds-tag--sm gds-tag--${context} gds-tag--with-button gds-tag--with-button-sm` }
+                                    >
+                                        { name }
+                                        <button
+                                            onClick={ removeOption }
+                                            className={ `gds-tag__option gds-tag__option--sm gds-tag__option--${context}` }>
+                                            <i className="btl bt-fw bt-times" />
+                                        </button>
+                                    </div>
 
-                            );
-                        })
-                    }
+                                );
+                            })
+                        }
+                    </div>
                 </div>
                 <div className="gds-search-select__menu">
                     <div className="gds-search-select__menu-items">
