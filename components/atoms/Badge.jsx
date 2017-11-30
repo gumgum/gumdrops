@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
-const Badge = ({ text, context, empty = false, className, style }) => {
+const Badge = ({ text, context, empty, className, style }) => {
 
     const baseClass = 'gds-badge',
         contextClass = (context) ? `${baseClass}--${context}` : '',
         emptyClass = (empty) ? `${baseClass}--empty` : '';
 
-    const classNames = `${baseClass} ${contextClass} ${emptyClass} ${className}`;
+    const classNames = trimString(`${baseClass} ${contextClass} ${emptyClass} ${className}`);
 
     return (
         <span className={ classNames }>{ !empty && text }</span>
@@ -15,9 +16,11 @@ const Badge = ({ text, context, empty = false, className, style }) => {
 
 };
 
+Badge.displayName = 'Badge';
+
 Badge.defaultProps = {
-    text: null,
-    context: null,
+    text: '',
+    context: '',
     empty: false,
     className: '',
     style: {}
@@ -25,6 +28,7 @@ Badge.defaultProps = {
 
 Badge.propTypes = {
     text: PropTypes.string,
+    /** inverse, success, success-inverse, info, info-inverse, warning, warning-inverse, danger, danger-inverse */
     context: PropTypes.string,
     empty: PropTypes.bool,
     className: PropTypes.string,

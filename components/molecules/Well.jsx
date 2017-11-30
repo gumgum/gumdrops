@@ -1,21 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
-const Well = ({ text, context, button = false, callback, className, style }) => {
+const Well = ({ text, context, button, callback, className, style }) => {
 
-    const baseClasses = `gds-well gds-well--${context}`,
-        buttonClasses = `gds-well__button gds-well__button--${context}`;
+    const baseClass = 'gds-well',
+        contextClass = (context) ? `${baseClass}--${context}` : '',
+        buttonClass = (context) ? `gds-well__button gds-well__button--${context}` : 'gds-well__button';
 
-    const classNames = `${baseClasses} ${className}`;
+    const classNames = trimString(`${baseClass} ${contextClass} ${className}`);
 
     return (
         <div className={ classNames } style={ style }>
             <p className= "gds-well__text">{ text }</p>
-            { button && callback && <button className={ buttonClasses } onClick={ callback } /> }
+            { button && callback && <button className={ buttonClass } onClick={ callback } /> }
         </div>
     );
 
 };
+
+Well.displayName = 'Well';
 
 Well.defaultProps = {
     text: null,
@@ -28,6 +32,7 @@ Well.defaultProps = {
 
 Well.propTypes = {
     text: PropTypes.string,
+    /** success, info, warning, danger */
     context: PropTypes.string,
     button: PropTypes.bool,
     callback: PropTypes.func,

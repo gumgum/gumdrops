@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 const Button = ({ context, type, size, group, onClick, className, style, children }) => {
 
@@ -8,18 +9,27 @@ const Button = ({ context, type, size, group, onClick, className, style, childre
         sizeClass = (size) ? `${baseClass}--${size}` : '',
         groupClass = (group) ? `${baseClass}-group__button` : '';
 
-    const classNames = `${baseClass} ${contextClass} ${sizeClass} ${groupClass} ${className}`;
+    const classNames = trimString(`${baseClass} ${contextClass} ${sizeClass} ${groupClass} ${className}`);
 
     return (
-        <button className={ classNames } type={ type } style={ style } onClick={ onClick }>{ children }</button>
+        <button
+            className={ classNames }
+            type={ type }
+            style={ style }
+            onClick={ onClick }
+        >
+            { children }
+        </button>
     );
 
 };
 
+Button.displayName = 'Button';
+
 Button.defaultProps = {
     context: 'default',
     type: 'button',
-    size: null,
+    size: '',
     group: false,
     onClick: null,
     className: '',
@@ -27,9 +37,11 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
+    /** outline, primary, secondary, success, warning, info, danger */
     context: PropTypes.string,
     type: PropTypes.string,
-    size: PropTypes.string,
+    /** xs, sm, lg */
+    size: PropTypes.oneOf(['xs', 'sm', 'lg']),
     group: PropTypes.bool,
     onClick: PropTypes.func,
     className: PropTypes.string,

@@ -7,49 +7,6 @@ import Pagination from '../../../components/molecules/Pagination';
 
 const sizeOptions = ['xl', 'lg', 'sm', 'xs', ''];
 
-const description = `&nbsp;
-\n
-#### Example:
-\`\`\`
-state = {
-    activePage: 7,
-    lastPage: 70
-}
-
-handlePageChange = (nextPage) => this.setState({
-    activePage: nextPage,
-})
-
-render() {
-    const {
-        activePage,
-        lastPage,
-    } = this.state;
-    return (
-        < Pagination
-            activePage={ activePage }
-            lastPage={ lastPage }
-            boundaries={ false }
-            justify={ false }
-            size={ '' }
-            onChange={ this.handlePageChange }
-        / >\n
-    );
-}
-\`\`\`
-
-&nbsp; \n
-#### Props:
-**prop name**   | **description**
-----------------|------------
-activePage      | Current active page  {number} {defaults to 1}
-lastPage        | Total number of pages  {number} {required}
-boundaries      | Whether or not to always show the start and end pages  {boolean} {defaults to false}
-justify         | Whether or not to take the whole available width of the container  {boolean} {defaults to false}
-size            | Any of 'xl, lg, sm, xs' or leave unset to get default size  {string} {defaults to ''}
-onChange        | Callback to run when changing a page. Receives an object with next page and offsets {function} {required}
-`;
-
 class TestPagination extends React.Component {
 
     state = {
@@ -83,6 +40,8 @@ class TestPagination extends React.Component {
     }
 }
 
+TestPagination.displayName = 'Pagination';
+
 const component = () => <TestPagination />;
 
-export default [readme, component, description];
+export default [readme, component];

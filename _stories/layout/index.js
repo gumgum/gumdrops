@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import withReadme from 'storybook-readme/with-readme';
+import { withReadme } from 'storybook-readme';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Column from './Column/';
 import LayoutContainer from './LayoutContainer/';
@@ -17,9 +18,10 @@ const storyWrapper = (story) => {
 };
 
 stories
+    .addDecorator((story, context) => withInfo('')(story)(context))
     .addDecorator(storyWrapper)
     .addDecorator(withKnobs)
-    .addWithInfo('Column', withReadme(...Column))
-    .addWithInfo('LayoutContainer', withReadme(...LayoutContainer))
-    .addWithInfo('Row', withReadme(...Row))
+    .add('Column', withReadme(...Column))
+    .add('LayoutContainer', withReadme(...LayoutContainer))
+    .add('Row', withReadme(...Row))
 ;

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -30,6 +31,8 @@ const Column = (options) => {
         </div>
     );
 };
+
+Column.displayName = 'Column';
 
 Column.defaultProps = {
     md: 12

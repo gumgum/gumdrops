@@ -6,10 +6,11 @@ body {
 table {
     border-spacing: 0 !important;
     padding: 2rem 0;
+    font-size: 14px;
 }
 
 thead {
-    background-color: #c4c4c4;
+    background-color: #dcdcdc;
 }
 
 th {
@@ -17,7 +18,7 @@ th {
 }
 
 th, td {
-    padding: .5rem 2rem !important;
+    padding: .5rem !important;
 }
 
 table, thead, th, td, tr {

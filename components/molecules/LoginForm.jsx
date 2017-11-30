@@ -37,6 +37,14 @@ const LoginForm = ({
     </div>
 );
 
+LoginForm.displayName = 'LoginForm';
+
+LoginForm.defaultProps = {
+    capText: '',
+    logoText: '',
+    recoveryText: 'Forgot your password?'
+};
+
 LoginForm.propTypes = {
     capText: PropTypes.string,
     children: PropTypes.element.isRequired,
@@ -44,12 +52,6 @@ LoginForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     recoveryFn: PropTypes.func,
     recoveryText: PropTypes.string
-};
-
-LoginForm.defaultProps = {
-    capText: '',
-    logoText: '',
-    recoveryText: 'Forgot your password?'
 };
 
 export default LoginForm;

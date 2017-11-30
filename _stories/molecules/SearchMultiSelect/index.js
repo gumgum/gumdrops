@@ -108,4 +108,6 @@ const contextOptions = [
     'darkred-dark'
 ];
 
+TestSearchMultiSelect.displayName = 'SearchMultiSelect';
+
 export default [readme, component];

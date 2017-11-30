@@ -1,6 +1,7 @@
 The `<Select>` component is used to allow the user to choose a value from a set of options. It is recommended that you wrap it with the `<FormGroup>` component.
 
-**NOTE**: This component can be controlled or uncontrolled. This component accepts any prop that you may want to add. The only drawback is that there is not validation for unlisted props. 
+**NOTE**: This component can be controlled or uncontrolled. This component accepts any prop that you may want to add. The only drawback is that there is not validation for unlisted props. **It is highly recommended that you use controlled components in React.**
+
 *Recommended Props*: `name`, `value`, `defaultValue`, `onChange`
 
 **OPTIONS NOTE**: The default format for your options is `{ name: 'my name', value: 'my value' }`. If your options are in a different format, you may pass in `customValue` and/or `customName` props to override the default values of "name" and "value". For example, if your data looks like `{ id: 'my id', value: 'my value' }`, you can pass in `customName="id"`.

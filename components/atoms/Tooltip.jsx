@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 const Tooltip = ({ text, position, context, size, variations, className, children, ...otherProps }) => {
 
@@ -9,13 +10,15 @@ const Tooltip = ({ text, position, context, size, variations, className, childre
         sizeClass = size ? `${baseClass}--${size}` : '',
         variationsClass = variations ? `${baseClass}--${variations}` : '';
 
-    const classNames = `${positionClass} ${contextClass} ${sizeClass} ${variationsClass} ${className}`;
+    const classNames = trimString(`${positionClass} ${contextClass} ${sizeClass} ${variationsClass} ${className}`);
 
     return (
         <div className={ classNames } data-tooltip={ text } { ...otherProps }>{ children }</div>
     );
 
 };
+
+Tooltip.displayName = 'Tooltip';
 
 Tooltip.defaultProps = {
     text: 'default',
@@ -28,10 +31,14 @@ Tooltip.defaultProps = {
 
 Tooltip.propTypes = {
     text: PropTypes.string,
-    position: PropTypes.oneOf(['top','top-right','right','bottom-right','bottom','bottom-left','left','top-left']),
-    context: PropTypes.oneOf(['success', 'warning', 'info', 'danger']),
+    /** top, top-right, right, bottom-right, bottom, bottom-left, left, top-left */
+    position: PropTypes.oneOf(['top', 'top-right', 'right', 'bottom-right', 'bottom', 'bottom-left', 'left', 'top-left']),
+    /** success, warning, info, danger */
+    context: PropTypes.string,
+    /** lg */
     size: PropTypes.oneOf(['lg']),
-    variations: PropTypes.oneOf(['always','no-animate','bounce']),
+    /** always, no-animate, bounce */
+    variations: PropTypes.oneOf(['always', 'no-animate', 'bounce']),
     className: PropTypes.string,
     children: PropTypes.node
 };

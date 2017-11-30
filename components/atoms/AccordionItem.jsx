@@ -1,6 +1,6 @@
-//vendor
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 class AccordionItem extends Component {
     state = {
@@ -9,6 +9,7 @@ class AccordionItem extends Component {
 
     toggleOpen = () => {
         this.setState(({ open }) => ({ open: !open }));
+        console.log('test');
     }
 
     render() {
@@ -16,19 +17,19 @@ class AccordionItem extends Component {
         const baseClass = 'gds-accordion__item';
         const contextClass = (context) ? `${baseClass}--${context}` : '';
         const activeClass = this.state.open ? `${baseClass}--active` : '';
-        const classNames = `${baseClass} ${contextClass} ${activeClass} ${className}`;
+        const classNames = trimString(`${baseClass} ${contextClass} ${activeClass} ${className}`);
 
         const titleBaseClass = 'gds-accordion__item-title';
         const titleSizeClass = (size) ? `${titleBaseClass}--${size}` : '';
-        const titleClass = `${titleBaseClass} ${titleSizeClass}`;
+        const titleClass = trimString(`${titleBaseClass} ${titleSizeClass}`);
 
         const iconBaseClass = 'gds-accordion__item-icon';
         const iconSizeClass = (size) ? `${iconBaseClass}--${size}` : '';
-        const iconClass = `${iconBaseClass} ${iconSizeClass}`;
+        const iconClass = trimString(`${iconBaseClass} ${iconSizeClass}`);
 
         const childBaseClass = 'gds-accordion__child-items';
         const childSizeClass = (size) ? `${childBaseClass}--${size}` : '';
-        const childClass = `${childBaseClass} ${childSizeClass}`;
+        const childClass = trimString(`${childBaseClass} ${childSizeClass}`);
 
         const newChildren = React.Children.map(children, child => {
             return React.cloneElement(child, {
@@ -48,6 +49,8 @@ class AccordionItem extends Component {
         );
     }
 }
+
+AccordionItem.displayName = 'Accordion Item';
 
 AccordionItem.defaultProps = {
     className: '',

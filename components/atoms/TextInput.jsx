@@ -17,17 +17,21 @@ const TextInput = ({
     );
 };
 
-TextInput.propTypes = {
-    className: PropTypes.string,
-    // This prevents people forcing this component out of its intended use
-    type: PropTypes.oneOf(['text', 'password']),
-    size: PropTypes.oneOf(['sm', 'md', 'lg'])
-};
+TextInput.displayName = 'TextInput';
 
 TextInput.defaultProps = {
-    className: '',
     type: 'text',
-    size: 'md'
+    size: 'md',
+    className: ''
+};
+
+TextInput.propTypes = {
+    // This prevents people forcing this component out of its intended use
+    /** text, password */
+    type: PropTypes.oneOf(['text', 'password']),
+    /** sm, md, lg */
+    size: PropTypes.oneOf(['sm', 'md', 'lg']),
+    className: PropTypes.string
 };
 
 export default TextInput;

@@ -9,6 +9,8 @@ const LayoutContainer = ({ className, fullWidth, children, ...props }) => (
     </div>
 );
 
+LayoutContainer.displayName = 'LayoutContainer';
+
 LayoutContainer.defaultProps = {
     className: '',
     fullWidth: false

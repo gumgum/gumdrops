@@ -1,6 +1,6 @@
-//vendor
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 class AccordionItemContent extends Component {
 
@@ -12,11 +12,11 @@ class AccordionItemContent extends Component {
         const { className, context, size, children, ...otherProps } = this.props;
         const baseClass = 'gds-accordion__child-item';
         const contextClass =  (context) ? `${baseClass}--${context}` : '';
-        const classNames = `${baseClass} ${contextClass} ${className}`;
+        const classNames = trimString(`${baseClass} ${contextClass} ${className}`);
 
         const titleBaseClass = 'gds-accordion__child-item-title';
         const titleSizeClass = (size) ? `${titleBaseClass}--${size}` : '';
-        const titleClass = `${titleBaseClass} ${titleSizeClass}`;
+        const titleClass = trimString(`${titleBaseClass} ${titleSizeClass}`);
 
         return (
             <li className={ classNames } onClick={ this.handleClick } { ...otherProps }>
@@ -25,6 +25,8 @@ class AccordionItemContent extends Component {
         );
     }
 }
+
+AccordionItemContent.displayName = 'AccordionItemContent';
 
 AccordionItemContent.defaultProps = {
     className: '',

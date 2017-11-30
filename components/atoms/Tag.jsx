@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
-const Tag = ({ context, className, onClick, hasOption, optionIcon, small, style, text, value }) => {
+const Tag = ({ context, className, onClick, hasOption, optionIcon, small, style, text }) => {
 
     const isNormal = context && context === 'normal',
         tagClass = 'gds-tag',
@@ -21,11 +22,12 @@ const Tag = ({ context, className, onClick, hasOption, optionIcon, small, style,
             ? 'gds-tag--sm'
             : '';
 
-    const classNames = `${tagClass} ${hasButtonClass} ${contextClass} ${sizeClass} ${className}`;
-    const optionClassNames = `${buttonClass} ${buttonContextClass}`;
+    const classNames = trimString(`${tagClass} ${hasButtonClass} ${contextClass} ${sizeClass} ${className}`);
+    const optionClassNames = trimString(`${buttonClass} ${buttonContextClass}`);
 
     return (
-        <div className={ classNames }
+        <div
+            className={ classNames }
             style={ style }
             onClick={ onClick }
         >
@@ -36,6 +38,8 @@ const Tag = ({ context, className, onClick, hasOption, optionIcon, small, style,
 
 };
 
+Tag.displayName = 'Tag';
+
 Tag.defaultProps = {
     className: '',
     hasOption: false,
@@ -45,15 +49,15 @@ Tag.defaultProps = {
 };
 
 Tag.propTypes = {
+    text: PropTypes.string.isRequired,
+    /** normal, primary, success, warning, danger  */
     context: PropTypes.string,
-    className: PropTypes.string,
-    onClick: React.PropTypes.func,
     hasOption: PropTypes.bool,
     optionIcon: PropTypes.string,
     small: PropTypes.bool,
-    style: PropTypes.object,
-    text: PropTypes.string.isRequired,
-    value: PropTypes.string
+    onClick: React.PropTypes.func,
+    className: PropTypes.string,
+    style: PropTypes.object
 };
 
 export default Tag;

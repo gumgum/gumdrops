@@ -1,5 +1,5 @@
 import React from 'react';
-import { text, object } from '@storybook/addon-knobs';
+import { text, select, object } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -26,21 +26,36 @@ const options = [
     }
 ];
 
+const contextOptions = {
+    '': 'default',
+    primary: 'primary',
+    'no-border': 'no-border',
+    dark: 'dark'
+};
+
+const sizeOptions = {
+    '': 'default',
+    xs: 'xs',
+    sm: 'sm',
+    lg: 'lg'
+};
+
 const component = () => (
     <div>
         <p>Controlled example (change the value in the Knobs section)</p>
         <FormGroup>
             <FormGroupLabel text="Fruits" />
             <Select
-                className={ text('Classname', '') }
-                style={ object('Style', {}) }
                 options={ object('Options', options) }
                 name={ text('Name', 'fruit') }
                 value={ text('Value', 2) }
                 customName={ text('Custom Name', 'name') }
                 customValue={ text('Custom Value', 'value') }
                 onChange={ action('Select changed') }
-                context={ text('Context', '') }
+                context={ select('Context', contextOptions, '') }
+                size={ select('Size', sizeOptions, '') }
+                className={ text('Classname', '') }
+                style={ object('Style', {}) }
             />
         </FormGroup>
     </div>

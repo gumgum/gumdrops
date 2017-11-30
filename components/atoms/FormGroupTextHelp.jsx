@@ -14,6 +14,8 @@ const FormGroupTextHelp = ({
     </small>
 );
 
+FormGroupTextHelp.displayName = 'FormGroupTextHelp';
+
 FormGroupTextHelp.propTypes = {
     text: PropTypes.string.isRequired,
     className: PropTypes.string

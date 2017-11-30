@@ -35,22 +35,20 @@ const selectOptions = [
 ];
 
 const component = () => (
-    <div>
-        <FormGroup
-            isInline={ boolean('isInline', false) }
-            isDisabled={ boolean('isDisabled', false) }
-            context={ select('Context', contextOptions, 'success') }
-            className={ text('Classname', '') }
-            style={ object('Style', {}) }
-        >
-            <FormGroupLabel text={ text('Input Label', 'Cool Label') } />
-            <TextInput name="username" placeholder="Bruce Lee" />
-            <FormGroupTextHelp text="You got a cool username right there" />
+    <FormGroup
+        isInline={ boolean('isInline', false) }
+        isDisabled={ boolean('isDisabled', false) }
+        context={ select('Context', contextOptions, 'success') }
+        className={ text('Classname', '') }
+        style={ object('Style', {}) }
+    >
+        <FormGroupLabel text={ text('Input Label', 'Cool Label') } />
+        <TextInput name="username" placeholder="Bruce Lee" />
+        <FormGroupTextHelp text="You got a cool username right there" />
 
-            <FormGroupLabel text={ text('Select label', 'My select label') } />
-            <Select options={ selectOptions } />
-        </FormGroup>
-    </div>
+        <FormGroupLabel text={ text('Select label', 'My select label') } />
+        <Select options={ selectOptions } />
+    </FormGroup>
 );
 
 export default [readme, component];

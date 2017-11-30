@@ -133,6 +133,8 @@ const Pagination = (props) => {
     );
 };
 
+Pagination.displayName = 'Pagination';
+
 Pagination.propTypes = {
     onChange: PropTypes.func.isRequired,
     lastPage: PropTypes.number.isRequired,

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 const LoadingDots = ({ whiteDots = false, size, className, style }) => {
 
@@ -7,7 +8,7 @@ const LoadingDots = ({ whiteDots = false, size, className, style }) => {
         whiteDotsClass = (whiteDots) ? `${baseClass}--white` : '',
         sizeClass = (size) ? `${baseClass}--${size}` : '';
 
-    const classNames = `${baseClass} ${whiteDotsClass} ${sizeClass}`;
+    const classNames = trimString(`${baseClass} ${whiteDotsClass} ${sizeClass}`);
 
     return (
         <div style={ style } className={ className }>
@@ -18,6 +19,8 @@ const LoadingDots = ({ whiteDots = false, size, className, style }) => {
     );
 };
 
+LoadingDots.displayName = 'LoadingDots';
+
 LoadingDots.defaultProps = {
     whiteDots: false,
     size: null,
@@ -27,7 +30,8 @@ LoadingDots.defaultProps = {
 
 LoadingDots.propTypes = {
     whiteDots: PropTypes.bool,
-    size: PropTypes.string,
+    /** sm, lg */
+    size: PropTypes.oneOf(['sm', 'lg']),
     className: PropTypes.string,
     style: PropTypes.object
 };

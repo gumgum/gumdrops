@@ -10,9 +10,10 @@ import Row from '../../../components/layout/Row';
 const component = () => (
     <LayoutContainer
         fullWidth={ boolean('Full width', false) }
-        className={ text('Extra classes') }
         id={ text('Ids') }
-        onClick={ action('layout_container_clicked') }>
+        onClick={ action('layout_container_clicked') }
+        className={ text('Extra classes') }
+    >
         <Row>
             <Column md={ 4 }>Example</Column>
             <Column md={ 4 }>Example</Column>

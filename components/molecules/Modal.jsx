@@ -23,6 +23,8 @@ const Modal = ({
     </ReactModal>
 );
 
+Modal.displayName = 'Modal';
+
 Modal.defaultProps = {
     isOpen: false,
     className: '',

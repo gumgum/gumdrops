@@ -14,6 +14,8 @@ const FormGroupLabel = ({
     </label>
 );
 
+FormGroupLabel.displayName = 'FormGroupLabel';
+
 FormGroupLabel.propTypes = {
     text: PropTypes.string.isRequired,
     className: PropTypes.string
