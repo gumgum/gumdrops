@@ -25,7 +25,7 @@ export LayoutContainer from './layout/LayoutContainer';
 export Row from './layout/Row';
 
 // Export Molecules
-export Accordion from './atoms/Accordion';
+export Accordion from './modules/Accordion';
 export Avatar from './molecules/Avatar';
 export CardBlock from './molecules/CardBlock';
 export CardImage from './molecules/CardImage';
