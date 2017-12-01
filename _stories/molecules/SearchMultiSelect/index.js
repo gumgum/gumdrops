@@ -25,6 +25,7 @@ render() {
                placeholder="some placeholder text"
                options={ this.state.names }
                update={ this._updateNames }
+               onChange={ this._handleInputChange }
                context="primary"
                size="md"
            / >
@@ -62,6 +63,7 @@ prop name   | description
 ------------|------------
 options     | list of options {array of objects}
 update      | callback that returns the latest change on options {function}
+onChange    | callback that returns the current input value, useful for autocompletion {function}
 context     | for now, this only affects the color of the Tag elements. (For not it only affects the tags, but it will support the input itself soon).
 placeholder | placeholder text {String}
 size        | size for the input, only md or sm are allowed {String}
@@ -90,6 +92,9 @@ class TestSearchMultiSelect extends React.Component {
         action('SearchMultiSelect Updated')(names);
     }
 
+    _handleInputChange = (value) =>
+        action('SearchMultiSelect current value')(value)
+
     render() {
         return (
             <FormGroup>
@@ -98,6 +103,7 @@ class TestSearchMultiSelect extends React.Component {
                     placeholder={ text('Placeholder', 'My placeholder') }
                     options={ this.state.names }
                     update={ this._updateNames }
+                    onChange={ this._handleInputChange }
                     context={ select('Context', contextOptions, 'primary') }
                     size={ select('Size', ['sm', 'md'], 'md') }
                 />
