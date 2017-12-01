@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import arraysEqual from '../../utils/arraysEqual';
+import arraysEqual from '../utils/arraysEqual';
 
 class SearchMultiSelect extends React.Component {
 
