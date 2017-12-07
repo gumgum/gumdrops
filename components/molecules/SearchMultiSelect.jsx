@@ -56,10 +56,16 @@ class SearchMultiSelect extends React.Component {
         window.removeEventListener('click', this._closeOnClickOutside);
     }
 
-    _updateSearchTerm = ({ target }) => this.setState({
-        searchTerm: target.value,
-        isOpen: true
-    });
+
+    _updateSearchTerm = ({ target }) => {
+        const { value: searchTerm } = target;
+        const { onChange } = this.props;
+        const externalOnChange = () => onChange && onChange(searchTerm);
+        this.setState({
+            isOpen: true,
+            searchTerm
+        }, externalOnChange);
+    };
 
     _openSelect = () => {
         // If open aready, nothing to update
@@ -102,7 +108,7 @@ class SearchMultiSelect extends React.Component {
             .reduce((acc, { isSelected }) => isSelected
                 ? acc + 1
                 : acc
-            , 0);
+                , 0);
         if (tagCount < 1) this.setState({ isTagsOpen: false });
         update(newOptions);
     };
@@ -138,8 +144,8 @@ class SearchMultiSelect extends React.Component {
         }
         const i = matchingIndexes.indexOf(currentIndex);
         const nextIndex = matchingIndexes.length > (i + 1)
-                        ? matchingIndexes[i + 1]
-                        : matchingIndexes[0];
+            ? matchingIndexes[i + 1]
+            : matchingIndexes[0];
         this.setState({ currentIndex: nextIndex });
     }
 
@@ -152,8 +158,8 @@ class SearchMultiSelect extends React.Component {
         const i = matchingIndexes.indexOf(currentIndex);
         const last = matchingIndexes.length - 1;
         const prevIndex = (i - 1) >= 0
-                        ? matchingIndexes[i - 1]
-                        : matchingIndexes[last];
+            ? matchingIndexes[i - 1]
+            : matchingIndexes[last];
         this.setState({ currentIndex: prevIndex });
     }
 
@@ -211,7 +217,7 @@ class SearchMultiSelect extends React.Component {
                     <button className="gds-search-select__toggle-button -cursor--pointer" onClick={ this._toggleSelect } />
                 </div>
                 <div className={ `${TagHolderClasses} ${openTagsClass}` } >
-                     <div className="gds-search-select__tag-overflow">
+                    <div className="gds-search-select__tag-overflow">
                         {
                             options.map(({ name, key, isSelected }, index) => {
                                 const removeOption = () => this._removeOption(index);
@@ -290,6 +296,7 @@ const getMatchingIndexes = (options, term) => {
 SearchMultiSelect.propTypes = {
     options: PropTypes.array.isRequired,
     update: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     context: PropTypes.string,
     placeholder: PropTypes.string,
     size: PropTypes.oneOf(['sm', 'md'])
