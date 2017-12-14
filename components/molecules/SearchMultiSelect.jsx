@@ -4,15 +4,16 @@ import arraysEqual from '../utils/arraysEqual';
 
 class SearchMultiSelect extends React.Component {
 
-    constructor({ options }) {
+    constructor({ options, searchKeys, multiTerm, termDivider }) {
         super();
+        const searchConfig = { searchKeys, multiTerm, termDivider };
         this.state = {
             isOpen: false,
             isTagsOpen: false,
             searchTerm: '',
             currentIndex: 0,
             // Indexes of options that match the input term
-            matchingIndexes: getMatchingIndexes(options, '')
+            matchingIndexes: getMatchingIndexes(options, '', searchConfig)
         };
     }
 
@@ -22,16 +23,18 @@ class SearchMultiSelect extends React.Component {
         window.addEventListener('click', this._closeOnClickOutside);
     }
 
-    componentWillReceiveProps({ options }) {
+    componentWillReceiveProps({ options, searchKeys, multiTerm, termDivider }) {
         const old = this.props;
         if (!arraysEqual(options, old.options)) {
-            const matchingIndexes = getMatchingIndexes(options, this.state.searchTerm);
+            const searchConfig = { searchKeys, multiTerm, termDivider };
+            const matchingIndexes = getMatchingIndexes(options, this.state.searchTerm, searchConfig);
             this.setState({ matchingIndexes });
         }
     }
 
     componentWillUpdate(_, { searchTerm }) {
-        const { options } = this.props;
+        const { options, searchKeys, multiTerm, termDivider } = this.props;
+        const searchConfig = { searchKeys, multiTerm, termDivider };
         const { searchTerm: oldTerm, currentIndex, isOpen } = this.state;
         const regEx = new RegExp(searchTerm, 'ig');
 
@@ -39,7 +42,7 @@ class SearchMultiSelect extends React.Component {
         if (searchTerm === oldTerm || !isOpen) return;
 
         // Dictionary with indexes of all matching options
-        const matchingIndexes = getMatchingIndexes(options, searchTerm);
+        const matchingIndexes = getMatchingIndexes(options, searchTerm, searchConfig);
 
         // If the previous selected option is not in the matched list
         // move to the first matching
@@ -284,11 +287,21 @@ const hasTags = 'gds-search-select__input--has-tag';
 
 // Given an array of options, it returns the indexes where
 // the 'name' property matches the 'term' regEx
-const getMatchingIndexes = (options, term) => {
-    const regEx = new RegExp(term, 'ig');
+const getMatchingIndexes = (options, query, config) => {
+    const { searchKeys, multiTerm, termDivider } = config;
+    const terms = multiTerm
+        ? query.split(termDivider)
+        : [query];
+    const findMatches = (q) =>
+        terms.some((term) => {
+            const regEx = new RegExp(term, 'ig');
+            return regEx.test(q);
+        });
     return options
-        .reduce((acc, { name }, index) => {
-            if (regEx.test(name)) acc.push(index);
+        .reduce((acc, { name, key }, index) => {
+            const isNameMatch = findMatches(name);
+            const isKeyMatch = searchKeys && findMatches(key);
+            if (isNameMatch || isKeyMatch) acc.push(index);
             return acc;
         }, []);
 };
@@ -299,13 +312,22 @@ SearchMultiSelect.propTypes = {
     onChange: PropTypes.func,
     context: PropTypes.string,
     placeholder: PropTypes.string,
-    size: PropTypes.oneOf(['sm', 'md'])
+    size: PropTypes.oneOf(['sm', 'md']),
+    searchKeys: PropTypes.boolean,
+    multiTerm: PropTypes.boolean,
+    termDivider: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.instanceOf(RegExp)
+    ])
 };
 
 SearchMultiSelect.defaultProps = {
     context: 'primary',
     placeholder: '',
-    size: 'md'
+    size: 'md',
+    searchKeys: false,
+    multiTerm: false,
+    termDivider: /[ ,]+/
 };
 
 export default SearchMultiSelect;

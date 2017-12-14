@@ -1,5 +1,5 @@
 import React from 'react';
-import { select, text } from '@storybook/addon-knobs';
+import { select, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -67,6 +67,9 @@ onChange    | callback that returns the current input value, useful for autocomp
 context     | for now, this only affects the color of the Tag elements. (For not it only affects the tags, but it will support the input itself soon).
 placeholder | placeholder text {String}
 size        | size for the input, only md or sm are allowed {String}
+searchKeys  | flag to signal if the search should also match against object keys {Boolean}
+multiTerm   | flag to signal if the search should match against multiple terms {Boolean}
+termDivider | string or regexp used to divide the search term, defaults to /[ ,]+/ (empty space and comma) {String OR RegExp}
 
 #### Context list:
 'primary', 'secondary', 'success', 'warning', 'info', 'danger', 'white'\n
@@ -106,6 +109,9 @@ class TestSearchMultiSelect extends React.Component {
                     onChange={ this._handleInputChange }
                     context={ select('Context', contextOptions, 'primary') }
                     size={ select('Size', ['sm', 'md'], 'md') }
+                    multiTerm={ boolean('Multiple Terms', false) }
+                    searchKeys={ boolean('Search Keys', false) }
+                    termDivider={ text('Term Divider') }
                 />
             </FormGroup>
         );
