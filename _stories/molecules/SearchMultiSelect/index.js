@@ -1,85 +1,11 @@
 import React from 'react';
-import { select, text } from '@storybook/addon-knobs';
+import { select, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
 import SearchMultiSelect from '../../../components/molecules/SearchMultiSelect';
 import FormGroupLabel from '../../../components/atoms/FormGroupLabel';
 import FormGroup from '../../../components/molecules/FormGroup';
-
-const description = `&nbsp;
-\n
-#### Example:
-\`\`\`
-state = {
-    names: namesList
-};
-
-_updateNames = (names) => this.setState({ names });
-
-render() {
-    return (
-        < FormGroup >
-           < FormGroupLabel text="names" / >
-           < SearchMultiSelect
-               placeholder="some placeholder text"
-               options={ this.state.names }
-               update={ this._updateNames }
-               onChange={ this._handleInputChange }
-               context="primary"
-               size="md"
-           / >
-        < /FormGroup >
-    );
-}
-\`\`\`
-
-&nbsp; \n
-#### Options:
-The format of the options must be an array of objects that contains at least three properties: name, isSelected, and key.\n
-&nbsp; \n
-
-property   | description
------------|------------
-name       | the text displayed on the dropdown
-isSelected | boolean that determines if the option is selected or not
-key        | uniquely identifies each options (key must be unique)
-
-\`\`\`
-[
-    {
-        name: 'Jose Santos',
-        isSelected: true,
-        key: 0
-    },
-    ...
-]
-\`\`\`
-
-
-&nbsp; \n
-#### Props:
-prop name   | description
-------------|------------
-options     | list of options {array of objects}
-update      | callback that returns the latest change on options {function}
-onChange    | callback that returns the current input value, useful for autocompletion {function}
-context     | for now, this only affects the color of the Tag elements. (For not it only affects the tags, but it will support the input itself soon).
-placeholder | placeholder text {String}
-size        | size for the input, only md or sm are allowed {String}
-
-#### Context list:
-'primary', 'secondary', 'success', 'warning', 'info', 'danger', 'white'\n
-&nbsp; \n
-
-#### Keybindings:
-key   | description
-------|------------
-enter | toggles the currently highlighted option
-up    | highlights the previous options
-down  | highlights the next option
-esc   | closes the dropdown
-`;
 
 class TestSearchMultiSelect extends React.Component {
 
@@ -106,6 +32,9 @@ class TestSearchMultiSelect extends React.Component {
                     onChange={ this._handleInputChange }
                     context={ select('Context', contextOptions, 'primary') }
                     size={ select('Size', ['sm', 'md'], 'md') }
+                    multiTerm={ boolean('Multiple Terms', false) }
+                    searchKeys={ boolean('Search Keys', false) }
+                    termDivider={ text('Term Divider') }
                 />
             </FormGroup>
         );
@@ -179,4 +108,4 @@ const contextOptions = [
     'darkred-dark'
 ];
 
-export default [readme, component, description];
+export default [readme, component];
