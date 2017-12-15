@@ -18,6 +18,7 @@ const Modal = ({
         onRequestClose={ onClose }
         isOpen={ isOpen }
         style={ style }
+        ariaHideApp={ false }
     >
         { children }
     </ReactModal>
