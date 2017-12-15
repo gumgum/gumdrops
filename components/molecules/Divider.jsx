@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 const Divider = ({ label, centered = false, collapsible = false, open, callback, className, style }) => {
 
@@ -8,7 +9,7 @@ const Divider = ({ label, centered = false, collapsible = false, open, callback,
         collapsibleClass = (collapsible) ? 'gds-button--collapsible' : '',
         arrowClasses = (open) ? `${baseClass}__arrow` : `${baseClass}__arrow ${baseClass}__arrow--collapse`;
 
-    const classNames = `${baseClass} ${centeredClass} ${collapsibleClass} ${className}`;
+    const classNames = trimString(`${baseClass} ${centeredClass} ${collapsibleClass} ${className}`);
 
     return (
         <div className={ classNames } style={ style } onClick={ callback }>
@@ -20,6 +21,8 @@ const Divider = ({ label, centered = false, collapsible = false, open, callback,
     );
 
 };
+
+Divider.displayName = 'Divider';
 
 Divider.defaultProps = {
     label: null,

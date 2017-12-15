@@ -1,11 +1,11 @@
-//vendor
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 const Accordion = ({ children, context, size, className, ...otherProps }) => {
     const baseClass = 'gds-accordion',
         contextClass = (context) ? `${baseClass}--${context}` : '';
-    const classNames = `${baseClass} ${contextClass} ${className}`;
+    const classNames = trimString(`${baseClass} ${contextClass} ${className}`);
 
     const newChildren = React.Children.map(children, child => {
         return React.cloneElement(child, {
@@ -23,17 +23,21 @@ const Accordion = ({ children, context, size, className, ...otherProps }) => {
     );
 };
 
+Accordion.displayName = 'Accordion';
+
 Accordion.defaultProps = {
-    className: '',
     context: '',
-    size: ''
+    size: '',
+    className: ''
 };
 
 Accordion.propTypes = {
     children: PropTypes.node.isRequired,
-    className: PropTypes.string,
+    /** dark, white */
     context: PropTypes.string,
-    size: PropTypes.string
+    /** sm */
+    size: PropTypes.oneOf(['sm']),
+    className: PropTypes.string
 };
 
 export default Accordion;

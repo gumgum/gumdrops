@@ -7,6 +7,8 @@ const ModalFooter = ({ className, style, children }) => (
     </div>
 );
 
+ModalFooter.displayName = 'ModalFooter';
+
 ModalFooter.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,

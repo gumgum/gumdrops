@@ -306,6 +306,18 @@ const getMatchingIndexes = (options, query, config) => {
         }, []);
 };
 
+SearchMultiSelect.displayName = 'SearchMultiSelect';
+
+SearchMultiSelect.defaultProps = {
+    context: 'primary',
+    placeholder: '',
+    size: 'md',
+    filter: getMatchingIndexes,
+    searchKeys: false,
+    multiTerm: false,
+    termDivider: /[ ,]+/
+};
+
 SearchMultiSelect.propTypes = {
     options: PropTypes.array.isRequired,
     update: PropTypes.func.isRequired,
@@ -320,16 +332,6 @@ SearchMultiSelect.propTypes = {
         PropTypes.string,
         PropTypes.instanceOf(RegExp)
     ])
-};
-
-SearchMultiSelect.defaultProps = {
-    context: 'primary',
-    placeholder: '',
-    size: 'md',
-    filter: getMatchingIndexes,
-    searchKeys: false,
-    multiTerm: false,
-    termDivider: /[ ,]+/
 };
 
 export default SearchMultiSelect;

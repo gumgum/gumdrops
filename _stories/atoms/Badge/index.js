@@ -19,7 +19,7 @@ const options = {
 
 const component = () => (
     <Badge
-        text={ text('Label', '2') }
+        text={ text('Text', '2') }
         context={ select('Context', options, '') }
         empty={ boolean('Empty', false) }
         className={ text('ClassName', '') }

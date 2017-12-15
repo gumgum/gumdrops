@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import withReadme from 'storybook-readme/with-readme';
+import { withReadme } from 'storybook-readme';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
 import Accordion from './Accordion';
 import Avatar from './Avatar/';
@@ -29,22 +30,22 @@ const storyWrapper = (story) => {
 };
 
 stories
+    .addDecorator((story, context) => withInfo('')(story)(context))
     .addDecorator(storyWrapper)
     .addDecorator(withKnobs)
-    .addWithInfo('Accordion', withReadme(...Accordion))
-    .addWithInfo('Avatar', withReadme(...Avatar))
-    .addWithInfo('Card', withReadme(...Card))
-    .addWithInfo('CardBlock', withReadme(...CardBlock))
-    .addWithInfo('CardImage', withReadme(...CardImage))
-    .addWithInfo('Checkbox', withReadme(...Checkbox))
-    .addWithInfo('Divider', withReadme(...Divider))
-    .addWithInfo('FormGroup', withReadme(...FormGroup))
-    .addWithInfo('LoginForm', withReadme(...LoginForm))
-    .addWithInfo('MultiSelect', withReadme(...MultiSelect))
-    .addWithInfo('Modal', withReadme(...Modal))
-    .addWithInfo('Pagination', Pagination[2], withReadme(...Pagination))
-    .addWithInfo('SearchMultiSelect', SearchMultiSelect[2], withReadme(...SearchMultiSelect))
-    .addWithInfo('Toggle', withReadme(...Toggle))
-    .addWithInfo('Well', withReadme(...Well))
+    .add('Accordion', withReadme(...Accordion))
+    .add('Avatar', withReadme(...Avatar))
+    .add('Card', withReadme(...Card))
+    .add('CardBlock', withReadme(...CardBlock))
+    .add('CardImage', withReadme(...CardImage))
+    .add('Checkbox', withReadme(...Checkbox))
+    .add('Divider', withReadme(...Divider))
+    .add('FormGroup', withReadme(...FormGroup))
+    .add('LoginForm', withReadme(...LoginForm))
+    .add('Modal', withReadme(...Modal))
+    .add('MultiSelect', withReadme(...MultiSelect))
+    .add('Pagination', withReadme(...Pagination))
+    .add('SearchMultiSelect', withReadme(...SearchMultiSelect))
+    .add('Toggle', withReadme(...Toggle))
+    .add('Well', withReadme(...Well))
 ;
-

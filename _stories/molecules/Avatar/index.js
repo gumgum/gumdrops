@@ -10,17 +10,18 @@ const options = [
     { name: 'Change Brand', path: '/account/change-brand' },
     { name: 'Login to Twitter', path: '/account/twitter-login' },
     { name: 'Switch to Annotator', path: '/account/instagram-login' },
-    { name: 'Logout', path: '/account/logout' }
+    { name: 'Logout', path: 'logout' }
 ];
 
 const component = () => (
     <Avatar
         open={ boolean('Open', false) }
-        callback={ action('avatar_menu_toggled') }
+        menuCallback={ action('avatar_menu_toggled') }
+        optionCallback={ action('avatar_menu_option_clicked') }
         username={ text('Username', 'Michele') }
         img={ text('Image url', '') }
         menuOptions={ options }
-        className={ text('ClassName', '') }
+        className={ text('ClassName', '-float-right') }
         style={ object('Style', {}) }
     />
 );

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 const Trend = ({ context, className, style, value, unit }) => {
 
-    const classNames = `gds-card__trend gds-card__trend--${context} ${className}`;
+    const classNames = trimString(`gds-card__trend gds-card__trend--${context} ${className}`);
 
     return (
         <div
@@ -16,6 +17,8 @@ const Trend = ({ context, className, style, value, unit }) => {
 
 };
 
+Trend.displayName = 'Trend';
+
 Trend.defaultProps = {
     context: 'up',
     className: '',
@@ -24,14 +27,15 @@ Trend.defaultProps = {
 };
 
 Trend.propTypes = {
+    /** up, same, down */
     context: PropTypes.string,
-    className: PropTypes.string,
-    style: PropTypes.object,
     value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
     ]),
-    unit: PropTypes.string
+    unit: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object
 };
 
 export default Trend;

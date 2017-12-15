@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 const ButtonGroup = ({ size, responsive, className, style, children }) => {
 
@@ -7,7 +8,7 @@ const ButtonGroup = ({ size, responsive, className, style, children }) => {
         sizeClass = (size) ? `${baseClass}--${size}` : '',
         responsiveClass = (responsive) ? 'gds-button-group--responsive' : '';
 
-    const classNames = `${baseClass} ${responsiveClass} ${sizeClass} ${className}`;
+    const classNames = trimString(`${baseClass} ${responsiveClass} ${sizeClass} ${className}`);
 
     return (
         <div className={ classNames } style={ style }>{ children }</div>
@@ -15,15 +16,18 @@ const ButtonGroup = ({ size, responsive, className, style, children }) => {
 
 };
 
+ButtonGroup.displayName = 'ButtonGroup';
+
 ButtonGroup.defaultProps = {
-    size: null,
+    size: '',
     responsive: false,
     className: '',
     style: {}
 };
 
 ButtonGroup.propTypes = {
-    size: PropTypes.string,
+    /** xs, sm, lg */
+    size: PropTypes.oneOf(['xs', 'sm', 'lg']),
     responsive: PropTypes.bool,
     className: PropTypes.string,
     style: PropTypes.object,

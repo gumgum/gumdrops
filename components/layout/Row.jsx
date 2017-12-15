@@ -7,6 +7,8 @@ const Row = ({ className, children, ...props }) => (
     </div>
 );
 
+Row.displayName = 'Row';
+
 Row.defaultProps = {
     className: ''
 };

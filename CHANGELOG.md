@@ -6,6 +6,17 @@
 
 ----
 
+## 0.8.0
+###### Changed
+
+- [CJL-30] - Add size and additional context options to Select
+- [CJL-30] - Improve Avatar menu to accept a callback for clicking on an option instead of using React Router
+
+## 0.7.5
+###### Changed
+
+- Add onChange, searching on keys, multiple terms, and custom filter functions on SearchMultiSelect
+
 ## 0.7.0 (1-29-17)
 ###### Added
 

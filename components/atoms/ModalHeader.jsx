@@ -8,6 +8,8 @@ const ModalHeader = ({ title, onClose, className, style }) => (
     </div>
 );
 
+ModalHeader.displayName = 'ModalHeader';
+
 ModalHeader.propTypes = {
     title: PropTypes.text,
     onClose: PropTypes.func,

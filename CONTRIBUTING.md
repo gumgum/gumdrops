@@ -18,11 +18,32 @@ The following instructions assume you have followed the section on [README.md](R
 1. Create a JIRA ticket in the [Common JS Jira Project](https://gumgum.jira.com/projects/CJL?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&status=all).
 2. Follow our [git flow guide](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=138248293) to create a new branch.
 3. Add your component `.jsx` file in the correct folder in `/components`. It should be in the same category as found on Design System Docs.
-4. Write your component. Follow the format of other components, including using `...otherProps`, `defaultProps` and `propTypes`.
+4. Write your component. Follow the format of other components, including adding `...otherProps`. You should also include `displayName` (storybook needs this), `defaultProps` and `propTypes`. In `propTypes`, please include comments when the prop only accepts specific options (as dictated by the Design System). These will render in the description column.
+
+For example:
+```
+ButtonGroup.displayName = 'ButtonGroup';
+
+ButtonGroup.defaultProps = {
+    size: '',
+    responsive: false,
+    className: '',
+    style: {}
+};
+
+ButtonGroup.propTypes = {
+    /** xs, sm, lg */
+    size: PropTypes.string,
+    responsive: PropTypes.bool,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    children: PropTypes.node
+};
+```
 5. Add the path to the new component to `components/index.js` so it can be exported when building.
 
 ###### Writing documentation (story)
-1. Go to the correct category in `/_stories`, create a new folder, and create an `index.js` and `README.md` following the format of the other stories. Be sure to `.addWithInfo` and import it into the parent `index.js` file.
+1. Go to the correct category in `/_stories`, create a new folder, and create an `index.js` and `README.md` following the format of the other stories. Be sure to `.add()` and import it into the parent `index.js` file.
 2. We use a few addon packages to enhance our stories. Please add knobs to your stories to show what options each of the component's props accepts. This also makes it interactive so a user can change and see the result of each different option.
 
 **IMPORTANT**: Please wait for approvals, and when your PR has been approved, **please continue to follow the guidelines on [git flow guide](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=138248293) when rebasing and merging**. If you're new to rebasing, ask a friendly JS dev and we'll help walk you through it!
@@ -32,6 +53,7 @@ The following instructions assume you have followed the section on [README.md](R
 1. Update all JIRA tickets with the version number, and update the [release page on JIRA](https://gumgum.jira.com/projects/CJL).
 2. Follow the [git flow guide](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=138248293) to start a new release. Use the new version # for the tag.
 3. Update `package.json` and `CHANGELOG.md` with the new release version and information.
+4. Push the new tag `git push --tags`
 4. Send out a release notes email.
 
 

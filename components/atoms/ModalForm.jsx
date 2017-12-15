@@ -7,6 +7,8 @@ const ModalForm = ({ className, children, ...otherProps }) => (
     </form>
 );
 
+ModalForm.displayName = 'ModalForm';
+
 ModalForm.propTypes = {
     className: PropTypes.string,
     children: PropTypes.element.isRequired

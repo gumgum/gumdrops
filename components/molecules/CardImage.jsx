@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 const CardImage = ({ url, option, size, className, style }) => {
 
@@ -7,7 +8,7 @@ const CardImage = ({ url, option, size, className, style }) => {
         optionClass = (option) ? `${baseClass}--${option}` : '',
         sizeClass = (size) ? `${baseClass}--${size}` : '';
 
-    const classNames = `${baseClass} ${optionClass} ${sizeClass} ${className}`;
+    const classNames = trimString(`${baseClass} ${optionClass} ${sizeClass} ${className}`);
 
     return (
         <div className={ classNames } style={ style }>
@@ -18,16 +19,22 @@ const CardImage = ({ url, option, size, className, style }) => {
 
 };
 
+CardImage.displayName = 'CardImage';
+
 CardImage.defaultProps = {
     option: 'top',
+    size: '',
+    url: '',
     className: '',
     style: {}
 };
 
 CardImage.propTypes = {
     url: PropTypes.string.isRequired,
-    option: PropTypes.string,
-    size: PropTypes.string,
+    /** top, bottom */
+    option: PropTypes.oneOf(['top', 'bottom']),
+    /** xs, sm, md, lg, xl */
+    size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
     className: PropTypes.string,
     style: PropTypes.object
 };

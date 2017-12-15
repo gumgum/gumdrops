@@ -18,24 +18,22 @@ const contextOptions = {
 };
 
 const component = () => (
-    <div>
-        <Accordion
-            size={ select('Size', sizeOptions, '') }
-            context={ select('Context', contextOptions, '') }
-            className={ text('Class', '') }
-        >
-            <AccordionItem label={ text('Item Label 1', 'Item 1') }>
-                <AccordionItemContent>
-                    Content
-                </AccordionItemContent>
-            </AccordionItem>
-            <AccordionItem label={ text('Item Label 2', 'Item 2') }>
-                <AccordionItemContent>
-                    Content
-                </AccordionItemContent>
-            </AccordionItem>
-        </Accordion>
-    </div>
+    <Accordion
+        size={ select('Size', sizeOptions, '') }
+        context={ select('Context', contextOptions, '') }
+        className={ text('Class', '') }
+    >
+        <AccordionItem label={ text('Item Label 1', 'Item 1') }>
+            <AccordionItemContent>
+                Content
+            </AccordionItemContent>
+        </AccordionItem>
+        <AccordionItem label={ text('Item Label 2', 'Item 2') }>
+            <AccordionItemContent>
+                Content
+            </AccordionItemContent>
+        </AccordionItem>
+    </Accordion>
 );
 
 export default [readme, component];

@@ -26,6 +26,8 @@ const Checkbox = ({
     );
 };
 
+Checkbox.displayName = 'Checkbox';
+
 Checkbox.defaultProps = {
     label: '',
     size: '',
@@ -35,7 +37,8 @@ Checkbox.defaultProps = {
 
 Checkbox.propTypes = {
     label: PropTypes.string,
-    size: PropTypes.string,
+    /** xs, sm */
+    size: PropTypes.oneOf(['xs', 'sm']),
     className: PropTypes.string,
     style: PropTypes.object
 };

@@ -41,9 +41,9 @@ const component = () => (
         position={ select('Position', tooltipPositions) }
         context={ select('Context', tooltipContexts, '') }
         size={ select('Size', tooltipSizeOptions, '') }
+        variations={ select('Variations', tooltipVariationsOptions, '') }
         className={ text('ClassName', '') }
         style={ object('Styles', {}) }
-        variations={ select('Variations', tooltipVariationsOptions, '') }
     >
         <Button context="default">
             Button with Tooltip

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 const Card = ({ option, size, className, style, children }) => {
 
@@ -7,7 +8,7 @@ const Card = ({ option, size, className, style, children }) => {
         optionClass = (option) ? `${baseClass}--${option}` : '',
         sizeClass = (size) ? `${baseClass}--${size}` : '';
 
-    const classNames = `${baseClass} ${optionClass} ${sizeClass} ${className}`;
+    const classNames = trimString(`${baseClass} ${optionClass} ${sizeClass} ${className}`);
 
     return (
         <div className={ classNames } style={ style }>
@@ -17,9 +18,20 @@ const Card = ({ option, size, className, style, children }) => {
 
 };
 
+Card.displayName = 'Card';
+
+Card.defaultProps = {
+    option: '',
+    size: '',
+    className: '',
+    style: {}
+};
+
 Card.propTypes = {
+    /** white, underlined, underlined-secondary */
     option: PropTypes.string,
-    size: PropTypes.string,
+    /** xs, sm, md, lg, xl */
+    size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
     className: PropTypes.string,
     style: PropTypes.object,
     children: PropTypes.node

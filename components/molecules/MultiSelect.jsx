@@ -79,6 +79,8 @@ class MultiSelect extends React.Component {
     }
 }
 
+MultiSelect.displayName = 'MultiSelect';
+
 MultiSelect.propTypes = {
     options: PropTypes.arrayOf(PropTypes.object).isRequired,
     callback: PropTypes.func.isRequired,

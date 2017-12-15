@@ -29,6 +29,8 @@ const Toggle = ({
 
 };
 
+Toggle.displayName = 'Toggle';
+
 Toggle.defaultProps = {
     type: 'checkbox',
     size: '',
@@ -38,11 +40,13 @@ Toggle.defaultProps = {
 };
 
 Toggle.propTypes = {
-    type: PropTypes.string,
+    /** radio, checkbox */
+    type: PropTypes.oneOf(['radio', 'checkbox']),
     label: PropTypes.string,
-    className: PropTypes.string,
+    /** xs, sm */
+    size: PropTypes.string,
     style: PropTypes.object,
-    size: PropTypes.string
+    className: PropTypes.string
 };
 
 export default Toggle;

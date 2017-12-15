@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
 const Select = ({
     context,
+    size,
     customValue,
     customName,
     options,
@@ -11,9 +13,10 @@ const Select = ({
 }) => {
 
     const baseClass = 'gds-form-group__select-input',
-        contextClass = context ? `${baseClass}--${context}` : '';
+        contextClass = context ? `${baseClass}--${context}` : '',
+        sizeClass = size ? `${baseClass}--${size}` : '';
 
-    const classNames = `${baseClass} ${contextClass} ${className}`;
+    const classNames = trimString(`${baseClass} ${contextClass} ${sizeClass} ${className}`);
 
     return (
         <select
@@ -34,20 +37,26 @@ const Select = ({
     );
 };
 
+Select.displayName = 'Select';
+
 Select.defaultProps = {
     className: '',
     options: [],
     customValue: 'value',
     customName: 'name',
-    context: ''
+    context: '',
+    size: ''
 };
 
 Select.propTypes = {
-    className: PropTypes.string,
-    context: PropTypes.oneOf(['primary']),
+    /** primary, no-border, dark */
+    context: PropTypes.string,
+    /** xs, sm, lg */
+    size: PropTypes.oneOf(['xs', 'sm', 'lg']),
     customValue: PropTypes.string,
     customName: PropTypes.string,
-    options: PropTypes.array
+    options: PropTypes.array,
+    className: PropTypes.string
 };
 
 export default Select;
