@@ -1,23 +1,38 @@
 # GumGum Common JS Changelog
 
-----
-
-### Current Release: 0.7.0
-
-----
-
-## 0.8.0
+## 0.8.2 (12-18-17)
 ###### Changed
 
-- [CJL-30] - Add size and additional context options to Select
-- [CJL-30] - Improve Avatar menu to accept a callback for clicking on an option instead of using React Router
+- Update README for adding library to project via internal npm hosted files
 
-## 0.7.5
+## 0.8.1 (12-15-17)
+###### Fixed
+
+- Add prop for react-modal's latest version that was throwing a warning
+
+## 0.8.0 (12-15-17)
 ###### Changed
 
-- Add onChange, searching on keys, multiple terms, and custom filter functions on SearchMultiSelect
+- [CJL-36] - Update libraries
+- Add size and additional context options to Select
+- Improve Avatar menu to accept a callback for clicking on an option instead of using React Router
 
-## 0.7.0 (1-29-17)
+## 0.7.6 (12-15-17)
+###### Added
+
+- Add searching on keys, multiple terms, and custom filter functions to SearchMultiSelect
+
+## 0.7.5 (12-6-17)
+###### Added
+
+- Add onChange to SearchMultiSelect
+
+## 0.7.1-0.7.4 (12-1-17)
+###### Fixed
+
+- Various import fixes
+
+## 0.7.0 (11-29-17)
 ###### Added
 
 - [CJL-35] - CHANGELOG.md and CONTRIBUTING.md
