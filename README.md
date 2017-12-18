@@ -8,15 +8,14 @@ The docs are hosted at [storybook.gumgum.com](https://storybook.gumgum.com).
 
 ### Installing and Using the Library in your project
 ###### Add library
-To use this library in your project, run the following command in your terminal: `yarn add git+ssh://git@bitbucket.org/gumgum/common-js-components.git#THE-VERSION-NUMBER-YOU-WANT`.
+`yarn add common-js-components`
 
-For example: `yarn add git+ssh://git@bitbucket.org/gumgum/common-js-components.git#0.2.0`
+To add a specific version, you can use
+`yarn add https://npm.va.ggops.com/gumgum-common-js/-/gumgum-common-js-0.8.0.tgz` (replace 0.8.0 with whatever version you want)
 
 The current and previous versions can be found in [CHANGELOG.md](CHANGELOG.md)
 
-Update your webpack config to use a loader on node_modules/gumgum-common-js .jsx files so they get parsed correctly.
-
-You also must ask devops to add a key for your project to have permissions to this library when you deploy. Since it is a private library, the server needs permission to download it.
+You may need to update your webpack config to use a loader on node_modules/gumgum-common-js .jsx files so they get parsed correctly.
 
 ###### Use library
 In your project's .jsx files, include the name of the component you want to use and its path. Example:
