@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const LayoutContainer = ({ className, fullWidth, children, ...props }) => (
     <div
-        className={ `gds-layout__container ${fullWidth ? 'gds-layout__container–full-width' : ''} ${className}` }
+        className={ `gds-layout__container ${fullWidth ? 'gds-layout__container--full-width' : ''} ${className}` }
         { ...props }>
         { children }
     </div>
