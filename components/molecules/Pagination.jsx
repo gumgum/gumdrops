@@ -120,7 +120,7 @@ class Pagination extends Component {
     }
 
     render() {
-        const { className, justify, size } = this.props;
+        const { className, justify, size, lastPage, activePage } = this.props;
 
         const rootClass = cx('gds-pagination', 'gds-pagination--mobile-arrows', className, {
             'gds-pagination--fixed': !justify,
@@ -148,6 +148,9 @@ class Pagination extends Component {
             background: 'none'
         };
 
+        const shouldRender = ((lastPage > 0) && (activePage > 0) && (activePage <= lastPage));
+        if (!shouldRender) return null;
+
         return (
             <nav className={rootClass} onKeyDown={this._handleKeyPress}>
                 <div className={itemClass}>
@@ -157,7 +160,7 @@ class Pagination extends Component {
                         disabled={this.state.isPrevDisabled}
                         onClick={() => this._changePage('prev')}
                         style={btnStyle}>
-                        <span className="-vis-hidden -ellipsis">Goto previous page</span>
+                        <span className="-vis-hidden -ellipsis">Go to previous page</span>
                     </button>
                 </div>
                 {this._createPages().map(({ page, eltClass, callback, isCurrent }) => (
@@ -179,7 +182,7 @@ class Pagination extends Component {
                         disabled={this.state.isNextDisabled}
                         onClick={() => this._changePage('next')}
                         style={btnStyle}>
-                        <span className="-vis-hidden -ellipsis">Goto next page</span>
+                        <span className="-vis-hidden -ellipsis">Go to next page</span>
                     </button>
                 </div>
                 <span className="gds-pagination__page-indicator" />
