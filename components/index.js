@@ -15,6 +15,7 @@ export ModalForm from './atoms/ModalForm';
 export NumberCircle from './atoms/NumberCircle';
 export Select from './atoms/Select';
 export Tag from './atoms/Tag';
+export TextArea from './atoms/TextArea';
 export TextInput from './atoms/TextInput';
 export Tooltip from './atoms/Tooltip';
 export Trend from './atoms/Trend';
