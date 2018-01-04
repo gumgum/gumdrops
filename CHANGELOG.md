@@ -1,5 +1,15 @@
 # GumGum Common JS Changelog
 
+## 0.9.0 (1-3-18)
+###### Added
+
+- [CJL-42] - Add textarea component
+
+###### Changed
+
+- Add ...otherProps to Button
+- Fix full width layout on layout container
+
 ## 0.8.2 (12-18-17)
 ###### Changed
 
