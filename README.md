@@ -8,8 +8,6 @@ The docs are hosted at [storybook.gumgum.com](https://storybook.gumgum.com).
 
 ### Installing and Using the Library in your project
 ###### Add library
-`yarn add common-js-components`
-
 To add a specific version, you can use
 `yarn add https://npm.va.ggops.com/gumgum-common-js/-/gumgum-common-js-0.8.0.tgz` (replace 0.8.0 with whatever version you want)
 

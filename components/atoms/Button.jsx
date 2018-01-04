@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import trimString from '../utils/trimString';
 
-const Button = ({ context, type, size, group, onClick, className, style, children }) => {
+const Button = ({ context, type, size, group, onClick, className, style, children, ...otherProps }) => {
 
     const baseClass = 'gds-button',
         contextClass = (context) ? `${baseClass}--${context}` : '',
@@ -17,6 +17,7 @@ const Button = ({ context, type, size, group, onClick, className, style, childre
             type={ type }
             style={ style }
             onClick={ onClick }
+            { ...otherProps }
         >
             { children }
         </button>

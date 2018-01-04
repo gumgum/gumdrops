@@ -15,6 +15,7 @@ import NumberCircle from './NumberCircle/';
 import Tag from './Tag/';
 import Trend from './Trend/';
 import Tooltip from './Tooltip';
+import TextArea from './TextArea';
 import TextInput from './TextInput';
 import Select from './Select';
 
@@ -41,6 +42,7 @@ stories
     .add('NumberCircle', withReadme(...NumberCircle))
     .add('Select', withReadme(...Select))
     .add('Tag', withReadme(...Tag))
+    .add('TextArea', withReadme(...TextArea))
     .add('TextInput', withReadme(...TextInput))
     .add('Tooltip', withReadme(...Tooltip))
     .add('Trend', withReadme(...Trend))
