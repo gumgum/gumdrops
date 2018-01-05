@@ -1,6 +1,6 @@
 {
   "name": "gumgum-common-js",
-  "version": "0.9.0",
+  "version": "0.9.2",
   "description": "GumGum JavaScript Components",
   "main": "dist/index",
   "module": "dist-es6/index",
