@@ -1,5 +1,11 @@
 # GumGum Common JS Changelog
 
+## 0.9.1 (1-4-18)
+###### Fixed
+
+- Fix full width layout on layout container (again)
+- Remove console.log on AccordionItem
+
 ## 0.9.0 (1-3-18)
 ###### Added
 
@@ -8,6 +14,9 @@
 ###### Changed
 
 - Add ...otherProps to Button
+
+###### Fixed
+
 - Fix full width layout on layout container
 
 ## 0.8.2 (12-18-17)
