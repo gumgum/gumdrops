@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import trimString from '../utils/trimString';
 
-const LayoutContainer = ({ className, fullWidth, children, ...props }) => (
-    <div
-        className={ `gds-layout__container ${fullWidth ? 'gds-layout__container--full-width' : ''} ${className}` }
-        { ...props }>
-        { children }
-    </div>
-);
+const LayoutContainer = ({ className, fullWidth, children, ...props }) => {
+    const baseClass = fullWidth ? 'gds-layout__container--full-width' : 'gds-layout__container';
+    const classNames = trimString(`${baseClass} ${className}`);
+    return (
+        <div
+            className={ classNames }
+            { ...props }>
+            { children }
+        </div>
+    );
+};
 
 LayoutContainer.displayName = 'LayoutContainer';
 
