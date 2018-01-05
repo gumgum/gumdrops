@@ -1,6 +1,6 @@
 # GumGum Common JS Changelog
 
-## 0.9.1 (1-4-18)
+## 0.9.2 (1-4-18)
 ###### Fixed
 
 - Fix full width layout on layout container (again)
