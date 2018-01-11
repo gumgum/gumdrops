@@ -1,5 +1,10 @@
 # GumGum Common JS Changelog
 
+## 0.9.3 (1-11-18)
+###### Fixed
+
+- Fix styles on MultiSelect
+
 ## 0.9.2 (1-4-18)
 ###### Fixed
 
