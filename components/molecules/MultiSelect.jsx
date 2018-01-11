@@ -50,26 +50,23 @@ class MultiSelect extends React.Component {
                             };
 
                             return (
-                                <div key={ index }>
-                                    <li className="gds-button-dropdown__divider" />
-                                    <li className="gds-multi-select__menu-item" onClick={ _onClick }>
-                                        <div className="gds-multi-select__menu-link">
-                                            <div className="gds-form-group gds-multi-select__option" >
-                                                <div className="gds-form-group__checkbox">
-                                                    <label className="gds-form-group__checkbox-label">
-                                                        <input
-                                                            className="gds-form-group__checkbox-input"
-                                                            type="checkbox"
-                                                            checked={ selected }
-                                                            readOnly
-                                                        />
-                                                        <span className="gds-form-group__checkbox-indicator" />{ name }
-                                                    </label>
-                                                </div>
+                                <li key={ Math.random() } className="gds-multi-select__menu-item" onClick={ _onClick }>
+                                    <div className="gds-multi-select__menu-link">
+                                        <div className="gds-form-group gds-multi-select__option" >
+                                            <div className="gds-form-group__checkbox">
+                                                <label className="gds-form-group__checkbox-label">
+                                                    <input
+                                                        className="gds-form-group__checkbox-input"
+                                                        type="checkbox"
+                                                        checked={ selected }
+                                                        readOnly
+                                                    />
+                                                    <span className="gds-form-group__checkbox-indicator" />{ name }
+                                                </label>
                                             </div>
                                         </div>
-                                    </li>
-                                </div>
+                                    </div>
+                                </li>
                             );
                         })
                     }
