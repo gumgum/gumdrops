@@ -31,11 +31,11 @@ const sizeOptions = {
 
 const component = () => (
     <MultiSelect
-        placeholder={ text('Placeholder', 'Select an option') }
-        size={ select('Size', sizeOptions, '') }
-        callback={ action('multi_select_changed') }
-        options={ options }
-        className={ text('className', '') }
+        placeholder={text('Placeholder', 'Select an option')}
+        size={select('Size', sizeOptions, '')}
+        callback={action('multi_select_changed')}
+        options={options}
+        className={text('className', '')}
     />
 );
 

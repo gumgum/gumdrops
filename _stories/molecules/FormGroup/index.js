@@ -36,18 +36,17 @@ const selectOptions = [
 
 const component = () => (
     <FormGroup
-        isInline={ boolean('isInline', false) }
-        isDisabled={ boolean('isDisabled', false) }
-        context={ select('Context', contextOptions, 'success') }
-        className={ text('Classname', '') }
-        style={ object('Style', {}) }
-    >
-        <FormGroupLabel text={ text('Input Label', 'Cool Label') } />
+        isInline={boolean('isInline', false)}
+        isDisabled={boolean('isDisabled', false)}
+        context={select('Context', contextOptions, 'success')}
+        className={text('Classname', '')}
+        style={object('Style', {})}>
+        <FormGroupLabel text={text('Input Label', 'Cool Label')} />
         <TextInput name="username" placeholder="Bruce Lee" />
         <FormGroupTextHelp text="You got a cool username right there" />
 
-        <FormGroupLabel text={ text('Select label', 'My select label') } />
-        <Select options={ selectOptions } />
+        <FormGroupLabel text={text('Select label', 'My select label')} />
+        <Select options={selectOptions} />
     </FormGroup>
 );
 

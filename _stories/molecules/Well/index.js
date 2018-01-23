@@ -15,12 +15,12 @@ const contextOptions = {
 
 const component = () => (
     <Well
-        text={ text('Label', 'Default Well') }
-        context={ select('Context', contextOptions, '') }
-        button={ boolean('Button', false) }
-        callback={ action('well_closed') }
-        className={ text('ClassName', '') }
-        style={ object('Style', {}) }
+        text={text('Label', 'Default Well')}
+        context={select('Context', contextOptions, '')}
+        button={boolean('Button', false)}
+        callback={action('well_closed')}
+        className={text('ClassName', '')}
+        style={object('Style', {})}
     />
 );
 

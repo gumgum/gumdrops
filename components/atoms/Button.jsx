@@ -2,27 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import trimString from '../utils/trimString';
 
-const Button = ({ context, type, size, group, onClick, className, style, children, ...otherProps }) => {
-
+const Button = ({
+    context,
+    type,
+    size,
+    group,
+    onClick,
+    className,
+    style,
+    children,
+    ...otherProps
+}) => {
     const baseClass = 'gds-button',
-        contextClass = (context) ? `${baseClass}--${context}` : '',
-        sizeClass = (size) ? `${baseClass}--${size}` : '',
-        groupClass = (group) ? `${baseClass}-group__button` : '';
+        contextClass = context ? `${baseClass}--${context}` : '',
+        sizeClass = size ? `${baseClass}--${size}` : '',
+        groupClass = group ? `${baseClass}-group__button` : '';
 
-    const classNames = trimString(`${baseClass} ${contextClass} ${sizeClass} ${groupClass} ${className}`);
-
-    return (
-        <button
-            className={ classNames }
-            type={ type }
-            style={ style }
-            onClick={ onClick }
-            { ...otherProps }
-        >
-            { children }
-        </button>
+    const classNames = trimString(
+        `${baseClass} ${contextClass} ${sizeClass} ${groupClass} ${className}`
     );
 
+    return (
+        <button className={classNames} type={type} style={style} onClick={onClick} {...otherProps}>
+            {children}
+        </button>
+    );
 };
 
 Button.displayName = 'Button';

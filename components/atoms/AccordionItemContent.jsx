@@ -3,24 +3,23 @@ import PropTypes from 'prop-types';
 import trimString from '../utils/trimString';
 
 class AccordionItemContent extends Component {
-
-    handleClick = (e) => {
+    handleClick = e => {
         e.stopPropagation();
-    }
+    };
 
     render() {
         const { className, context, size, children, ...otherProps } = this.props;
         const baseClass = 'gds-accordion__child-item';
-        const contextClass =  (context) ? `${baseClass}--${context}` : '';
+        const contextClass = context ? `${baseClass}--${context}` : '';
         const classNames = trimString(`${baseClass} ${contextClass} ${className}`);
 
         const titleBaseClass = 'gds-accordion__child-item-title';
-        const titleSizeClass = (size) ? `${titleBaseClass}--${size}` : '';
+        const titleSizeClass = size ? `${titleBaseClass}--${size}` : '';
         const titleClass = trimString(`${titleBaseClass} ${titleSizeClass}`);
 
         return (
-            <li className={ classNames } onClick={ this.handleClick } { ...otherProps }>
-                <h4 className={ titleClass }>{ children }</h4>
+            <li className={classNames} onClick={this.handleClick} {...otherProps}>
+                <h4 className={titleClass}>{children}</h4>
             </li>
         );
     }

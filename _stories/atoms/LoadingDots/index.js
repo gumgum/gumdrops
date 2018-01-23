@@ -12,10 +12,10 @@ const sizeOptions = {
 
 const component = () => (
     <LoadingDots
-        size={ select('Size', sizeOptions, '') }
-        whiteDots={ boolean('White Dots', false) }
-        className={ text('ClassName', '-p-a-5') }
-        style={ object('Styles', {}) }
+        size={select('Size', sizeOptions, '')}
+        whiteDots={boolean('White Dots', false)}
+        className={text('ClassName', '-p-a-5')}
+        style={object('Styles', {})}
     />
 );
 

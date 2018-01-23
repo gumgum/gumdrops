@@ -12,24 +12,23 @@ import TextInput from '../../../components/atoms/TextInput';
 
 const component = () => (
     <LoginForm
-        capText={ text('Cap Text', 'Welcome') }
-        logoText={ text('Logo Text', 'Storybook') }
-        onSubmit={ action('Form Submit') }
-        recoveryFn={ action('Recovery Action') }
-        recoveryText={ text('Recovery Text', 'Forgot Password?') }
-    >
-        <FormGroup className="-m-b-1" >
+        capText={text('Cap Text', 'Welcome')}
+        logoText={text('Logo Text', 'Storybook')}
+        onSubmit={action('Form Submit')}
+        recoveryFn={action('Recovery Action')}
+        recoveryText={text('Recovery Text', 'Forgot Password?')}>
+        <FormGroup className="-m-b-1">
             <FormGroupLabel text="username" />
             <TextInput name="username" type="text" placeholder="username" />
         </FormGroup>
-        <FormGroup className="-m-b-2" >
+        <FormGroup className="-m-b-2">
             <FormGroupLabel text="Password" />
             <TextInput name="password" type="password" placeholder="password123" />
         </FormGroup>
-        <FormGroup className="-m-b-2" >
+        <FormGroup className="-m-b-2">
             <Checkbox name="staySignedIn" label="Stay signed in" />
         </FormGroup>
-        <Button type="submit" className="gds-button--block" context="primary" >
+        <Button type="submit" className="gds-button--block" context="primary">
             Login
         </Button>
     </LoginForm>

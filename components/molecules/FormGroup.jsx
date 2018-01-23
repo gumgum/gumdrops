@@ -2,27 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import trimString from '../utils/trimString';
 
-const FormGroup = ({
-    isInline,
-    isDisabled,
-    context,
-    className,
-    children,
-    ...otherProps
-}) => {
+const FormGroup = ({ isInline, isDisabled, context, className, children, ...otherProps }) => {
     const baseClass = 'gds-form-group';
-    const inlineClass = (isInline) ? `${baseClass}--inline` : '';
-    const disabledClass = (isDisabled) ? `${baseClass}--disabled` : '';
-    const contextClass = (context) ? `${baseClass}--${context}` : '';
+    const inlineClass = isInline ? `${baseClass}--inline` : '';
+    const disabledClass = isDisabled ? `${baseClass}--disabled` : '';
+    const contextClass = context ? `${baseClass}--${context}` : '';
 
-    const classNames = trimString(`${baseClass} ${inlineClass} ${contextClass} ${disabledClass} ${className}`);
+    const classNames = trimString(
+        `${baseClass} ${inlineClass} ${contextClass} ${disabledClass} ${className}`
+    );
 
     return (
-        <div
-            className={ classNames }
-            { ...otherProps }
-        >
-            { children }
+        <div className={classNames} {...otherProps}>
+            {children}
         </div>
     );
 };

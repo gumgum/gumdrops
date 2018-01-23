@@ -9,12 +9,8 @@ import LayoutContainer from './LayoutContainer/';
 import Row from './Row/';
 
 const stories = storiesOf('Layout', module);
-const storyWrapper = (story) => {
-    return (
-        <div style={ { margin: '35px' } }>
-            { story() }
-        </div>
-    );
+const storyWrapper = story => {
+    return <div style={{ margin: '35px' }}>{story()}</div>;
 };
 
 stories
@@ -23,5 +19,4 @@ stories
     .addDecorator(withKnobs)
     .add('Column', withReadme(...Column))
     .add('LayoutContainer', withReadme(...LayoutContainer))
-    .add('Row', withReadme(...Row))
-;
+    .add('Row', withReadme(...Row));

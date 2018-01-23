@@ -8,12 +8,12 @@ import FormGroup from '../../../components/molecules/FormGroup';
 
 const component = () => (
     <FormGroup>
-         <FormGroupLabel
-            text={ text('Text', 'Password') }
-            className={ text('Classname', '') }
-            style={ object('Style', {}) }
+        <FormGroupLabel
+            text={text('Text', 'Password')}
+            className={text('Classname', '')}
+            style={object('Style', {})}
         />
-        <TextInput name="password" type="password" defaultValue="Passw00rd"/>
+        <TextInput name="password" type="password" defaultValue="Passw00rd" />
     </FormGroup>
 );
 

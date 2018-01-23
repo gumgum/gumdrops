@@ -15,14 +15,14 @@ const contextOptions = {
 
 const component = () => (
     <Tag
-        context={ select('Context', contextOptions, 'normal') }
-        text={ text('Text', 'Sample Text') }
-        hasOption={ boolean('Has Option', false) }
-        optionIcon={ text('Option Icon', 'bt-times') }
-        small={ boolean('Small', false) }
-        onClick={ action('tag_click') }
-        className={ text('Classes', '') }
-        style={ object('Style', {}) }
+        context={select('Context', contextOptions, 'normal')}
+        text={text('Text', 'Sample Text')}
+        hasOption={boolean('Has Option', false)}
+        optionIcon={text('Option Icon', 'bt-times')}
+        small={boolean('Small', false)}
+        onClick={action('tag_click')}
+        className={text('Classes', '')}
+        style={object('Style', {})}
     />
 );
 

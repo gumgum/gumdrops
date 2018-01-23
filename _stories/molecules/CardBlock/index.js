@@ -14,10 +14,9 @@ const options = {
 const component = () => (
     <Card>
         <CardBlock
-            option={ select('Option', options, '') }
-            className={ text('ClassName', '') }
-            style={ object('Style', {}) }
-        >
+            option={select('Option', options, '')}
+            className={text('ClassName', '')}
+            style={object('Style', {})}>
             <p>Content in a CardBlock.</p>
         </CardBlock>
     </Card>

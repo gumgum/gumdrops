@@ -8,11 +8,11 @@ import FormGroup from '../../../components/molecules/FormGroup';
 
 const component = () => (
     <FormGroup context="danger">
-        <TextInput name="password" type="password" defaultValue="badpassword"/>
+        <TextInput name="password" type="password" defaultValue="badpassword" />
         <FormGroupTextHelp
-            text={ text('Text', 'Your password is incorrect') }
-            className={ text('Classname', '') }
-            style={ object('Style', {}) }
+            text={text('Text', 'Your password is incorrect')}
+            className={text('Classname', '')}
+            style={object('Style', {})}
         />
     </FormGroup>
 );

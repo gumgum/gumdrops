@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 import trimString from '../utils/trimString';
 
 const CircularThumbnail = ({ context, size, className, ...otherProps }) => {
-
     const baseClass = 'gds-circular-thumbnail',
         contextClass = context ? `${baseClass}--${context}` : '',
         sizeClass = size ? `${baseClass}--${size}` : '';
 
     const classNames = trimString(`${baseClass} ${contextClass} ${sizeClass} ${className}`);
 
-    return (
-        <img className={ classNames } { ...otherProps } />
-    );
-
+    return <img className={classNames} {...otherProps} />;
 };
 
 CircularThumbnail.displayName = 'CircularThumbnail';

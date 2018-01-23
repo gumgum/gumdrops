@@ -2,24 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import trimString from '../utils/trimString';
 
-const Divider = ({ label, centered = false, collapsible = false, open, callback, className, style }) => {
-
+const Divider = ({
+    label,
+    centered = false,
+    collapsible = false,
+    open,
+    callback,
+    className,
+    style
+}) => {
     const baseClass = 'gds-divider',
-        centeredClass = (centered) ? `${baseClass}--centered` : '',
-        collapsibleClass = (collapsible) ? 'gds-button--collapsible' : '',
-        arrowClasses = (open) ? `${baseClass}__arrow` : `${baseClass}__arrow ${baseClass}__arrow--collapse`;
+        centeredClass = centered ? `${baseClass}--centered` : '',
+        collapsibleClass = collapsible ? 'gds-button--collapsible' : '',
+        arrowClasses = open
+            ? `${baseClass}__arrow`
+            : `${baseClass}__arrow ${baseClass}__arrow--collapse`;
 
     const classNames = trimString(`${baseClass} ${centeredClass} ${collapsibleClass} ${className}`);
 
     return (
-        <div className={ classNames } style={ style } onClick={ callback }>
-            { centered && <span className="gds-divider__line" /> }
-            <span className="gds-divider__label gds-form-group__label">{ label }</span>
+        <div className={classNames} style={style} onClick={callback}>
+            {centered && <span className="gds-divider__line" />}
+            <span className="gds-divider__label gds-form-group__label">{label}</span>
             <span className="gds-divider__line" />
-            { collapsible && <span className={ arrowClasses } /> }
+            {collapsible && <span className={arrowClasses} />}
         </div>
     );
-
 };
 
 Divider.displayName = 'Divider';

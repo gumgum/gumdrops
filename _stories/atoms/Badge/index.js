@@ -19,11 +19,11 @@ const options = {
 
 const component = () => (
     <Badge
-        text={ text('Text', '2') }
-        context={ select('Context', options, '') }
-        empty={ boolean('Empty', false) }
-        className={ text('ClassName', '') }
-        style={ object('Style', {}) }
+        text={text('Text', '2')}
+        context={select('Context', options, '')}
+        empty={boolean('Empty', false)}
+        className={text('ClassName', '')}
+        style={object('Style', {})}
     />
 );
 

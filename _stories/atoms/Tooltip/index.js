@@ -37,17 +37,14 @@ const tooltipVariationsOptions = {
 
 const component = () => (
     <Tooltip
-        text={ text('Text', 'I am a tooltip!') }
-        position={ select('Position', tooltipPositions) }
-        context={ select('Context', tooltipContexts, '') }
-        size={ select('Size', tooltipSizeOptions, '') }
-        variations={ select('Variations', tooltipVariationsOptions, '') }
-        className={ text('ClassName', '') }
-        style={ object('Styles', {}) }
-    >
-        <Button context="default">
-            Button with Tooltip
-        </Button>
+        text={text('Text', 'I am a tooltip!')}
+        position={select('Position', tooltipPositions)}
+        context={select('Context', tooltipContexts, '')}
+        size={select('Size', tooltipSizeOptions, '')}
+        variations={select('Variations', tooltipVariationsOptions, '')}
+        className={text('ClassName', '')}
+        style={object('Styles', {})}>
+        <Button context="default">Button with Tooltip</Button>
     </Tooltip>
 );
 

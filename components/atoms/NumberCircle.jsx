@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import trimString from '../utils/trimString';
 
 const NumberCircle = ({ text, context, size, className, style }) => {
-
     const baseClass = 'gds-number-circle',
         contextClass = context ? `${baseClass}--${context}` : '',
         sizeClass = size ? `${baseClass}--${size}` : '';
@@ -11,9 +10,10 @@ const NumberCircle = ({ text, context, size, className, style }) => {
     const classNames = trimString(`${baseClass} ${contextClass} ${sizeClass} ${className}`);
 
     return (
-        <span className={ classNames } style={ style }>{ text }</span>
+        <span className={classNames} style={style}>
+            {text}
+        </span>
     );
-
 };
 
 NumberCircle.displayName = 'NumberCircle';

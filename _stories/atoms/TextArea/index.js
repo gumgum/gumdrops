@@ -21,13 +21,13 @@ const resizeOptions = {
 
 const component = () => (
     <TextArea
-        size={ select('Size', sizeOptions, '') }
-        resize={ select('Resize', resizeOptions, '') }
-        value={ text('Content', 'Content goes here') }
-        placeholder={ text('Placeholder', 'This is a placeholder') }
-        onChange={ action('TextInput changed') }
-        className={ text('Classname', '') }
-        style={ object('Style', {}) }
+        size={select('Size', sizeOptions, '')}
+        resize={select('Resize', resizeOptions, '')}
+        value={text('Content', 'Content goes here')}
+        placeholder={text('Placeholder', 'This is a placeholder')}
+        onChange={action('TextInput changed')}
+        className={text('Classname', '')}
+        style={object('Style', {})}
     />
 );
 

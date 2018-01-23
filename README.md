@@ -29,7 +29,7 @@ Follow the [docs](https://storybook.gumgum.com) to use your component with the c
 - Git and Git Flow [Install and Work Flow Instructions](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=138248293)
 - [NodeJS/NPM](http://nodejs.org/download/)
 - [Yarn](https://yarnpkg.com/)
-
+- Install the ESLint validators and [Prettier](https://prettier.io/docs/en/editors.html) on your editor of choice. We have the configuration files on the root of the project, `.eslinrc` and `.prettierrc`. There is a precommit hook to run the Prettier scripts on the files.
 
 ### Running storybook locally
 ```

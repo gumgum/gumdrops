@@ -46,16 +46,16 @@ const component = () => (
         <FormGroup>
             <FormGroupLabel text="Fruits" />
             <Select
-                options={ object('Options', options) }
-                name={ text('Name', 'fruit') }
-                value={ text('Value', 2) }
-                customName={ text('Custom Name', 'name') }
-                customValue={ text('Custom Value', 'value') }
-                onChange={ action('Select changed') }
-                context={ select('Context', contextOptions, '') }
-                size={ select('Size', sizeOptions, '') }
-                className={ text('Classname', '') }
-                style={ object('Style', {}) }
+                options={object('Options', options)}
+                name={text('Name', 'fruit')}
+                value={text('Value', 2)}
+                customName={text('Custom Name', 'name')}
+                customValue={text('Custom Value', 'value')}
+                onChange={action('Select changed')}
+                context={select('Context', contextOptions, '')}
+                size={select('Size', sizeOptions, '')}
+                className={text('Classname', '')}
+                style={object('Style', {})}
             />
         </FormGroup>
     </div>

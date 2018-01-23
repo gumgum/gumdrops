@@ -4,6 +4,9 @@
   "description": "GumGum JavaScript Components",
   "main": "dist/index",
   "module": "dist-es6/index",
+  "pre-commit": [
+    "prettier"
+  ],
   "scripts": {
     "start": "yarn run storybook",
     "storybook": "start-storybook -p 6006",
@@ -16,7 +19,8 @@
     "test": "storyshots",
     "postinstall": "postinstall-build --only-as-dependency dist",
     "preclean": "rimraf node_modules",
-    "clean": "yarn cache clean && yarn install"
+    "clean": "yarn cache clean && yarn install",
+    "prettier": "prettier \"*/**/*.{js,jsx,json,css,scss}\" --ignore-path ./.prettierignore --write && git add . && git status"
   },
   "repository": {
     "type": "git",
@@ -45,6 +49,7 @@
     "eslint": "^3.18.0",
     "eslint-plugin-react": "^6.10.3",
     "jest-cli": "^19.0.2",
+    "prettier": "1.10.2",
     "raw-loader": "^0.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

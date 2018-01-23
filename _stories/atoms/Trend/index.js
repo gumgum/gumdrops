@@ -12,11 +12,11 @@ const contextOptions = {
 
 const component = () => (
     <Trend
-        context={ select('Context', contextOptions, 'up') }
-        value={ text('Value', '42') }
-        unit={ text('Unit', '%') }
-        className={ text('Classes', '') }
-        style={ object('Style', {}) }
+        context={select('Context', contextOptions, 'up')}
+        value={text('Value', '42')}
+        unit={text('Unit', '%')}
+        className={text('Classes', '')}
+        style={object('Style', {})}
     />
 );
 

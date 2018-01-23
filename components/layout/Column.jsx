@@ -2,32 +2,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Column = (options) => {
-    const
-        { xs
-        , sm
-        , md
-        , lg
-        , xl
-        , className
-        , children
-        , ...props
-        } = options;
+const Column = options => {
+    const { xs, sm, md, lg, xl, className, children, ...props } = options;
     const sizes = { xs, sm, md, lg, xl };
-    const classList = Object
-        .keys(sizes)
+    const classList = Object.keys(sizes)
         .reduce((list, breakpoint) => {
             const size = sizes[breakpoint];
-            return list.concat(
-                size
-                ? `gds-layout__column--${breakpoint}-${size}`
-                : []
-            );
+            return list.concat(size ? `gds-layout__column--${breakpoint}-${size}` : []);
         }, [])
         .concat(className || []);
     return (
-        <div className={ classList.join(' ') } { ...props }>
-            { children }
+        <div className={classList.join(' ')} {...props}>
+            {children}
         </div>
     );
 };

@@ -24,11 +24,11 @@ const sizeOptions = {
 
 const component = () => (
     <NumberCircle
-        text={ text('Text', '1') }
-        size={ select('Size', sizeOptions, '') }
-        context={ select('Context', contextOptions, '') }
-        className={ text('ClassName', '') }
-        style={ object('Styles', {}) }
+        text={text('Text', '1')}
+        size={select('Size', sizeOptions, '')}
+        context={select('Context', contextOptions, '')}
+        className={text('ClassName', '')}
+        style={object('Styles', {})}
     />
 );
 

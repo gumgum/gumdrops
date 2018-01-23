@@ -8,33 +8,31 @@ import FormGroupLabel from '../../../components/atoms/FormGroupLabel';
 import FormGroup from '../../../components/molecules/FormGroup';
 
 class TestSearchMultiSelect extends React.Component {
-
     state = {
         names: namesList
     };
 
-    _updateNames = (names) => {
+    _updateNames = names => {
         this.setState({ names });
         action('SearchMultiSelect Updated')(names);
-    }
+    };
 
-    _handleInputChange = (value) =>
-        action('SearchMultiSelect current value')(value)
+    _handleInputChange = value => action('SearchMultiSelect current value')(value);
 
     render() {
         return (
             <FormGroup>
                 <FormGroupLabel text="names" />
                 <SearchMultiSelect
-                    placeholder={ text('Placeholder', 'My placeholder') }
-                    options={ this.state.names }
-                    update={ this._updateNames }
-                    onChange={ this._handleInputChange }
-                    context={ select('Context', contextOptions, 'primary') }
-                    size={ select('Size', ['sm', 'md'], 'md') }
-                    multiTerm={ boolean('Multiple Terms', false) }
-                    searchKeys={ boolean('Search Keys', false) }
-                    termDivider={ text('Term Divider') }
+                    placeholder={text('Placeholder', 'My placeholder')}
+                    options={this.state.names}
+                    update={this._updateNames}
+                    onChange={this._handleInputChange}
+                    context={select('Context', contextOptions, 'primary')}
+                    size={select('Size', ['sm', 'md'], 'md')}
+                    multiTerm={boolean('Multiple Terms', false)}
+                    searchKeys={boolean('Search Keys', false)}
+                    termDivider={text('Term Divider')}
                 />
             </FormGroup>
         );
