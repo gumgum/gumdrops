@@ -1,31 +1,72 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import createRange from '../utils/createRange';
+import charCodes from '../../constants/charCodes';
+import cx from 'classnames';
 
-const activeClass = 'gds-pagination__page-item--active';
-const itemClassName = 'gds-pagination__page-item';
-const linkClassName = 'gds-pagination__page-link';
-const fixedItemClass = `${itemClassName} ${itemClassName}--fixed`;
-const fixedLinkClass = `${linkClassName} ${linkClassName}--fixed`;
+class Pagination extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isPrevDisabled: props.activePage === 1,
+            isNextDisabled: props.activePage === props.lastPage
+        };
+    }
 
-const Pagination = props => {
-    const {
-        className: wrapperClassName,
-        boundaries,
-        activePage,
-        lastPage,
-        justify,
-        onChange,
-        size
-    } = props;
+    componentWillReceiveProps(nextProps) {
+        if (this.props.lastPage !== nextProps.lastPage) {
+            this.setState({
+                isPrevDisabled: nextProps.activePage === 1,
+                isNextDisabled: nextProps.activePage === nextProps.lastPage
+            });
+        }
+    }
 
-    const itemClass = justify ? itemClassName : fixedItemClass;
-    const linkClass = justify ? linkClassName : fixedLinkClass;
-    const sizeClass = size ? `gds-pagination--${size}` : '';
-    const widthClass = justify ? '' : 'gds-pagination--fixed';
-    const className = `gds-pagination ${sizeClass} gds-pagination--mobile-arrows ${widthClass}`;
+    _handleKeyPress = event => {
+        const { keyCode } = event;
 
-    const createPages = () => {
+        if (keyCode === charCodes.ARROW_LEFT || keyCode === charCodes.ARROW_UP) {
+            this._changePage('prev');
+        }
+        if (keyCode === charCodes.ARROW_RIGHT || keyCode === charCodes.ARROW_DOWN) {
+            this._changePage('next');
+        }
+    };
+
+    _changePage = page => {
+        const { onChange, activePage, lastPage } = this.props;
+        const { isPrevDisabled, isNextDisabled } = this.state;
+
+        const prev = activePage - 1;
+        const next = activePage + 1;
+
+        const isFirst = prev < 1;
+        const isLast = next > lastPage;
+
+        // Find next page
+        let newPage = page;
+        if (isNaN(page)) {
+            newPage = {
+                next: isLast ? lastPage : next,
+                prev: isFirst ? 1 : prev
+            }[page];
+        }
+
+        const shouldUpdateState = isFirst !== isPrevDisabled || isLast !== isNextDisabled;
+
+        if (shouldUpdateState) {
+            this.setState({
+                isPrevDisabled: isFirst,
+                isNextDisabled: isLast
+            });
+        }
+
+        // Pass next page to callback
+        onChange && onChange(newPage);
+    };
+
+    _createPages() {
+        const { boundaries, activePage, lastPage, justify } = this.props;
         // Beyond this number of results, the indicator doesn't work
         const displayLimit = 7;
         // Number of pages adjacent to the center
@@ -68,67 +109,84 @@ const Pagination = props => {
         const currentSet = shortSet || firstSet || lastSet || addBoundaries(getMiddleRange());
 
         return currentSet.map(page => {
-            const isActive = page === activePage;
-            const eltClass = `${itemClass} ${isActive ? activeClass : ''}`;
-            const changeConfig = { lastPage, activePage };
-            const callback = () => changePage(page, activePage, lastPage);
-            return { page, eltClass, callback };
+            const isCurrent = page === activePage;
+            const eltClass = cx('gds-pagination__page-item', '-va-top', {
+                'gds-pagination__page-item--fixed': !justify,
+                'gds-pagination__page-item--active': isCurrent
+            });
+            const callback = () => this._changePage(page);
+            return { page, eltClass, callback, isCurrent };
         });
-    };
+    }
 
-    const changePage = page => {
-        let newPage = page;
-        // Find next page
-        if (isNaN(page)) {
-            newPage = {
-                next: activePage + 1,
-                back: activePage - 1
-            }[page];
-        }
+    render() {
+        const { className, justify, size } = this.props;
 
-        if (newPage < 1) newPage = 1;
-        if (newPage > lastPage) newPage = lastPage;
+        const rootClass = cx('gds-pagination', 'gds-pagination--mobile-arrows', className, {
+            'gds-pagination--fixed': !justify,
+            [`gds-pagination--${size}`]: size
+        });
 
-        // Pass next page to callback
-        onChange && onChange(newPage);
-    };
-    const goBack = () => changePage('back');
-    const goForward = () => changePage('next');
+        const itemClass = cx('gds-pagination__page-item', '-va-top', {
+            'gds-pagination__page-item--fixed': !justify
+        });
 
-    const pages = createPages();
+        const linkClass = cx('gds-pagination__page-link', '-overflow-hidden', {
+            'gds-pagination__page-link--fixed': !justify
+        });
 
-    return (
-        <nav className={wrapperClassName}>
-            <div className={className}>
+        // fixes extra space below inline-block elements
+        const itemStyle = {
+            verticalAlign: 'top'
+        };
+
+        // fixes style issues associated with using buttons
+        const btnStyle = {
+            border: 0,
+            fontFamily: 'inherit',
+            padding: justify ? null : 0,
+            background: 'none'
+        };
+
+        return (
+            <nav className={rootClass} onKeyDown={this._handleKeyPress}>
                 <div className={itemClass}>
-                    <a onClick={goBack} className={linkClass}>
-                        <span className="-vis-hidden">&laquo;</span>
-                        <span className="-sr-only">Previous</span>
-                    </a>
+                    <button
+                        aria-label="Goto previous page"
+                        className={linkClass}
+                        disabled={this.state.isPrevDisabled}
+                        onClick={() => this._changePage('prev')}
+                        style={btnStyle}>
+                        <span className="-vis-hidden -ellipsis">Goto previous page</span>
+                    </button>
                 </div>
-
-                {pages.map(({ page, eltClass, callback }) => (
+                {this._createPages().map(({ page, eltClass, callback, isCurrent }) => (
                     <div key={page} className={eltClass}>
-                        <a onClick={callback} className={linkClass}>
+                        <button
+                            aria-label={isCurrent ? `Page ${page}, Current` : `Goto page ${page}`}
+                            aria-current={isCurrent}
+                            className={linkClass}
+                            onClick={callback}
+                            style={btnStyle}>
                             {page}
-                        </a>
+                        </button>
                     </div>
                 ))}
-
                 <div className={itemClass}>
-                    <a onClick={goForward} className={linkClass}>
-                        <span className="-vis-hidden" aria-hidden="true">
-                            &raquo;
-                        </span>
-                        <span className="-sr-only">Next</span>
-                    </a>
+                    <button
+                        aria-label="Goto next page"
+                        className={linkClass}
+                        disabled={this.state.isNextDisabled}
+                        onClick={() => this._changePage('next')}
+                        style={btnStyle}>
+                        <span className="-vis-hidden -ellipsis">Goto next page</span>
+                    </button>
                 </div>
-
                 <span className="gds-pagination__page-indicator" />
-            </div>
-        </nav>
-    );
-};
+            </nav>
+        );
+    }
+}
 
 Pagination.displayName = 'Pagination';
 
