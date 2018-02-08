@@ -1,5 +1,5 @@
 import React from 'react';
-import { boolean, select, text, object } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import readme from './README.md';
 
 import Accordion from '../../../components/molecules/Accordion';
@@ -23,10 +23,20 @@ const component = () => (
         context={select('Context', contextOptions, '')}
         className={text('Class', '')}>
         <AccordionItem label={text('Item Label 1', 'Item 1')}>
-            <AccordionItemContent>Content</AccordionItemContent>
+            <AccordionItemContent>Content 1</AccordionItemContent>
         </AccordionItem>
         <AccordionItem label={text('Item Label 2', 'Item 2')}>
-            <AccordionItemContent>Content</AccordionItemContent>
+            <AccordionItemContent>Content 2</AccordionItemContent>
+        </AccordionItem>
+        <AccordionItem label={text('Item Label 3', 'Item 3')}>
+            <AccordionItemContent>Content 3</AccordionItemContent>
+            <Accordion
+                size={select('Size', sizeOptions, '')}
+                context={select('Context', contextOptions, '')}>
+                <AccordionItem label={text('Nested Item Label 1', 'Nested Item 1')}>
+                    <AccordionItemContent>Nested Content</AccordionItemContent>
+                </AccordionItem>
+            </Accordion>
         </AccordionItem>
     </Accordion>
 );

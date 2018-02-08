@@ -67,7 +67,7 @@
         "no-multi-str": 1,
         "key-spacing": [1, { "afterColon": true }],
         "no-var": 1,
-        "no-unused-vars": 0,
+        "no-unused-vars": [1, { "vars": "local", "args": "after-used" }],
         "no-alert": 0,
         "no-lone-blocks": 0,
         "react/display-name": [1, { "ignoreTranspilerName": false }],

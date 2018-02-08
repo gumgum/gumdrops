@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const Accordion = ({ children, context, size, className, ...otherProps }) => {
-    const baseClass = 'gds-accordion',
-        contextClass = context ? `${baseClass}--${context}` : '';
-    const classNames = trimString(`${baseClass} ${contextClass} ${className}`);
+    const rootClass = cx('gds-accordion', className, {
+        [`gds-accordion--${context}`]: context
+    });
 
     const newChildren = React.Children.map(children, child => {
         return React.cloneElement(child, {
@@ -15,7 +15,7 @@ const Accordion = ({ children, context, size, className, ...otherProps }) => {
     });
 
     return (
-        <div className={classNames} {...otherProps}>
+        <div className={rootClass} {...otherProps}>
             <ul className="gds-accordion-list">{newChildren}</ul>
         </div>
     );
