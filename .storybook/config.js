@@ -7,7 +7,7 @@ import { setOptions } from '@storybook/addon-options';
 import './index.css';
 
 setOptions({
-    name: 'GumGum Storybook',
+    name: 'Gumdrops',
     url: 'https://storybook.gumgum.com',
     goFullScreen: false,
     showLeftPanel: true,

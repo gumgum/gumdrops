@@ -20,7 +20,7 @@
     "postinstall": "postinstall-build --only-as-dependency dist",
     "preclean": "rimraf node_modules",
     "clean": "yarn cache clean && yarn install",
-    "prettier": "prettier \"*/**/*.{js,jsx,json,css,scss}\" --ignore-path ./.prettierignore --write && git add . && git status"
+    "prettier": "prettier \"*/**/*.{js,jsx,json,css,scss}\" --ignore-path ./.prettierignore --write && git status"
   },
   "repository": {
     "type": "git",
