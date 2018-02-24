@@ -4,7 +4,7 @@ import trimString from '../utils/trimString';
 
 const Accordion = ({ children, context, size, className, ...otherProps }) => {
     const baseClass = 'gds-accordion',
-        contextClass = (context) ? `${baseClass}--${context}` : '';
+        contextClass = context ? `${baseClass}--${context}` : '';
     const classNames = trimString(`${baseClass} ${contextClass} ${className}`);
 
     const newChildren = React.Children.map(children, child => {
@@ -15,10 +15,8 @@ const Accordion = ({ children, context, size, className, ...otherProps }) => {
     });
 
     return (
-        <div className={ classNames } { ...otherProps }>
-            <ul className="gds-accordion-list">
-                { newChildren }
-            </ul>
+        <div className={classNames} {...otherProps}>
+            <ul className="gds-accordion-list">{newChildren}</ul>
         </div>
     );
 };

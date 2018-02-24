@@ -8,34 +8,29 @@ import Pagination from '../../../components/molecules/Pagination';
 const sizeOptions = ['xl', 'lg', 'sm', 'xs', ''];
 
 class TestPagination extends React.Component {
-
     state = {
         activePage: 7,
         lastPage: 70
-    }
+    };
 
-    handlePageChange = (newPage) => {
+    handlePageChange = newPage => {
         const activePage = newPage;
         this.setState({ activePage });
         action('Page change')(activePage);
-    }
+    };
 
     render() {
-        const {
-            activePage,
-            lastPage
-        } = this.state;
+        const { activePage, lastPage } = this.state;
 
         return (
             <Pagination
-                activePage={ number('Current Page', activePage) }
-                lastPage={ number('Last Page', lastPage) }
-                boundaries={ boolean('Show Boundaries', false) }
-                justify={ boolean('Justify', false) }
-                size={ select('Size', sizeOptions, '') }
-                onChange={ this.handlePageChange }
+                activePage={number('Current Page', activePage)}
+                lastPage={number('Last Page', lastPage)}
+                boundaries={boolean('Show Boundaries', false)}
+                justify={boolean('Justify', false)}
+                size={select('Size', sizeOptions, '')}
+                onChange={this.handlePageChange}
             />
-
         );
     }
 }

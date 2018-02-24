@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import arraysEqual from '../utils/arraysEqual';
 
 class SearchMultiSelect extends React.Component {
-
     constructor({ options, searchKeys, multiTerm, termDivider, filter }) {
         super();
         const searchConfig = { searchKeys, multiTerm, termDivider };
@@ -59,41 +58,39 @@ class SearchMultiSelect extends React.Component {
         window.removeEventListener('click', this._closeOnClickOutside);
     }
 
-
     _updateSearchTerm = ({ target }) => {
         const { value: searchTerm } = target;
         const { onChange } = this.props;
         const externalOnChange = () => onChange && onChange(searchTerm);
-        this.setState({
-            isOpen: true,
-            searchTerm
-        }, externalOnChange);
+        this.setState(
+            {
+                isOpen: true,
+                searchTerm
+            },
+            externalOnChange
+        );
     };
 
     _openSelect = () => {
         // If open aready, nothing to update
         if (this.state.isOpen) return;
         this.setState({ isOpen: true });
-    }
+    };
 
     _closeSelect = () => this.setState({ isOpen: false });
 
-    _toggleSelect = () => this.setState(prevState =>
-        ({ isOpen: !prevState.isOpen })
-    );
+    _toggleSelect = () => this.setState(prevState => ({ isOpen: !prevState.isOpen }));
 
-    _toggleTags = () => this.setState(prevState =>
-        ({ isTagsOpen: !prevState.isTagsOpen })
-    );
+    _toggleTags = () => this.setState(prevState => ({ isTagsOpen: !prevState.isTagsOpen }));
 
-    _clearAll = (e) => {
+    _clearAll = e => {
         e.stopPropagation();
         const { options, update } = this.props;
         const newOptions = options.map(o => ({ ...o, isSelected: false }));
         update(newOptions);
     };
 
-    _toggleOption = (index) => {
+    _toggleOption = index => {
         const { options, update } = this.props;
         const { isSelected, ...oldOption } = options[index];
         const newOptions = options.slice();
@@ -102,16 +99,15 @@ class SearchMultiSelect extends React.Component {
         this.setState({ currentIndex: index });
     };
 
-    _removeOption = (index) => {
+    _removeOption = index => {
         const { options, update } = this.props;
         const oldOption = options[index];
         const newOptions = options.slice();
         newOptions[index] = { ...oldOption, isSelected: false };
-        const tagCount = newOptions
-            .reduce((acc, { isSelected }) => isSelected
-                ? acc + 1
-                : acc
-                , 0);
+        const tagCount = newOptions.reduce(
+            (acc, { isSelected }) => (isSelected ? acc + 1 : acc),
+            0
+        );
         if (tagCount < 1) this.setState({ isTagsOpen: false });
         update(newOptions);
     };
@@ -146,9 +142,8 @@ class SearchMultiSelect extends React.Component {
             return;
         }
         const i = matchingIndexes.indexOf(currentIndex);
-        const nextIndex = matchingIndexes.length > (i + 1)
-            ? matchingIndexes[i + 1]
-            : matchingIndexes[0];
+        const nextIndex =
+            matchingIndexes.length > i + 1 ? matchingIndexes[i + 1] : matchingIndexes[0];
         this.setState({ currentIndex: nextIndex });
     }
 
@@ -160,119 +155,111 @@ class SearchMultiSelect extends React.Component {
         }
         const i = matchingIndexes.indexOf(currentIndex);
         const last = matchingIndexes.length - 1;
-        const prevIndex = (i - 1) >= 0
-            ? matchingIndexes[i - 1]
-            : matchingIndexes[last];
+        const prevIndex = i - 1 >= 0 ? matchingIndexes[i - 1] : matchingIndexes[last];
         this.setState({ currentIndex: prevIndex });
     }
 
     _closeOnClickOutside = ({ target }) => {
         const el = this.container;
         if (!el.contains(target)) this._closeSelect();
-    }
+    };
 
-    _getContainer = (ref) => this.container = ref;
-
+    _getContainer = ref => (this.container = ref);
 
     render() {
         const { isOpen, isTagsOpen, currentIndex, searchTerm, matchingIndexes } = this.state;
         const { options, context, placeholder, size } = this.props;
 
-        const numberSelected = options
-            .filter(o => o.isSelected)
-            .length;
+        const numberSelected = options.filter(o => o.isSelected).length;
 
         const regEx = new RegExp(searchTerm, 'ig');
-        const openClass = (isOpen) ? 'gds-search-select--open' : '';
-        const openTagsClass = (isTagsOpen) ? 'gds-search-select__tag-holder--bubble-active' : '';
+        const openClass = isOpen ? 'gds-search-select--open' : '';
+        const openTagsClass = isTagsOpen ? 'gds-search-select__tag-holder--bubble-active' : '';
         const tagSize = size === 'sm' ? 'xs' : 'sm';
 
         const TagIndicatorClasses = `gds-search-select__tag-indicator gds-tag gds-tag--${tagSize} gds-tag--with-button`;
         const tagStyle = size === 'sm' ? { top: '0.4rem' } : {};
 
         return (
-            <div ref={ this._getContainer } className={ `gds-search-select ${openClass}` }>
+            <div ref={this._getContainer} className={`gds-search-select ${openClass}`}>
                 <div className="gds-search-select__control">
-                    {
-                        (numberSelected !== 0) &&
+                    {numberSelected !== 0 && (
                         <div
-                            onClick={ this._toggleTags }
-                            className={ `${TagIndicatorClasses} gds-tag--${context}` }
-                            style={ tagStyle }
-                        >
-                            <span className="-user-select--none">{ `${numberSelected} Selected` }</span>
+                            onClick={this._toggleTags}
+                            className={`${TagIndicatorClasses} gds-tag--${context}`}
+                            style={tagStyle}>
+                            <span className="-user-select--none">{`${numberSelected} Selected`}</span>
                             <button
-                                onClick={ this._clearAll }
-                                className={ `gds-tag__option gds-tag__option--sm gds-tag__option--${context}` }
-                            >
+                                onClick={this._clearAll}
+                                className={`gds-tag__option gds-tag__option--sm gds-tag__option--${context}`}>
                                 <i className="btl bt-fw bt-times" />
                             </button>
                         </div>
-                    }
+                    )}
                     <input
-                        onFocus={ this._openSelect }
-                        onClick={ this._openSelect }
-                        onChange={ this._updateSearchTerm }
+                        onFocus={this._openSelect}
+                        onClick={this._openSelect}
+                        onChange={this._updateSearchTerm}
                         type="text"
-                        placeholder={ placeholder }
-                        className={ `gds-search-select__input gds-search-select__input--${size} ${(numberSelected > 0) ? hasTags : ''}` }
+                        placeholder={placeholder}
+                        className={`gds-search-select__input gds-search-select__input--${size} ${
+                            numberSelected > 0 ? hasTags : ''
+                        }`}
                     />
-                    <button className="gds-search-select__toggle-button -cursor--pointer" onClick={ this._toggleSelect } />
+                    <button
+                        className="gds-search-select__toggle-button -cursor--pointer"
+                        onClick={this._toggleSelect}
+                    />
                 </div>
-                <div className={ `${TagHolderClasses} ${openTagsClass}` } >
+                <div className={`${TagHolderClasses} ${openTagsClass}`}>
                     <div className="gds-search-select__tag-overflow">
-                        {
-                            options.map(({ name, key, isSelected }, index) => {
-                                const removeOption = () => this._removeOption(index);
-                                if (!isSelected) return;
-                                return (
-
-                                    <div
-                                        key={ key }
-                                        className={ `-m-a-1 gds-tag gds-tag--sm gds-tag--${context} gds-tag--with-button gds-tag--with-button-sm` }
-                                    >
-                                        { name }
-                                        <button
-                                            onClick={ removeOption }
-                                            className={ `gds-tag__option gds-tag__option--sm gds-tag__option--${context}` }>
-                                            <i className="btl bt-fw bt-times" />
-                                        </button>
-                                    </div>
-
-                                );
-                            })
-                        }
+                        {options.map(({ name, key, isSelected }, index) => {
+                            const removeOption = () => this._removeOption(index);
+                            if (!isSelected) return;
+                            return (
+                                <div
+                                    key={key}
+                                    className={`-m-a-1 gds-tag gds-tag--sm gds-tag--${context} gds-tag--with-button gds-tag--with-button-sm`}>
+                                    {name}
+                                    <button
+                                        onClick={removeOption}
+                                        className={`gds-tag__option gds-tag__option--sm gds-tag__option--${context}`}>
+                                        <i className="btl bt-fw bt-times" />
+                                    </button>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
                 <div className="gds-search-select__menu">
                     <div className="gds-search-select__menu-items">
-                        {
-                            matchingIndexes.map((index) => {
-                                const { name, key, isSelected } = options[index];
-                                const toggleOption = () => this._toggleOption(index);
-                                const selectedClass = (index === currentIndex) ? 'gds-search-select__menu-item--selected' : '';
+                        {matchingIndexes.map(index => {
+                            const { name, key, isSelected } = options[index];
+                            const toggleOption = () => this._toggleOption(index);
+                            const selectedClass =
+                                index === currentIndex
+                                    ? 'gds-search-select__menu-item--selected'
+                                    : '';
 
-                                return (
-                                    <div
-                                        key={ key }
-                                        onClick={ toggleOption }
-                                        className={ `gds-search-select__menu-item ${selectedClass}` }
-                                    >
-                                        <label className="gds-search-select__checkbox">
-                                            <input
-                                                name={ name }
-                                                className="gds-search-select__checkbox-input"
-                                                type="checkbox"
-                                                checked={ isSelected }
-                                                readOnly
-                                            />
-                                            <span className="gds-search-select__checkbox-indicator" />
-                                        </label>
-                                        { name }
-                                    </div>
-                                );
-                            })
-                        }
+                            return (
+                                <div
+                                    key={key}
+                                    onClick={toggleOption}
+                                    className={`gds-search-select__menu-item ${selectedClass}`}>
+                                    <label className="gds-search-select__checkbox">
+                                        <input
+                                            name={name}
+                                            className="gds-search-select__checkbox-input"
+                                            type="checkbox"
+                                            checked={isSelected}
+                                            readOnly
+                                        />
+                                        <span className="gds-search-select__checkbox-indicator" />
+                                    </label>
+                                    {name}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
@@ -289,21 +276,18 @@ const hasTags = 'gds-search-select__input--has-tag';
 // the 'name' property matches the 'term' regEx
 const getMatchingIndexes = (options, query, config) => {
     const { searchKeys, multiTerm, termDivider } = config;
-    const terms = multiTerm
-        ? query.split(termDivider)
-        : [query];
-    const findMatches = (q) =>
-        terms.some((term) => {
+    const terms = multiTerm ? query.split(termDivider) : [query];
+    const findMatches = q =>
+        terms.some(term => {
             const regEx = new RegExp(term, 'ig');
             return regEx.test(q);
         });
-    return options
-        .reduce((acc, { name, key }, index) => {
-            const isNameMatch = findMatches(name);
-            const isKeyMatch = searchKeys && findMatches(key);
-            if (isNameMatch || isKeyMatch) acc.push(index);
-            return acc;
-        }, []);
+    return options.reduce((acc, { name, key }, index) => {
+        const isNameMatch = findMatches(name);
+        const isKeyMatch = searchKeys && findMatches(key);
+        if (isNameMatch || isKeyMatch) acc.push(index);
+        return acc;
+    }, []);
 };
 
 SearchMultiSelect.displayName = 'SearchMultiSelect';
@@ -328,10 +312,7 @@ SearchMultiSelect.propTypes = {
     size: PropTypes.oneOf(['sm', 'md']),
     searchKeys: PropTypes.boolean,
     multiTerm: PropTypes.boolean,
-    termDivider: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.instanceOf(RegExp)
-    ])
+    termDivider: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(RegExp)])
 };
 
 export default SearchMultiSelect;

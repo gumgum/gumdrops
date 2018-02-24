@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ModalBody = ({ className, style, children }) => (
-    <div className={ `gds-modal__body ${className}` } style={ style } >
-        { children }
+    <div className={`gds-modal__body ${className}`} style={style}>
+        {children}
     </div>
 );
 

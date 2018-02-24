@@ -1,18 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextInput = ({
-    className,
-    type,
-    size,
-    ...otherProps
-}) => {
-    const sizeClass = (size) ? `gds-form-group__text-input--${size}` : '';
+const TextInput = ({ className, type, size, ...otherProps }) => {
+    const sizeClass = size ? `gds-form-group__text-input--${size}` : '';
     return (
         <input
-            className={ `gds-form-group__text-input ${sizeClass} ${className}` }
-            type={ type }
-            { ...otherProps }
+            className={`gds-form-group__text-input ${sizeClass} ${className}`}
+            type={type}
+            {...otherProps}
         />
     );
 };

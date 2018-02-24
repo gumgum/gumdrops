@@ -20,12 +20,8 @@ import TextInput from './TextInput';
 import Select from './Select';
 
 const stories = storiesOf('Atoms', module);
-const storyWrapper = (story) => {
-    return (
-        <div style={ { margin: '35px' } }>
-            { story() }
-        </div>
-    );
+const storyWrapper = story => {
+    return <div style={{ margin: '35px' }}>{story()}</div>;
 };
 
 stories
@@ -45,5 +41,4 @@ stories
     .add('TextArea', withReadme(...TextArea))
     .add('TextInput', withReadme(...TextInput))
     .add('Tooltip', withReadme(...Tooltip))
-    .add('Trend', withReadme(...Trend))
-;
+    .add('Trend', withReadme(...Trend));

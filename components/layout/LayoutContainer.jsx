@@ -6,10 +6,8 @@ const LayoutContainer = ({ className, fullWidth, children, ...props }) => {
     const baseClass = fullWidth ? 'gds-layout__container--full-width' : 'gds-layout__container';
     const classNames = trimString(`${baseClass} ${className}`);
     return (
-        <div
-            className={ classNames }
-            { ...props }>
-            { children }
+        <div className={classNames} {...props}>
+            {children}
         </div>
     );
 };

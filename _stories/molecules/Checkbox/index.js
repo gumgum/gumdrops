@@ -15,11 +15,11 @@ const sizeOptions = {
 const component = () => (
     <FormGroup>
         <Checkbox
-            label={ text('Label', 'party parrots') }
-            size={ select('Size', sizeOptions, '') }
-            className={ text('ClassName', '') }
-            style={ object('Style', {}) }
-            onChange={ action('checkbox_checked') }
+            label={text('Label', 'party parrots')}
+            size={select('Size', sizeOptions, '')}
+            className={text('ClassName', '')}
+            style={object('Style', {})}
+            onChange={action('checkbox_checked')}
         />
     </FormGroup>
 );

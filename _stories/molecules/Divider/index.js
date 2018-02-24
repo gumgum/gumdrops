@@ -7,13 +7,13 @@ import Divider from '../../../components/molecules/Divider';
 
 const component = () => (
     <Divider
-        label={ text('Label', 'Default Divider') }
-        centered={ boolean('Centered', false) }
-        collapsible={ boolean('Collapsible', false) }
-        open={ boolean('Open', false) }
-        className={ text('ClassName', '') }
-        style={ object('Style', {}) }
-        callback={ action('divider_toggled') }
+        label={text('Label', 'Default Divider')}
+        centered={boolean('Centered', false)}
+        collapsible={boolean('Collapsible', false)}
+        open={boolean('Open', false)}
+        className={text('ClassName', '')}
+        style={object('Style', {})}
+        callback={action('divider_toggled')}
     />
 );
 

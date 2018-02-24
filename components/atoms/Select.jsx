@@ -2,16 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import trimString from '../utils/trimString';
 
-const Select = ({
-    context,
-    size,
-    customValue,
-    customName,
-    options,
-    className,
-    ...otherProps
-}) => {
-
+const Select = ({ context, size, customValue, customName, options, className, ...otherProps }) => {
     const baseClass = 'gds-form-group__select-input',
         contextClass = context ? `${baseClass}--${context}` : '',
         sizeClass = size ? `${baseClass}--${size}` : '';
@@ -19,20 +10,12 @@ const Select = ({
     const classNames = trimString(`${baseClass} ${contextClass} ${sizeClass} ${className}`);
 
     return (
-        <select
-            className={ classNames }
-            { ...otherProps }
-        >
-            {
-                options.map((o) => (
-                    <option
-                        key={ o[customValue] }
-                        value={ o[customValue] }
-                    >
-                        { o[customName] }
-                    </option>
-                ))
-            }
+        <select className={classNames} {...otherProps}>
+            {options.map(o => (
+                <option key={o[customValue]} value={o[customValue]}>
+                    {o[customName]}
+                </option>
+            ))}
         </select>
     );
 };

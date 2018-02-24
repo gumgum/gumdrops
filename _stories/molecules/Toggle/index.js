@@ -18,12 +18,12 @@ const sizeOptions = {
 
 const component = () => (
     <Toggle
-        label={ text('Label', 'Default Toggle') }
-        type={ select('Type', options, 'checkbox') }
-        size={ select('Size', sizeOptions, '') }
-        className={ text('ClassName', '') }
-        style={ object('Style', {}) }
-        onChange={ action('toggle_checked') }
+        label={text('Label', 'Default Toggle')}
+        type={select('Type', options, 'checkbox')}
+        size={select('Size', sizeOptions, '')}
+        className={text('ClassName', '')}
+        style={object('Style', {})}
+        onChange={action('toggle_checked')}
     />
 );
 

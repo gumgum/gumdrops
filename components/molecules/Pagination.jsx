@@ -8,7 +8,7 @@ const linkClassName = 'gds-pagination__page-link';
 const fixedItemClass = `${itemClassName} ${itemClassName}--fixed`;
 const fixedLinkClass = `${linkClassName} ${linkClassName}--fixed`;
 
-const Pagination = (props) => {
+const Pagination = props => {
     const {
         className: wrapperClassName,
         boundaries,
@@ -31,13 +31,9 @@ const Pagination = (props) => {
         // Number of pages adjacent to the center
         const neighbors = boundaries ? 2 : 3;
         // Set limits on the first sectioni of pages
-        const firstSetEnd = boundaries
-            ? displayLimit - 2
-            : displayLimit - 1;
+        const firstSetEnd = boundaries ? displayLimit - 2 : displayLimit - 1;
         // Set limits on the last section of pages
-        const lastSetStart = lastPage > displayLimit
-            ? (lastPage - firstSetEnd)
-            : 1;
+        const lastSetStart = lastPage > displayLimit ? lastPage - firstSetEnd : 1;
 
         // Generate pages not in first or last sections
         const getMiddleRange = () => {
@@ -47,19 +43,20 @@ const Pagination = (props) => {
         };
         // Add first and last pages to current set
         const addBoundaries = (range, type) => {
-            const limits = () => ({
-                'last': [...range.slice(0, -1), lastPage],
-                'first': [1, ...range.slice(-(displayLimit - 1))]
-            })[type] || [1, ...range, lastPage];
+            const limits = () =>
+                ({
+                    last: [...range.slice(0, -1), lastPage],
+                    first: [1, ...range.slice(-(displayLimit - 1))]
+                }[type] || [1, ...range, lastPage]);
             return boundaries ? limits() : range;
         };
 
         // Total number of pages is below display limit
         const isBelowLimit = lastPage <= displayLimit;
         // Current page is within first section
-        const isFirstSet = !isBelowLimit && (activePage <= firstSetEnd);
+        const isFirstSet = !isBelowLimit && activePage <= firstSetEnd;
         // Current page is within last section
-        const isLastSet = !isFirstSet && (activePage > lastSetStart);
+        const isLastSet = !isFirstSet && activePage > lastSetStart;
 
         // Set of pages when total is below display limit
         const shortSet = isBelowLimit && createRange(1, lastPage);
@@ -70,7 +67,7 @@ const Pagination = (props) => {
 
         const currentSet = shortSet || firstSet || lastSet || addBoundaries(getMiddleRange());
 
-        return currentSet.map((page) => {
+        return currentSet.map(page => {
             const isActive = page === activePage;
             const eltClass = `${itemClass} ${isActive ? activeClass : ''}`;
             const changeConfig = { lastPage, activePage };
@@ -79,7 +76,7 @@ const Pagination = (props) => {
         });
     };
 
-    const changePage = (page) => {
+    const changePage = page => {
         let newPage = page;
         // Find next page
         if (isNaN(page)) {
@@ -101,33 +98,33 @@ const Pagination = (props) => {
     const pages = createPages();
 
     return (
-        <nav className={ wrapperClassName }>
-            <div className={ className } >
-
-                <div className={ itemClass } >
-                    <a onClick={ goBack } className={ linkClass } >
+        <nav className={wrapperClassName}>
+            <div className={className}>
+                <div className={itemClass}>
+                    <a onClick={goBack} className={linkClass}>
                         <span className="-vis-hidden">&laquo;</span>
                         <span className="-sr-only">Previous</span>
                     </a>
                 </div>
 
-                { pages.map(({ page, eltClass, callback }) => (
-                    <div key={ page } className={ eltClass } >
-                        <a onClick={ callback } className={ linkClass } >
-                            { page }
+                {pages.map(({ page, eltClass, callback }) => (
+                    <div key={page} className={eltClass}>
+                        <a onClick={callback} className={linkClass}>
+                            {page}
                         </a>
                     </div>
-                )) }
+                ))}
 
-                <div className={ itemClass } >
-                    <a onClick={ goForward } className={ linkClass } >
-                        <span className="-vis-hidden" aria-hidden="true">&raquo;</span>
+                <div className={itemClass}>
+                    <a onClick={goForward} className={linkClass}>
+                        <span className="-vis-hidden" aria-hidden="true">
+                            &raquo;
+                        </span>
                         <span className="-sr-only">Next</span>
                     </a>
                 </div>
 
                 <span className="gds-pagination__page-indicator" />
-
             </div>
         </nav>
     );

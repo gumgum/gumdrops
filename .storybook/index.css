@@ -17,10 +17,15 @@ th {
     text-transform: capitalize !important;
 }
 
-th, td {
-    padding: .5rem !important;
+th,
+td {
+    padding: 0.5rem !important;
 }
 
-table, thead, th, td, tr {
+table,
+thead,
+th,
+td,
+tr {
     border: none;
 }

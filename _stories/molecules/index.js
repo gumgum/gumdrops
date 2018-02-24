@@ -21,12 +21,8 @@ import Toggle from './Toggle/';
 import Well from './Well/';
 
 const stories = storiesOf('Molecules', module);
-const storyWrapper = (story) => {
-    return (
-        <div style={ { margin: '35px' } }>
-            { story() }
-        </div>
-    );
+const storyWrapper = story => {
+    return <div style={{ margin: '35px' }}>{story()}</div>;
 };
 
 stories
@@ -47,5 +43,4 @@ stories
     .add('Pagination', withReadme(...Pagination))
     .add('SearchMultiSelect', withReadme(...SearchMultiSelect))
     .add('Toggle', withReadme(...Toggle))
-    .add('Well', withReadme(...Well))
-;
+    .add('Well', withReadme(...Well));

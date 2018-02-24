@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 import trimString from '../utils/trimString';
 
 const Badge = ({ text, context, empty, className, style }) => {
-
     const baseClass = 'gds-badge',
-        contextClass = (context) ? `${baseClass}--${context}` : '',
-        emptyClass = (empty) ? `${baseClass}--empty` : '';
+        contextClass = context ? `${baseClass}--${context}` : '',
+        emptyClass = empty ? `${baseClass}--empty` : '';
 
     const classNames = trimString(`${baseClass} ${contextClass} ${emptyClass} ${className}`);
 
-    return (
-        <span className={ classNames }>{ !empty && text }</span>
-    );
-
+    return <span className={classNames}>{!empty && text}</span>;
 };
 
 Badge.displayName = 'Badge';

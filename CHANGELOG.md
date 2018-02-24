@@ -1,5 +1,15 @@
 # GumGum Common JS Changelog
 
+## 0.10.0 (2-23-18)
+###### Added
+
+- [CJL-48] - Utility class documentation and examples
+- [CJL-43] - Add Prettier to the project
+
+###### Fixed
+
+- Close Button on ModalHeader
+
 ## 0.9.3 (1-11-18)
 ###### Fixed
 

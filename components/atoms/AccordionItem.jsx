@@ -5,29 +5,29 @@ import trimString from '../utils/trimString';
 class AccordionItem extends Component {
     state = {
         open: false
-    }
+    };
 
     toggleOpen = () => {
         this.setState(({ open }) => ({ open: !open }));
-    }
+    };
 
     render() {
         const { size, context, className, children } = this.props;
         const baseClass = 'gds-accordion__item';
-        const contextClass = (context) ? `${baseClass}--${context}` : '';
+        const contextClass = context ? `${baseClass}--${context}` : '';
         const activeClass = this.state.open ? `${baseClass}--active` : '';
         const classNames = trimString(`${baseClass} ${contextClass} ${activeClass} ${className}`);
 
         const titleBaseClass = 'gds-accordion__item-title';
-        const titleSizeClass = (size) ? `${titleBaseClass}--${size}` : '';
+        const titleSizeClass = size ? `${titleBaseClass}--${size}` : '';
         const titleClass = trimString(`${titleBaseClass} ${titleSizeClass}`);
 
         const iconBaseClass = 'gds-accordion__item-icon';
-        const iconSizeClass = (size) ? `${iconBaseClass}--${size}` : '';
+        const iconSizeClass = size ? `${iconBaseClass}--${size}` : '';
         const iconClass = trimString(`${iconBaseClass} ${iconSizeClass}`);
 
         const childBaseClass = 'gds-accordion__child-items';
-        const childSizeClass = (size) ? `${childBaseClass}--${size}` : '';
+        const childSizeClass = size ? `${childBaseClass}--${size}` : '';
         const childClass = trimString(`${childBaseClass} ${childSizeClass}`);
 
         const newChildren = React.Children.map(children, child => {
@@ -38,12 +38,10 @@ class AccordionItem extends Component {
         });
 
         return (
-            <li className={ classNames } onClick={ this.toggleOpen } >
-                <h4 className={ titleClass }>{this.props.label}</h4>
-                <i className={ iconClass } />
-                <ul className={ childClass }>
-                    { newChildren }
-                </ul>
+            <li className={classNames} onClick={this.toggleOpen}>
+                <h4 className={titleClass}>{this.props.label}</h4>
+                <i className={iconClass} />
+                <ul className={childClass}>{newChildren}</ul>
             </li>
         );
     }

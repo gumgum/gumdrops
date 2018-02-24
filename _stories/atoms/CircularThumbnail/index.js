@@ -23,12 +23,12 @@ const circularThumbnailContexts = {
 
 const component = () => (
     <CircularThumbnail
-        context={ select('Context', circularThumbnailContexts, '') }
-        size={ select('Size', circularThumbnailSizeOptions, '') }
-        src={ text('Image Path', 'https://ds.gumgum.com/images/ken.png') }
-        alt={ text('Alt Text', 'Ken Weiner') }
-        className={ text('ClassName', '') }
-        style={ object('Styles', {}) }
+        context={select('Context', circularThumbnailContexts, '')}
+        size={select('Size', circularThumbnailSizeOptions, '')}
+        src={text('Image Path', 'https://ds.gumgum.com/images/ken.png')}
+        alt={text('Alt Text', 'Ken Weiner')}
+        className={text('ClassName', '')}
+        style={object('Styles', {})}
     />
 );
 

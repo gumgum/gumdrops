@@ -2,25 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 
-const Modal = ({
-    onClose,
-    isOpen,
-    className,
-    overlayClassName,
-    style,
-    md,
-    children
-}) => (
+const Modal = ({ onClose, isOpen, className, overlayClassName, style, md, children }) => (
     <ReactModal
-        className={ `gds-modal gds-layout__column--md-${md} ${className} -float-none` }
-        overlayClassName={ `gds-modal__overlay gds-modal--shown ${overlayClassName}` }
+        className={`gds-modal gds-layout__column--md-${md} ${className} -float-none`}
+        overlayClassName={`gds-modal__overlay gds-modal--shown ${overlayClassName}`}
         contentLabel="default"
-        onRequestClose={ onClose }
-        isOpen={ isOpen }
-        style={ style }
-        ariaHideApp={ false }
-    >
-        { children }
+        onRequestClose={onClose}
+        isOpen={isOpen}
+        style={style}
+        ariaHideApp={false}>
+        {children}
     </ReactModal>
 );
 

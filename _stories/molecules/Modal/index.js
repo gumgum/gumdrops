@@ -24,30 +24,35 @@ const component = () => {
         submitAction();
     };
 
-    return (<Modal
-        onClose={ action('Close modal from overlay') }
-        isOpen={ boolean('Open', true) }
-        md={ text('Column size', '6') }
-        className={ text('Container ClassName', '') }
-        overlayClassName={ text('Overlay ClassName', '') }
-        style={ object('Style', {}) }
-    >
-        {/* Begin arbitrary content */}
-        <ModalForm onSubmit={ formSubmit } >
-            <ModalHeader
-                title={ text('title', 'A sample title') }
-                onClose={ action('Close modal') }
-            />
-            <ModalBody>
-                <p>Toggle the modal in the knobs section.</p>
-            </ModalBody>
-            <ModalFooter>
-                <Button size="sm" onClick={  action('Cancel') } >Cancel</Button>
-                <Button type="submit" context="primary" size="sm" >Save Changes</Button>
-            </ModalFooter>
-        </ModalForm>
-        {/* End arbitrary content */}
-    </Modal>);
+    return (
+        <Modal
+            onClose={action('Close modal from overlay')}
+            isOpen={boolean('Open', true)}
+            md={text('Column size', '6')}
+            className={text('Container ClassName', '')}
+            overlayClassName={text('Overlay ClassName', '')}
+            style={object('Style', {})}>
+            {/* Begin arbitrary content */}
+            <ModalForm onSubmit={formSubmit}>
+                <ModalHeader
+                    title={text('title', 'A sample title')}
+                    onClose={action('Close modal')}
+                />
+                <ModalBody>
+                    <p>Toggle the modal in the knobs section.</p>
+                </ModalBody>
+                <ModalFooter>
+                    <Button size="sm" onClick={action('Cancel')}>
+                        Cancel
+                    </Button>
+                    <Button type="submit" context="primary" size="sm">
+                        Save Changes
+                    </Button>
+                </ModalFooter>
+            </ModalForm>
+            {/* End arbitrary content */}
+        </Modal>
+    );
 };
 
 export default [readme, component];

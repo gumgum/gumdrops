@@ -3,20 +3,18 @@ import PropTypes from 'prop-types';
 import trimString from '../utils/trimString';
 
 const CardImage = ({ url, option, size, className, style }) => {
-
     const baseClass = 'gds-card__img-container',
-        optionClass = (option) ? `${baseClass}--${option}` : '',
-        sizeClass = (size) ? `${baseClass}--${size}` : '';
+        optionClass = option ? `${baseClass}--${option}` : '',
+        sizeClass = size ? `${baseClass}--${size}` : '';
 
     const classNames = trimString(`${baseClass} ${optionClass} ${sizeClass} ${className}`);
 
     return (
-        <div className={ classNames } style={ style }>
-            <img className="gds-card__img" src={ url } />
+        <div className={classNames} style={style}>
+            <img className="gds-card__img" src={url} />
             <div className="gds-card__img-helper" />
         </div>
     );
-
 };
 
 CardImage.displayName = 'CardImage';
