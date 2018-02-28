@@ -1,67 +1,80 @@
 {
-  "name": "gumgum-common-js",
-  "version": "0.10.2",
-  "description": "GumGum JavaScript Components",
-  "main": "dist/index",
-  "module": "dist-es6/index",
-  "pre-commit": [
-    "prettier"
-  ],
-  "scripts": {
-    "start": "yarn run storybook",
-    "storybook": "start-storybook -p 6006",
-    "prebuild": "rimraf dist dist-es6",
-    "build": "yarn build:es5 && yarn build:es6",
-    "build:es5": "babel components --out-dir dist --plugins=transform-es2015-modules-commonjs --source-maps inline",
-    "build:es6": "babel components --out-dir dist-es6 --source-maps inline",
-    "buildstorybook": "build-storybook -c .storybook -o build",
-    "lint": "eslint ./components --color",
-    "test": "storyshots",
-    "postinstall": "postinstall-build --only-as-dependency dist",
-    "preclean": "rimraf node_modules",
-    "clean": "yarn cache clean && yarn install",
-    "prettier": "prettier \"*/**/*.{js,jsx,json,css,scss}\" --ignore-path ./.prettierignore --write && git status"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://bitbucket.org/gumgum/common-js-components.git"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.0.0-beta.34",
-    "@sambego/storybook-state": "^1.0.4",
-    "@storybook/addon-actions": "^3.2.16",
-    "@storybook/addon-info": "^3.2.16",
-    "@storybook/addon-knobs": "^3.2.16",
-    "@storybook/addon-options": "^3.2.16",
-    "@storybook/react": "^3.2.16",
-    "babel": "^6.5.2",
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.14.0",
-    "babel-eslint": "^7.1.1",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-istanbul": "^4.0.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.5",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-polyfill": "^6.13.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-runtime": "^6.11.6",
-    "classnames": "^2.2.5",
-    "eslint": "^3.18.0",
-    "eslint-plugin-react": "^6.10.3",
-    "jest-cli": "^19.0.2",
-    "prettier": "1.10.2",
-    "raw-loader": "^0.5.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "rimraf": "^2.6.1",
-    "storybook-readme": "^3.0.6",
-    "style-loader": "^0.12.3"
-  },
-  "dependencies": {
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
-    "postinstall-build": "^5.0.0",
-    "prop-types": "^15.5.10",
-    "react-modal": "^3.1.7"
-  }
+    "name": "gumgum-common-js",
+    "version": "0.11.16",
+    "description": "GumGum JavaScript Components",
+    "files": [
+        "dist"
+    ],
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.js",
+    "scripts": {
+        "start": "yarn run storybook",
+        "storybook": "start-storybook -p 6006",
+        "prebuild": "rimraf dist",
+        "build": "node tools/build",
+        "buildstorybook": "build-storybook -c .storybook -o build",
+        "publish-pack": "env PUBLISH_PACK=1 node tools/build",
+        "prepare": "npm run build",
+        "lint": "eslint ./components --color",
+        "test": "snyk test && storyshots",
+        "preclean": "rimraf node_modules",
+        "clean": "yarn cache clean && yarn install",
+        "prettier": "prettier \"*/**/*.{js,jsx,json,css,scss}\" --ignore-path ./.prettierignore --write && git status"
+    },
+    "pre-commit": [
+        "prettier"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://bitbucket.org/gumgum/common-js-components.git"
+    },
+    "peerDependencies": {
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0"
+    },
+    "dependencies": {
+        "react-modal": "^3.1.7",
+        "classnames": "^2.2.5",
+        "prop-types": "^15.5.10"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.0.0-beta.34",
+        "@sambego/storybook-state": "^1.0.4",
+        "@storybook/addon-actions": "^3.2.16",
+        "@storybook/addon-info": "^3.2.16",
+        "@storybook/addon-knobs": "^3.2.16",
+        "@storybook/addon-options": "^3.2.16",
+        "@storybook/react": "^3.2.16",
+        "babel": "^6.5.2",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.14.0",
+        "babel-eslint": "^7.1.1",
+        "babel-loader": "^7.1.2",
+        "babel-plugin-external-helpers": "^6.22.0",
+        "babel-plugin-istanbul": "^4.0.0",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+        "babel-plugin-transform-runtime": "^6.15.0",
+        "babel-polyfill": "^6.13.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-react": "^6.11.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "babel-runtime": "^6.11.6",
+        "eslint": "^3.18.0",
+        "eslint-plugin-react": "^6.10.3",
+        "jest-cli": "^19.0.2",
+        "prettier": "1.10.2",
+        "raw-loader": "^0.5.1",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "rimraf": "^2.6.1",
+        "rollup": "^0.56.3",
+        "rollup-plugin-babel": "^3.0.3",
+        "rollup-plugin-commonjs": "^8.3.0",
+        "rollup-plugin-node-resolve": "^3.0.3",
+        "rollup-plugin-uglify": "^3.0.0",
+        "snyk": "^1.69.9",
+        "storybook-readme": "^3.0.6",
+        "style-loader": "^0.12.3",
+        "babel-plugin-transform-es2015-modules-commonjs": "6.24.1"
+    }
 }
