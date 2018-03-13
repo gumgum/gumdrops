@@ -7,6 +7,7 @@ The avatar can include a dropdown menu, which is meant to be shown when the avat
 For the menu contents, you must pass in `menuOptions` (an array of objects of names and paths for the menu), and a `optionCallback` that will be called when the option is clicked. If you want to have a login option, you can include that in the `optionCallback`.
 
 **Example**:
+
 ```
 state {
     avatarOpen: false
@@ -34,6 +35,7 @@ return(
 ```
 
 **Options Format**:
+
 ```
 const AvatarMenu = [
     { name: 'Change Password', path: '/account/change-password' },
@@ -43,3 +45,7 @@ const AvatarMenu = [
     { name: 'Logout', path: 'logout' }
 ];
 ```
+
+**Keyboard Accessibility:**
+
+When the avatar is in focus you can toggle the related menu opened/closed with the spacebar or enter keys.

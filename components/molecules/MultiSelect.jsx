@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Checkbox from './Checkbox';
+import cx from 'classnames';
+import generateUID from '../utils/generateUID';
 
-class MultiSelect extends React.Component {
+class MultiSelect extends Component {
+    constructor() {
+        super();
+        this.UID = generateUID(this);
+    }
+
     state = {
         isOpen: false
     };
@@ -10,57 +18,58 @@ class MultiSelect extends React.Component {
 
     render() {
         const { options, callback, placeholder, size, className, ...otherProps } = this.props;
+        const { isOpen } = this.state;
 
-        const isSmall = size === 'sm',
-            isExtraSmall = size === 'xs',
-            smallClass = isSmall ? 'gds-multi-select--sm' : '',
-            smallBtnClass = isSmall ? 'gds-multi-select__button--sm' : '',
-            extraSmallClass = isExtraSmall ? 'gds-multi-select--xs' : '',
-            extraSmallBtnClass = isExtraSmall ? 'gds-multi-select__button--xs' : '';
+        const isSmall = size === 'sm';
+        const isExtraSmall = size === 'xs';
 
-        const activeClass = this.state.isOpen ? 'gds-button-dropdown--active' : '';
+        const rootClass = cx('gds-multi-select', className, {
+            'gds-multi-select--sm': isSmall,
+            'gds-multi-select--xs': isExtraSmall,
+            'gds-button-dropdown--active': isOpen
+        });
+
+        const btnClass = cx('gds-multi-select__button', {
+            'gds-multi-select__button--sm': isSmall,
+            'gds-multi-select__button--xs': isExtraSmall
+        });
+
+        const regionId = `MultiSelect_region_${this.UID}`;
+        const labelId = `MultiSelect_label_${this.UID}`;
 
         return (
-            <div
-                className={`gds-multi-select ${activeClass} ${className} ${smallClass} ${extraSmallClass}`}
-                {...otherProps}>
-                <div
-                    className={`gds-multi-select__button ${smallBtnClass} ${extraSmallBtnClass}`}
+            <div className={rootClass} {...otherProps}>
+                <button
+                    aria-expanded={isOpen}
+                    aria-pressed={isOpen}
+                    aria-controls={regionId}
+                    tabIndex={0}
+                    className={btnClass}
+                    id={labelId}
                     onClick={this._toggleDropdown}>
                     {placeholder}
-                </div>
-                <ul className="gds-multi-select__menu">
-                    {options.map(({ name, value, selected }, index) => {
-                        const _onClick = e => {
-                            // Prevents callback from being called twice when the checkbox's label is clicked
-                            e.preventDefault();
-                            callback(index, value, !selected);
-                        };
-
-                        return (
-                            <li
-                                key={Math.random()}
-                                className="gds-multi-select__menu-item"
-                                onClick={_onClick}>
-                                <div className="gds-multi-select__menu-link">
-                                    <div className="gds-form-group gds-multi-select__option">
-                                        <div className="gds-form-group__checkbox">
-                                            <label className="gds-form-group__checkbox-label">
-                                                <input
-                                                    className="gds-form-group__checkbox-input"
-                                                    type="checkbox"
-                                                    checked={selected}
-                                                    readOnly
-                                                />
-                                                <span className="gds-form-group__checkbox-indicator" />
-                                                {name}
-                                            </label>
-                                        </div>
-                                    </div>
+                </button>
+                <ul
+                    aria-labelledby={labelId}
+                    aria-hidden={!isOpen}
+                    className="gds-multi-select__menu"
+                    id={regionId}
+                    role="region">
+                    {options.map(({ name, value, selected }, index) => (
+                        <li key={`item-${index}`} className="gds-multi-select__menu-item">
+                            <div className="gds-multi-select__menu-link">
+                                <div className="gds-form-group gds-multi-select__option">
+                                    <Checkbox
+                                        label={name}
+                                        checked={selected}
+                                        onChange={event => {
+                                            callback(index, value, !selected);
+                                        }}
+                                    />
                                 </div>
-                            </li>
-                        );
-                    })}
+                            </div>
+                        </li>
+                    ))}
                 </ul>
             </div>
         );

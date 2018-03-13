@@ -1,34 +1,54 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
+import generateUID from '../utils/generateUID';
+import charCodes from '../../constants/charCodes';
 
 class AccordionItem extends Component {
+    constructor() {
+        super();
+        this.uid = generateUID(this);
+    }
+
     state = {
-        open: false
+        isOpen: false
     };
 
-    toggleOpen = () => {
-        this.setState(({ open }) => ({ open: !open }));
+    toggleOpen = event => {
+        const { type, charCode } = event;
+        event.stopPropagation(); // don't want nested accordions to propagate events
+
+        if (
+            type === 'keypress' &&
+            (charCode === charCodes.SPACEBAR || charCode === charCodes.ENTER)
+        ) {
+            event.preventDefault(); // prevents page scroll from space key
+            this.setState(({ isOpen }) => ({ isOpen: !isOpen }));
+        } else if (type === 'click') {
+            this.setState(({ isOpen }) => ({ isOpen: !isOpen }));
+        }
     };
 
     render() {
-        const { size, context, className, children } = this.props;
-        const baseClass = 'gds-accordion__item';
-        const contextClass = context ? `${baseClass}--${context}` : '';
-        const activeClass = this.state.open ? `${baseClass}--active` : '';
-        const classNames = trimString(`${baseClass} ${contextClass} ${activeClass} ${className}`);
+        const { size, context, className, children, label } = this.props;
+        const { isOpen } = this.state;
 
-        const titleBaseClass = 'gds-accordion__item-title';
-        const titleSizeClass = size ? `${titleBaseClass}--${size}` : '';
-        const titleClass = trimString(`${titleBaseClass} ${titleSizeClass}`);
+        const rootClass = cx('gds-accordion__item', className, {
+            [`gds-accordion__item--${context}`]: context,
+            'gds-accordion__item--active': isOpen
+        });
 
-        const iconBaseClass = 'gds-accordion__item-icon';
-        const iconSizeClass = size ? `${iconBaseClass}--${size}` : '';
-        const iconClass = trimString(`${iconBaseClass} ${iconSizeClass}`);
+        const titleClass = cx('gds-accordion__item-title', {
+            [`gds-accordion__item-title--${size}`]: size
+        });
 
-        const childBaseClass = 'gds-accordion__child-items';
-        const childSizeClass = size ? `${childBaseClass}--${size}` : '';
-        const childClass = trimString(`${childBaseClass} ${childSizeClass}`);
+        const iconClass = cx('gds-accordion__item-icon', {
+            [`gds-accordion__item-icon--${size}`]: size
+        });
+
+        const childClass = cx('gds-accordion__child-items', {
+            [`gds-accordion__child-items--${size}`]: size
+        });
 
         const newChildren = React.Children.map(children, child => {
             return React.cloneElement(child, {
@@ -37,17 +57,37 @@ class AccordionItem extends Component {
             });
         });
 
+        const regionId = `AccordionItem-region-${this.uid}`;
+        const labelId = `AccordionItem-label-${this.uid}`;
+
         return (
-            <li className={classNames} onClick={this.toggleOpen}>
-                <h4 className={titleClass}>{this.props.label}</h4>
-                <i className={iconClass} />
-                <ul className={childClass}>{newChildren}</ul>
+            <li
+                aria-pressed={isOpen}
+                aria-controls={regionId}
+                aria-expanded={isOpen}
+                className={rootClass}
+                onClick={this.toggleOpen}
+                onKeyPress={this.toggleOpen}
+                role="button"
+                tabIndex={0}>
+                <h4 id={labelId} className={titleClass}>
+                    {label}
+                </h4>
+                <span className={iconClass} />
+                <ul
+                    aria-labelledby={labelId}
+                    aria-hidden={!isOpen}
+                    className={childClass}
+                    id={regionId}
+                    role="region">
+                    {newChildren}
+                </ul>
             </li>
         );
     }
 }
 
-AccordionItem.displayName = 'Accordion Item';
+AccordionItem.displayName = 'AccordionItem';
 
 AccordionItem.defaultProps = {
     className: '',

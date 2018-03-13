@@ -13,16 +13,24 @@ const contextOptions = {
     danger: 'danger'
 };
 
+const sizeOptions = {
+    sm: 'sm',
+    xs: 'xs',
+    '': 'default'
+};
+
 const component = () => (
     <Tag
-        context={select('Context', contextOptions, 'normal')}
-        text={text('Text', 'Sample Text')}
-        hasOption={boolean('Has Option', false)}
-        optionIcon={text('Option Icon', 'bt-times')}
-        small={boolean('Small', false)}
-        onClick={action('tag_click')}
         className={text('Classes', '')}
+        context={select('Context', contextOptions, 'normal')}
+        hasOption={boolean('Has Option', true)}
+        onClick={action('tag_click')}
+        onOptionClick={action('option_click')}
+        optionIcon={text('Option Icon', 'bt-times')}
+        optionLabel={text('Option Label', 'Delete Tag')}
+        size={select('Size', sizeOptions, 'normal')}
         style={object('Style', {})}
+        text={text('Text', 'Sample Text')}
     />
 );
 

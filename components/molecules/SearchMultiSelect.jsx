@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import arraysEqual from '../utils/arraysEqual';
+import cx from 'classnames';
+import Tag from '../atoms/Tag';
 
-class SearchMultiSelect extends React.Component {
+class SearchMultiSelect extends Component {
     constructor({ options, searchKeys, multiTerm, termDivider, filter }) {
         super();
         const searchConfig = { searchKeys, multiTerm, termDivider };
@@ -35,7 +37,6 @@ class SearchMultiSelect extends React.Component {
         const { options, searchKeys, multiTerm, termDivider, filter } = this.props;
         const searchConfig = { searchKeys, multiTerm, termDivider };
         const { searchTerm: oldTerm, currentIndex, isOpen } = this.state;
-        const regEx = new RegExp(searchTerm, 'ig');
 
         // If the term is the same, or the component is not open, do nothing
         if (searchTerm === oldTerm || !isOpen) return;
@@ -167,34 +168,36 @@ class SearchMultiSelect extends React.Component {
     _getContainer = ref => (this.container = ref);
 
     render() {
-        const { isOpen, isTagsOpen, currentIndex, searchTerm, matchingIndexes } = this.state;
+        const { isOpen, isTagsOpen, currentIndex, matchingIndexes } = this.state;
         const { options, context, placeholder, size } = this.props;
 
         const numberSelected = options.filter(o => o.isSelected).length;
 
-        const regEx = new RegExp(searchTerm, 'ig');
-        const openClass = isOpen ? 'gds-search-select--open' : '';
-        const openTagsClass = isTagsOpen ? 'gds-search-select__tag-holder--bubble-active' : '';
-        const tagSize = size === 'sm' ? 'xs' : 'sm';
+        const rootClass = cx('gds-search-select', {
+            'gds-search-select--open': isOpen
+        });
 
-        const TagIndicatorClasses = `gds-search-select__tag-indicator gds-tag gds-tag--${tagSize} gds-tag--with-button`;
+        const openTagsClass = isTagsOpen ? 'gds-search-select__tag-holder--bubble-active' : '';
+
+        const tagSize = size === 'sm' ? 'xs' : 'sm';
         const tagStyle = size === 'sm' ? { top: '0.4rem' } : {};
 
         return (
-            <div ref={this._getContainer} className={`gds-search-select ${openClass}`}>
+            <div ref={this._getContainer} className={rootClass}>
                 <div className="gds-search-select__control">
                     {numberSelected !== 0 && (
-                        <div
+                        <Tag
+                            className="gds-search-select__tag-indicator"
+                            context={context}
+                            hasOption
                             onClick={this._toggleTags}
-                            className={`${TagIndicatorClasses} gds-tag--${context}`}
-                            style={tagStyle}>
-                            <span className="-user-select--none">{`${numberSelected} Selected`}</span>
-                            <button
-                                onClick={this._clearAll}
-                                className={`gds-tag__option gds-tag__option--sm gds-tag__option--${context}`}>
-                                <i className="btl bt-fw bt-times" />
-                            </button>
-                        </div>
+                            onOptionClick={this._clearAll}
+                            optionIcon="bt-times"
+                            optionLabel="Clear all tags"
+                            size={tagSize}
+                            style={tagStyle}
+                            text={`${numberSelected} Selected`}
+                        />
                     )}
                     <input
                         onFocus={this._openSelect}
@@ -214,19 +217,19 @@ class SearchMultiSelect extends React.Component {
                 <div className={`${TagHolderClasses} ${openTagsClass}`}>
                     <div className="gds-search-select__tag-overflow">
                         {options.map(({ name, key, isSelected }, index) => {
-                            const removeOption = () => this._removeOption(index);
                             if (!isSelected) return;
                             return (
-                                <div
+                                <Tag
                                     key={key}
-                                    className={`-m-a-1 gds-tag gds-tag--sm gds-tag--${context} gds-tag--with-button gds-tag--with-button-sm`}>
-                                    {name}
-                                    <button
-                                        onClick={removeOption}
-                                        className={`gds-tag__option gds-tag__option--sm gds-tag__option--${context}`}>
-                                        <i className="btl bt-fw bt-times" />
-                                    </button>
-                                </div>
+                                    className="-m-a-1"
+                                    context={context}
+                                    hasOption
+                                    onOptionClick={() => this._removeOption(index)}
+                                    optionIcon="bt-times"
+                                    optionLabel="Remove option"
+                                    size="sm"
+                                    text={name}
+                                />
                             );
                         })}
                     </div>
@@ -235,17 +238,16 @@ class SearchMultiSelect extends React.Component {
                     <div className="gds-search-select__menu-items">
                         {matchingIndexes.map(index => {
                             const { name, key, isSelected } = options[index];
-                            const toggleOption = () => this._toggleOption(index);
-                            const selectedClass =
-                                index === currentIndex
-                                    ? 'gds-search-select__menu-item--selected'
-                                    : '';
+
+                            const itemClass = cx('gds-search-select__menu-item', {
+                                'gds-search-select__menu-item--selected': index === currentIndex
+                            });
 
                             return (
                                 <div
                                     key={key}
-                                    onClick={toggleOption}
-                                    className={`gds-search-select__menu-item ${selectedClass}`}>
+                                    onClick={() => this._toggleOption(index)}
+                                    className={itemClass}>
                                     <label className="gds-search-select__checkbox">
                                         <input
                                             name={name}
