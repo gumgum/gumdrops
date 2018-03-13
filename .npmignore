@@ -31,6 +31,10 @@ $RECYCLE.BIN/
 .out/
 build/
 node_modules/
-dist/
-dist-es/
-gumgum-common-js-*.tgz
+components/
+constants/
+tools/
+Jenkinsfile
+_ops
+_stories/
+yarn.lock
