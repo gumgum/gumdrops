@@ -42,6 +42,23 @@ import { Button, Badge, Toggle } from 'gumgum-common-js';
 
 Follow the [docs](https://storybook.gumgum.com) to use your component with the correct props.
 
+###### Testing using these components
+
+Unfortunately, ESM is not yet widely available for some current tools, and running tests using components from this library could throw errors because of the ES module syntax. To prevent this, try the following:
+
+* **For Jest**:
+  Jest uses its own implementation of require and will attempt to parse files with it and babel-jest, by default, it ignores node_modules which will result in syntax errors from the import statements. Add the next line to your jest config so that it ignores everything in node_modules, except for this library:
+  `"transformIgnorePatterns": ["/node_modules/(?!gumgum-common-js)"]`
+
+* **For Mocha + Webpack**:
+  It is very likely that your mocha and webpack configurations also ignore the node_modules directory, to prevent any syntax errors, load babel through a configuration file instead of calling `--compilers js:babel-register` or `--require babel-register`:
+
+    ```
+    require('babel-register')({
+        ignore: /node_modules\/(?!gumgum-common-js)/
+    });
+    ```
+
 ### Prerequisites for running storybook locally
 
 * [Minimum Required Versions](https://gumgum.jira.com/wiki/pages/viewpage.action?pageId=154304684)
