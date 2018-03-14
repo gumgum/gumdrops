@@ -1,10 +1,9 @@
 {
-    "name": "gumgum-common-js",
+    "name": "gumdrops",
     "version": "0.11.32",
-    "description": "GumGum JavaScript Components",
-    "files": [
-        "dist"
-    ],
+    "description": "GumGum's React Components Library",
+    "license": "MIT",
+    "files": ["dist"],
     "main": "dist/index.cjs.js",
     "module": "dist/index.js",
     "scripts": {
@@ -19,14 +18,13 @@
         "test": "snyk test && storyshots",
         "preclean": "rimraf node_modules",
         "clean": "yarn cache clean && yarn install",
-        "prettier": "prettier \"*/**/*.{js,jsx,json,css,scss}\" --ignore-path ./.prettierignore --write && git status"
+        "prettier":
+            "prettier \"*/**/*.{js,jsx,json,css,scss}\" --ignore-path ./.prettierignore --write && git status"
     },
-    "pre-commit": [
-        "prettier"
-    ],
+    "pre-commit": ["prettier"],
     "repository": {
         "type": "git",
-        "url": "https://bitbucket.org/gumgum/common-js-components.git"
+        "url": "git@github.com:gumgum/gumdrops.git"
     },
     "peerDependencies": {
         "react": "^16.2.0",
