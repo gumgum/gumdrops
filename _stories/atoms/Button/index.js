@@ -1,5 +1,6 @@
 import React from 'react';
 import { text, select, boolean, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -9,7 +10,7 @@ const sizeOptions = {
     xs: 'xs',
     sm: 'sm',
     lg: 'lg',
-    '': 'default'
+    '': 'No Value',
 };
 
 const contextOptions = {
@@ -26,7 +27,7 @@ const contextOptions = {
 const component = () => (
     <Button
         type={text('Type', 'button')}
-        size={select('Size', sizeOptions, '')}
+        size={optionalSelect('Size', sizeOptions, '')}
         context={select('Context', contextOptions, 'default')}
         group={boolean('Group', false)}
         onClick={action('button_clicked')}

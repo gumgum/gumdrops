@@ -1,5 +1,7 @@
 import React from 'react';
-import { select, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
+
 import readme from './README.md';
 
 import Accordion from '../../../components/molecules/Accordion';
@@ -8,19 +10,19 @@ import AccordionItemContent from '../../../components/atoms/AccordionItemContent
 
 const sizeOptions = {
     sm: 'sm',
-    '': 'default'
+    '': 'No Value'
 };
 
 const contextOptions = {
     dark: 'dark',
     white: 'white',
-    '': 'default'
+    '': 'No Value'
 };
 
 const component = () => (
     <Accordion
-        size={select('Size', sizeOptions, '')}
-        context={select('Context', contextOptions, '')}
+        size={optionalSelect('Size', sizeOptions, '')}
+        context={optionalSelect('Context', contextOptions, '')}
         className={text('Class', '')}>
         <AccordionItem label={text('Item Label 1', 'Item 1')}>
             <AccordionItemContent>Content 1</AccordionItemContent>
@@ -31,8 +33,8 @@ const component = () => (
         <AccordionItem label={text('Item Label 3', 'Item 3')}>
             <AccordionItemContent>Content 3</AccordionItemContent>
             <Accordion
-                size={select('Size', sizeOptions, '')}
-                context={select('Context', contextOptions, '')}>
+                size={optionalSelect('Size', sizeOptions, '')}
+                context={optionalSelect('Context', contextOptions, '')}>
                 <AccordionItem label={text('Nested Item Label 1', 'Nested Item 1')}>
                     <AccordionItemContent>Nested Content</AccordionItemContent>
                 </AccordionItem>

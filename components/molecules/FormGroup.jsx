@@ -34,7 +34,7 @@ FormGroup.propTypes = {
     /** danger, warning, success */
     context: PropTypes.string,
     className: PropTypes.string,
-    children: PropTypes.element.isRequired
+    children: PropTypes.node.isRequired
 };
 
 export default FormGroup;

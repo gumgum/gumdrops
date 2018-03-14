@@ -23,12 +23,6 @@ const Accordion = ({ children, context, size, className, ...otherProps }) => {
 
 Accordion.displayName = 'Accordion';
 
-Accordion.defaultProps = {
-    context: '',
-    size: '',
-    className: ''
-};
-
 Accordion.propTypes = {
     children: PropTypes.node.isRequired,
     /** dark, white */

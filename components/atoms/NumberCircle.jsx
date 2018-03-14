@@ -19,10 +19,7 @@ const NumberCircle = ({ text, context, size, className, style }) => {
 NumberCircle.displayName = 'NumberCircle';
 
 NumberCircle.defaultProps = {
-    text: '',
     context: null,
-    size: '',
-    className: '',
     style: {}
 };
 

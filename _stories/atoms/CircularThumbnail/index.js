@@ -1,5 +1,6 @@
 import React from 'react';
-import { text, object, select } from '@storybook/addon-knobs';
+import { text, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 import CircularThumbnail from '../../../components/atoms/CircularThumbnail';
 import readme from './README.md';
 
@@ -8,11 +9,11 @@ const circularThumbnailSizeOptions = {
     sm: 'sm',
     lg: 'lg',
     xl: 'xl',
-    '': 'default'
+    '': 'No Value',
 };
 
 const circularThumbnailContexts = {
-    '': 'default',
+    '': 'No Value',
     secondary: 'secondary',
     success: 'success',
     info: 'info',
@@ -23,8 +24,8 @@ const circularThumbnailContexts = {
 
 const component = () => (
     <CircularThumbnail
-        context={select('Context', circularThumbnailContexts, '')}
-        size={select('Size', circularThumbnailSizeOptions, '')}
+        context={optionalSelect('Context', circularThumbnailContexts, '')}
+        size={optionalSelect('Size', circularThumbnailSizeOptions, '')}
         src={text('Image Path', 'https://ds.gumgum.com/images/ken.png')}
         alt={text('Alt Text', 'Ken Weiner')}
         className={text('ClassName', '')}

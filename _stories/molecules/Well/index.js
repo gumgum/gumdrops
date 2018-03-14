@@ -1,12 +1,13 @@
 import React from 'react';
-import { select, boolean, text, object } from '@storybook/addon-knobs';
+import { boolean, text, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
 import Well from '../../../components/molecules/Well';
 
 const contextOptions = {
-    '': 'default',
+    '': 'No Value',
     success: 'success',
     warning: 'warning',
     info: 'info',
@@ -16,7 +17,7 @@ const contextOptions = {
 const component = () => (
     <Well
         text={text('Label', 'Default Well')}
-        context={select('Context', contextOptions, '')}
+        context={optionalSelect('Context', contextOptions, '')}
         button={boolean('Button', false)}
         callback={action('well_closed')}
         className={text('ClassName', '')}

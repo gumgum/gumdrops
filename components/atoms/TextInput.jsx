@@ -17,7 +17,6 @@ TextInput.displayName = 'TextInput';
 TextInput.defaultProps = {
     type: 'text',
     size: 'md',
-    className: ''
 };
 
 TextInput.propTypes = {
@@ -26,7 +25,8 @@ TextInput.propTypes = {
     type: PropTypes.oneOf(['text', 'password']),
     /** sm, md, lg */
     size: PropTypes.oneOf(['sm', 'md', 'lg']),
-    className: PropTypes.string
+    className: PropTypes.string,
+    value: PropTypes.string
 };
 
 export default TextInput;

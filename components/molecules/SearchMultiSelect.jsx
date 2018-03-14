@@ -313,8 +313,8 @@ SearchMultiSelect.propTypes = {
     context: PropTypes.string,
     placeholder: PropTypes.string,
     size: PropTypes.oneOf(['sm', 'md']),
-    searchKeys: PropTypes.boolean,
-    multiTerm: PropTypes.boolean,
+    searchKeys: PropTypes.bool,
+    multiTerm: PropTypes.bool,
     termDivider: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(RegExp)])
 };
 

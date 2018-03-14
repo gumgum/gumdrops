@@ -11,11 +11,7 @@ ModalForm.displayName = 'ModalForm';
 
 ModalForm.propTypes = {
     className: PropTypes.string,
-    children: PropTypes.element.isRequired
-};
-
-ModalForm.defaultProps = {
-    className: ''
+    children: PropTypes.node.isRequired
 };
 
 export default ModalForm;

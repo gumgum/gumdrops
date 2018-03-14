@@ -1,5 +1,6 @@
 import React from 'react';
-import { text, select, boolean, object } from '@storybook/addon-knobs';
+import { text, boolean, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -10,27 +11,28 @@ const contextOptions = {
     primary: 'primary',
     success: 'success',
     warning: 'warning',
-    danger: 'danger'
+    danger: 'danger',
+    '': 'No Value'
 };
 
 const sizeOptions = {
     sm: 'sm',
     xs: 'xs',
-    '': 'default'
+    '': 'No Value'
 };
 
 const component = () => (
     <Tag
+        context={optionalSelect('Context', contextOptions, 'primary')}
         className={text('Classes', '')}
-        context={select('Context', contextOptions, 'normal')}
         hasOption={boolean('Has Option', true)}
         onClick={action('tag_click')}
         onOptionClick={action('option_click')}
         optionIcon={text('Option Icon', 'bt-times')}
         optionLabel={text('Option Label', 'Delete Tag')}
-        size={select('Size', sizeOptions, 'normal')}
         style={object('Style', {})}
         text={text('Text', 'Sample Text')}
+        size={optionalSelect('Size', sizeOptions, '')}
     />
 );
 

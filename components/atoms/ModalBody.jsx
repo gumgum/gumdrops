@@ -12,12 +12,7 @@ ModalBody.displayName = 'ModalBody';
 ModalBody.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
-    children: PropTypes.element.isRequired
-};
-
-ModalBody.defaultProps = {
-    className: '',
-    style: {}
+    children: PropTypes.node.isRequired
 };
 
 export default ModalBody;

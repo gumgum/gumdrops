@@ -19,9 +19,7 @@ const ButtonGroup = ({ size, responsive, className, style, children }) => {
 ButtonGroup.displayName = 'ButtonGroup';
 
 ButtonGroup.defaultProps = {
-    size: '',
     responsive: false,
-    className: '',
     style: {}
 };
 

@@ -22,17 +22,14 @@ LoadingDots.displayName = 'LoadingDots';
 
 LoadingDots.defaultProps = {
     whiteDots: false,
-    size: null,
-    className: '',
-    style: {}
 };
 
 LoadingDots.propTypes = {
     whiteDots: PropTypes.bool,
     /** sm, lg */
+    style: PropTypes.object,
     size: PropTypes.oneOf(['sm', 'lg']),
-    className: PropTypes.string,
-    style: PropTypes.object
+    className: PropTypes.string
 };
 
 export default LoadingDots;

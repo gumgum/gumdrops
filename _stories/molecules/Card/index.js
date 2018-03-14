@@ -1,5 +1,6 @@
 import React from 'react';
-import { select, text, object } from '@storybook/addon-knobs';
+import { text, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 
 import readme from './README.md';
 import Card from '../../../components/molecules/Card';
@@ -10,7 +11,7 @@ const cardOptions = {
     white: 'white',
     underlined: 'underlined',
     'underlined-secondary': 'underlined-secondary',
-    '': 'default'
+    '': 'No Value',
 };
 
 const sizeOptions = {
@@ -19,14 +20,14 @@ const sizeOptions = {
     md: 'md',
     lg: 'lg',
     xl: 'xl',
-    '': 'default'
+    '': 'No Value',
 };
 
 const component = () => (
     <div>
         <Card
-            option={select('Option', cardOptions, '')}
-            size={select('Size', sizeOptions, '')}
+            option={optionalSelect('Option', cardOptions, '')}
+            size={optionalSelect('Size', sizeOptions, '')}
             className={text('ClassName', '')}
             style={object('Style', {})}>
             <CardBlock>
@@ -34,8 +35,8 @@ const component = () => (
             </CardBlock>
         </Card>
         <Card
-            option={select('Option', cardOptions, '')}
-            size={select('Size', sizeOptions, '')}
+            option={optionalSelect('Option', cardOptions, '')}
+            size={optionalSelect('Size', sizeOptions, '')}
             className={text('ClassName', '')}
             style={object('Style', {})}>
             <CardBlock>
@@ -46,8 +47,8 @@ const component = () => (
             </CardBlock>
         </Card>
         <Card
-            option={select('Option', cardOptions, '')}
-            size={select('Size', sizeOptions, '')}
+            option={optionalSelect('Option', cardOptions, '')}
+            size={optionalSelect('Size', sizeOptions, '')}
             className={text('ClassName', '')}
             style={object('Style', {})}>
             <CardImage url="https://c.gumgum.com/ads/com/gumgum/mantii/internal_mobile_inscreen_test/full_canvas/01/mantii_fullscreen.hyperesources/girl@2x.png" />

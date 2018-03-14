@@ -20,13 +20,6 @@ const Checkbox = ({ label, size, style, className, ...otherProps }) => {
 
 Checkbox.displayName = 'Checkbox';
 
-Checkbox.defaultProps = {
-    label: '',
-    size: '',
-    className: '',
-    style: {}
-};
-
 Checkbox.propTypes = {
     label: PropTypes.string,
     /** xs, sm */

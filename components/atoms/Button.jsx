@@ -34,10 +34,8 @@ Button.displayName = 'Button';
 Button.defaultProps = {
     context: 'default',
     type: 'button',
-    size: '',
     group: false,
     onClick: null,
-    className: '',
     style: {}
 };
 
