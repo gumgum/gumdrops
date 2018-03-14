@@ -95,7 +95,6 @@ const listFiles = () => {
 };
 
 // Builds the filepath for the given file
-// Works only with single extension files (ie. foo.js, foo.jsx)
 const getFileNameData = (file, format) => {
     const originalPath = file
         .split('/')
