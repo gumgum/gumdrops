@@ -211,6 +211,7 @@ class SearchMultiSelect extends Component {
                     />
                     <button
                         className="gds-search-select__toggle-button -cursor--pointer"
+                        type="button"
                         onClick={this._toggleSelect}
                     />
                 </div>
