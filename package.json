@@ -1,6 +1,6 @@
 {
     "name": "gumgum-common-js",
-    "version": "0.11.24",
+    "version": "0.11.27",
     "description": "GumGum JavaScript Components",
     "files": [
         "dist"
@@ -34,10 +34,10 @@
     },
     "dependencies": {
         "classnames": "^2.2.5",
-        "prop-types": "^15.6.1",
         "react-modal": "^3.1.7"
     },
     "devDependencies": {
+        "prop-types": "^15.6.1",
         "@babel/preset-env": "^7.0.0-beta.34",
         "@sambego/storybook-state": "^1.0.4",
         "@storybook/addon-actions": "^3.2.16",
