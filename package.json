@@ -1,6 +1,6 @@
 {
     "name": "gumgum-common-js",
-    "version": "0.11.29",
+    "version": "0.11.30",
     "description": "GumGum JavaScript Components",
     "files": [
         "dist"
