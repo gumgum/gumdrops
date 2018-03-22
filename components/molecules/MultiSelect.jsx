@@ -46,6 +46,7 @@ class MultiSelect extends Component {
                     tabIndex={0}
                     className={btnClass}
                     id={labelId}
+                    type="button"
                     onClick={this._toggleDropdown}>
                     {placeholder}
                 </button>
