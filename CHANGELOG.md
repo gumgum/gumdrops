@@ -1,5 +1,15 @@
 # GumGum Common JS Changelog
 
+## 0.11.31 (3-22-18)
+###### Fixed
+
+* Add button type to MultiSelect
+
+## 0.11.24 (3-16-18)
+###### Fixed
+
+* Add button type to SearchMultiSelect
+
 ## 0.11.0 (3-5-18)
 
 ###### Added
