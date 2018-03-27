@@ -1,7 +1,5 @@
 # Git Workflow Guide
 
-#### Git Flow
-
 We use [Git flow - AVH](https://github.com/petervanderdoes/gitflow-avh). Note that this is NOT the original git flow repo (nvie) since it lacks features and has not been updated in years.
 
 To check what version you have installed on your system run:
@@ -23,26 +21,27 @@ Support branches - support/
 Version tag prefix - []
 ```
 
-#### Workflow
+## Workflow
 
 ##### Branch/Commits
 
-For all branches, the naming convention should be prefixed with the JIRA Ticket number (if internal), example: `CJL-40-add-button` and the issue number for github issues, example: `12-add-button`
+To help track down work on issues, we prefix the branches and commits with their associated Github issue id, for example:
 
-For all commits, the naming convention should also be prefixed with the JIRA ticket number, example: `CJL-40 add-button-component`, the same applies for github issues: `12-add-button-component`
+```
+git flow feature start #12-add-red-button # will create the branch feature/#12-add-button
+git commit -m "#12 Add red button component" # creates a commit with the message "#12 Add red button component"
+```
 
 ##### Creating Feature Branches
 
 ```
 git checkout stage
 git pull
-git flow feature start CJL-TICKERNUMBER-TICKET-NAME-DESCRIBING-THE-ISSUE
-#For GitHub issues:
-git flow feature start ISSUE_ID-DESCRIBE-THE-BRANCH
+git flow feature start #ISSUE_ID-DESCRIBE-THE-BRANCH
 
 # ... do your changes here and then when finished ...
 git add
-git commit -m "CJL-TICKETNUMBER: Your commit message"
+git commit -m "#ISSUE_ID Your commit message"
 ```
 
 Put your branch for a PR. When reviewed and approved, do an interactive rebase and push (see below code block).
@@ -54,64 +53,23 @@ You may want to rebase several times over the course of your ticket, but rebasin
 ##### Rebasing
 
 ```
-# get current stage
-git checkout stage
+# update the origin branch
+git checkout develop
 git pull
-# checkout your branch
 git checkout feature/YOUR-BRANCH
 git pull
 # interactive rebase
 git flow feature rebase -i
 # ... follow steps to rebase and fix any conflicts here ...
 # Important - force your changes because you are rewriting all of the hashes
-git push origin feature/CJL-TICKETNAME --force
+git push origin feature/YOUR-BRANCH --force
 
-# if your ticket is ready to merge, use git flow feature finish to merge it back to stage. this puts you on stage and then you can push to stage
-git flow feature finish CJL-TICKETNAME
+# if your branch is ready to merge, use git flow feature finish to merge it back to stage. this puts you on stage and then you can push your changes
+git flow feature finish YOUR-BRANCH
 git push
 ```
 
-##### Epics
-
-For epics, create a feature branch for the entire epic:
-
-```
-git checkout stage
-git pull
-git flow feature start CJL-EPICNUMBER-EPICNAME
-Branch the subtask tickets off this feature with gitflow-avh
-git flow feature start CJL-SUBTASKNUMBER-NAME feature/CJL-EPICNUMBER-EPICNAME
-# notice that the base branch must include the name of the actual git branch and not just the Jira ticket name
-```
-
 Your PR will be merged by a user with merge access after it gets approved by at least two other members.
-
-##### Hotfixes
-
-```
-git checkout master
-git pull
-git checkout stage
-git pull
-git flow hotfix start fix-branch
-# ...Do your changes here...
-git add
-git commit -m "hotfix whatever"
-git flow hotfix finish fix-branch
-The last step merges with stage and master.
-Set the tag message: ([CJL-TICKETNUMBER] whatever you did)
-git push origin stage
-git push --tags
-git push origin master
-```
-
-#### Release Guide
-
-1. Update all JIRA tickets with the version number, and update the release page.
-2. Follow the instructions below to start a new release. Use the new version # for the tag.
-3. Update `package.json` and `CHANGELOG.md` with the new release version and information.
-4. Push the new tag `git push --tags`
-5. Send out a release notes email (internally).
 
 ##### Releases
 
@@ -121,12 +79,35 @@ git pull
 git checkout stage
 git pull
 git flow release start '1.x.x'
-npm version #use the appropriate tag for your release (major, minor, patch)
-git add
-git commit -m “bump version 1.x.x”
+npm version  TAG #use the appropriate tag for your release (major, minor, patch)
 
 git flow release finish 1.x.x # when prompted, tag should be the release version
 git push --tags
 git push origin stage
 git push origin master
+```
+
+## Publishing to NPM
+
+**Important:** This action can only be performed by authenticated users with publishing access.
+
+After creating the release and pushing it, you can build the library for distribution and publish it by running the command:
+
+```
+env TAG=canary/latest/someOtherTag npm run publish-pack
+```
+
+This command will run the script in `tools/build.js` that:
+
+* createsESM modules for every component
+* CommonJS bundle
+* UMD bundle
+* Publishes to the NPM registry with the specified tag.
+
+It is important that the package version used for publishing is unique, as that also makes it possible to target specific versions with package managers:
+
+```
+yarn add gumdrops@1.0.0
+
+npm install gumdrops@1.0.0
 ```

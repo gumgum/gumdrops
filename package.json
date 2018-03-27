@@ -1,9 +1,11 @@
 {
     "name": "gumdrops",
-    "version": "0.11.32",
+    "version": "1.0.0",
     "description": "GumGum's React Components Library",
     "license": "MIT",
-    "files": ["dist"],
+    "files": [
+        "dist"
+    ],
     "main": "dist/index.cjs.js",
     "module": "dist/index.js",
     "scripts": {
@@ -18,10 +20,11 @@
         "test": "snyk test && storyshots",
         "preclean": "rimraf node_modules",
         "clean": "yarn cache clean && yarn install",
-        "prettier":
-            "prettier \"*/**/*.{js,jsx,json,css,scss}\" --ignore-path ./.prettierignore --write && git status"
+        "prettier": "prettier \"*/**/*.{js,jsx,json,css,scss}\" --ignore-path ./.prettierignore --write && git status"
     },
-    "pre-commit": ["prettier"],
+    "pre-commit": [
+        "prettier"
+    ],
     "repository": {
         "type": "git",
         "url": "git@github.com:gumgum/gumdrops.git"

@@ -14,10 +14,9 @@ The following instructions assume you have followed the section on [README.md](R
 
 ##### Creating a component
 
-1. For internal users, create a JIRA ticket in the "Common JS Jira Project".
-2. Follow our [GITWORKFLOW.md](GITWORKFLOW.md) to create a new branch.
-3. Add your component `.jsx` file in the correct folder in `/components`. It should be in the same category as found on Design System Docs.
-4. Write your component. Follow the format of other components, including adding `...otherProps`. You should also include `displayName` (storybook needs this), `defaultProps` and `propTypes`. In `propTypes`, please include comments when the prop only accepts specific options (as dictated by the Design System). These will render in the description column.
+1. Follow our [GITWORKFLOW.md](GITWORKFLOW.md) to create a new branch.
+2. Add your component `.jsx` file in the correct folder in `/components`. It should be in the same category as found on Design System Docs.
+3. Write your component. Follow the format of other components, including adding `...otherProps`. You should also include `displayName` (storybook needs this), `defaultProps` and `propTypes`. In `propTypes`, please include comments when the prop only accepts specific options (as dictated by the Design System). These will render in the description column.
 
 For example:
 
