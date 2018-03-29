@@ -1,5 +1,6 @@
 import React from 'react';
-import { boolean, select, text, object } from '@storybook/addon-knobs';
+import { boolean, text, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 import readme from './README.md';
 
 import FormGroupLabel from '../../../components/atoms/FormGroupLabel';
@@ -12,7 +13,7 @@ const contextOptions = {
     danger: 'danger',
     warning: 'warning',
     success: 'success',
-    '': 'default'
+    '': 'No Value'
 };
 
 const selectOptions = [
@@ -38,7 +39,7 @@ const component = () => (
     <FormGroup
         isInline={boolean('isInline', false)}
         isDisabled={boolean('isDisabled', false)}
-        context={select('Context', contextOptions, 'success')}
+        context={optionalSelect('Context', contextOptions, 'success')}
         className={text('Classname', '')}
         style={object('Style', {})}>
         <FormGroupLabel text={text('Input Label', 'Cool Label')} />

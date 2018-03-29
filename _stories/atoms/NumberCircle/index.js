@@ -1,11 +1,12 @@
 import React from 'react';
-import { text, object, select } from '@storybook/addon-knobs';
+import { text, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 
 import readme from './README.md';
 import NumberCircle from '../../../components/atoms/NumberCircle';
 
 const contextOptions = {
-    '': 'default',
+    '': 'No Value',
     secondary: 'secondary',
     success: 'success',
     info: 'info',
@@ -19,14 +20,14 @@ const sizeOptions = {
     sm: 'sm',
     lg: 'lg',
     xl: 'xl',
-    '': 'default'
+    '': 'No Value',
 };
 
 const component = () => (
     <NumberCircle
         text={text('Text', '1')}
-        size={select('Size', sizeOptions, '')}
-        context={select('Context', contextOptions, '')}
+        size={optionalSelect('Size', sizeOptions, '')}
+        context={optionalSelect('Context', contextOptions, '')}
         className={text('ClassName', '')}
         style={object('Styles', {})}
     />

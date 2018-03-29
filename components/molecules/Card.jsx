@@ -18,13 +18,6 @@ const Card = ({ option, size, className, style, children }) => {
 
 Card.displayName = 'Card';
 
-Card.defaultProps = {
-    option: '',
-    size: '',
-    className: '',
-    style: {}
-};
-
 Card.propTypes = {
     /** white, underlined, underlined-secondary */
     option: PropTypes.string,

@@ -23,12 +23,9 @@ const Select = ({ context, size, customValue, customName, options, className, ..
 Select.displayName = 'Select';
 
 Select.defaultProps = {
-    className: '',
     options: [],
     customValue: 'value',
     customName: 'name',
-    context: '',
-    size: ''
 };
 
 Select.propTypes = {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { text, boolean, select, object } from '@storybook/addon-knobs';
+import { text, boolean, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -9,14 +10,14 @@ import Checkbox from '../../../components/molecules/Checkbox';
 const sizeOptions = {
     sm: 'sm',
     xs: 'xs',
-    '': 'default'
+    '': 'No Value',
 };
 
 const component = () => (
     <FormGroup>
         <Checkbox
             label={text('Label', 'party parrots')}
-            size={select('Size', sizeOptions, '')}
+            size={optionalSelect('Size', sizeOptions, '')}
             className={text('ClassName', '')}
             style={object('Style', {})}
             onChange={action('checkbox_checked')}

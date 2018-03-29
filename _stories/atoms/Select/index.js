@@ -1,5 +1,6 @@
 import React from 'react';
-import { text, select, object } from '@storybook/addon-knobs';
+import { text, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -10,31 +11,31 @@ import FormGroup from '../../../components/molecules/FormGroup';
 const options = [
     {
         name: 'bananas',
-        value: 1
+        value: '1'
     },
     {
         name: 'apples',
-        value: 2
+        value: '2'
     },
     {
         name: 'strawberries',
-        value: 3
+        value: '3'
     },
     {
         name: 'limes',
-        value: 4
+        value: '4'
     }
 ];
 
 const contextOptions = {
-    '': 'default',
+    '': 'No Value',
     primary: 'primary',
     'no-border': 'no-border',
     dark: 'dark'
 };
 
 const sizeOptions = {
-    '': 'default',
+    '': 'No Value',
     xs: 'xs',
     sm: 'sm',
     lg: 'lg'
@@ -48,12 +49,12 @@ const component = () => (
             <Select
                 options={object('Options', options)}
                 name={text('Name', 'fruit')}
-                value={text('Value', 2)}
+                value={text('Value', '2')}
                 customName={text('Custom Name', 'name')}
                 customValue={text('Custom Value', 'value')}
                 onChange={action('Select changed')}
-                context={select('Context', contextOptions, '')}
-                size={select('Size', sizeOptions, '')}
+                context={optionalSelect('Context', contextOptions, '')}
+                size={optionalSelect('Size', sizeOptions, '')}
                 className={text('Classname', '')}
                 style={object('Style', {})}
             />

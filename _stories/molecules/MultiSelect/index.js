@@ -1,5 +1,6 @@
 import React from 'react';
-import { select, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -26,13 +27,13 @@ const options = [
 const sizeOptions = {
     sm: 'sm',
     xs: 'xs',
-    '': 'default'
+    '': 'No Value',
 };
 
 const component = () => (
     <MultiSelect
         placeholder={text('Placeholder', 'Select an option')}
-        size={select('Size', sizeOptions, '')}
+        size={optionalSelect('Size', sizeOptions, '')}
         callback={action('multi_select_changed')}
         options={options}
         className={text('className', '')}

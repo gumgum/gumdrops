@@ -5,10 +5,7 @@ import generateUID from '../utils/generateUID';
 import charCodes from '../../constants/charCodes';
 
 class Avatar extends Component {
-    constructor() {
-        super();
-        this.uid = generateUID(this);
-    }
+    uid = generateUID(this);
 
     render() {
         const {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { select, text, object, boolean } from '@storybook/addon-knobs';
+import { select, text, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 
 import readme from './README.md';
 import Toggle from '../../../components/molecules/Toggle';
@@ -13,14 +14,14 @@ const options = {
 const sizeOptions = {
     sm: 'sm',
     xs: 'xs',
-    '': 'default'
+    '': 'No Value',
 };
 
 const component = () => (
     <Toggle
         label={text('Label', 'Default Toggle')}
         type={select('Type', options, 'checkbox')}
-        size={select('Size', sizeOptions, '')}
+        size={optionalSelect('Size', sizeOptions, '')}
         className={text('ClassName', '')}
         style={object('Style', {})}
         onChange={action('toggle_checked')}

@@ -1,7 +1,8 @@
 {
-    "name": "gumgum-common-js",
-    "version": "0.11.31",
-    "description": "GumGum JavaScript Components",
+    "name": "gumdrops",
+    "version": "1.0.0",
+    "description": "GumGum's React Components Library",
+    "license": "MIT",
     "files": [
         "dist"
     ],
@@ -26,7 +27,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://bitbucket.org/gumgum/common-js-components.git"
+        "url": "git@github.com:gumgum/gumdrops.git"
     },
     "peerDependencies": {
         "react": "^16.2.0",

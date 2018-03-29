@@ -5,10 +5,7 @@ import cx from 'classnames';
 import generateUID from '../utils/generateUID';
 
 class MultiSelect extends Component {
-    constructor() {
-        super();
-        this.UID = generateUID(this);
-    }
+    uid = generateUID(this);
 
     state = {
         isOpen: false
@@ -34,8 +31,8 @@ class MultiSelect extends Component {
             'gds-multi-select__button--xs': isExtraSmall
         });
 
-        const regionId = `MultiSelect_region_${this.UID}`;
-        const labelId = `MultiSelect_label_${this.UID}`;
+        const regionId = `MultiSelect_region_${this.uid}`;
+        const labelId = `MultiSelect_label_${this.uid}`;
 
         return (
             <div className={rootClass} {...otherProps}>

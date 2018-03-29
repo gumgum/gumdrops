@@ -5,10 +5,7 @@ import generateUID from '../utils/generateUID';
 import charCodes from '../../constants/charCodes';
 
 class AccordionItem extends Component {
-    constructor() {
-        super();
-        this.uid = generateUID(this);
-    }
+    uid = generateUID(this);
 
     state = {
         isOpen: false
@@ -88,13 +85,6 @@ class AccordionItem extends Component {
 }
 
 AccordionItem.displayName = 'AccordionItem';
-
-AccordionItem.defaultProps = {
-    className: '',
-    size: '',
-    label: '',
-    context: ''
-};
 
 AccordionItem.propTypes = {
     children: PropTypes.node,

@@ -34,7 +34,7 @@ LoginForm.defaultProps = {
 
 LoginForm.propTypes = {
     capText: PropTypes.string,
-    children: PropTypes.element.isRequired,
+    children: PropTypes.node.isRequired,
     logoText: PropTypes.string,
     onSubmit: PropTypes.func.isRequired,
     recoveryFn: PropTypes.func,

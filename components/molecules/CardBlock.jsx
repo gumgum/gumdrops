@@ -16,12 +16,6 @@ const CardBlock = ({ option, className, style, children }) => {
 
 CardBlock.displayName = 'CardBlock';
 
-CardBlock.defaultProps = {
-    option: '',
-    className: '',
-    style: {}
-};
-
 CardBlock.propTypes = {
     /** divide-top, divide-bottom */
     option: PropTypes.oneOf(['divide-top', 'divide-bottom']),

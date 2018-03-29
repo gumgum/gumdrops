@@ -14,12 +14,6 @@ const CircularThumbnail = ({ context, size, className, ...otherProps }) => {
 
 CircularThumbnail.displayName = 'CircularThumbnail';
 
-CircularThumbnail.defaultProps = {
-    context: '',
-    size: '',
-    className: ''
-};
-
 CircularThumbnail.propTypes = {
     /** secondary, success, warning, info, danger, white */
     context: PropTypes.string,

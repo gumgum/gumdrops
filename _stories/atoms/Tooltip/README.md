@@ -14,7 +14,7 @@ const tooltipPositions = {
 };
 
 const tooltipContexts = {
-    '': 'default',
+    '': 'No Value',
     success: 'success',
     warning: 'warning',
     info: 'info',
@@ -23,14 +23,14 @@ const tooltipContexts = {
 
 const tooltipSizeOptions = {
     lg: 'lg',
-    '': 'default'
+    '': 'No Value',
 };
 
 const tooltipVariationsOptions = {
     always: 'always',
     'no-animate': 'no-animate',
     bounce: 'bounce',
-    '': 'default'
+    '': 'No Value',
 };
 
 const component = () => (

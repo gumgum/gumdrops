@@ -13,16 +13,10 @@ const ModalHeader = ({ title, onClose, className, style }) => (
 ModalHeader.displayName = 'ModalHeader';
 
 ModalHeader.propTypes = {
-    title: PropTypes.text,
+    title: PropTypes.string,
     onClose: PropTypes.func,
     className: PropTypes.string,
     style: PropTypes.object
-};
-
-ModalHeader.defaultProps = {
-    title: '',
-    className: '',
-    style: {}
 };
 
 export default ModalHeader;

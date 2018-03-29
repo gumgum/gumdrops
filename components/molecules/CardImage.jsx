@@ -21,10 +21,6 @@ CardImage.displayName = 'CardImage';
 
 CardImage.defaultProps = {
     option: 'top',
-    size: '',
-    url: '',
-    className: '',
-    style: {}
 };
 
 CardImage.propTypes = {
