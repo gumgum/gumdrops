@@ -29,6 +29,7 @@ export { default as Row } from './layout/Row';
 // Export Molecules
 export { default as Accordion } from './molecules/Accordion';
 export { default as Avatar } from './molecules/Avatar';
+export { default as Breadcrumbs } from './molecules/Breadcrumbs';
 export { default as CardBlock } from './molecules/CardBlock';
 export { default as CardImage } from './molecules/CardImage';
 export { default as Card } from './molecules/Card';

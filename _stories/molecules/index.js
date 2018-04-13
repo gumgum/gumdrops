@@ -6,6 +6,7 @@ import { withInfo } from '@storybook/addon-info';
 
 import Accordion from './Accordion';
 import Avatar from './Avatar/';
+import Breadcrumbs from './Breadcrumbs/';
 import Card from './Card/';
 import CardBlock from './CardBlock/';
 import CardImage from './CardImage/';
@@ -21,9 +22,7 @@ import Toggle from './Toggle/';
 import Well from './Well/';
 
 const stories = storiesOf('Molecules', module);
-const storyWrapper = story => {
-    return <div style={{ margin: '35px' }}>{story()}</div>;
-};
+const storyWrapper = story => <div style={{ margin: '35px' }}>{story()}</div>;
 
 stories
     .addDecorator((story, context) => withInfo('')(story)(context))
@@ -31,6 +30,7 @@ stories
     .addDecorator(withKnobs)
     .add('Accordion', withReadme(...Accordion))
     .add('Avatar', withReadme(...Avatar))
+    .add('Breadcrumbs', withReadme(...Breadcrumbs))
     .add('Card', withReadme(...Card))
     .add('CardBlock', withReadme(...CardBlock))
     .add('CardImage', withReadme(...CardImage))
