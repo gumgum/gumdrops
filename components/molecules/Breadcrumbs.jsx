@@ -82,11 +82,11 @@ class Breadcrumbs extends Component {
                 }
                 const trailContinues = trail.length < maxLength;
                 // Go deeper if there are subpaths
-                if (subpathData && trailContinues) {
+                if (breadcrumbData && breadcrumbData.subpaths && trailContinues) {
                     const nextIndex = index + 1;
                     const remainingParts = pathSections.slice(nextIndex);
                     // Search for the remaining pathname parts on the current path's subpaths,
-                    return searchBreakpoints(remainingParts, subpathData.subpaths, trail);
+                    return searchBreakpoints(remainingParts, breadcrumbData.subpaths, trail);
                 }
                 return trail;
             }, accumulator);
@@ -95,7 +95,7 @@ class Breadcrumbs extends Component {
         const parts = pathname.split('/').filter(Boolean);
         const duplicateRoot = parts[0] === config.path;
         const initialSections = duplicateRoot ? parts.slice(1) : parts;
-        const maxLength = duplicateRoot ? initialSections.length + 1 : initialSections.length;
+        const maxLength = initialSections.length + 1;
         // Compare pathname parts against user provided configuration
         const breadcrumbs = searchBreakpoints(initialSections, config.subpaths, initialData);
         return breadcrumbs;
