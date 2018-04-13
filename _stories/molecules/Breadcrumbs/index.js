@@ -6,7 +6,7 @@ import Breadcrumbs from '../../../components/molecules/Breadcrumbs';
 import Button from '../../../components/atoms/Button';
 
 const options = [
-    '-- PATHS BELOW ONLY WORK USING CONFIG WITH /home --',
+    '-- USE THESE PATHS WITH CONFIGURATION A --',
     '/',
     '/home',
     '/home/static-page',
@@ -18,7 +18,7 @@ const options = [
     '/home/products/42/edit',
     '/home/products/stringId',
     '/home/products/stringId/edit',
-    '-- PATHS BELOW ONLY WORK USING CONFIG WITHOUT /home --',
+    '-- USE THESE PATHS WITH CONFIGURATION B --',
     '/publishers',
     '/publishers/42',
     '/publishers/42/settings',
@@ -137,6 +137,7 @@ class BreadcrumbsStory extends Component {
 
     render() {
         const { config } = this.state;
+        const configName = config.path.includes('home') ? 'Configuration A' : 'Configuration B';
         return (
             <div>
                 <header className="gds-page-header">
@@ -150,16 +151,11 @@ class BreadcrumbsStory extends Component {
                     </div>
                 </header>
                 <Button size="sm" onClick={this.changeConfig} style={{ marginTop: '30px' }}>
-                    Switch between configurations:{' '}
-                    {config.path.includes('home')
-                        ? root.path === 'Configuration A'
-                        : 'Configuration B'}
+                    Switch between configurations: {configName}
                 </Button>
                 <pre>
-                    // Configuration A:
-                    {this.printCode(configA)}
-                    // Configuration B:
-                    {this.printCode(configB)}
+                    {`//${configName}:`}
+                    {this.printCode(config)}
                 </pre>
             </div>
         );
