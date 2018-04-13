@@ -33,7 +33,7 @@ const options = [
     '/zones/woop/overview/settings'
 ];
 
-const config1 = {
+const configA = {
     title: 'Home',
     path: 'home',
     subpaths: [
@@ -75,7 +75,7 @@ const config1 = {
     ]
 };
 
-const config2 = {
+const configB = {
     title: 'Start',
     path: '/',
     subpaths: [
@@ -124,14 +124,16 @@ class BreadcrumbsStory extends Component {
 
     state = {
         hideSubmenus: false,
-        config: config1
+        config: configA
     };
 
     changeConfig = () => {
         const { config } = this.state;
-        const newConfig = config.path === 'home' ? config2 : config1;
+        const newConfig = config.path === 'home' ? configB : configA;
         this.setState({ config: newConfig });
     };
+
+    printCode = code => '\n' + JSON.stringify(code, null, 4) + '\n\n';
 
     render() {
         const { config } = this.state;
@@ -140,7 +142,6 @@ class BreadcrumbsStory extends Component {
                 <header className="gds-page-header">
                     <div className="gds-page-header__nav-bar">
                         <Breadcrumbs
-                            k
                             config={config}
                             pathname={select('Pathname', options, options[1])}
                             hideMenus={boolean('Hide submenus', false)}
@@ -149,8 +150,17 @@ class BreadcrumbsStory extends Component {
                     </div>
                 </header>
                 <Button size="sm" onClick={this.changeConfig} style={{ marginTop: '30px' }}>
-                    Switch to config {config.path.includes('home') ? 'without' : 'with'} /home root
+                    Switch between configurations:{' '}
+                    {config.path.includes('home')
+                        ? root.path === 'Configuration A'
+                        : 'Configuration B'}
                 </Button>
+                <pre>
+                    // Configuration A:
+                    {this.printCode(configA)}
+                    // Configuration B:
+                    {this.printCode(configB)}
+                </pre>
             </div>
         );
     }
