@@ -5,8 +5,7 @@ import readme from './README.md';
 import Breadcrumbs from '../../../components/molecules/Breadcrumbs';
 import Button from '../../../components/atoms/Button';
 
-const options = [
-    '-- USE THESE PATHS WITH CONFIGURATION A --',
+const optionsA = [
     '/',
     '/home',
     '/home/static-page',
@@ -17,8 +16,10 @@ const options = [
     '/home/products/42',
     '/home/products/42/edit',
     '/home/products/stringId',
-    '/home/products/stringId/edit',
-    '-- USE THESE PATHS WITH CONFIGURATION B --',
+    '/home/products/stringId/edit'
+];
+
+const optionsB = [
     '/publishers',
     '/publishers/42',
     '/publishers/42/settings',
@@ -119,43 +120,50 @@ const configB = {
     ]
 };
 
+const configSelect = {
+    A: 'A',
+    B: 'B'
+};
+
+const configs = {
+    A: configA,
+    B: configB
+};
+
+const options = {
+    A: optionsA,
+    B: optionsB
+};
+
 class BreadcrumbsStory extends Component {
     static displayName = 'Breadcrumbs';
-
-    state = {
-        hideSubmenus: false,
-        config: configA
-    };
-
-    changeConfig = () => {
-        const { config } = this.state;
-        const newConfig = config.path === 'home' ? configB : configA;
-        this.setState({ config: newConfig });
-    };
 
     printCode = code => '\n' + JSON.stringify(code, null, 4) + '\n\n';
 
     render() {
-        const { config } = this.state;
-        const configName = `Configuration ${config.path.includes('home') ? 'A' : 'B'}`;
+        const selectedConfig = select('Configuration', configSelect, configSelect['A']);
+
+        const configTitle = `// Configuration ${selectedConfig}:`;
+
         return (
             <div>
-                <header className="gds-page-header">
+                <header className="gds-page-header -color-bg-white">
                     <div className="gds-page-header__nav-bar">
                         <Breadcrumbs
-                            config={config}
-                            pathname={select('Pathname', options, options[1])}
+                            config={configs[selectedConfig]}
+                            pathname={select(
+                                'Pathname',
+                                options[selectedConfig],
+                                options[selectedConfig][1]
+                            )}
                             hideMenus={boolean('Hide submenus', false)}
                             hideRoot={boolean('Hide root breadcrumb', false)}
                         />
                     </div>
                 </header>
-                <Button size="sm" onClick={this.changeConfig} style={{ marginTop: '30px' }}>
-                    Switch between configurations
-                </Button>
-                <pre>
-                    {`// Using ${configName}:`}
-                    {this.printCode(config)}
+                <pre className="-m-t-6">
+                    {configTitle}
+                    {this.printCode(configs[selectedConfig])}
                 </pre>
             </div>
         );
