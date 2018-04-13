@@ -3,8 +3,38 @@ import { select, boolean } from '@storybook/addon-knobs';
 
 import readme from './README.md';
 import Breadcrumbs from '../../../components/molecules/Breadcrumbs';
+import Button from '../../../components/atoms/Button';
 
-const config = {
+const optionsA = [
+    '/',
+    '/home',
+    '/home/static-page',
+    '/home/category',
+    '/home/category/subcategory-1',
+    '/home/category/subcategory-2',
+    '/home/category/subcategory-3',
+    '/home/products/42',
+    '/home/products/42/edit',
+    '/home/products/stringId',
+    '/home/products/stringId/edit'
+];
+
+const optionsB = [
+    '/publishers',
+    '/publishers/42',
+    '/publishers/42/settings',
+    '/publishers/42/financials',
+    '/publishers/42/zones',
+    '/publishers/42/performance',
+    '/publishers/42/users',
+    '/publishers/42/activity-log',
+    '/zones',
+    '/zones/woop',
+    '/zones/woop/overview',
+    '/zones/woop/overview/settings'
+];
+
+const configA = {
     title: 'Home',
     path: 'home',
     subpaths: [
@@ -42,17 +72,45 @@ const config = {
         },
         {
             path: ':pageId'
-        },
+        }
+    ]
+};
+
+const configB = {
+    title: 'Start',
+    path: '/',
+    subpaths: [
         {
             path: 'publishers',
             subpaths: [
                 {
-                    path: ':id'
+                    path: ':id',
+                    subpaths: [
+                        {
+                            path: 'settings'
+                        },
+                        {
+                            path: 'financials'
+                        },
+                        {
+                            path: 'zones'
+                        },
+                        {
+                            path: 'performance'
+                        },
+                        {
+                            path: 'users'
+                        },
+                        {
+                            path: 'activity-log',
+                            title: 'Activity Log'
+                        }
+                    ]
                 }
             ]
         },
         {
-            path: 'zone',
+            path: 'zones',
             subpaths: [
                 {
                     path: ':id'
@@ -62,42 +120,55 @@ const config = {
     ]
 };
 
+const configSelect = {
+    A: 'A',
+    B: 'B'
+};
+
+const configs = {
+    A: configA,
+    B: configB
+};
+
+const options = {
+    A: optionsA,
+    B: optionsB
+};
+
 class BreadcrumbsStory extends Component {
     static displayName = 'Breadcrumbs';
 
-    state = {
-        hideSubmenus: false
-    };
+    printCode = code => '\n' + JSON.stringify(code, null, 4) + '\n\n';
 
     render() {
+        const selectedConfig = select('Configuration', configSelect, configSelect['A']);
+
+        const configTitle = `// Configuration ${selectedConfig}:`;
+
         return (
-            <header className="gds-page-header">
-                <div className="gds-page-header__nav-bar">
-                    <Breadcrumbs
-                        config={config}
-                        pathname={select('pathname', routeOptions, routeOptions[0])}
-                        hideMenus={boolean('Hide Submenus', false)}
-                        hideRoot={boolean('Hide root breadcrumb', false)}
-                    />
-                </div>
-            </header>
+            <div>
+                <header className="gds-page-header -color-bg-white">
+                    <div className="gds-page-header__nav-bar">
+                        <Breadcrumbs
+                            config={configs[selectedConfig]}
+                            pathname={select(
+                                'Pathname',
+                                options[selectedConfig],
+                                options[selectedConfig][1]
+                            )}
+                            hideMenus={boolean('Hide submenus', false)}
+                            hideRoot={boolean('Hide root breadcrumb', false)}
+                        />
+                    </div>
+                </header>
+                <pre className="-m-t-6">
+                    {configTitle}
+                    {this.printCode(configs[selectedConfig])}
+                </pre>
+            </div>
         );
     }
 }
-
-const routeOptions = [
-    '/',
-    '/home',
-    '/home/static-page',
-    '/home/category',
-    '/home/category/subcategory-1',
-    '/home/category/subcategory-2',
-    '/home/category/subcategory-3',
-    '/home/products/42',
-    '/home/products/42/edit',
-    '/home/products/stringId',
-    '/home/products/stringId/edit'
-];
 
 const component = () => <BreadcrumbsStory />;
 
