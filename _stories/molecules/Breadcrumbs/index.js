@@ -137,7 +137,7 @@ class BreadcrumbsStory extends Component {
 
     render() {
         const { config } = this.state;
-        const configName = config.path.includes('home') ? 'Configuration A' : 'Configuration B';
+        const configName = `Configuration ${config.path.includes('home') ? 'A' : 'B'}`;
         return (
             <div>
                 <header className="gds-page-header">
@@ -151,10 +151,10 @@ class BreadcrumbsStory extends Component {
                     </div>
                 </header>
                 <Button size="sm" onClick={this.changeConfig} style={{ marginTop: '30px' }}>
-                    Switch between configurations: {configName}
+                    Switch between configurations
                 </Button>
                 <pre>
-                    {`//${configName}:`}
+                    {`// Using ${configName}:`}
                     {this.printCode(config)}
                 </pre>
             </div>
