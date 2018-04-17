@@ -7,6 +7,7 @@ import { withInfo } from '@storybook/addon-info';
 import Accordion from './Accordion';
 import Avatar from './Avatar/';
 import Breadcrumbs from './Breadcrumbs/';
+import BreadcrumbsWrapper from './BreadcrumbsWrapper/';
 import Card from './Card/';
 import CardBlock from './CardBlock/';
 import CardImage from './CardImage/';
@@ -31,6 +32,7 @@ stories
     .add('Accordion', withReadme(...Accordion))
     .add('Avatar', withReadme(...Avatar))
     .add('Breadcrumbs', withReadme(...Breadcrumbs))
+    .add('BreadcrumbsWrapper', withReadme(...BreadcrumbsWrapper))
     .add('Card', withReadme(...Card))
     .add('CardBlock', withReadme(...CardBlock))
     .add('CardImage', withReadme(...CardImage))

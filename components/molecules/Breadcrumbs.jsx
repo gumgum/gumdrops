@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 
 import Breadcrumb from './Breadcrumb';
 import BreadcrumbLink from './BreadcrumbLink';
+import BreadcrumbsWrapper from './BreadcrumbsWrapper';
 
 class Breadcrumbs extends Component {
     static displayName = 'Breadcrumbs';
 
     static defaultProps = {
+        config: { path: '/' },
         linkComponent: BreadcrumbLink,
         titleDecorator: title =>
             title.replace(/^\w/, chr => chr.toUpperCase()).replace(/-|_/g, ' '),
@@ -18,7 +20,7 @@ class Breadcrumbs extends Component {
     static propTypes = {
         linkComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
         config: PropTypes.shape({
-            title: PropTypes.string.isRequired,
+            title: PropTypes.string,
             path: PropTypes.string,
             subpaths: PropTypes.array
         }).isRequired,
@@ -60,11 +62,11 @@ class Breadcrumbs extends Component {
         const searchBreakpoints = (pathSections, subpaths, accumulator = []) =>
             pathSections.reduce((trail, pathSection, index) => {
                 // Find current path subpathData
-                const subpathData = subpaths.find(({ path }) => path === pathSection);
+                const subpathData = subpaths && subpaths.find(({ path }) => path === pathSection);
                 // Find section param subpathData if no exact path was found
                 const paramData =
-                    !subpathData && subpaths.find(({ path }) => path.charAt(0) === ':');
-                const breadcrumbData = subpathData || paramData;
+                    !subpathData && subpaths && subpaths.find(({ path }) => path.charAt(0) === ':');
+                const breadcrumbData = subpathData || paramData || { path: pathSection };
                 const acceptBreadcrumb = trail.length < maxLength;
                 // Push section subpathData  to accumulator
                 if (acceptBreadcrumb && breadcrumbData) {
@@ -107,20 +109,20 @@ class Breadcrumbs extends Component {
         const displayBreadcrumbs =
             hideRoot && breadcrumbs.length > 1 ? breadcrumbs.slice(1) : breadcrumbs;
         return (
-            <div className="gds-page-header__breadcrumb-nav">
-                <ul className="gds-page-header__breadcrumbs">
-                    {displayBreadcrumbs.map((path, index, arr) => (
-                        <Breadcrumb
-                            key={path.path}
-                            hideMenus={hideMenus}
-                            linkComponent={linkComponent}
-                            config={path}
-                            pathname={pathname}
-                            isLast={arr.length - 1 === index}
-                        />
-                    ))}
-                </ul>
-            </div>
+            <BreadcrumbsWrapper>
+                {displayBreadcrumbs.map(({ title, path, subpaths }, index, arr) => (
+                    <Breadcrumb
+                        key={path}
+                        hideMenus={hideMenus}
+                        linkComponent={linkComponent}
+                        title={title}
+                        path={path}
+                        subpaths={subpaths}
+                        pathname={pathname}
+                        isLast={arr.length - 1 === index}
+                    />
+                ))}
+            </BreadcrumbsWrapper>
         );
     }
 }

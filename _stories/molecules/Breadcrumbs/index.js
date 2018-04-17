@@ -122,39 +122,48 @@ const configB = {
 
 const configSelect = {
     A: 'A',
-    B: 'B'
+    B: 'B',
+    C: 'C'
 };
 
 const configs = {
     A: configA,
-    B: configB
+    B: configB,
+    C: undefined
 };
 
 const options = {
     A: optionsA,
-    B: optionsB
+    B: optionsB,
+    C: [...optionsA, ...optionsB]
 };
 
 class BreadcrumbsStory extends Component {
     static displayName = 'Breadcrumbs';
 
-    printCode = code => '\n' + JSON.stringify(code, null, 4) + '\n\n';
+    printCode = code => (code ? '\n' + JSON.stringify(code, null, 4) + '\n\n' : '');
 
     render() {
         const selectedConfig = select('Configuration', configSelect, configSelect['A']);
 
-        const configTitle = `// Configuration ${selectedConfig}:`;
+        const noConfig = selectedConfig === 'C';
+
+        const configTitle = `//${noConfig ? ' No' : ''} Configuration${
+            noConfig ? '' : ' ' + (selectedConfig + ':')
+        }`;
+
+        const config = configs[selectedConfig];
 
         return (
             <div>
                 <header className="gds-page-header -color-bg-white">
                     <div className="gds-page-header__nav-bar">
                         <Breadcrumbs
-                            config={configs[selectedConfig]}
+                            config={config}
                             pathname={select(
                                 'Pathname',
                                 options[selectedConfig],
-                                options[selectedConfig][1]
+                                options[selectedConfig][0]
                             )}
                             hideMenus={boolean('Hide submenus', false)}
                             hideRoot={boolean('Hide root breadcrumb', false)}
