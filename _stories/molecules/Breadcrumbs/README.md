@@ -2,7 +2,7 @@
 
 ### **NOTE**: The component will only render with a minimum width of **991px**
 
-The `<Breadcrumbs>` component creates navigation links for the current pathname based on a configuration object.
+The `<Breadcrumbs>` component creates navigation links for the current pathname based on an opinionated configuration object. The idea behind this component is to drop it anywhere with minimal or no configuration and get breadcrumbs generated automatically. The only required prop is a pathname, but a config object is also accepted for fine tuning. The library also has a `<BreadcrumbsWrapper>` component if you need to customize the implementation yourself.
 
 [See the prototype here](https://ds.gumgum.com/stable/).
 
@@ -10,8 +10,8 @@ The `<Breadcrumbs>` component creates navigation links for the current pathname 
 
 | name           | description                                                                                                                                                  | required |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| config         | Object that defines the app routes. See below for details.                                                                                                   | true     |
 | pathname       | Current pathname either from react-router or window.location.pathname                                                                                        | true     |
+| config         | Object that defines the app routes. See below for details.                                                                                                   | false    |
 | hideMenus      | Boolean attribute to prevent displaying subpath submenus                                                                                                     | false    |
 | hideRoot       | Boolean attribute to prevent displaying the Root element (only if other breadcrumbs are available)                                                           | false    |
 | linkComponent  | Optional component to display as the breadcrumbs. Receives prop "to" as its href                                                                             | false    |
@@ -74,7 +74,7 @@ const routes = {
 
 ## Usage
 
-### Using link component provided by the library:
+### No configuration object passed, the component will generate breadcrumbs based on the pathname prop:
 
 ```
 render() {
@@ -82,14 +82,14 @@ render() {
     return (
         <header className="gds-page-header">
             <div className="gds-page-header__nav-bar">
-                <Breadcrumbs pathname={pathname} config={routes} />
+                <Breadcrumbs pathname={pathname} />
             </div>
         </header>
     );
 }
 ```
 
-### Passing a custom component and removing submenus:
+### Passing a configuration object, custom component and hiding submenus:
 
 ```
 const CustomLink = (props) => (

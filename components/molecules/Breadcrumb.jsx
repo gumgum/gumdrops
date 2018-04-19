@@ -9,7 +9,9 @@ const filterMenu = pathname => ({ path }) => path.charAt(0) !== ':' && !pathname
 
 const Breadcrumb = props => {
     const {
-        config: { title, path, subpaths },
+        title,
+        path,
+        subpaths,
         linkComponent: LinkComponent,
         pathname,
         hideMenus,
@@ -22,15 +24,16 @@ const Breadcrumb = props => {
     const rootClass = cx(baseClass, className, {
         [`${baseClass}--has-menu`]: hasMenu
     });
+    const displayTitle = title || path;
 
     return (
         <li className={rootClass}>
             {hasMenu && <BreadcrumbMenu linkComponent={LinkComponent} menu={menu} path={path} />}
             {isLast ? (
-                title
+                displayTitle
             ) : (
                 <LinkComponent className="gds-page-header__breadcrumbs-link" to={path}>
-                    {title}
+                    {displayTitle}
                 </LinkComponent>
             )}
         </li>
@@ -41,12 +44,10 @@ Breadcrumb.displayName = 'Breadcrumb';
 
 Breadcrumb.propTypes = {
     linkComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
-    config: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        path: PropTypes.string.isRequired,
-        subpaths: PropTypes.array
-    }).isRequired,
-    pathname: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    path: PropTypes.string.isRequired,
+    subpaths: PropTypes.array,
+    pathname: PropTypes.string,
     isLast: PropTypes.bool.isRequired,
     hideMenus: PropTypes.bool,
     className: PropTypes.string
