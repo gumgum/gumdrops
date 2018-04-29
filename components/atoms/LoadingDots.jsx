@@ -21,7 +21,7 @@ const LoadingDots = ({ whiteDots = false, size, className, style }) => {
 LoadingDots.displayName = 'LoadingDots';
 
 LoadingDots.defaultProps = {
-    whiteDots: false,
+    whiteDots: false
 };
 
 LoadingDots.propTypes = {

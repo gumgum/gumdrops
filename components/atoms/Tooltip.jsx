@@ -32,7 +32,7 @@ const Tooltip = ({
 Tooltip.displayName = 'Tooltip';
 
 Tooltip.defaultProps = {
-    position: 'top',
+    position: 'top'
 };
 
 Tooltip.propTypes = {
