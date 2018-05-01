@@ -8,7 +8,7 @@ import LoadingDots from '../../../components/atoms/LoadingDots';
 const sizeOptions = {
     sm: 'sm',
     lg: 'lg',
-    '': 'No Value',
+    '': 'No Value'
 };
 
 const component = () => (
