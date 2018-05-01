@@ -13,6 +13,7 @@ import CardBlock from './CardBlock/';
 import CardImage from './CardImage/';
 import Checkbox from './Checkbox/';
 import Divider from './Divider/';
+import DocumentTitle from './DocumentTitle/';
 import FormGroup from './FormGroup/';
 import LoginForm from './LoginForm/';
 import MultiSelect from './MultiSelect/';
@@ -38,6 +39,7 @@ stories
     .add('CardImage', withReadme(...CardImage))
     .add('Checkbox', withReadme(...Checkbox))
     .add('Divider', withReadme(...Divider))
+    .add('DocumentTitle', withReadme(...DocumentTitle))
     .add('FormGroup', withReadme(...FormGroup))
     .add('LoginForm', withReadme(...LoginForm))
     .add('Modal', withReadme(...Modal))
