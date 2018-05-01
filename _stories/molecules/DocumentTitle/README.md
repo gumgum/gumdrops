@@ -32,7 +32,7 @@ render() {
 
 Sometimes you may need to set the document title inside a render function, this is where the wrapper is helpful.
 
-**High Order Component Example**:
+**Wrapper Example**:
 
 ```
 render() {
