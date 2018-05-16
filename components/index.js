@@ -45,5 +45,6 @@ export { default as Modal } from './molecules/Modal';
 export { default as MultiSelect } from './molecules/MultiSelect';
 export { default as Pagination } from './molecules/Pagination';
 export { default as SearchMultiSelect } from './molecules/SearchMultiSelect';
+export { default as Table } from './molecules/Table';
 export { default as Toggle } from './molecules/Toggle';
 export { default as Well } from './molecules/Well';
