@@ -18,6 +18,7 @@ import MultiSelect from './MultiSelect/';
 import Modal from './Modal/';
 import Pagination from './Pagination/';
 import SearchMultiSelect from './SearchMultiSelect/';
+import Table from './Table/';
 import Toggle from './Toggle/';
 import Well from './Well/';
 
@@ -42,5 +43,6 @@ stories
     .add('MultiSelect', withReadme(...MultiSelect))
     .add('Pagination', withReadme(...Pagination))
     .add('SearchMultiSelect', withReadme(...SearchMultiSelect))
+    .add('Table', withReadme(...Table))
     .add('Toggle', withReadme(...Toggle))
     .add('Well', withReadme(...Well));
