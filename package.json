@@ -1,6 +1,6 @@
 {
     "name": "gumdrops",
-    "version": "1.2.2",
+    "version": "1.3.0",
     "description": "GumGum's React Components Library",
     "license": "MIT",
     "files": [
@@ -65,8 +65,8 @@
         "jest-cli": "^19.0.2",
         "prettier": "1.10.2",
         "raw-loader": "^0.5.1",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
+        "react": "^16.3.0",
+        "react-dom": "^16.3.0",
         "rimraf": "^2.6.1",
         "rollup": "^0.56.3",
         "rollup-plugin-babel": "^3.0.3",
