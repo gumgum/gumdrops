@@ -124,7 +124,7 @@ class Table extends Component {
                                         onClick={handleHeadingClick}
                                         key={reactKey}
                                         isSecondary={isSecondary}
-                                        className={defaultCursor && '-cursor--default'}
+                                        className={cx({ '-cursor--default': defaultCursor })}
                                         sortDirection={
                                             sortBy.key === key ? sortBy.direction : undefined
                                         }>
@@ -144,7 +144,8 @@ class Table extends Component {
                             isStriped={isStriped}
                             onClick={onRowClick && (() => onRowClick(rowData))}>
                             {columns.map((column, k) => {
-                                const cellData = rowData[column.key] || rowData[column];
+                                const isString = typeof column === 'string';
+                                const cellData = isString ? rowData[column] : rowData[column.key];
                                 const decorator = column.dataCellDecorator;
                                 const key = `row-${i}-key-${k}`;
                                 return decorator ? (
