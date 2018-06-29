@@ -1,19 +1,20 @@
 import React from 'react';
-import { select, object } from '@storybook/addon-knobs';
+import { object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 
 import readme from './README.md';
 import { colors } from '../constants';
 
 const options = {
-    '': 'None',
-    '-abs-t-r': 'Absolute Top Right: -abs-t-r',
-    '-abs-t-l': 'Absolute Top Left: -abs-t-l',
-    '-abs-b-r': 'Absolute Bottom Right: -abs-b-r',
-    '-abs-b-l': 'Absolute Bottom Left: -abs-b-l',
-    '-pos-abs': 'Position Absolute: -pos-abs',
-    '-pos-rel': 'Position Relative: -pos-rel',
-    '-pos-fix': 'Position Fixed: -pos-fix',
-    '-pos-stc': 'Position Static: -pos-stc'
+    None: '',
+    'Absolute Top Right: -abs-t-r': '-abs-t-r',
+    'Absolute Top Left: -abs-t-l': '-abs-t-l',
+    'Absolute Bottom Right: -abs-b-r': '-abs-b-r',
+    'Absolute Bottom Left: -abs-b-l': '-abs-b-l',
+    'Position Absolute: -pos-abs': '-pos-abs',
+    'Position Relative: -pos-rel': '-pos-rel',
+    'Position Fixed: -pos-fix': '-pos-fix',
+    'Position Static: -pos-stc': '-pos-stc'
 };
 
 const outerDivStyle = {
@@ -30,7 +31,10 @@ const innerDivStyle = {
 
 const component = () => (
     <div style={outerDivStyle}>
-        <div className={select('Options', options, '')} style={object('Style', innerDivStyle)} />
+        <div
+            className={optionalSelect('Options', options, '')}
+            style={object('Style', innerDivStyle)}
+        />
     </div>
 );
 

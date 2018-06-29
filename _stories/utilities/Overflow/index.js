@@ -1,5 +1,5 @@
 import React from 'react';
-import { select, object } from '@storybook/addon-knobs';
+import { selectV2 as select, object } from '@storybook/addon-knobs';
 import arrToObjOptions from '../../../components/utils/arrToObjOptions';
 
 import readme from './README.md';
@@ -14,7 +14,7 @@ const optionsNoDefault = arrToObjOptions([
     '-overflow-y-scroll'
 ]);
 
-const options = { ...optionsNoDefault, '': 'None' };
+const options = { ...optionsNoDefault, None: '' };
 
 const outerDivStyle = {
     width: '400px',

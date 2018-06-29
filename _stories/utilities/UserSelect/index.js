@@ -1,10 +1,10 @@
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
+import { selectV2 as select } from '@storybook/addon-knobs';
 
 import readme from './README.md';
 
 const options = {
-    '': 'None',
+    None: '',
     '-user-select--none': '-user-select--none'
 };
 

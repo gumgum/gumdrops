@@ -20,7 +20,7 @@ const CardImage = ({ url, option, size, className, style }) => {
 CardImage.displayName = 'CardImage';
 
 CardImage.defaultProps = {
-    option: 'top',
+    option: 'top'
 };
 
 CardImage.propTypes = {

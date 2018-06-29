@@ -1,14 +1,10 @@
 import React from 'react';
-import { select, text, object } from '@storybook/addon-knobs';
+import { selectV2 as select, text, object } from '@storybook/addon-knobs';
 
 import readme from './README.md';
 import Trend from '../../../components/atoms/Trend';
 
-const contextOptions = {
-    up: 'up',
-    same: 'same',
-    down: 'down'
-};
+const contextOptions = ['up', 'same', 'down'];
 
 const component = () => (
     <Trend

@@ -1,11 +1,11 @@
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
+import { selectV2 as select } from '@storybook/addon-knobs';
 
 import readme from './README.md';
 import { colors } from '../constants';
 
 const aOptions = {
-    '': 'None',
+    None: '',
     '-z-1': '-z-1',
     '-z-2': '-z-2',
     '-z-3': '-z-3',
@@ -19,7 +19,7 @@ const aOptions = {
 };
 
 const bOptions = {
-    '': 'None',
+    None: '',
     '-z-1': '-z-1',
     '-z-2': '-z-2',
     '-z-3': '-z-3',

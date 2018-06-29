@@ -11,7 +11,7 @@ const sizeOptions = {
     xs: 'xs',
     sm: 'sm',
     lg: 'lg',
-    '': 'No Value',
+    '': 'No Value'
 };
 
 const component = () => (
