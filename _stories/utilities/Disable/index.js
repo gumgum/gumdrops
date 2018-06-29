@@ -1,12 +1,12 @@
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
+import { selectV2 as select } from '@storybook/addon-knobs';
 import Button from '../../../components/atoms/Button';
 
 import readme from './README.md';
 import { colors } from '../constants';
 
 const options = {
-    '': 'None',
+    None: '',
     '-disabled': '-disabled'
 };
 

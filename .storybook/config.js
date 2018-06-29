@@ -10,10 +10,10 @@ setOptions({
     name: 'Gumdrops',
     url: 'https://storybook.gumgum.com',
     goFullScreen: false,
-    showLeftPanel: true,
-    showDownPanel: true,
+    showStoriesPanel: true,
+    showAddonPanel: true,
     showSearchBox: false,
-    downPanelInRight: true,
+    addonPanelInRight: true,
     sortStoriesByKind: true
 });
 

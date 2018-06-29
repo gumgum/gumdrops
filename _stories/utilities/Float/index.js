@@ -1,5 +1,5 @@
 import React from 'react';
-import { select, object } from '@storybook/addon-knobs';
+import { selectV2 as select, object } from '@storybook/addon-knobs';
 import arrToObjOptions from '../../../components/utils/arrToObjOptions';
 
 import readme from './README.md';
@@ -16,13 +16,13 @@ const floatOptionsNoDefault = arrToObjOptions([
     '-float-none--xl'
 ]);
 
-const floatOptionsA = { ...floatOptionsNoDefault, '': 'None' };
-const floatOptionsB = { ...floatOptionsNoDefault, '': 'None' };
+const floatOptionsA = { ...floatOptionsNoDefault, None: '' };
+const floatOptionsB = { ...floatOptionsNoDefault, None: '' };
 
 const clearOptionsNoDefault = arrToObjOptions(['-clear-left', '-clear-right', '-clear-both']);
 
-const clearOptionsA = { ...clearOptionsNoDefault, '': 'None' };
-const clearOptionsB = { ...clearOptionsNoDefault, '': 'None' };
+const clearOptionsA = { ...clearOptionsNoDefault, None: '' };
+const clearOptionsB = { ...clearOptionsNoDefault, None: '' };
 
 const divStyleA = {
     width: '100px',

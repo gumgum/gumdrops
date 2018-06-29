@@ -1,5 +1,5 @@
 import React from 'react';
-import { select, text, object } from '@storybook/addon-knobs';
+import { selectV2 as select, text, object } from '@storybook/addon-knobs';
 import { optionalSelect } from '../../../components/utils/optionalSelect';
 
 import readme from './README.md';
@@ -14,7 +14,7 @@ const options = {
 const sizeOptions = {
     sm: 'sm',
     xs: 'xs',
-    '': 'No Value',
+    'No Value': ''
 };
 
 const component = () => (

@@ -1,12 +1,12 @@
 import React from 'react';
-import { text, select, boolean, object } from '@storybook/addon-knobs';
+import { text, boolean, object } from '@storybook/addon-knobs';
 import { optionalSelect } from '../../../components/utils/optionalSelect';
 
 import readme from './README.md';
 import Badge from '../../../components/atoms/Badge';
 
 const options = {
-    '': 'No Value',
+    'No Value': '',
     inverse: 'inverse',
     success: 'success',
     'success-inverse': 'success-inverse',

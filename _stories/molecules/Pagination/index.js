@@ -1,5 +1,5 @@
 import React from 'react';
-import { number, boolean, select } from '@storybook/addon-knobs';
+import { number, boolean, selectV2 as select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { select, boolean } from '@storybook/addon-knobs';
 
 import readme from './README.md';
 import BreadcrumbsWrapper from '../../../components/molecules/BreadcrumbsWrapper';
 import Breadcrumb from '../../../components/molecules/Breadcrumb';
 import Link from '../../../components/molecules/BreadcrumbLink';
-import Button from '../../../components/atoms/Button';
 
 class BreadcrumbsWrapperStory extends Component {
     static displayName = 'BreadcrumbsWrapper';
