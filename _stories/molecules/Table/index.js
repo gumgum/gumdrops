@@ -53,9 +53,10 @@ const sizeOptions = {
 
 // Column options
 
-const columnsSimple = ['name', 'title', 'age', 'weight', 'height'];
+const columnsSimple = ['id', 'name', 'title', 'age', 'weight', 'height'];
 
 const columnsCustom = [
+    { key: 'id', children: 'ID' },
     { key: 'name', children: 'First Name' },
     { key: 'title', children: 'Job Title' },
     { key: 'age', children: 'Age (years)' },
@@ -78,6 +79,7 @@ const heightCellDecorator = (cellData, key, rowData) => (
 );
 
 const columnsAdvanced = [
+    { key: 'id', children: 'ID' },
     {
         key: 'name',
         children: (
@@ -139,7 +141,10 @@ const createPerson = () => ({
 const generateData = amount =>
     Array(amount)
         .fill(null)
-        .map(() => createPerson());
+        .map((_, i) => ({
+            id: i,
+            ...createPerson()
+        }));
 
 const component = () => {
     const numOfRows = number('Rows', 10, {
