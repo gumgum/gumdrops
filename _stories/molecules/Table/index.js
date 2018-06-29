@@ -88,7 +88,9 @@ const columnsAdvanced = [
             </ToolTip>
         ),
         disableSorting: true,
-        onHeadingClick: action('column_heading_clicked')
+        headingProps: {
+            onClick: action('column_heading_clicked')
+        }
     },
     {
         key: 'title',
@@ -97,7 +99,9 @@ const columnsAdvanced = [
                 Job Title (sorted by length) <i className="fa fa-info-circle -m-r-2" />
             </ToolTip>
         ),
-        onHeadingClick: action('column_heading_clicked'),
+        headingProps: {
+            onClick: action('column_heading_clicked')
+        },
         sortCompareAsc: (a, b) => a.title.length - b.title.length,
         sortCompareDesc: (a, b) => b.title.length - a.title.length
     },
@@ -107,7 +111,17 @@ const columnsAdvanced = [
         children: 'Weight (pounds)',
         dataCellDecorator: weightCellDecorator
     },
-    { key: 'height', children: 'Height', dataCellDecorator: heightCellDecorator }
+    {
+        key: 'height',
+        children: 'Height',
+        headingProps: {
+            style: {
+                width: '120px'
+            },
+            className: 'custom-class'
+        },
+        dataCellDecorator: heightCellDecorator
+    }
 ];
 
 // Column select options

@@ -30,23 +30,22 @@ class Table extends Component {
         };
     }
 
+    _sortCompareAlpha = (a, b, key) => {
+        if (!a[key]) return -1;
+        if (!b[key]) return 1;
+        const textA = a[key].toUpperCase();
+        const textB = b[key].toUpperCase();
+        return textA < textB ? -1 : textA > textB ? 1 : 0;
+    };
+
     _sortDescending({ key, sortCompareDesc }) {
         const data = [...this.props.data];
-
         const shouldSortByAlpha = typeof data[0][key] === 'string'; // assumes data consistency across array items
-
-        const sortCompareAlphaDesc = (a, b) => {
-            if (!a[key]) return 1;
-            if (!b[key]) return -1;
-            const textA = a[key].toUpperCase();
-            const textB = b[key].toUpperCase();
-            return textA < textB ? 1 : textA > textB ? -1 : 0;
-        };
 
         const sortedData = sortCompareDesc
             ? data.sort(sortCompareDesc)
             : shouldSortByAlpha
-              ? data.sort(sortCompareAlphaDesc)
+              ? data.sort((a, b) => this._sortCompareAlpha(b, a, key))
               : data.sort((a, b) => b[key] - a[key]);
 
         this.setState({
@@ -57,21 +56,12 @@ class Table extends Component {
 
     _sortAscending({ key, sortCompareAsc }) {
         const data = [...this.props.data];
-
         const shouldSortByAlpha = typeof data[0][key] === 'string'; // assumes data consistency across array items
-
-        const sortCompareAlphaAsc = (a, b) => {
-            if (!a[key]) return -1;
-            if (!b[key]) return 1;
-            const textA = a[key].toUpperCase();
-            const textB = b[key].toUpperCase();
-            return textA < textB ? -1 : textA > textB ? 1 : 0;
-        };
 
         const sortedData = sortCompareAsc
             ? data.sort(sortCompareAsc)
             : shouldSortByAlpha
-              ? data.sort(sortCompareAlphaAsc)
+              ? data.sort((a, b) => this._sortCompareAlpha(a, b, key))
               : data.sort((a, b) => a[key] - b[key]);
 
         this.setState({
@@ -101,30 +91,41 @@ class Table extends Component {
                                     sortCompareAsc,
                                     sortCompareDesc,
                                     disableSorting,
-                                    onHeadingClick
+                                    onHeadingClick,
+                                    headingProps = {}
                                 } = column;
+
                                 const reactKey = `row-${i}-key-${i}`;
                                 const key = column.key || column;
                                 const children = column.children || column;
-                                const defaultCursor = disableSorting && !onHeadingClick;
 
-                                const handleHeadingClick = disableSorting
-                                    ? onHeadingClick ? onHeadingClick : undefined
+                                // NOTE: onHeadingClick should be removed in the next major version
+                                // Using "headingProps" will allow more complete customization
+                                if (onHeadingClick) {
+                                    console.warn(
+                                        'Warning: `onHeadingClick` has been deprecated in favor of `headingProps`. Use `headingProps.onClick` instead.'
+                                    );
+                                }
+
+                                const onClickFn = onHeadingClick || headingProps.onClick;
+
+                                const onClickHeading = disableSorting
+                                    ? onClickFn
                                     : event => {
                                           this._sortColumn({
                                               key,
                                               sortCompareAsc,
                                               sortCompareDesc
                                           });
-                                          onHeadingClick && onHeadingClick(event);
+                                          onClickFn && onClickFn(event);
                                       };
 
                                 return (
                                     <Heading
-                                        onClick={handleHeadingClick}
-                                        key={reactKey}
+                                        {...headingProps}
                                         isSecondary={isSecondary}
-                                        className={cx({ '-cursor--default': defaultCursor })}
+                                        key={reactKey}
+                                        onClick={onClickHeading}
                                         sortDirection={
                                             sortBy.key === key ? sortBy.direction : undefined
                                         }>
@@ -194,7 +195,9 @@ Table.propTypes = {
                 key: PropTypes.string,
                 sortCompareAsc: PropTypes.func,
                 sortCompareDesc: PropTypes.func,
-                onHeadingClick: PropTypes.func
+                // NOTE: deprecated
+                onHeadingClick: PropTypes.func,
+                headingProps: PropTypes.object
                 // callback: PropTypes.func,
                 // A callback could be used to request sorted data from the server,
                 // for instance paginated items sorted by data.
