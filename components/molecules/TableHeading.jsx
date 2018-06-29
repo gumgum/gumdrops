@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-const TableHeading = ({ className, children, onClick, sortDirection, isSecondary }) => (
+const TableHeading = ({ className, children, onClick, sortDirection, isSecondary, ...rest }) => (
     <th
         className={cx('gds-table__header -text-left', className, {
             [`gds-table__header--sort-${sortDirection}`]: sortDirection,
-            [`gds-table__header--secondary`]: isSecondary
+            ['gds-table__header--secondary']: isSecondary,
+            ['-cursor--default']: !onClick
         })}
-        onClick={onClick}>
+        onClick={onClick}
+        {...rest}>
         {children}
     </th>
 );

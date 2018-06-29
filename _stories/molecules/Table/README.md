@@ -52,9 +52,9 @@ For more advanced configuration you can supply additional properties to the `col
 | children          | `Node`     | Custom markup to render in the column heading [See example](#custom-column-markup)                                                                      |
 | disableSorting    | `Boolean`  | Disables ability to sort column data                                                                                                                    |
 | dataCellDecorator | `Function` | Customize cell markup with a decorator, a function that is called with the cell data, a React key, and the row data. [See example](#custom-cell-markup) |
+| headingProps      | `Object`   | Props object to be passed to the `<TableHeading>` component. [See example](#custom-heading-props)                                                       |
 | sortCompareAsc    | `Function` | Custom ascending sort compare function. [See example](#custom-sorting)                                                                                  |
 | sortCompareDesc   | `Function` | Custom descending sort compare function. [See example](#custom-sorting)                                                                                 |
-| onHeadingClick    | `Function` | Custom click handler for the column heading. [See example](#custom-heading-click)                                                                       |
 
 ## Advanced Column Examples
 
@@ -132,15 +132,21 @@ const columnsAdvanced = [
 const People = () => <Table columns={columns} data={data} />;
 ```
 
-### Custom Heading Click
+### Custom Heading Props
+
+Props can be passed to the `<TableHeading>` component with the `headingProp` property.
 
 ```jsx
 const columnsAdvanced = [
     { key: 'name' },
     {
         key: 'title',
-        onHeadingClick: event => {
-            // do more stuff
+        headingProps: {
+            className: 'custom-class',
+            style: {
+                width: '10%'
+            },
+            onClick: event => {}
         }
     },
     { key: 'age' },
