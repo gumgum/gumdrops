@@ -27,7 +27,7 @@ const options = [
 const sizeOptions = {
     sm: 'sm',
     xs: 'xs',
-    '': 'No Value',
+    '': 'No Value'
 };
 
 const component = () => (

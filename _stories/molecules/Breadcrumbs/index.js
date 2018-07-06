@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { select, boolean } from '@storybook/addon-knobs';
+import { selectV2 as select, boolean } from '@storybook/addon-knobs';
 
 import readme from './README.md';
 import Breadcrumbs from '../../../components/molecules/Breadcrumbs';
-import Button from '../../../components/atoms/Button';
 
 const optionsA = [
     '/',

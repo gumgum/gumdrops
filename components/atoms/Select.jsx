@@ -25,7 +25,7 @@ Select.displayName = 'Select';
 Select.defaultProps = {
     options: [],
     customValue: 'value',
-    customName: 'name',
+    customName: 'name'
 };
 
 Select.propTypes = {

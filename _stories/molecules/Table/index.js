@@ -53,9 +53,10 @@ const sizeOptions = {
 
 // Column options
 
-const columnsSimple = ['name', 'title', 'age', 'weight', 'height'];
+const columnsSimple = ['id', 'name', 'title', 'age', 'weight', 'height'];
 
 const columnsCustom = [
+    { key: 'id', children: 'ID' },
     { key: 'name', children: 'First Name' },
     { key: 'title', children: 'Job Title' },
     { key: 'age', children: 'Age (years)' },
@@ -78,6 +79,7 @@ const heightCellDecorator = (cellData, key, rowData) => (
 );
 
 const columnsAdvanced = [
+    { key: 'id', children: 'ID' },
     {
         key: 'name',
         children: (
@@ -86,7 +88,9 @@ const columnsAdvanced = [
             </ToolTip>
         ),
         disableSorting: true,
-        onHeadingClick: action('column_heading_clicked')
+        headingProps: {
+            onClick: action('column_heading_clicked')
+        }
     },
     {
         key: 'title',
@@ -95,7 +99,9 @@ const columnsAdvanced = [
                 Job Title (sorted by length) <i className="fa fa-info-circle -m-r-2" />
             </ToolTip>
         ),
-        onHeadingClick: action('column_heading_clicked'),
+        headingProps: {
+            onClick: action('column_heading_clicked')
+        },
         sortCompareAsc: (a, b) => a.title.length - b.title.length,
         sortCompareDesc: (a, b) => b.title.length - a.title.length
     },
@@ -105,7 +111,17 @@ const columnsAdvanced = [
         children: 'Weight (pounds)',
         dataCellDecorator: weightCellDecorator
     },
-    { key: 'height', children: 'Height', dataCellDecorator: heightCellDecorator }
+    {
+        key: 'height',
+        children: 'Height',
+        headingProps: {
+            style: {
+                width: '120px'
+            },
+            className: 'custom-class'
+        },
+        dataCellDecorator: heightCellDecorator
+    }
 ];
 
 // Column select options
@@ -139,7 +155,10 @@ const createPerson = () => ({
 const generateData = amount =>
     Array(amount)
         .fill(null)
-        .map(() => createPerson());
+        .map((_, i) => ({
+            id: i,
+            ...createPerson()
+        }));
 
 const component = () => {
     const numOfRows = number('Rows', 10, {

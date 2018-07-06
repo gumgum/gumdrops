@@ -16,7 +16,7 @@ TextInput.displayName = 'TextInput';
 
 TextInput.defaultProps = {
     type: 'text',
-    size: 'md',
+    size: 'md'
 };
 
 TextInput.propTypes = {
