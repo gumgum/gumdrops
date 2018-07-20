@@ -11,7 +11,28 @@ class MultiSelect extends Component {
         isOpen: false
     };
 
+    componentDidMount() {
+        window.addEventListener('click', this._closeOnClickOutside);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('click', this._closeOnClickOutside);
+    }
+
+    _closeOnClickOutside = ({ target }) => {
+        const el = this.container;
+        if (!el.contains(target)) {
+            this.setState({ isOpen: false });
+        }
+    };
+
     _toggleDropdown = () => this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+
+    _getPlaceholder = () => {
+        const { placeholder, options } = this.props;
+        const selectedOptions = options.filter(x => x.selected);
+        return selectedOptions.map(x => x.name).join(', ') || placeholder;
+    };
 
     render() {
         const { options, callback, placeholder, size, className, ...otherProps } = this.props;
@@ -35,7 +56,7 @@ class MultiSelect extends Component {
         const labelId = `MultiSelect_label_${this.uid}`;
 
         return (
-            <div className={rootClass} {...otherProps}>
+            <div className={rootClass} {...otherProps} ref={ref => (this.container = ref)}>
                 <button
                     aria-expanded={isOpen}
                     aria-pressed={isOpen}
@@ -45,7 +66,7 @@ class MultiSelect extends Component {
                     id={labelId}
                     type="button"
                     onClick={this._toggleDropdown}>
-                    {placeholder}
+                    <div className="-ellipsis">{this._getPlaceholder()}</div>
                 </button>
                 <ul
                     aria-labelledby={labelId}
