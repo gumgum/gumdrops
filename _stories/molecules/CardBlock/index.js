@@ -9,7 +9,7 @@ import CardBlock from '../../../components/molecules/CardBlock';
 const options = {
     'divide-top': 'divide-top',
     'divide-bottom': 'divide-bottom',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const component = () => (

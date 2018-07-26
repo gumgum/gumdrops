@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 const ModalFooter = ({ className, style, children }) => (
-    <div className={`gds-modal__footer -text-right ${className}`} style={style}>
+    <div className={cx('gds-modal__footer', '-text-right', className)} style={style}>
         {children}
     </div>
 );

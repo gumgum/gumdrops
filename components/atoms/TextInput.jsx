@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 const TextInput = ({ className, type, size, ...otherProps }) => {
-    const sizeClass = size ? `gds-form-group__text-input--${size}` : '';
-    return (
-        <input
-            className={`gds-form-group__text-input ${sizeClass} ${className}`}
-            type={type}
-            {...otherProps}
-        />
-    );
+    const baseClass = 'gds-form-group__text-input';
+
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${size}`]: size
+    });
+
+    return <input className={rootClass} type={type} {...otherProps} />;
 };
 
 TextInput.displayName = 'TextInput';

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 const ModalForm = ({ className, children, ...otherProps }) => (
-    <form className={`gds-modal__form ${className}`} {...otherProps}>
+    <form className={cx('gds-modal__form', className)} {...otherProps}>
         {children}
     </form>
 );

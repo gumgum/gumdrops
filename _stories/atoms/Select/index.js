@@ -28,14 +28,14 @@ const options = [
 ];
 
 const contextOptions = {
-    '': 'No Value',
+    'No Value': '',
     primary: 'primary',
     'no-border': 'no-border',
     dark: 'dark'
 };
 
 const sizeOptions = {
-    '': 'No Value',
+    'No Value': '',
     xs: 'xs',
     sm: 'sm',
     lg: 'lg'

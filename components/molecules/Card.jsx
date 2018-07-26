@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const Card = ({ option, size, className, style, children }) => {
-    const baseClass = 'gds-card',
-        optionClass = option ? `${baseClass}--${option}` : '',
-        sizeClass = size ? `${baseClass}--${size}` : '';
-
-    const classNames = trimString(`${baseClass} ${optionClass} ${sizeClass} ${className}`);
+    const baseClass = 'gds-card';
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${option}`]: option,
+        [`${baseClass}--${size}`]: size
+    });
 
     return (
-        <div className={classNames} style={style}>
+        <div className={rootClass} style={style}>
             {children}
         </div>
     );

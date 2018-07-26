@@ -11,7 +11,7 @@ const cardOptions = {
     white: 'white',
     underlined: 'underlined',
     'underlined-secondary': 'underlined-secondary',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const sizeOptions = {
@@ -20,7 +20,7 @@ const sizeOptions = {
     md: 'md',
     lg: 'lg',
     xl: 'xl',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const component = () => (

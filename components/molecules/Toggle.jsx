@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const Toggle = ({ type, size, label, style, className, ...otherProps }) => {
     const baseClass = 'gds-form-group__toggleswitch';
-    const sizeClass = size ? `${baseClass}--${size}` : '';
-    const classNames = trimString(`${baseClass} ${sizeClass} ${className}`);
+
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${size}`]: size
+    });
 
     return (
-        <div className={classNames} style={style}>
+        <div className={rootClass} style={style}>
             <label className="gds-form-group__toggleswitch-label">
                 <input className="gds-form-group__toggleswitch-input" type={type} {...otherProps} />
                 <span className="gds-form-group__toggleswitch-indicator" />
@@ -22,10 +24,7 @@ Toggle.displayName = 'Toggle';
 
 Toggle.defaultProps = {
     type: 'checkbox',
-    size: '',
-    label: '',
-    className: '',
-    style: {}
+    label: ''
 };
 
 Toggle.propTypes = {

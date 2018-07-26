@@ -10,13 +10,13 @@ import AccordionItemContent from '../../../components/atoms/AccordionItemContent
 
 const sizeOptions = {
     sm: 'sm',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const contextOptions = {
     dark: 'dark',
     white: 'white',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const component = () => (
