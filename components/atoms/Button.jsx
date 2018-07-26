@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const Button = ({
     context,
@@ -13,17 +13,16 @@ const Button = ({
     children,
     ...otherProps
 }) => {
-    const baseClass = 'gds-button',
-        contextClass = context ? `${baseClass}--${context}` : '',
-        sizeClass = size ? `${baseClass}--${size}` : '',
-        groupClass = group ? `${baseClass}-group__button` : '';
+    const baseClass = 'gds-button';
 
-    const classNames = trimString(
-        `${baseClass} ${contextClass} ${sizeClass} ${groupClass} ${className}`
-    );
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${context}`]: context,
+        [`${baseClass}--${size}`]: size,
+        [`${baseClass}-group__button`]: group
+    });
 
     return (
-        <button className={classNames} type={type} style={style} onClick={onClick} {...otherProps}>
+        <button className={rootClass} type={type} style={style} onClick={onClick} {...otherProps}>
             {children}
         </button>
     );

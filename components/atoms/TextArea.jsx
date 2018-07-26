@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const TextArea = ({ className, resize, size, placeholder, style, ...otherProps }) => {
     const baseClass = 'gds-form-group__text-area-input';
-    const sizeClass = size ? `${baseClass}--${size}` : '';
-    const resizeClass = resize ? `${baseClass}--${resize}` : '';
-    const classNames = trimString(`${baseClass} ${sizeClass} ${resizeClass} ${className}`);
+
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${resize}`]: resize,
+        [`${baseClass}--${size}`]: size
+    });
 
     return (
-        <textarea placeholder={placeholder} style={style} className={classNames} {...otherProps} />
+        <textarea placeholder={placeholder} style={style} className={rootClass} {...otherProps} />
     );
 };
 

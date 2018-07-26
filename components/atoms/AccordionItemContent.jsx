@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 class AccordionItemContent extends Component {
     handleClick = e => {
@@ -9,16 +9,17 @@ class AccordionItemContent extends Component {
 
     render() {
         const { className, context, size, children, ...otherProps } = this.props;
-        const baseClass = 'gds-accordion__child-item';
-        const contextClass = context ? `${baseClass}--${context}` : '';
-        const classNames = trimString(`${baseClass} ${contextClass} ${className}`);
 
-        const titleBaseClass = 'gds-accordion__child-item-title';
-        const titleSizeClass = size ? `${titleBaseClass}--${size}` : '';
-        const titleClass = trimString(`${titleBaseClass} ${titleSizeClass}`);
+        const rootClass = cx('gds-accordion__child-item', className, {
+            [`gds-accordion__child-item--${context}`]: context
+        });
+
+        const titleClass = cx('gds-accordion__child-item-title', {
+            [`gds-accordion__child-item-title--${size}`]: size
+        });
 
         return (
-            <li className={classNames} onClick={this.handleClick} {...otherProps}>
+            <li className={rootClass} onClick={this.handleClick} {...otherProps}>
                 <h4 className={titleClass}>{children}</h4>
             </li>
         );
@@ -26,11 +27,6 @@ class AccordionItemContent extends Component {
 }
 
 AccordionItemContent.displayName = 'AccordionItemContent';
-
-AccordionItemContent.defaultProps = {
-    className: '',
-    context: ''
-};
 
 AccordionItemContent.propTypes = {
     children: PropTypes.node,

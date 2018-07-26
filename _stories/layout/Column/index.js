@@ -4,6 +4,7 @@ import { number } from '@storybook/addon-knobs';
 import readme from './README.md';
 import Column from '../../../components/layout/Column';
 import Row from '../../../components/layout/Row';
+import Card from '../../../components/molecules/Card';
 
 const component = () => (
     <Row>
@@ -13,7 +14,9 @@ const component = () => (
             md={number('Medium', 6)}
             lg={number('Large')}
             xl={number('Extra large')}>
-            column a
+            <Card option="underlined" className="-p-a-2">
+                column a
+            </Card>
         </Column>
         <Column
             xs={number('Extra Small')}
@@ -21,7 +24,9 @@ const component = () => (
             md={number('Medium', 6)}
             lg={number('Large')}
             xl={number('Extra large')}>
-            column b
+            <Card option="underlined" className="-p-a-2">
+                column b
+            </Card>
         </Column>
     </Row>
 );

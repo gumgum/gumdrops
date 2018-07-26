@@ -17,7 +17,7 @@ const options = Array(10)
 const sizeOptions = {
     sm: 'sm',
     xs: 'xs',
-    '': 'No Value'
+    'No Value': ''
 };
 
 class MultiSelectOptions extends Component {

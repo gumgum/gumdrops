@@ -9,11 +9,11 @@ import CardImage from '../../../components/molecules/CardImage';
 const options = {
     top: 'top',
     bottom: 'bottom',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const sizeOptions = {
-    '': 'No Value',
+    'No Value': '',
     xs: 'xs',
     sm: 'sm',
     md: 'md',

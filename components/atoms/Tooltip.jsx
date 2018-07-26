@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const Tooltip = ({
     text,
@@ -12,18 +12,17 @@ const Tooltip = ({
     children,
     ...otherProps
 }) => {
-    const baseClass = 'gds-tooltip',
-        positionClass = position ? `${baseClass}--${position}` : '',
-        contextClass = context ? `${baseClass}--${context}` : '',
-        sizeClass = size ? `${baseClass}--${size}` : '',
-        variationsClass = variations ? `${baseClass}--${variations}` : '';
+    const baseClass = 'gds-tooltip';
 
-    const classNames = trimString(
-        `${positionClass} ${contextClass} ${sizeClass} ${variationsClass} ${className}`
-    );
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${size}`]: size,
+        [`${baseClass}--${context}`]: context,
+        [`${baseClass}--${variations}`]: variations,
+        [`${baseClass}--${position}`]: position
+    });
 
     return (
-        <div className={classNames} data-tooltip={text} {...otherProps}>
+        <div className={rootClass} data-tooltip={text} {...otherProps}>
             {children}
         </div>
     );

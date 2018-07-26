@@ -48,7 +48,7 @@ const sizeOptions = {
     sm: 'sm',
     lg: 'lg',
     xl: 'xl',
-    '': 'No Value'
+    'No Value': ''
 };
 
 // Column options

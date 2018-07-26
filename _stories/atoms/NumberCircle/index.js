@@ -6,7 +6,7 @@ import readme from './README.md';
 import NumberCircle from '../../../components/atoms/NumberCircle';
 
 const contextOptions = {
-    '': 'No Value',
+    'No Value': '',
     secondary: 'secondary',
     success: 'success',
     info: 'info',
@@ -20,7 +20,7 @@ const sizeOptions = {
     sm: 'sm',
     lg: 'lg',
     xl: 'xl',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const component = () => (

@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const LayoutContainer = ({ className, fullWidth, children, ...props }) => {
-    const baseClass = fullWidth ? 'gds-layout__container--full-width' : 'gds-layout__container';
-    const classNames = trimString(`${baseClass} ${className}`);
+    const baseClass = 'gds-layout__container';
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--full-width`]: fullWidth
+    });
+
     return (
-        <div className={classNames} {...props}>
+        <div className={rootClass} {...props}>
             {children}
         </div>
     );
@@ -15,7 +18,6 @@ const LayoutContainer = ({ className, fullWidth, children, ...props }) => {
 LayoutContainer.displayName = 'LayoutContainer';
 
 LayoutContainer.defaultProps = {
-    className: '',
     fullWidth: false
 };
 

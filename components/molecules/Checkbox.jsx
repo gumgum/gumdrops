@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const Checkbox = ({ label, size, style, className, ...otherProps }) => {
     const baseClass = 'gds-form-group__checkbox';
-    const sizeClass = size ? `${baseClass}--${size}` : '';
-    const classNames = trimString(`${baseClass} ${sizeClass} ${className}`);
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${size}`]: size
+    });
 
     return (
-        <div className={classNames} style={style}>
+        <div className={rootClass} style={style}>
             <label className="gds-form-group__checkbox-label">
                 <input className="gds-form-group__checkbox-input" type="checkbox" {...otherProps} />
                 <span className="gds-form-group__checkbox-indicator" />

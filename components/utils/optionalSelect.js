@@ -16,7 +16,7 @@ so the prop isn't included in the component:
 const sizeOptions = {
     sm: 'sm',
     xs: 'xs',
-    '': 'No Value'
+    'No Value': ''
 };
 
 <Foo size={optionalSelect('Size', sizeOptions)} />

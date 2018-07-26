@@ -7,7 +7,7 @@ import readme from './README.md';
 import Well from '../../../components/molecules/Well';
 
 const contextOptions = {
-    '': 'No Value',
+    'No Value': '',
     success: 'success',
     warning: 'warning',
     info: 'info',

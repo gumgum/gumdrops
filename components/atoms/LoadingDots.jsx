@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
-const LoadingDots = ({ whiteDots = false, size, className, style }) => {
-    const baseClass = 'gds-loading__dot',
-        whiteDotsClass = whiteDots ? `${baseClass}--white` : '',
-        sizeClass = size ? `${baseClass}--${size}` : '';
-
-    const classNames = trimString(`${baseClass} ${whiteDotsClass} ${sizeClass}`);
+const LoadingDots = ({ whiteDots, size, className, style }) => {
+    const baseClass = 'gds-loading__dot';
+    const dotClasses = cx(baseClass, {
+        [`${baseClass}--${size}`]: size,
+        [`${baseClass}--white`]: whiteDots
+    });
 
     return (
         <div style={style} className={className}>
             <div className="gds-loading">
-                <div className={classNames} />
+                <div className={dotClasses} />
             </div>
         </div>
     );
