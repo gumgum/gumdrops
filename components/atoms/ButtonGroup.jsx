@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const ButtonGroup = ({ size, responsive, className, style, children }) => {
-    const baseClass = 'gds-button-group',
-        sizeClass = size ? `${baseClass}--${size}` : '',
-        responsiveClass = responsive ? 'gds-button-group--responsive' : '';
+    const baseClass = 'gds-button-group';
 
-    const classNames = trimString(`${baseClass} ${responsiveClass} ${sizeClass} ${className}`);
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${size}`]: size,
+        [`${baseClass}--responsive`]: responsive
+    });
 
     return (
-        <div className={classNames} style={style}>
+        <div className={rootClass} style={style}>
             {children}
         </div>
     );

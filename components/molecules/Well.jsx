@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const Well = ({ text, context, button, callback, className, style }) => {
-    const baseClass = 'gds-well',
-        contextClass = context ? `${baseClass}--${context}` : '',
-        buttonClass = context
-            ? `gds-well__button gds-well__button--${context}`
-            : 'gds-well__button';
+    const baseClass = 'gds-well';
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${context}`]: context
+    });
 
-    const classNames = trimString(`${baseClass} ${contextClass} ${className}`);
+    const buttonClass = cx('gds-well__button', {
+        [`gds-well__button--${context}`]: context
+    });
 
     return (
-        <div className={classNames} style={style}>
+        <div className={rootClass} style={style}>
             <p className="gds-well__text">{text}</p>
             {button && callback && <button className={buttonClass} onClick={callback} />}
         </div>

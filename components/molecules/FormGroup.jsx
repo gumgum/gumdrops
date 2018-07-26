@@ -1,32 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const FormGroup = ({ isInline, isDisabled, context, className, children, ...otherProps }) => {
     const baseClass = 'gds-form-group';
-    const inlineClass = isInline ? `${baseClass}--inline` : '';
-    const disabledClass = isDisabled ? `${baseClass}--disabled` : '';
-    const contextClass = context ? `${baseClass}--${context}` : '';
 
-    const classNames = trimString(
-        `${baseClass} ${inlineClass} ${contextClass} ${disabledClass} ${className}`
-    );
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${context}`]: context,
+        [`${baseClass}--disabled`]: isDisabled,
+        [`${baseClass}--inline`]: isInline
+    });
 
     return (
-        <div className={classNames} {...otherProps}>
+        <div className={rootClass} {...otherProps}>
             {children}
         </div>
     );
 };
 
 FormGroup.displayName = 'FormGroup';
-
-FormGroup.defaultProps = {
-    isInline: false,
-    isDisabled: false,
-    context: '',
-    className: ''
-};
 
 FormGroup.propTypes = {
     isInline: PropTypes.bool,

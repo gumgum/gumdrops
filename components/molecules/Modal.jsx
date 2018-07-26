@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
+import cx from 'classnames';
 
 const Modal = ({ onClose, isOpen, className, overlayClassName, style, md, children }) => (
     <ReactModal
-        className={`gds-modal gds-layout__column--md-${md} ${className} -float-none`}
-        overlayClassName={`gds-modal__overlay gds-modal--shown ${overlayClassName}`}
+        className={cx('gds-modal', className, '-float-none', {
+            [`gds-layout__column--md-${md}`]: md
+        })}
+        overlayClassName={cx('gds-modal__overlay', 'gds-modal--shown', overlayClassName)}
         contentLabel="default"
         onRequestClose={onClose}
         isOpen={isOpen}
@@ -19,9 +22,6 @@ Modal.displayName = 'Modal';
 
 Modal.defaultProps = {
     isOpen: false,
-    className: '',
-    overlayClassName: '',
-    style: {},
     md: '12'
 };
 

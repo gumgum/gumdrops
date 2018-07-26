@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const Select = ({ context, size, customValue, customName, options, className, ...otherProps }) => {
-    const baseClass = 'gds-form-group__select-input',
-        contextClass = context ? `${baseClass}--${context}` : '',
-        sizeClass = size ? `${baseClass}--${size}` : '';
+    const baseClass = 'gds-form-group__select-input';
 
-    const classNames = trimString(`${baseClass} ${contextClass} ${sizeClass} ${className}`);
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${context}`]: context,
+        [`${baseClass}--${size}`]: size
+    });
 
     return (
-        <select className={classNames} {...otherProps}>
+        <select className={rootClass} {...otherProps}>
             {options.map(o => (
                 <option key={o[customValue]} value={o[customValue]}>
                     {o[customName]}

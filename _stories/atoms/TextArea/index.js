@@ -7,14 +7,14 @@ import readme from './README.md';
 import TextArea from '../../../components/atoms/TextArea';
 
 const sizeOptions = {
-    '': 'No Value',
+    'No Value': '',
     xs: 'xs',
     sm: 'sm',
     lg: 'lg'
 };
 
 const resizeOptions = {
-    '': 'No Value',
+    'No Value': '',
     'resize-h': 'resize-h',
     'resize-v': 'resize-v',
     'no-resize': 'no-resize'

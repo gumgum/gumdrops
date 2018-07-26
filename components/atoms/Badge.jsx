@@ -1,25 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const Badge = ({ text, context, empty, className, style }) => {
-    const baseClass = 'gds-badge',
-        contextClass = context ? `${baseClass}--${context}` : '',
-        emptyClass = empty ? `${baseClass}--empty` : '';
+    const baseClass = 'gds-badge';
 
-    const classNames = trimString(`${baseClass} ${contextClass} ${emptyClass} ${className}`);
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${context}`]: context,
+        [`${baseClass}--empty`]: empty
+    });
 
-    return <span className={classNames}>{!empty && text}</span>;
+    return (
+        <span className={rootClass} style={style}>
+            {!empty && text}
+        </span>
+    );
 };
 
 Badge.displayName = 'Badge';
 
 Badge.defaultProps = {
     text: '',
-    context: '',
-    empty: false,
-    className: '',
-    style: {}
+    empty: false
 };
 
 Badge.propTypes = {

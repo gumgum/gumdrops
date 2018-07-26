@@ -13,7 +13,7 @@ const contextOptions = {
     danger: 'danger',
     warning: 'warning',
     success: 'success',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const selectOptions = [

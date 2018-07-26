@@ -12,13 +12,13 @@ const contextOptions = {
     success: 'success',
     warning: 'warning',
     danger: 'danger',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const sizeOptions = {
     sm: 'sm',
     xs: 'xs',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const component = () => (

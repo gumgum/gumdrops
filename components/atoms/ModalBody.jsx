@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 const ModalBody = ({ className, style, children }) => (
-    <div className={`gds-modal__body ${className}`} style={style}>
+    <div className={cx('gds-modal__body', className)} style={style}>
         {children}
     </div>
 );

@@ -16,7 +16,7 @@ const LoginForm = ({ capText, children, logoText, onSubmit, recoveryFn, recovery
         </div>
         {recoveryFn && (
             <p className="gds-account-modal__extra-links">
-                <a onClick={recoveryFn} className="gds-text--link">
+                <a onClick={recoveryFn} className="gds-text--link -cursor--pointer">
                     {recoveryText}
                 </a>
             </p>

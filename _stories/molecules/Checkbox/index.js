@@ -10,7 +10,7 @@ import Checkbox from '../../../components/molecules/Checkbox';
 const sizeOptions = {
     sm: 'sm',
     xs: 'xs',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const component = () => (

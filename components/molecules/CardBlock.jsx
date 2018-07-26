@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 const CardBlock = ({ option, className, style, children }) => {
-    const baseClass = 'gds-card__block',
-        optionClass = option ? `${baseClass}--${option}` : '';
-
-    const classNames = `${baseClass} ${optionClass} ${className}`;
+    const baseClass = 'gds-card__block';
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${option}`]: option
+    });
 
     return (
-        <div className={classNames} style={style}>
+        <div className={rootClass} style={style}>
             {children}
         </div>
     );

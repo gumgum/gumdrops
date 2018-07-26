@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const CircularThumbnail = ({ context, size, className, ...otherProps }) => {
-    const baseClass = 'gds-circular-thumbnail',
-        contextClass = context ? `${baseClass}--${context}` : '',
-        sizeClass = size ? `${baseClass}--${size}` : '';
+    const baseClass = 'gds-circular-thumbnail';
 
-    const classNames = trimString(`${baseClass} ${contextClass} ${sizeClass} ${className}`);
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${context}`]: context,
+        [`${baseClass}--${size}`]: size
+    });
 
-    return <img className={classNames} {...otherProps} />;
+    return <img className={rootClass} {...otherProps} />;
 };
 
 CircularThumbnail.displayName = 'CircularThumbnail';

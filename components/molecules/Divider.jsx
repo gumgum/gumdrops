@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const Divider = ({
     label,
@@ -11,17 +11,18 @@ const Divider = ({
     className,
     style
 }) => {
-    const baseClass = 'gds-divider',
-        centeredClass = centered ? `${baseClass}--centered` : '',
-        collapsibleClass = collapsible ? 'gds-button--collapsible' : '',
-        arrowClasses = open
-            ? `${baseClass}__arrow`
-            : `${baseClass}__arrow ${baseClass}__arrow--collapse`;
+    const baseClass = 'gds-divider';
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${centered}`]: centered,
+        [`${baseClass}--${collapsible}`]: collapsible
+    });
 
-    const classNames = trimString(`${baseClass} ${centeredClass} ${collapsibleClass} ${className}`);
+    const arrowClasses = cx(`${baseClass}__arrow`, {
+        [`${baseClass}__arrow--collapse`]: !open
+    });
 
     return (
-        <div className={classNames} style={style} onClick={callback}>
+        <div className={rootClass} style={style} onClick={callback}>
             {centered && <span className="gds-divider__line" />}
             <span className="gds-divider__label gds-form-group__label">{label}</span>
             <span className="gds-divider__line" />
@@ -38,7 +39,6 @@ Divider.defaultProps = {
     collapsible: false,
     open: null,
     callback: null,
-    className: '',
     style: {}
 };
 

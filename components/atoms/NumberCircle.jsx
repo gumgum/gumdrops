@@ -1,27 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import trimString from '../utils/trimString';
+import cx from 'classnames';
 
 const NumberCircle = ({ text, context, size, className, style }) => {
-    const baseClass = 'gds-number-circle',
-        contextClass = context ? `${baseClass}--${context}` : '',
-        sizeClass = size ? `${baseClass}--${size}` : '';
+    const baseClass = 'gds-number-circle';
 
-    const classNames = trimString(`${baseClass} ${contextClass} ${sizeClass} ${className}`);
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--${context}`]: context,
+        [`${baseClass}--${size}`]: size
+    });
 
     return (
-        <span className={classNames} style={style}>
+        <span className={rootClass} style={style}>
             {text}
         </span>
     );
 };
 
 NumberCircle.displayName = 'NumberCircle';
-
-NumberCircle.defaultProps = {
-    context: null,
-    style: {}
-};
 
 NumberCircle.propTypes = {
     text: PropTypes.string,

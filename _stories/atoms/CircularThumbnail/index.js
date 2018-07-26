@@ -9,11 +9,11 @@ const circularThumbnailSizeOptions = {
     sm: 'sm',
     lg: 'lg',
     xl: 'xl',
-    '': 'No Value'
+    'No Value': ''
 };
 
 const circularThumbnailContexts = {
-    '': 'No Value',
+    'No Value': '',
     secondary: 'secondary',
     success: 'success',
     info: 'info',
