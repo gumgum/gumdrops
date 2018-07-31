@@ -1,0 +1,655 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Breadcrumbs> to render 1`] = `
+<Breadcrumbs
+  className="cool-crumbs"
+  config={
+    Object {
+      "path": "/",
+      "subpaths": Array [
+        Object {
+          "path": "home",
+          "subpaths": Array [
+            Object {
+              "path": "category",
+              "subpaths": Array [
+                Object {
+                  "path": "subcategory-1",
+                  "title": "Sub Category 1",
+                },
+                Object {
+                  "path": "subcategory-2",
+                  "title": "Sub Category 2",
+                },
+                Object {
+                  "path": "subcategory-3",
+                  "title": "Sub Category 3",
+                },
+              ],
+              "title": "Main Category",
+            },
+          ],
+          "title": "Home",
+        },
+      ],
+      "title": "Start",
+    }
+  }
+  hideMenus={false}
+  hideRoot={false}
+  linkComponent={[Function]}
+  pathname="/home/category/subcategory-2"
+  titleDecorator={[Function]}
+>
+  <BreadcrumbsWrapper>
+    <div
+      className="gds-page-header__breadcrumb-nav"
+    >
+      <ul
+        className="gds-page-header__breadcrumbs"
+      >
+        <Breadcrumb
+          hideMenus={false}
+          isLast={false}
+          key="/"
+          linkComponent={[Function]}
+          path="/"
+          pathname="/home/category/subcategory-2"
+          title="Start"
+        >
+          <li
+            className="gds-page-header__breadcrumbs-list-item"
+          >
+            <BreadcrumbLink
+              className="gds-page-header__breadcrumbs-link"
+              to="/"
+            >
+              <a
+                className="gds-page-header__breadcrumbs-link"
+                href="/"
+              >
+                Start
+              </a>
+            </BreadcrumbLink>
+          </li>
+        </Breadcrumb>
+        <Breadcrumb
+          hideMenus={false}
+          isLast={false}
+          key="/home"
+          linkComponent={[Function]}
+          path="/home"
+          pathname="/home/category/subcategory-2"
+          subpaths={
+            Array [
+              Object {
+                "path": "category",
+                "subpaths": Array [
+                  Object {
+                    "path": "subcategory-1",
+                    "title": "Sub Category 1",
+                  },
+                  Object {
+                    "path": "subcategory-2",
+                    "title": "Sub Category 2",
+                  },
+                  Object {
+                    "path": "subcategory-3",
+                    "title": "Sub Category 3",
+                  },
+                ],
+                "title": "Main Category",
+              },
+            ]
+          }
+          title="Home"
+        >
+          <li
+            className="gds-page-header__breadcrumbs-list-item"
+          >
+            <BreadcrumbLink
+              className="gds-page-header__breadcrumbs-link"
+              to="/home"
+            >
+              <a
+                className="gds-page-header__breadcrumbs-link"
+                href="/home"
+              >
+                Home
+              </a>
+            </BreadcrumbLink>
+          </li>
+        </Breadcrumb>
+        <Breadcrumb
+          hideMenus={false}
+          isLast={false}
+          key="/home/category"
+          linkComponent={[Function]}
+          path="/home/category"
+          pathname="/home/category/subcategory-2"
+          subpaths={
+            Array [
+              Object {
+                "path": "subcategory-1",
+                "title": "Sub Category 1",
+              },
+              Object {
+                "path": "subcategory-2",
+                "title": "Sub Category 2",
+              },
+              Object {
+                "path": "subcategory-3",
+                "title": "Sub Category 3",
+              },
+            ]
+          }
+          title="Main Category"
+        >
+          <li
+            className="gds-page-header__breadcrumbs-list-item gds-page-header__breadcrumbs-list-item--has-menu"
+          >
+            <BreadcrumbMenu
+              linkComponent={[Function]}
+              menu={
+                Array [
+                  Object {
+                    "path": "subcategory-1",
+                    "title": "Sub Category 1",
+                  },
+                  Object {
+                    "path": "subcategory-3",
+                    "title": "Sub Category 3",
+                  },
+                ]
+              }
+              path="/home/category"
+            >
+              <div
+                className="gds-page-header__breadcrumbs-menu"
+                onClick={[Function]}
+              >
+                <div
+                  className="gds-page-header__breadcrumbs-menu-dots"
+                />
+                <div
+                  className="gds-bubble__menu gds-bubble__menu--left gds-bubble__menu--sm"
+                >
+                  <ul
+                    className="gds-bubble__menu-list"
+                  >
+                    <li
+                      className="gds-bubble__menu-list-item -ellipsis"
+                      key="subcategory-1"
+                    >
+                      <BreadcrumbLink
+                        className="gds-bubble__menu-list-link -text-tr-cap"
+                        to="/home/category/subcategory-1"
+                      >
+                        <a
+                          className="gds-bubble__menu-list-link -text-tr-cap"
+                          href="/home/category/subcategory-1"
+                        >
+                          Sub Category 1
+                        </a>
+                      </BreadcrumbLink>
+                    </li>
+                    <li
+                      className="gds-bubble__menu-list-item -ellipsis"
+                      key="subcategory-3"
+                    >
+                      <BreadcrumbLink
+                        className="gds-bubble__menu-list-link -text-tr-cap"
+                        to="/home/category/subcategory-3"
+                      >
+                        <a
+                          className="gds-bubble__menu-list-link -text-tr-cap"
+                          href="/home/category/subcategory-3"
+                        >
+                          Sub Category 3
+                        </a>
+                      </BreadcrumbLink>
+                    </li>
+                  </ul>
+                </div>
+                <span>
+                   
+                </span>
+              </div>
+            </BreadcrumbMenu>
+            <BreadcrumbLink
+              className="gds-page-header__breadcrumbs-link"
+              to="/home/category"
+            >
+              <a
+                className="gds-page-header__breadcrumbs-link"
+                href="/home/category"
+              >
+                Main Category
+              </a>
+            </BreadcrumbLink>
+          </li>
+        </Breadcrumb>
+        <Breadcrumb
+          hideMenus={false}
+          isLast={true}
+          key="/home/category/subcategory-2"
+          linkComponent={[Function]}
+          path="/home/category/subcategory-2"
+          pathname="/home/category/subcategory-2"
+          title="Sub Category 2"
+        >
+          <li
+            className="gds-page-header__breadcrumbs-list-item"
+          >
+            Sub Category 2
+          </li>
+        </Breadcrumb>
+      </ul>
+    </div>
+  </BreadcrumbsWrapper>
+</Breadcrumbs>
+`;
+
+exports[`Expect <Breadcrumbs> to render a different path 1`] = `
+<Breadcrumbs
+  className="cool-crumbs"
+  config={
+    Object {
+      "path": "/",
+      "subpaths": Array [
+        Object {
+          "path": "home",
+          "subpaths": Array [
+            Object {
+              "path": "category",
+              "subpaths": Array [
+                Object {
+                  "path": "subcategory-1",
+                  "title": "Sub Category 1",
+                },
+                Object {
+                  "path": "subcategory-2",
+                  "title": "Sub Category 2",
+                },
+                Object {
+                  "path": "subcategory-3",
+                  "title": "Sub Category 3",
+                },
+              ],
+              "title": "Main Category",
+            },
+          ],
+          "title": "Home",
+        },
+      ],
+      "title": "Start",
+    }
+  }
+  hideMenus={false}
+  hideRoot={false}
+  linkComponent={[Function]}
+  pathname="/home"
+  titleDecorator={[Function]}
+>
+  <BreadcrumbsWrapper>
+    <div
+      className="gds-page-header__breadcrumb-nav"
+    >
+      <ul
+        className="gds-page-header__breadcrumbs"
+      >
+        <Breadcrumb
+          hideMenus={false}
+          isLast={false}
+          key="/"
+          linkComponent={[Function]}
+          path="/"
+          pathname="/home"
+          title="Start"
+        >
+          <li
+            className="gds-page-header__breadcrumbs-list-item"
+          >
+            <BreadcrumbLink
+              className="gds-page-header__breadcrumbs-link"
+              to="/"
+            >
+              <a
+                className="gds-page-header__breadcrumbs-link"
+                href="/"
+              >
+                Start
+              </a>
+            </BreadcrumbLink>
+          </li>
+        </Breadcrumb>
+        <Breadcrumb
+          hideMenus={false}
+          isLast={true}
+          key="/home"
+          linkComponent={[Function]}
+          path="/home"
+          pathname="/home"
+          subpaths={
+            Array [
+              Object {
+                "path": "category",
+                "subpaths": Array [
+                  Object {
+                    "path": "subcategory-1",
+                    "title": "Sub Category 1",
+                  },
+                  Object {
+                    "path": "subcategory-2",
+                    "title": "Sub Category 2",
+                  },
+                  Object {
+                    "path": "subcategory-3",
+                    "title": "Sub Category 3",
+                  },
+                ],
+                "title": "Main Category",
+              },
+            ]
+          }
+          title="Home"
+        >
+          <li
+            className="gds-page-header__breadcrumbs-list-item gds-page-header__breadcrumbs-list-item--has-menu"
+          >
+            <BreadcrumbMenu
+              linkComponent={[Function]}
+              menu={
+                Array [
+                  Object {
+                    "path": "category",
+                    "subpaths": Array [
+                      Object {
+                        "path": "subcategory-1",
+                        "title": "Sub Category 1",
+                      },
+                      Object {
+                        "path": "subcategory-2",
+                        "title": "Sub Category 2",
+                      },
+                      Object {
+                        "path": "subcategory-3",
+                        "title": "Sub Category 3",
+                      },
+                    ],
+                    "title": "Main Category",
+                  },
+                ]
+              }
+              path="/home"
+            >
+              <div
+                className="gds-page-header__breadcrumbs-menu"
+                onClick={[Function]}
+              >
+                <div
+                  className="gds-page-header__breadcrumbs-menu-dots"
+                />
+                <div
+                  className="gds-bubble__menu gds-bubble__menu--left gds-bubble__menu--sm"
+                >
+                  <ul
+                    className="gds-bubble__menu-list"
+                  >
+                    <li
+                      className="gds-bubble__menu-list-item -ellipsis"
+                      key="category"
+                    >
+                      <BreadcrumbLink
+                        className="gds-bubble__menu-list-link -text-tr-cap"
+                        to="/home/category"
+                      >
+                        <a
+                          className="gds-bubble__menu-list-link -text-tr-cap"
+                          href="/home/category"
+                        >
+                          Main Category
+                        </a>
+                      </BreadcrumbLink>
+                    </li>
+                  </ul>
+                </div>
+                <span>
+                   
+                </span>
+              </div>
+            </BreadcrumbMenu>
+            Home
+          </li>
+        </Breadcrumb>
+      </ul>
+    </div>
+  </BreadcrumbsWrapper>
+</Breadcrumbs>
+`;
+
+exports[`Expect <Breadcrumbs> to render hidden root and menus 1`] = `
+<Breadcrumbs
+  className="cool-crumbs"
+  config={
+    Object {
+      "path": "/",
+      "subpaths": Array [
+        Object {
+          "path": "home",
+          "subpaths": Array [
+            Object {
+              "path": "category",
+              "subpaths": Array [
+                Object {
+                  "path": "subcategory-1",
+                  "title": "Sub Category 1",
+                },
+                Object {
+                  "path": "subcategory-2",
+                  "title": "Sub Category 2",
+                },
+                Object {
+                  "path": "subcategory-3",
+                  "title": "Sub Category 3",
+                },
+              ],
+              "title": "Main Category",
+            },
+          ],
+          "title": "Home",
+        },
+      ],
+      "title": "Start",
+    }
+  }
+  hiddenMenus={true}
+  hideMenus={false}
+  hideRoot={true}
+  linkComponent={[Function]}
+  pathname="/home/category/subcategory-2"
+  titleDecorator={[Function]}
+>
+  <BreadcrumbsWrapper>
+    <div
+      className="gds-page-header__breadcrumb-nav"
+    >
+      <ul
+        className="gds-page-header__breadcrumbs"
+      >
+        <Breadcrumb
+          hideMenus={false}
+          isLast={false}
+          key="/home"
+          linkComponent={[Function]}
+          path="/home"
+          pathname="/home/category/subcategory-2"
+          subpaths={
+            Array [
+              Object {
+                "path": "category",
+                "subpaths": Array [
+                  Object {
+                    "path": "subcategory-1",
+                    "title": "Sub Category 1",
+                  },
+                  Object {
+                    "path": "subcategory-2",
+                    "title": "Sub Category 2",
+                  },
+                  Object {
+                    "path": "subcategory-3",
+                    "title": "Sub Category 3",
+                  },
+                ],
+                "title": "Main Category",
+              },
+            ]
+          }
+          title="Home"
+        >
+          <li
+            className="gds-page-header__breadcrumbs-list-item"
+          >
+            <BreadcrumbLink
+              className="gds-page-header__breadcrumbs-link"
+              to="/home"
+            >
+              <a
+                className="gds-page-header__breadcrumbs-link"
+                href="/home"
+              >
+                Home
+              </a>
+            </BreadcrumbLink>
+          </li>
+        </Breadcrumb>
+        <Breadcrumb
+          hideMenus={false}
+          isLast={false}
+          key="/home/category"
+          linkComponent={[Function]}
+          path="/home/category"
+          pathname="/home/category/subcategory-2"
+          subpaths={
+            Array [
+              Object {
+                "path": "subcategory-1",
+                "title": "Sub Category 1",
+              },
+              Object {
+                "path": "subcategory-2",
+                "title": "Sub Category 2",
+              },
+              Object {
+                "path": "subcategory-3",
+                "title": "Sub Category 3",
+              },
+            ]
+          }
+          title="Main Category"
+        >
+          <li
+            className="gds-page-header__breadcrumbs-list-item gds-page-header__breadcrumbs-list-item--has-menu"
+          >
+            <BreadcrumbMenu
+              linkComponent={[Function]}
+              menu={
+                Array [
+                  Object {
+                    "path": "subcategory-1",
+                    "title": "Sub Category 1",
+                  },
+                  Object {
+                    "path": "subcategory-3",
+                    "title": "Sub Category 3",
+                  },
+                ]
+              }
+              path="/home/category"
+            >
+              <div
+                className="gds-page-header__breadcrumbs-menu"
+                onClick={[Function]}
+              >
+                <div
+                  className="gds-page-header__breadcrumbs-menu-dots"
+                />
+                <div
+                  className="gds-bubble__menu gds-bubble__menu--left gds-bubble__menu--sm"
+                >
+                  <ul
+                    className="gds-bubble__menu-list"
+                  >
+                    <li
+                      className="gds-bubble__menu-list-item -ellipsis"
+                      key="subcategory-1"
+                    >
+                      <BreadcrumbLink
+                        className="gds-bubble__menu-list-link -text-tr-cap"
+                        to="/home/category/subcategory-1"
+                      >
+                        <a
+                          className="gds-bubble__menu-list-link -text-tr-cap"
+                          href="/home/category/subcategory-1"
+                        >
+                          Sub Category 1
+                        </a>
+                      </BreadcrumbLink>
+                    </li>
+                    <li
+                      className="gds-bubble__menu-list-item -ellipsis"
+                      key="subcategory-3"
+                    >
+                      <BreadcrumbLink
+                        className="gds-bubble__menu-list-link -text-tr-cap"
+                        to="/home/category/subcategory-3"
+                      >
+                        <a
+                          className="gds-bubble__menu-list-link -text-tr-cap"
+                          href="/home/category/subcategory-3"
+                        >
+                          Sub Category 3
+                        </a>
+                      </BreadcrumbLink>
+                    </li>
+                  </ul>
+                </div>
+                <span>
+                   
+                </span>
+              </div>
+            </BreadcrumbMenu>
+            <BreadcrumbLink
+              className="gds-page-header__breadcrumbs-link"
+              to="/home/category"
+            >
+              <a
+                className="gds-page-header__breadcrumbs-link"
+                href="/home/category"
+              >
+                Main Category
+              </a>
+            </BreadcrumbLink>
+          </li>
+        </Breadcrumb>
+        <Breadcrumb
+          hideMenus={false}
+          isLast={true}
+          key="/home/category/subcategory-2"
+          linkComponent={[Function]}
+          path="/home/category/subcategory-2"
+          pathname="/home/category/subcategory-2"
+          title="Sub Category 2"
+        >
+          <li
+            className="gds-page-header__breadcrumbs-list-item"
+          >
+            Sub Category 2
+          </li>
+        </Breadcrumb>
+      </ul>
+    </div>
+  </BreadcrumbsWrapper>
+</Breadcrumbs>
+`;

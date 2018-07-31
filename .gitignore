@@ -35,3 +35,4 @@ dist/
 dist-es/
 gumgum-common-js-*.tgz
 gumdrops-*.tgz
+yarn-error.log

@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <BreadcrumbMenu> to render 1`] = `
+<BreadcrumbMenu
+  linkComponent={[Function]}
+  menu={
+    Array [
+      Object {
+        "path": "test",
+        "title": "Test 1",
+      },
+      Object {
+        "path": "test/test",
+        "title": "Test 2",
+      },
+    ]
+  }
+  path="/foo/bar"
+>
+  <div
+    className="gds-page-header__breadcrumbs-menu"
+    onClick={[Function]}
+  >
+    <div
+      className="gds-page-header__breadcrumbs-menu-dots"
+    />
+    <div
+      className="gds-bubble__menu gds-bubble__menu--left gds-bubble__menu--sm"
+    >
+      <ul
+        className="gds-bubble__menu-list"
+      >
+        <li
+          className="gds-bubble__menu-list-item -ellipsis"
+          key="test"
+        >
+          <BreadcrumbLink
+            className="gds-bubble__menu-list-link -text-tr-cap"
+            to="/foo/bar/test"
+          >
+            <a
+              className="gds-bubble__menu-list-link -text-tr-cap"
+              href="/foo/bar/test"
+            >
+              Test 1
+            </a>
+          </BreadcrumbLink>
+        </li>
+        <li
+          className="gds-bubble__menu-list-item -ellipsis"
+          key="test/test"
+        >
+          <BreadcrumbLink
+            className="gds-bubble__menu-list-link -text-tr-cap"
+            to="/foo/bar/test/test"
+          >
+            <a
+              className="gds-bubble__menu-list-link -text-tr-cap"
+              href="/foo/bar/test/test"
+            >
+              Test 2
+            </a>
+          </BreadcrumbLink>
+        </li>
+      </ul>
+    </div>
+    <span>
+       
+    </span>
+  </div>
+</BreadcrumbMenu>
+`;

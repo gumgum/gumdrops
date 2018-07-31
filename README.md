@@ -2,7 +2,7 @@
 
 This project contains reusable JavaScript React components that you can import into your project.
 
-[![npm version](https://badge.fury.io/js/gumdrops.svg)](https://badge.fury.io/js/gumdrops) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badge.fury.io/js/gumdrops.svg)](https://badge.fury.io/js/gumdrops) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/gumgum/gumdrops.svg?branch=master)](https://travis-ci.org/gumgum/gumdrops)
 
 ## Prerequisites
 

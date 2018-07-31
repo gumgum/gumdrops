@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <FormGroupTextHelp> to render 1`] = `
+<FormGroupTextHelp
+  className="much-error"
+  text="Oh no, errors!"
+>
+  <small
+    className="gds-form-group__text-help much-error"
+  >
+    Oh no, errors!
+  </small>
+</FormGroupTextHelp>
+`;

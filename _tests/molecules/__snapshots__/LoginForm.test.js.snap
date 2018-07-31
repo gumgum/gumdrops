@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <LoginForm> to render 1`] = `
+<LoginForm
+  capText="Text"
+  logoText="Logo Text"
+  onSubmit={[Function]}
+  recoveryFn={[Function]}
+  recoveryText="Recovery message"
+>
+  <div
+    className="gds-account-modal gds-account-modal--logo"
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <div
+      className="gds-account-modal__form gds-card -p-t-3-sm -p-t-0"
+    >
+      <div
+        className="gds-account-modal__logo-product"
+      >
+        Logo Text
+      </div>
+      <div
+        className="gds-account-modal__form-cap -m-t-3-sm -m-t-0"
+      >
+        Text
+      </div>
+      <form
+        className="gds-form -pointer-events--auto -p-a-3"
+        onSubmit={[Function]}
+      >
+        <input
+          type="text"
+        />
+      </form>
+    </div>
+    <p
+      className="gds-account-modal__extra-links"
+    >
+      <a
+        className="gds-text--link -cursor--pointer"
+        onClick={[Function]}
+      >
+        Recovery message
+      </a>
+    </p>
+  </div>
+</LoginForm>
+`;

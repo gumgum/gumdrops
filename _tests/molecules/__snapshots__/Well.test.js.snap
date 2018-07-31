@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Well> to render 1`] = `
+<Well
+  button={false}
+  callback={null}
+  className=""
+  context="primary"
+  style={
+    Object {
+      "width": 100,
+    }
+  }
+  text="Foo"
+>
+  <div
+    className="gds-well gds-well--primary"
+    style={
+      Object {
+        "width": 100,
+      }
+    }
+  >
+    <p
+      className="gds-well__text"
+    >
+      Foo
+    </p>
+  </div>
+</Well>
+`;
+
+exports[`Expect <Well> to render with a button 1`] = `
+<Well
+  button={false}
+  callback={[Function]}
+  className=""
+  context="primary"
+  style={
+    Object {
+      "width": 100,
+    }
+  }
+  text="Foo"
+>
+  <div
+    className="gds-well gds-well--primary"
+    style={
+      Object {
+        "width": 100,
+      }
+    }
+  >
+    <p
+      className="gds-well__text"
+    >
+      Foo
+    </p>
+  </div>
+</Well>
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <ModalBody> to render 1`] = `
+<ModalBody
+  className="modal-class"
+  style={
+    Object {
+      "width": "100px",
+    }
+  }
+>
+  <div
+    className="gds-modal__body modal-class"
+    style={
+      Object {
+        "width": "100px",
+      }
+    }
+  >
+    <div>
+      My modal content
+    </div>
+  </div>
+</ModalBody>
+`;
