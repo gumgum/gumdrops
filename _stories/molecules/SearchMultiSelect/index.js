@@ -12,6 +12,14 @@ class TestSearchMultiSelect extends React.Component {
         names: namesList
     };
 
+    componentDidMount() {
+        if (this._inputRef.current) {
+            this._inputRef.current.focus();
+        }
+    }
+
+    _inputRef = React.createRef();
+
     _updateNames = names => {
         this.setState({ names });
         action('SearchMultiSelect Updated')(names);
@@ -24,6 +32,7 @@ class TestSearchMultiSelect extends React.Component {
             <FormGroup>
                 <FormGroupLabel text="names" />
                 <SearchMultiSelect
+                    inputRef={this._inputRef}
                     placeholder={text('Placeholder', 'My placeholder')}
                     options={this.state.names}
                     update={this._updateNames}
@@ -39,12 +48,7 @@ class TestSearchMultiSelect extends React.Component {
     }
 }
 
-const component = () => <TestSearchMultiSelect />;
-
-const options = {
-    inline: true,
-    propTables: [SearchMultiSelect]
-};
+const component = () => <TestSearchMultiSelect />; //eslint-disable-line react/no-multi-comp
 
 // Props data
 const namesList = [
