@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Row> to render 1`] = `
+<Row
+  className="cool-stuff"
+>
+  <div
+    className="gds-layout__row cool-stuff"
+  >
+    <div>
+      Content
+    </div>
+  </div>
+</Row>
+`;

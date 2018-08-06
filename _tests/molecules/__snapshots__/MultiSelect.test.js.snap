@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <MultiSelect> to render 1`] = `
+<MultiSelect
+  callback={[Function]}
+  className="custom-class"
+  options={
+    Array [
+      Object {
+        "name": "Name",
+        "selected": true,
+        "value": 10,
+      },
+    ]
+  }
+  placeholder="placeholder"
+  size="xs"
+>
+  <div
+    className="gds-multi-select custom-class gds-multi-select--xs"
+  >
+    <button
+      aria-controls="MultiSelect_region_TXVsdGlTZWxlY3Q=0"
+      aria-expanded={false}
+      aria-pressed={false}
+      className="gds-multi-select__button gds-multi-select__button--xs"
+      id="MultiSelect_label_TXVsdGlTZWxlY3Q=0"
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="-ellipsis"
+      >
+        Name
+      </div>
+    </button>
+    <ul
+      aria-hidden={true}
+      aria-labelledby="MultiSelect_label_TXVsdGlTZWxlY3Q=0"
+      className="gds-multi-select__menu"
+      id="MultiSelect_region_TXVsdGlTZWxlY3Q=0"
+      role="region"
+    >
+      <li
+        className="gds-multi-select__menu-item"
+        key="item-0"
+      >
+        <div
+          className="gds-multi-select__menu-link"
+        >
+          <div
+            className="gds-form-group gds-multi-select__option"
+          >
+            <Checkbox
+              checked={true}
+              label="Name"
+              onChange={[Function]}
+            >
+              <div
+                className="gds-form-group__checkbox"
+              >
+                <label
+                  className="gds-form-group__checkbox-label"
+                >
+                  <input
+                    checked={true}
+                    className="gds-form-group__checkbox-input"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <span
+                    className="gds-form-group__checkbox-indicator"
+                  />
+                  Name
+                </label>
+              </div>
+            </Checkbox>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</MultiSelect>
+`;

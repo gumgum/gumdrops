@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <CardBlock> to render 1`] = `
+<CardBlock
+  className="custom"
+  option="divide-top"
+  style={
+    Object {
+      "width": 120,
+    }
+  }
+>
+  <div
+    className="gds-card__block custom gds-card__block--divide-top"
+    style={
+      Object {
+        "width": 120,
+      }
+    }
+  >
+    <div>
+      Foo
+    </div>
+  </div>
+</CardBlock>
+`;

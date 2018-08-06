@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Checkbox> to render 1`] = `
+<Checkbox
+  className="custom-class"
+  label="Check Me"
+  size="xs"
+  style={
+    Object {
+      "width": 140,
+    }
+  }
+>
+  <div
+    className="gds-form-group__checkbox custom-class gds-form-group__checkbox--xs"
+    style={
+      Object {
+        "width": 140,
+      }
+    }
+  >
+    <label
+      className="gds-form-group__checkbox-label"
+    >
+      <input
+        className="gds-form-group__checkbox-input"
+        type="checkbox"
+      />
+      <span
+        className="gds-form-group__checkbox-indicator"
+      />
+      Check Me
+    </label>
+  </div>
+</Checkbox>
+`;
+
+exports[`Expect <Checkbox> to render with other props 1`] = `
+<Checkbox
+  className="custom-class"
+  label="Check Me"
+  onChange={[Function]}
+  size="xs"
+  style={
+    Object {
+      "width": 140,
+    }
+  }
+  value="foo"
+>
+  <div
+    className="gds-form-group__checkbox custom-class gds-form-group__checkbox--xs"
+    style={
+      Object {
+        "width": 140,
+      }
+    }
+  >
+    <label
+      className="gds-form-group__checkbox-label"
+    >
+      <input
+        className="gds-form-group__checkbox-input"
+        onChange={[Function]}
+        type="checkbox"
+        value="foo"
+      />
+      <span
+        className="gds-form-group__checkbox-indicator"
+      />
+      Check Me
+    </label>
+  </div>
+</Checkbox>
+`;

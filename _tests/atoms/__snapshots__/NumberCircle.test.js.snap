@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <NumberCircle> to render 1`] = `
+<NumberCircle
+  className="modal-class"
+  context="success"
+  size="lg"
+  style={
+    Object {
+      "width": "100px",
+    }
+  }
+  text="100"
+>
+  <span
+    className="gds-number-circle modal-class gds-number-circle--success gds-number-circle--lg"
+    style={
+      Object {
+        "width": "100px",
+      }
+    }
+  >
+    100
+  </span>
+</NumberCircle>
+`;
