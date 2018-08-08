@@ -76,7 +76,7 @@ The format of the options must be an array of objects that contains at least thr
 | searchKeys  | flag to signal if the search should also match against object keys {Boolean}                                                                                                                                             |
 | multiTerm   | flag to signal if the search should match against multiple terms {Boolean}                                                                                                                                               |
 | termDivider | string or regexp used to divide the search term, defaults to /[ ,]+/ (empty space and comma) {String OR RegExp}                                                                                                          |
-| inputRef    | ref applied to the input, useful for setting focus {function                                                                                                                                                             | object} |
+| inputRef    | ref applied to the input, useful for setting focus {function OR object}                                                                                                                                                  |
 
 **Context list**:
 'primary', 'secondary', 'success', 'warning', 'info', 'danger', 'white'
