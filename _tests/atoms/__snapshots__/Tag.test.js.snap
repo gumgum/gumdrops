@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Tag> to render 1`] = `
+<Tag
+  className="custom-class"
+  context="primary"
+  hasOption={true}
+  onClick={[Function]}
+  onOptionClick={[Function]}
+  optionIcon="bt-times"
+  optionLabel="Remove me"
+  size="sm"
+  style={
+    Object {
+      "wdith": "100%",
+    }
+  }
+  text="Cool Tagz"
+>
+  <div
+    className="gds-tag custom-class gds-tag--primary gds-tag--with-button gds-tag--with-button--sm gds-tag--sm"
+    onClick={[Function]}
+    style={
+      Object {
+        "wdith": "100%",
+      }
+    }
+  >
+    Cool Tagz
+    <button
+      aria-label="Remove me"
+      className="gds-tag__option gds-tag__option--primary gds-tag__option--sm"
+      onClick={[Function]}
+    >
+      <i
+        className="btl bt-fw bt-times"
+      />
+    </button>
+  </div>
+</Tag>
+`;
+
+exports[`Expect <Tag> to render without option 1`] = `
+<Tag
+  className="custom-class"
+  context="primary"
+  hasOption={false}
+  onClick={[Function]}
+  optionIcon="bt-times"
+  optionLabel="Remove me"
+  size="sm"
+  style={
+    Object {
+      "wdith": "100%",
+    }
+  }
+  text="Cool Tagz"
+>
+  <div
+    className="gds-tag custom-class gds-tag--primary gds-tag--sm"
+    onClick={[Function]}
+    style={
+      Object {
+        "wdith": "100%",
+      }
+    }
+  >
+    Cool Tagz
+  </div>
+</Tag>
+`;

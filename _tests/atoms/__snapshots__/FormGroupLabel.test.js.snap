@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <FormGroupLabel> to render 1`] = `
+<FormGroupLabel
+  className="my-classy-class"
+  text="Label Baby Jr"
+>
+  <label
+    className="gds-form-group__label my-classy-class"
+  >
+    Label Baby Jr
+  </label>
+</FormGroupLabel>
+`;

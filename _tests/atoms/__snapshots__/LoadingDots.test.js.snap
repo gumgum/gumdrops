@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <LoadingDots> to render 1`] = `
+<LoadingDots
+  className="cool-class"
+  size="lg"
+  style={
+    Object {
+      "width": "100px",
+    }
+  }
+  whiteDots={false}
+>
+  <div
+    className="cool-class"
+    style={
+      Object {
+        "width": "100px",
+      }
+    }
+  >
+    <div
+      className="gds-loading"
+    >
+      <div
+        className="gds-loading__dot gds-loading__dot--lg"
+      />
+    </div>
+  </div>
+</LoadingDots>
+`;
+
+exports[`Expect <LoadingDots> to render as white 1`] = `
+<LoadingDots
+  className="cool-class"
+  isWhite={true}
+  size="lg"
+  style={
+    Object {
+      "width": "100px",
+    }
+  }
+  whiteDots={false}
+>
+  <div
+    className="cool-class"
+    style={
+      Object {
+        "width": "100px",
+      }
+    }
+  >
+    <div
+      className="gds-loading"
+    >
+      <div
+        className="gds-loading__dot gds-loading__dot--lg"
+      />
+    </div>
+  </div>
+</LoadingDots>
+`;

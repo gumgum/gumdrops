@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <AccordionItem> to render 1`] = `
+<AccordionItem
+  className="foo"
+  context="danger"
+  label="Foo!"
+  size="xs"
+>
+  <li
+    aria-controls="AccordionItem-region-QWNjb3JkaW9uSXRlbQ==0"
+    aria-expanded={false}
+    aria-pressed={false}
+    className="gds-accordion__item foo gds-accordion__item--danger"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <h4
+      className="gds-accordion__item-title gds-accordion__item-title--xs"
+      id="AccordionItem-label-QWNjb3JkaW9uSXRlbQ==0"
+    >
+      Foo!
+    </h4>
+    <span
+      className="gds-accordion__item-icon gds-accordion__item-icon--xs"
+    />
+    <ul
+      aria-hidden={true}
+      aria-labelledby="AccordionItem-label-QWNjb3JkaW9uSXRlbQ==0"
+      className="gds-accordion__child-items gds-accordion__child-items--xs"
+      id="AccordionItem-region-QWNjb3JkaW9uSXRlbQ==0"
+      role="region"
+    >
+      <div
+        context="danger"
+        key=".0"
+        size="xs"
+      >
+        foo
+      </div>
+    </ul>
+  </li>
+</AccordionItem>
+`;

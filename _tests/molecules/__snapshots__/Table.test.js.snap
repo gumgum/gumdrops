@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Table> to render 1`] = `
+<Table
+  className="custom-class"
+  columns={
+    Array [
+      "foo",
+      "bar",
+    ]
+  }
+  data={
+    Array [
+      Object {
+        "bar": "Bar",
+        "foo": "Foo",
+      },
+    ]
+  }
+  hasHeader={false}
+  isInverse={false}
+  isSecondary={false}
+  isStriped={false}
+  onRowClick={[Function]}
+  size="lg"
+>
+  <table
+    className="gds-table custom-class gds-table--lg"
+  >
+    <TableBody>
+      <tbody
+        className=""
+      >
+        <TableRow
+          className="-cursor--pointer"
+          isInverse={false}
+          isStriped={false}
+          key="row-0"
+          onClick={[Function]}
+        >
+          <tr
+            className="gds-table__row -cursor--pointer"
+            onClick={[Function]}
+          >
+            <TableData
+              key="row-0-key-0"
+            >
+              <td
+                className=""
+              >
+                Foo
+              </td>
+            </TableData>
+            <TableData
+              key="row-0-key-1"
+            >
+              <td
+                className=""
+              >
+                Bar
+              </td>
+            </TableData>
+          </tr>
+        </TableRow>
+      </tbody>
+    </TableBody>
+  </table>
+</Table>
+`;
+
+exports[`Expect <Table> to render customized 1`] = `
+<Table
+  className="custom-class"
+  columns={
+    Array [
+      "foo",
+      "bar",
+    ]
+  }
+  data={
+    Array [
+      Object {
+        "bar": "Bar",
+        "foo": "Foo",
+      },
+    ]
+  }
+  hasHeader={true}
+  isInverse={true}
+  isSecondary={true}
+  isStriped={true}
+  onRowClick={[Function]}
+  size="lg"
+>
+  <table
+    className="gds-table custom-class gds-table--lg gds-table--inverse gds-table--inverse-striped"
+  >
+    <TableHeader>
+      <thead
+        className=""
+      >
+        <TableRow>
+          <tr
+            className="gds-table__row"
+          >
+            <TableHeading
+              isSecondary={true}
+              key="row-0-key-0"
+              onClick={[Function]}
+            >
+              <th
+                className="gds-table__header -text-left gds-table__header--secondary"
+                onClick={[Function]}
+              >
+                foo
+              </th>
+            </TableHeading>
+            <TableHeading
+              isSecondary={true}
+              key="row-1-key-1"
+              onClick={[Function]}
+            >
+              <th
+                className="gds-table__header -text-left gds-table__header--secondary"
+                onClick={[Function]}
+              >
+                bar
+              </th>
+            </TableHeading>
+          </tr>
+        </TableRow>
+      </thead>
+    </TableHeader>
+    <TableBody>
+      <tbody
+        className=""
+      >
+        <TableRow
+          className="-cursor--pointer"
+          isInverse={true}
+          isStriped={true}
+          key="row-0"
+          onClick={[Function]}
+        >
+          <tr
+            className="gds-table__row -cursor--pointer gds-table__row--inverse gds-table__row--striped-inverse"
+            onClick={[Function]}
+          >
+            <TableData
+              key="row-0-key-0"
+            >
+              <td
+                className=""
+              >
+                Foo
+              </td>
+            </TableData>
+            <TableData
+              key="row-0-key-1"
+            >
+              <td
+                className=""
+              >
+                Bar
+              </td>
+            </TableData>
+          </tr>
+        </TableRow>
+      </tbody>
+    </TableBody>
+  </table>
+</Table>
+`;
+
+exports[`Expect <Table> to render using advanced configs 1`] = `
+<Table
+  className="custom-class"
+  columns={
+    Array [
+      Object {
+        "children": "Foo",
+        "headingProps": Object {
+          "style": Object {
+            "onClick": [Function],
+            "width": 100,
+          },
+        },
+        "key": "foo",
+      },
+      Object {
+        "children": "Bar",
+        "headingProps": Object {
+          "style": Object {
+            "onClick": [Function],
+            "width": 100,
+          },
+        },
+        "key": "bar",
+      },
+    ]
+  }
+  data={
+    Array [
+      Object {
+        "bar": "Bar",
+        "foo": "Foo",
+      },
+    ]
+  }
+  hasHeader={false}
+  isInverse={false}
+  isSecondary={false}
+  isStriped={false}
+  onRowClick={[Function]}
+  size="lg"
+>
+  <table
+    className="gds-table custom-class gds-table--lg"
+  >
+    <TableBody>
+      <tbody
+        className=""
+      >
+        <TableRow
+          className="-cursor--pointer"
+          isInverse={false}
+          isStriped={false}
+          key="row-0"
+          onClick={[Function]}
+        >
+          <tr
+            className="gds-table__row -cursor--pointer"
+            onClick={[Function]}
+          >
+            <TableData
+              key="row-0-key-0"
+            >
+              <td
+                className=""
+              >
+                Foo
+              </td>
+            </TableData>
+            <TableData
+              key="row-0-key-1"
+            >
+              <td
+                className=""
+              >
+                Bar
+              </td>
+            </TableData>
+          </tr>
+        </TableRow>
+      </tbody>
+    </TableBody>
+  </table>
+</Table>
+`;

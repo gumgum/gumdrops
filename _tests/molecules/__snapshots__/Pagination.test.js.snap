@@ -1,0 +1,435 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Pagination> to render 1`] = `
+<Pagination
+  activePage={6}
+  boundaries={false}
+  className="custom-class"
+  itemsPerPage={10}
+  justify={false}
+  lastPage={100}
+  onChange={[Function]}
+  size="sm"
+>
+  <nav
+    className="gds-pagination gds-pagination--mobile-arrows custom-class gds-pagination--fixed gds-pagination--sm"
+    onKeyDown={[Function]}
+  >
+    <div
+      className="gds-pagination__page-item -va-top gds-pagination__page-item--fixed"
+    >
+      <button
+        aria-label="Goto previous page"
+        className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": 0,
+          }
+        }
+      >
+        <span
+          className="-vis-hidden -ellipsis"
+        >
+          Go to previous page
+        </span>
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top gds-pagination__page-item--fixed"
+      key="1"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 1"
+        className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": 0,
+          }
+        }
+      >
+        1
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top gds-pagination__page-item--fixed"
+      key="2"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 2"
+        className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": 0,
+          }
+        }
+      >
+        2
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top gds-pagination__page-item--fixed"
+      key="3"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 3"
+        className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": 0,
+          }
+        }
+      >
+        3
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top gds-pagination__page-item--fixed"
+      key="4"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 4"
+        className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": 0,
+          }
+        }
+      >
+        4
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top gds-pagination__page-item--fixed"
+      key="5"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 5"
+        className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": 0,
+          }
+        }
+      >
+        5
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top gds-pagination__page-item--fixed gds-pagination__page-item--active"
+      key="6"
+    >
+      <button
+        aria-current={true}
+        aria-label="Page 6, Current"
+        className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": 0,
+          }
+        }
+      >
+        6
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top gds-pagination__page-item--fixed"
+      key="7"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 7"
+        className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": 0,
+          }
+        }
+      >
+        7
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top gds-pagination__page-item--fixed"
+    >
+      <button
+        aria-label="Goto next page"
+        className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": 0,
+          }
+        }
+      >
+        <span
+          className="-vis-hidden -ellipsis"
+        >
+          Go to next page
+        </span>
+      </button>
+    </div>
+    <span
+      className="gds-pagination__page-indicator"
+    />
+  </nav>
+</Pagination>
+`;
+
+exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
+<Pagination
+  activePage={6}
+  boundaries={true}
+  className="custom-class"
+  itemsPerPage={10}
+  justify={true}
+  lastPage={100}
+  onChange={[Function]}
+  size="sm"
+>
+  <nav
+    className="gds-pagination gds-pagination--mobile-arrows custom-class gds-pagination--sm"
+    onKeyDown={[Function]}
+  >
+    <div
+      className="gds-pagination__page-item -va-top"
+    >
+      <button
+        aria-label="Goto previous page"
+        className="gds-pagination__page-link -overflow-hidden"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": null,
+          }
+        }
+      >
+        <span
+          className="-vis-hidden -ellipsis"
+        >
+          Go to previous page
+        </span>
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top"
+      key="1"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 1"
+        className="gds-pagination__page-link -overflow-hidden"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": null,
+          }
+        }
+      >
+        1
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top"
+      key="4"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 4"
+        className="gds-pagination__page-link -overflow-hidden"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": null,
+          }
+        }
+      >
+        4
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top"
+      key="5"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 5"
+        className="gds-pagination__page-link -overflow-hidden"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": null,
+          }
+        }
+      >
+        5
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top gds-pagination__page-item--active"
+      key="6"
+    >
+      <button
+        aria-current={true}
+        aria-label="Page 6, Current"
+        className="gds-pagination__page-link -overflow-hidden"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": null,
+          }
+        }
+      >
+        6
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top"
+      key="7"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 7"
+        className="gds-pagination__page-link -overflow-hidden"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": null,
+          }
+        }
+      >
+        7
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top"
+      key="8"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 8"
+        className="gds-pagination__page-link -overflow-hidden"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": null,
+          }
+        }
+      >
+        8
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top"
+      key="100"
+    >
+      <button
+        aria-current={false}
+        aria-label="Goto page 100"
+        className="gds-pagination__page-link -overflow-hidden"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": null,
+          }
+        }
+      >
+        100
+      </button>
+    </div>
+    <div
+      className="gds-pagination__page-item -va-top"
+    >
+      <button
+        aria-label="Goto next page"
+        className="gds-pagination__page-link -overflow-hidden"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "none",
+            "border": 0,
+            "fontFamily": "inherit",
+            "padding": null,
+          }
+        }
+      >
+        <span
+          className="-vis-hidden -ellipsis"
+        >
+          Go to next page
+        </span>
+      </button>
+    </div>
+    <span
+      className="gds-pagination__page-indicator"
+    />
+  </nav>
+</Pagination>
+`;

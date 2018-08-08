@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Select> to render 1`] = `
+<Select
+  className="modal-class"
+  context="success"
+  customName="name"
+  customValue="value"
+  options={
+    Array [
+      Object {
+        "name": "Foot",
+        "value": "foo",
+      },
+      Object {
+        "name": "Woot",
+        "value": "woo",
+      },
+    ]
+  }
+  size="lg"
+  text="100"
+>
+  <select
+    className="gds-form-group__select-input modal-class gds-form-group__select-input--success gds-form-group__select-input--lg"
+    text="100"
+  >
+    <option
+      key="foo"
+      value="foo"
+    >
+      Foot
+    </option>
+    <option
+      key="woo"
+      value="woo"
+    >
+      Woot
+    </option>
+  </select>
+</Select>
+`;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <AccordionItemContent> to render 1`] = `
+<AccordionItemContent
+  className="foo"
+  context="danger"
+  size="xs"
+>
+  <li
+    className="gds-accordion__child-item foo gds-accordion__child-item--danger"
+    onClick={[Function]}
+  >
+    <h4
+      className="gds-accordion__child-item-title gds-accordion__child-item-title--xs"
+    >
+      <div>
+        foo
+      </div>
+    </h4>
+  </li>
+</AccordionItemContent>
+`;
