@@ -1,5 +1,5 @@
 import React from 'react';
-import { selectV2 as select, text, boolean } from '@storybook/addon-knobs';
+import { selectV2 as select, text, boolean, button } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -13,10 +13,14 @@ class TestSearchMultiSelect extends React.Component {
     };
 
     componentDidMount() {
+        this._setFocus();
+    }
+
+    _setFocus = () => {
         if (this._inputRef.current) {
             this._inputRef.current.focus();
         }
-    }
+    };
 
     _inputRef = React.createRef();
 
@@ -31,6 +35,7 @@ class TestSearchMultiSelect extends React.Component {
         return (
             <FormGroup>
                 <FormGroupLabel text="names" />
+                {button('Set focus', this._setFocus)}
                 <SearchMultiSelect
                     inputRef={this._inputRef}
                     placeholder={text('Placeholder', 'My placeholder')}
