@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Divider> to render 1`] = `
+<Divider
+  callback={[Function]}
+  centered={false}
+  collapsible={false}
+  label="Divider Label"
+  open={false}
+  style={
+    Object {
+      "width": 150,
+    }
+  }
+>
+  <div
+    className="gds-divider"
+    onClick={[Function]}
+    style={
+      Object {
+        "width": 150,
+      }
+    }
+  >
+    <span
+      className="gds-divider__label gds-form-group__label"
+    >
+      Divider Label
+    </span>
+    <span
+      className="gds-divider__line"
+    />
+  </div>
+</Divider>
+`;
+
+exports[`Expect <Divider> to render open 1`] = `
+<Divider
+  callback={[Function]}
+  centered={false}
+  collapsible={false}
+  label="Divider Label"
+  open={true}
+  style={
+    Object {
+      "width": 150,
+    }
+  }
+>
+  <div
+    className="gds-divider"
+    onClick={[Function]}
+    style={
+      Object {
+        "width": 150,
+      }
+    }
+  >
+    <span
+      className="gds-divider__label gds-form-group__label"
+    >
+      Divider Label
+    </span>
+    <span
+      className="gds-divider__line"
+    />
+  </div>
+</Divider>
+`;

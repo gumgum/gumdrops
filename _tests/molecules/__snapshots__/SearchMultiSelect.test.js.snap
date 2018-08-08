@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <SearchMultiSelect> to render 1`] = `
+<SearchMultiSelect
+  className="custom-class"
+  context="primary"
+  filter={[Function]}
+  multiTerm={false}
+  onChange={[Function]}
+  options={
+    Array [
+      Object {
+        "isSelected": true,
+        "key": 10,
+        "name": "Name",
+      },
+    ]
+  }
+  placeholder="placeholder"
+  searchKeys={false}
+  size="sm"
+  termDivider={/\\[ ,\\]\\+/}
+  update={[Function]}
+>
+  <div
+    className="gds-search-select"
+  >
+    <div
+      className="gds-search-select__control"
+    >
+      <Tag
+        className="gds-search-select__tag-indicator"
+        context="primary"
+        hasOption={true}
+        onClick={[Function]}
+        onOptionClick={[Function]}
+        optionIcon="bt-times"
+        optionLabel="Clear all tags"
+        size="xs"
+        style={
+          Object {
+            "top": "0.4rem",
+          }
+        }
+        text="1 Selected"
+      >
+        <div
+          className="gds-tag gds-search-select__tag-indicator gds-tag--primary gds-tag--with-button gds-tag--with-button--xs gds-tag--xs"
+          onClick={[Function]}
+          style={
+            Object {
+              "top": "0.4rem",
+            }
+          }
+        >
+          1 Selected
+          <button
+            aria-label="Clear all tags"
+            className="gds-tag__option gds-tag__option--primary gds-tag__option--xs"
+            onClick={[Function]}
+          >
+            <i
+              className="btl bt-fw bt-times"
+            />
+          </button>
+        </div>
+      </Tag>
+      <input
+        className="gds-search-select__input gds-search-select__input--sm gds-search-select__input--has-tag"
+        onChange={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        placeholder="placeholder"
+        type="text"
+      />
+      <button
+        className="gds-search-select__toggle-button -cursor--pointer"
+        onClick={[Function]}
+        type="button"
+      />
+    </div>
+    <div
+      className="gds-search-select__tag-holder
+    gds-search-select__tag-holder--bubble "
+    >
+      <div
+        className="gds-search-select__tag-overflow"
+      >
+        <Tag
+          className="-m-a-1"
+          context="primary"
+          hasOption={true}
+          key="10"
+          onOptionClick={[Function]}
+          optionIcon="bt-times"
+          optionLabel="Remove option"
+          size="sm"
+          style={Object {}}
+          text="Name"
+        >
+          <div
+            className="gds-tag -m-a-1 gds-tag--primary gds-tag--with-button gds-tag--with-button--sm gds-tag--sm"
+            style={Object {}}
+          >
+            Name
+            <button
+              aria-label="Remove option"
+              className="gds-tag__option gds-tag__option--primary gds-tag__option--sm"
+              onClick={[Function]}
+            >
+              <i
+                className="btl bt-fw bt-times"
+              />
+            </button>
+          </div>
+        </Tag>
+      </div>
+    </div>
+    <div
+      className="gds-search-select__menu"
+    >
+      <div
+        className="gds-search-select__menu-items"
+      >
+        <div
+          className="gds-search-select__menu-item gds-search-select__menu-item--selected"
+          key="10"
+          onClick={[Function]}
+        >
+          <label
+            className="gds-search-select__checkbox"
+          >
+            <input
+              checked={true}
+              className="gds-search-select__checkbox-input"
+              name="Name"
+              readOnly={true}
+              type="checkbox"
+            />
+            <span
+              className="gds-search-select__checkbox-indicator"
+            />
+          </label>
+          Name
+        </div>
+      </div>
+    </div>
+  </div>
+</SearchMultiSelect>
+`;

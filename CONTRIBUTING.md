@@ -49,6 +49,22 @@ ButtonGroup.propTypes = {
 
 **IMPORTANT**: Please wait for approvals, and when your PR has been approved, **please continue to follow the guidelines on [GITWORKFLOW.md](GITWORKFLOW.md) when rebasing and merging**.
 
+##### Running Tests
+
+Gumdrops uses [Jest](https://jestjs.io/docs/en/getting-started) and [Enzyme](http://airbnb.io/enzyme/) to test components. All tests can be found in `/_tests` in their corresponding folders.
+
+To run tests use
+
+```
+yarn test
+```
+
+or to run Jest in interactive watch mode
+
+```
+yarn test:watch
+```
+
 #### Local testing
 
 This library can be installed into a different project for local testing/development:

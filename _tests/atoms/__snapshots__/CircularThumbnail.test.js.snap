@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <CircularThumbnail> to render 1`] = `
+<CircularThumbnail
+  className="foo-class"
+  context="danger"
+  size="sm"
+>
+  <img
+    className="gds-circular-thumbnail foo-class gds-circular-thumbnail--danger gds-circular-thumbnail--sm"
+  />
+</CircularThumbnail>
+`;

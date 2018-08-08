@@ -212,6 +212,25 @@ function moveFile(oldPath, newPath) {
     });
 }
 
+// Run tests
+async function runTests() {
+    log('Running Tests');
+    const childProcess = spawn('npm', ['run', 'test']);
+    return new Promise((resolve, reject) => {
+        childProcess.on('error', err => {
+            reject(err);
+        });
+        childProcess.on('close', code => {
+            if (code > 0) {
+                reject('🛑 Tests failed');
+            } else {
+                console.log('✅ Tests Pass');
+                resolve();
+            }
+        });
+    });
+}
+
 // Create a Tarball of the dist/ dir
 async function packDistDir() {
     log('Packing dist/ directory');
@@ -258,6 +277,8 @@ async function build() {
             // Build ESM
             ...buildESMConfigurations()
         ];
+
+        await runTests();
 
         log('Building modules');
         log('Please wait');
