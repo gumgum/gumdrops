@@ -1,5 +1,5 @@
 import React from 'react';
-import { selectV2 as select, text, boolean } from '@storybook/addon-knobs';
+import { selectV2 as select, text, boolean, button } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -12,6 +12,18 @@ class TestSearchMultiSelect extends React.Component {
         names: namesList
     };
 
+    componentDidMount() {
+        this._setFocus();
+    }
+
+    _setFocus = () => {
+        if (this._inputRef.current) {
+            this._inputRef.current.focus();
+        }
+    };
+
+    _inputRef = React.createRef();
+
     _updateNames = names => {
         this.setState({ names });
         action('SearchMultiSelect Updated')(names);
@@ -23,7 +35,9 @@ class TestSearchMultiSelect extends React.Component {
         return (
             <FormGroup>
                 <FormGroupLabel text="names" />
+                {button('Set focus', this._setFocus)}
                 <SearchMultiSelect
+                    inputRef={this._inputRef}
                     placeholder={text('Placeholder', 'My placeholder')}
                     options={this.state.names}
                     update={this._updateNames}
@@ -39,12 +53,7 @@ class TestSearchMultiSelect extends React.Component {
     }
 }
 
-const component = () => <TestSearchMultiSelect />;
-
-const options = {
-    inline: true,
-    propTables: [SearchMultiSelect]
-};
+const component = () => <TestSearchMultiSelect />; //eslint-disable-line react/no-multi-comp
 
 // Props data
 const namesList = [

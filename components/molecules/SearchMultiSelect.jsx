@@ -24,7 +24,7 @@ class SearchMultiSelect extends Component {
         window.addEventListener('click', this._closeOnClickOutside);
     }
 
-    componentWillReceiveProps({ options, searchKeys, multiTerm, termDivider, filter }) {
+    UNSAFE_componentWillReceiveProps({ options, searchKeys, multiTerm, termDivider, filter }) {
         const old = this.props;
         if (!arraysEqual(options, old.options)) {
             const searchConfig = { searchKeys, multiTerm, termDivider };
@@ -33,7 +33,7 @@ class SearchMultiSelect extends Component {
         }
     }
 
-    componentWillUpdate(_, { searchTerm }) {
+    UNSAFE_componentWillUpdate(_, { searchTerm }) {
         const { options, searchKeys, multiTerm, termDivider, filter } = this.props;
         const searchConfig = { searchKeys, multiTerm, termDivider };
         const { searchTerm: oldTerm, currentIndex, isOpen } = this.state;
@@ -169,7 +169,7 @@ class SearchMultiSelect extends Component {
 
     render() {
         const { isOpen, isTagsOpen, currentIndex, matchingIndexes } = this.state;
-        const { options, context, placeholder, size } = this.props;
+        const { inputRef, options, context, placeholder, size } = this.props;
 
         const numberSelected = options.filter(o => o.isSelected).length;
 
@@ -200,6 +200,7 @@ class SearchMultiSelect extends Component {
                         />
                     )}
                     <input
+                        ref={inputRef}
                         onFocus={this._openSelect}
                         onClick={this._openSelect}
                         onChange={this._updateSearchTerm}
@@ -315,7 +316,8 @@ SearchMultiSelect.propTypes = {
     size: PropTypes.oneOf(['sm', 'md']),
     searchKeys: PropTypes.bool,
     multiTerm: PropTypes.bool,
-    termDivider: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(RegExp)])
+    termDivider: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(RegExp)]),
+    inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
 
 export default SearchMultiSelect;
