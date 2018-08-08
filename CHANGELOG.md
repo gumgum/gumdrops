@@ -1,5 +1,12 @@
 # GumGum Common JS Changelog
 
+## 1.4.3 (8-8-18)
+
+###### Added
+
+*   Pass a ref to SearchMultiSelect
+*   Add jest snapshopts
+
 ## 1.2.0 (4-13-18)
 
 ###### Added

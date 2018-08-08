@@ -1,6 +1,6 @@
 {
     "name": "gumdrops",
-    "version": "1.4.2",
+    "version": "1.4.3",
     "description": "GumGum's React Components Library",
     "license": "MIT",
     "files": [
@@ -36,7 +36,9 @@
         "testMatch": [
             "**/?(*.)+(spec|test).js?(x)"
         ],
-        "modulePathIgnorePatterns": ["<rootDir>/dist/"]
+        "modulePathIgnorePatterns": [
+            "<rootDir>/dist/"
+        ]
     },
     "pre-commit": [
         "prettier"
