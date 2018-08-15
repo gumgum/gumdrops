@@ -1,5 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Expect <MultiSelect> to open and close 1`] = `
+<div
+  className="gds-multi-select custom-class gds-multi-select--xs gds-button-dropdown--active"
+  placeholder="placeholder"
+>
+  <button
+    aria-controls="MultiSelect_region_TXVsdGlTZWxlY3Q=1"
+    aria-expanded={true}
+    aria-pressed={true}
+    className="gds-multi-select__button gds-multi-select__button--xs"
+    id="MultiSelect_label_TXVsdGlTZWxlY3Q=1"
+    name="multiselectMenu"
+    onClick={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <div
+      className="-ellipsis"
+    >
+      Lassie, Snoopy, Grumpy Cat, Lil Bub
+    </div>
+  </button>
+  <ul
+    aria-hidden={false}
+    aria-labelledby="MultiSelect_label_TXVsdGlTZWxlY3Q=1"
+    className="gds-multi-select__menu"
+    id="MultiSelect_region_TXVsdGlTZWxlY3Q=1"
+    role="region"
+  >
+    <MultiSelectMenuItem
+      callback={[Function]}
+      index={0}
+      key="menu-item-0"
+      name="All Pets"
+      onChange={[Function]}
+      selected={false}
+      size="xs"
+      value={0}
+    />
+    <MultiSelectSubMenu
+      index={1}
+      key="menu-item-1"
+      name="Dogs"
+      onChange={[Function]}
+      onSubChange={[Function]}
+      options={
+        Array [
+          Object {
+            "name": "Lassie",
+            "selected": true,
+            "value": 1,
+          },
+          Object {
+            "name": "Snoopy",
+            "selected": true,
+            "value": 2,
+          },
+          Object {
+            "name": "Toto",
+            "selected": false,
+            "value": 3,
+          },
+          Object {
+            "name": "Brian Griffin",
+            "selected": false,
+            "value": 3,
+          },
+        ]
+      }
+      selected={false}
+      size="xs"
+      value={1}
+    />
+    <MultiSelectSubMenu
+      index={2}
+      key="menu-item-2"
+      name="Cats"
+      onChange={[Function]}
+      onSubChange={[Function]}
+      options={
+        Array [
+          Object {
+            "name": "Grumpy Cat",
+            "selected": true,
+            "value": 1,
+          },
+          Object {
+            "name": "Lil Bub",
+            "selected": true,
+            "value": 2,
+          },
+          Object {
+            "name": "Hello Kitty",
+            "selected": false,
+            "value": 3,
+          },
+        ]
+      }
+      selected={false}
+      size="xs"
+      value="cats"
+    />
+  </ul>
+</div>
+`;
+
 exports[`Expect <MultiSelect> to render 1`] = `
 <MultiSelect
   callback={[Function]}
@@ -7,9 +113,58 @@ exports[`Expect <MultiSelect> to render 1`] = `
   options={
     Array [
       Object {
-        "name": "Name",
-        "selected": true,
-        "value": 10,
+        "name": "All Pets",
+        "selected": false,
+        "value": 0,
+      },
+      Object {
+        "name": "Dogs",
+        "options": Array [
+          Object {
+            "name": "Lassie",
+            "selected": true,
+            "value": 1,
+          },
+          Object {
+            "name": "Snoopy",
+            "selected": true,
+            "value": 2,
+          },
+          Object {
+            "name": "Toto",
+            "selected": false,
+            "value": 3,
+          },
+          Object {
+            "name": "Brian Griffin",
+            "selected": false,
+            "value": 3,
+          },
+        ],
+        "selected": false,
+        "value": 1,
+      },
+      Object {
+        "name": "Cats",
+        "options": Array [
+          Object {
+            "name": "Grumpy Cat",
+            "selected": true,
+            "value": 1,
+          },
+          Object {
+            "name": "Lil Bub",
+            "selected": true,
+            "value": 2,
+          },
+          Object {
+            "name": "Hello Kitty",
+            "selected": false,
+            "value": 3,
+          },
+        ],
+        "selected": false,
+        "value": "cats",
       },
     ]
   }
@@ -18,6 +173,7 @@ exports[`Expect <MultiSelect> to render 1`] = `
 >
   <div
     className="gds-multi-select custom-class gds-multi-select--xs"
+    placeholder="placeholder"
   >
     <button
       aria-controls="MultiSelect_region_TXVsdGlTZWxlY3Q=0"
@@ -25,6 +181,7 @@ exports[`Expect <MultiSelect> to render 1`] = `
       aria-pressed={false}
       className="gds-multi-select__button gds-multi-select__button--xs"
       id="MultiSelect_label_TXVsdGlTZWxlY3Q=0"
+      name="multiselectMenu"
       onClick={[Function]}
       tabIndex={0}
       type="button"
@@ -32,7 +189,7 @@ exports[`Expect <MultiSelect> to render 1`] = `
       <div
         className="-ellipsis"
       >
-        Name
+        Lassie, Snoopy, Grumpy Cat, Lil Bub
       </div>
     </button>
     <ul
@@ -42,43 +199,544 @@ exports[`Expect <MultiSelect> to render 1`] = `
       id="MultiSelect_region_TXVsdGlTZWxlY3Q=0"
       role="region"
     >
-      <li
-        className="gds-multi-select__menu-item"
-        key="item-0"
+      <MultiSelectMenuItem
+        callback={[Function]}
+        index={0}
+        key="menu-item-0"
+        name="All Pets"
+        onChange={[Function]}
+        selected={false}
+        size="xs"
+        value={0}
       >
-        <div
-          className="gds-multi-select__menu-link"
+        <li
+          className="gds-multi-select__menu-item"
         >
           <div
-            className="gds-form-group gds-multi-select__option"
+            className="gds-multi-select__menu-link"
           >
-            <Checkbox
-              checked={true}
-              label="Name"
-              onChange={[Function]}
+            <div
+              className="gds-form-group gds-multi-select__option"
+              onClick={[Function]}
+            >
+              <Checkbox
+                checked={false}
+                label="All Pets"
+                onChange={[Function]}
+                size="xs"
+              >
+                <div
+                  className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+                >
+                  <label
+                    className="gds-form-group__checkbox-label"
+                  >
+                    <input
+                      checked={false}
+                      className="gds-form-group__checkbox-input"
+                      onChange={[Function]}
+                      type="checkbox"
+                    />
+                    <span
+                      className="gds-form-group__checkbox-indicator"
+                    />
+                    All Pets
+                  </label>
+                </div>
+              </Checkbox>
+            </div>
+          </div>
+        </li>
+      </MultiSelectMenuItem>
+      <MultiSelectSubMenu
+        index={1}
+        key="menu-item-1"
+        name="Dogs"
+        onChange={[Function]}
+        onSubChange={[Function]}
+        options={
+          Array [
+            Object {
+              "name": "Lassie",
+              "selected": true,
+              "value": 1,
+            },
+            Object {
+              "name": "Snoopy",
+              "selected": true,
+              "value": 2,
+            },
+            Object {
+              "name": "Toto",
+              "selected": false,
+              "value": 3,
+            },
+            Object {
+              "name": "Brian Griffin",
+              "selected": false,
+              "value": 3,
+            },
+          ]
+        }
+        selected={false}
+        size="xs"
+        value={1}
+      >
+        <MultiSelectMenuItem
+          index={1}
+          isActive={true}
+          name="Dogs"
+          onChange={[Function]}
+          onClick={[Function]}
+          selected={false}
+          size="xs"
+          subOptions={
+            Array [
+              Object {
+                "name": "Lassie",
+                "selected": true,
+                "value": 1,
+              },
+              Object {
+                "name": "Snoopy",
+                "selected": true,
+                "value": 2,
+              },
+              Object {
+                "name": "Toto",
+                "selected": false,
+                "value": 3,
+              },
+              Object {
+                "name": "Brian Griffin",
+                "selected": false,
+                "value": 3,
+              },
+            ]
+          }
+          value={1}
+        >
+          <li
+            className="gds-multi-select__menu-item"
+            onClick={[Function]}
+          >
+            <div
+              className="gds-multi-select__menu-link gds-multi-select__menu-link--collapsable gds-multi-select__menu-link--active"
             >
               <div
-                className="gds-form-group__checkbox"
+                className="gds-form-group gds-multi-select__option"
+                onClick={[Function]}
               >
-                <label
-                  className="gds-form-group__checkbox-label"
+                <Checkbox
+                  checked={false}
+                  label="Dogs"
+                  onChange={[Function]}
+                  size="xs"
                 >
-                  <input
-                    checked={true}
-                    className="gds-form-group__checkbox-input"
-                    onChange={[Function]}
-                    type="checkbox"
-                  />
-                  <span
-                    className="gds-form-group__checkbox-indicator"
-                  />
-                  Name
-                </label>
+                  <div
+                    className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+                  >
+                    <label
+                      className="gds-form-group__checkbox-label"
+                    >
+                      <input
+                        checked={false}
+                        className="gds-form-group__checkbox-input"
+                        onChange={[Function]}
+                        type="checkbox"
+                      />
+                      <span
+                        className="gds-form-group__checkbox-indicator"
+                      />
+                      Dogs
+                    </label>
+                  </div>
+                </Checkbox>
               </div>
-            </Checkbox>
-          </div>
-        </div>
-      </li>
+              <ul
+                className="gds-multi-select__sub-menu"
+              >
+                <li
+                  className="gds-multi-select__menu-item"
+                  key="item-0"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="gds-multi-select__menu-link"
+                  >
+                    <div
+                      className="gds-form-group gds-multi-select__option"
+                    >
+                      <Checkbox
+                        checked={true}
+                        label="Lassie"
+                        onChange={[Function]}
+                        size="xs"
+                      >
+                        <div
+                          className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+                        >
+                          <label
+                            className="gds-form-group__checkbox-label"
+                          >
+                            <input
+                              checked={true}
+                              className="gds-form-group__checkbox-input"
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="gds-form-group__checkbox-indicator"
+                            />
+                            Lassie
+                          </label>
+                        </div>
+                      </Checkbox>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  className="gds-multi-select__menu-item"
+                  key="item-1"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="gds-multi-select__menu-link"
+                  >
+                    <div
+                      className="gds-form-group gds-multi-select__option"
+                    >
+                      <Checkbox
+                        checked={true}
+                        label="Snoopy"
+                        onChange={[Function]}
+                        size="xs"
+                      >
+                        <div
+                          className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+                        >
+                          <label
+                            className="gds-form-group__checkbox-label"
+                          >
+                            <input
+                              checked={true}
+                              className="gds-form-group__checkbox-input"
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="gds-form-group__checkbox-indicator"
+                            />
+                            Snoopy
+                          </label>
+                        </div>
+                      </Checkbox>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  className="gds-multi-select__menu-item"
+                  key="item-2"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="gds-multi-select__menu-link"
+                  >
+                    <div
+                      className="gds-form-group gds-multi-select__option"
+                    >
+                      <Checkbox
+                        checked={false}
+                        label="Toto"
+                        onChange={[Function]}
+                        size="xs"
+                      >
+                        <div
+                          className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+                        >
+                          <label
+                            className="gds-form-group__checkbox-label"
+                          >
+                            <input
+                              checked={false}
+                              className="gds-form-group__checkbox-input"
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="gds-form-group__checkbox-indicator"
+                            />
+                            Toto
+                          </label>
+                        </div>
+                      </Checkbox>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  className="gds-multi-select__menu-item"
+                  key="item-3"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="gds-multi-select__menu-link"
+                  >
+                    <div
+                      className="gds-form-group gds-multi-select__option"
+                    >
+                      <Checkbox
+                        checked={false}
+                        label="Brian Griffin"
+                        onChange={[Function]}
+                        size="xs"
+                      >
+                        <div
+                          className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+                        >
+                          <label
+                            className="gds-form-group__checkbox-label"
+                          >
+                            <input
+                              checked={false}
+                              className="gds-form-group__checkbox-input"
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="gds-form-group__checkbox-indicator"
+                            />
+                            Brian Griffin
+                          </label>
+                        </div>
+                      </Checkbox>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </MultiSelectMenuItem>
+      </MultiSelectSubMenu>
+      <MultiSelectSubMenu
+        index={2}
+        key="menu-item-2"
+        name="Cats"
+        onChange={[Function]}
+        onSubChange={[Function]}
+        options={
+          Array [
+            Object {
+              "name": "Grumpy Cat",
+              "selected": true,
+              "value": 1,
+            },
+            Object {
+              "name": "Lil Bub",
+              "selected": true,
+              "value": 2,
+            },
+            Object {
+              "name": "Hello Kitty",
+              "selected": false,
+              "value": 3,
+            },
+          ]
+        }
+        selected={false}
+        size="xs"
+        value="cats"
+      >
+        <MultiSelectMenuItem
+          index={2}
+          isActive={true}
+          name="Cats"
+          onChange={[Function]}
+          onClick={[Function]}
+          selected={false}
+          size="xs"
+          subOptions={
+            Array [
+              Object {
+                "name": "Grumpy Cat",
+                "selected": true,
+                "value": 1,
+              },
+              Object {
+                "name": "Lil Bub",
+                "selected": true,
+                "value": 2,
+              },
+              Object {
+                "name": "Hello Kitty",
+                "selected": false,
+                "value": 3,
+              },
+            ]
+          }
+          value="cats"
+        >
+          <li
+            className="gds-multi-select__menu-item"
+            onClick={[Function]}
+          >
+            <div
+              className="gds-multi-select__menu-link gds-multi-select__menu-link--collapsable gds-multi-select__menu-link--active"
+            >
+              <div
+                className="gds-form-group gds-multi-select__option"
+                onClick={[Function]}
+              >
+                <Checkbox
+                  checked={false}
+                  label="Cats"
+                  onChange={[Function]}
+                  size="xs"
+                >
+                  <div
+                    className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+                  >
+                    <label
+                      className="gds-form-group__checkbox-label"
+                    >
+                      <input
+                        checked={false}
+                        className="gds-form-group__checkbox-input"
+                        onChange={[Function]}
+                        type="checkbox"
+                      />
+                      <span
+                        className="gds-form-group__checkbox-indicator"
+                      />
+                      Cats
+                    </label>
+                  </div>
+                </Checkbox>
+              </div>
+              <ul
+                className="gds-multi-select__sub-menu"
+              >
+                <li
+                  className="gds-multi-select__menu-item"
+                  key="item-0"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="gds-multi-select__menu-link"
+                  >
+                    <div
+                      className="gds-form-group gds-multi-select__option"
+                    >
+                      <Checkbox
+                        checked={true}
+                        label="Grumpy Cat"
+                        onChange={[Function]}
+                        size="xs"
+                      >
+                        <div
+                          className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+                        >
+                          <label
+                            className="gds-form-group__checkbox-label"
+                          >
+                            <input
+                              checked={true}
+                              className="gds-form-group__checkbox-input"
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="gds-form-group__checkbox-indicator"
+                            />
+                            Grumpy Cat
+                          </label>
+                        </div>
+                      </Checkbox>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  className="gds-multi-select__menu-item"
+                  key="item-1"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="gds-multi-select__menu-link"
+                  >
+                    <div
+                      className="gds-form-group gds-multi-select__option"
+                    >
+                      <Checkbox
+                        checked={true}
+                        label="Lil Bub"
+                        onChange={[Function]}
+                        size="xs"
+                      >
+                        <div
+                          className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+                        >
+                          <label
+                            className="gds-form-group__checkbox-label"
+                          >
+                            <input
+                              checked={true}
+                              className="gds-form-group__checkbox-input"
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="gds-form-group__checkbox-indicator"
+                            />
+                            Lil Bub
+                          </label>
+                        </div>
+                      </Checkbox>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  className="gds-multi-select__menu-item"
+                  key="item-2"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="gds-multi-select__menu-link"
+                  >
+                    <div
+                      className="gds-form-group gds-multi-select__option"
+                    >
+                      <Checkbox
+                        checked={false}
+                        label="Hello Kitty"
+                        onChange={[Function]}
+                        size="xs"
+                      >
+                        <div
+                          className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+                        >
+                          <label
+                            className="gds-form-group__checkbox-label"
+                          >
+                            <input
+                              checked={false}
+                              className="gds-form-group__checkbox-input"
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="gds-form-group__checkbox-indicator"
+                            />
+                            Hello Kitty
+                          </label>
+                        </div>
+                      </Checkbox>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </MultiSelectMenuItem>
+      </MultiSelectSubMenu>
     </ul>
   </div>
 </MultiSelect>
