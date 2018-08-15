@@ -8,6 +8,7 @@ import Heading from './TableHeading';
 import Body from './TableBody';
 import Row from './TableRow';
 import Data from './TableData';
+import { deprecateLog } from '../utils/deprecate';
 
 const sortDirection = {
     ASC: 'asc',
@@ -102,8 +103,8 @@ class Table extends Component {
                                 // NOTE: onHeadingClick should be removed in the next major version
                                 // Using "headingProps" will allow more complete customization
                                 if (onHeadingClick) {
-                                    console.warn(
-                                        'Warning: `onHeadingClick` has been deprecated in favor of `headingProps`. Use `headingProps.onClick` instead.'
+                                    deprecateLog(
+                                        '`onHeadingClick` has been deprecated in favor of `headingProps`. Use `headingProps.onClick` instead. See https://github.com/gumgum/gumdrops/blob/master/_stories/molecules/Table/README.md#columns'
                                     );
                                 }
 

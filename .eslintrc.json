@@ -47,7 +47,7 @@
         "curly": [1, "multi-line"],
         "keyword-spacing": [1, {}],
         "space-before-blocks": [1, "always"],
-        "wrap-iife": 1,
+        "wrap-iife": 0,
         "one-var": 0,
         "vars-on-top": 0,
         "no-empty": [1, { "allowEmptyCatch": true }],
