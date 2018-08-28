@@ -4,6 +4,8 @@ import arraysEqual from '../utils/arraysEqual';
 import cx from 'classnames';
 import Tag from '../atoms/Tag';
 
+import escapeRegExp from '../utils/escapeRegExp';
+
 class SearchMultiSelect extends Component {
     constructor({ options, searchKeys, multiTerm, termDivider, filter }) {
         super();
@@ -283,7 +285,8 @@ const getMatchingIndexes = (options, query, config) => {
     const terms = multiTerm ? query.split(termDivider) : [query];
     const findMatches = q =>
         terms.some(term => {
-            const regEx = new RegExp(term, 'ig');
+            const scapedTerm = escapeRegExp(term);
+            const regEx = new RegExp(scapedTerm, 'ig');
             return regEx.test(q);
         });
     return options.reduce((acc, { name, key }, index) => {
