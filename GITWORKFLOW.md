@@ -35,7 +35,7 @@ git commit -m "#12 Add red button component" # creates a commit with the message
 ##### Creating Feature Branches
 
 ```
-git checkout stage
+git checkout develop
 git pull
 git flow feature start #ISSUE_ID-DESCRIBE-THE-BRANCH
 
@@ -64,7 +64,7 @@ git flow feature rebase -i
 # Important - force your changes because you are rewriting all of the hashes
 git push origin feature/YOUR-BRANCH --force
 
-# if your branch is ready to merge, use git flow feature finish to merge it back to stage. this puts you on stage and then you can push your changes
+# if your branch is ready to merge, use git flow feature finish to merge it back to develop. this puts you on develop and then you can push your changes
 git flow feature finish YOUR-BRANCH
 git push
 ```
@@ -76,14 +76,14 @@ Your PR will be merged by a user with merge access after it gets approved by at 
 ```
 git checkout master
 git pull
-git checkout stage
+git checkout develop
 git pull
 git flow release start '1.x.x'
 npm version  TAG #use the appropriate tag for your release (major, minor, patch)
 
 git flow release finish 1.x.x # when prompted, tag should be the release version
 git push --tags
-git push origin stage
+git push origin develop
 git push origin master
 ```
 

@@ -3,6 +3,7 @@
 exports[`Expect <LoginForm> to render 1`] = `
 <LoginForm
   capText="Text"
+  hideLogo={false}
   logoText="Logo Text"
   onSubmit={[Function]}
   recoveryFn={[Function]}

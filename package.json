@@ -18,6 +18,7 @@
         "prepare": "npm run build",
         "lint": "eslint ./components --color",
         "test": "NODE_ENV='test' jest",
+        "test:updateSnapshot": "NODE_ENV='test' jest --updateSnapshot",
         "test:watch": "NODE_ENV='test' jest --watch",
         "preclean": "rimraf node_modules",
         "clean": "yarn cache clean && yarn install",
