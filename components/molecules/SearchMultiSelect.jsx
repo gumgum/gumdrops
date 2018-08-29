@@ -285,8 +285,8 @@ const getMatchingIndexes = (options, query, config) => {
     const terms = multiTerm ? query.split(termDivider) : [query];
     const findMatches = q =>
         terms.some(term => {
-            const scapedTerm = escapeRegExp(term);
-            const regEx = new RegExp(scapedTerm, 'ig');
+            const escapedTerm = escapeRegExp(term);
+            const regEx = new RegExp(escapedTerm, 'ig');
             return regEx.test(q);
         });
     return options.reduce((acc, { name, key }, index) => {

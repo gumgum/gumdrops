@@ -81,6 +81,11 @@ const namesList = [
         name: 'David "Henry" Mejorado',
         isSelected: false,
         key: 4
+    },
+    {
+        name: 'Mahdiye \\ Maddie Jamali',
+        isSelected: false,
+        key: 5
     }
 ];
 
