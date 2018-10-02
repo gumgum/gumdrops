@@ -19,6 +19,7 @@ exports[`Expect <Table> to render 1`] = `
   }
   hasHeader={false}
   isInverse={false}
+  isResponsive={false}
   isSecondary={false}
   isStriped={false}
   onRowClick={[Function]}
@@ -87,88 +88,93 @@ exports[`Expect <Table> to render customized 1`] = `
   }
   hasHeader={true}
   isInverse={true}
+  isResponsive={true}
   isSecondary={true}
   isStriped={true}
   onRowClick={[Function]}
   size="lg"
 >
-  <table
-    className="gds-table custom-class gds-table--lg gds-table--inverse gds-table--inverse-striped"
+  <div
+    className="gds-table--responsive"
   >
-    <TableHeader>
-      <thead
-        className=""
-      >
-        <TableRow>
-          <tr
-            className="gds-table__row"
-          >
-            <TableHeading
-              isSecondary={true}
-              key="row-0-key-0"
-              onClick={[Function]}
-            >
-              <th
-                className="gds-table__header -text-left gds-table__header--secondary"
-                onClick={[Function]}
-              >
-                foo
-              </th>
-            </TableHeading>
-            <TableHeading
-              isSecondary={true}
-              key="row-1-key-1"
-              onClick={[Function]}
-            >
-              <th
-                className="gds-table__header -text-left gds-table__header--secondary"
-                onClick={[Function]}
-              >
-                bar
-              </th>
-            </TableHeading>
-          </tr>
-        </TableRow>
-      </thead>
-    </TableHeader>
-    <TableBody>
-      <tbody
-        className=""
-      >
-        <TableRow
-          className="-cursor--pointer"
-          isInverse={true}
-          isStriped={true}
-          key="row-0"
-          onClick={[Function]}
+    <table
+      className="gds-table custom-class gds-table--lg gds-table--inverse gds-table--inverse-striped"
+    >
+      <TableHeader>
+        <thead
+          className=""
         >
-          <tr
-            className="gds-table__row -cursor--pointer gds-table__row--inverse gds-table__row--striped-inverse"
+          <TableRow>
+            <tr
+              className="gds-table__row"
+            >
+              <TableHeading
+                isSecondary={true}
+                key="row-0-key-0"
+                onClick={[Function]}
+              >
+                <th
+                  className="gds-table__header -text-left gds-table__header--secondary"
+                  onClick={[Function]}
+                >
+                  foo
+                </th>
+              </TableHeading>
+              <TableHeading
+                isSecondary={true}
+                key="row-1-key-1"
+                onClick={[Function]}
+              >
+                <th
+                  className="gds-table__header -text-left gds-table__header--secondary"
+                  onClick={[Function]}
+                >
+                  bar
+                </th>
+              </TableHeading>
+            </tr>
+          </TableRow>
+        </thead>
+      </TableHeader>
+      <TableBody>
+        <tbody
+          className=""
+        >
+          <TableRow
+            className="-cursor--pointer"
+            isInverse={true}
+            isStriped={true}
+            key="row-0"
             onClick={[Function]}
           >
-            <TableData
-              key="row-0-key-0"
+            <tr
+              className="gds-table__row -cursor--pointer gds-table__row--inverse gds-table__row--striped-inverse"
+              onClick={[Function]}
             >
-              <td
-                className=""
+              <TableData
+                key="row-0-key-0"
               >
-                Foo
-              </td>
-            </TableData>
-            <TableData
-              key="row-0-key-1"
-            >
-              <td
-                className=""
+                <td
+                  className=""
+                >
+                  Foo
+                </td>
+              </TableData>
+              <TableData
+                key="row-0-key-1"
               >
-                Bar
-              </td>
-            </TableData>
-          </tr>
-        </TableRow>
-      </tbody>
-    </TableBody>
-  </table>
+                <td
+                  className=""
+                >
+                  Bar
+                </td>
+              </TableData>
+            </tr>
+          </TableRow>
+        </tbody>
+      </TableBody>
+    </table>
+  </div>
 </Table>
 `;
 
@@ -209,6 +215,7 @@ exports[`Expect <Table> to render using advanced configs 1`] = `
   }
   hasHeader={false}
   isInverse={false}
+  isResponsive={false}
   isSecondary={false}
   isStriped={false}
   onRowClick={[Function]}

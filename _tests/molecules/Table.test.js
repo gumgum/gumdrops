@@ -15,6 +15,7 @@ const defaultProps = {
     isInverse: false,
     isSecondary: false,
     isStriped: false,
+    isResponsive: false,
     onRowClick: () => {},
     size: 'lg'
 };
@@ -31,7 +32,8 @@ describe('Expect <Table>', () => {
             hasHeader: true,
             isInverse: true,
             isSecondary: true,
-            isStriped: true
+            isStriped: true,
+            isResponsive: true
         };
         const wrapper = mount(<Table {...props} />);
         expect(wrapper).toMatchSnapshot();

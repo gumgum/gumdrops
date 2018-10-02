@@ -176,6 +176,7 @@ const component = () => {
             isInverse={boolean('isInverse', false)}
             isSecondary={boolean('isSecondary', false)}
             isStriped={boolean('isStriped', false)}
+            isResponsive={boolean('isResponsive', false)}
             onRowClick={boolean('onRowClick', false) ? action('row_clicked') : undefined}
             size={optionalSelect('Size', sizeOptions, '')}
         />

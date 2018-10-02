@@ -80,7 +80,7 @@ class Table extends Component {
         return shouldSortDesc ? this._sortDescending(config) : this._sortAscending(config);
     };
 
-    renderTable({ columns, isStriped, isInverse, hasHeader, onRowClick, isSecondary }) {
+    renderTableContent({ columns, isStriped, isInverse, hasHeader, onRowClick, isSecondary }) {
         const { sortBy, data } = this.state;
         return (
             <Fragment>
@@ -163,18 +163,27 @@ class Table extends Component {
         );
     }
 
-    render() {
+    renderTable() {
         const { data, className, children, size, isStriped, isInverse } = this.props;
         return (
             <table
                 className={cx('gds-table', className, {
                     [`gds-table--${size}`]: size,
-                    [`gds-table--inverse`]: isInverse,
-                    [`gds-table--striped`]: isStriped && !isInverse,
-                    [`gds-table--inverse-striped`]: isStriped && isInverse
+                    ['gds-table--inverse']: isInverse,
+                    ['gds-table--striped']: isStriped && !isInverse,
+                    ['gds-table--inverse-striped']: isStriped && isInverse
                 })}>
-                {data ? this.renderTable(this.props) : children}
+                {data ? this.renderTableContent(this.props) : children}
             </table>
+        );
+    }
+
+    render() {
+        const { isResponsive } = this.props;
+        return isResponsive ? (
+            <div className="gds-table--responsive">{this.renderTable()}</div>
+        ) : (
+            this.renderTable()
         );
     }
 }
@@ -212,6 +221,7 @@ Table.propTypes = {
     isInverse: PropTypes.bool,
     isSecondary: PropTypes.bool,
     isStriped: PropTypes.bool,
+    isResponsive: PropTypes.bool,
     onRowClick: PropTypes.func,
     size: PropTypes.oneOf(['sm', 'lg', 'xs', 'xl'])
 };
