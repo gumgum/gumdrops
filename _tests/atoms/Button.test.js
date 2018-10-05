@@ -3,7 +3,8 @@ import React from 'react';
 import Button from '../../components/atoms/Button';
 
 const defaultProps = {
-    group: false,
+    isGroup: false,
+    isBlock: false,
     size: 'sm',
     onClick: () => {},
     text: 'This is text',
@@ -24,7 +25,16 @@ describe('Expect <Button>', () => {
     it('to renders as a group button', () => {
         const props = {
             ...defaultProps,
-            group: true
+            isGroup: true
+        };
+        const wrapper = mount(<Button {...props}>My Cool Button</Button>);
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('to renders as a blocked button', () => {
+        const props = {
+            ...defaultProps,
+            isBlock: true
         };
         const wrapper = mount(<Button {...props}>My Cool Button</Button>);
         expect(wrapper).toMatchSnapshot();
