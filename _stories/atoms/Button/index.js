@@ -29,7 +29,8 @@ const component = () => (
         type={text('Type', 'button')}
         size={optionalSelect('Size', sizeOptions, '')}
         context={select('Context', contextOptions, 'default')}
-        group={boolean('Group', false)}
+        isGroup={boolean('isGroup', false)}
+        isBlock={boolean('isBlock', false)}
         onClick={action('button_clicked')}
         className={text('ClassName', '')}
         style={object('Style', {})}>
