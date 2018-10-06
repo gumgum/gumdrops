@@ -1,0 +1,31 @@
+body {
+    background-color: #fff;
+    margin-top: 0;
+}
+
+table {
+    border-spacing: 0 !important;
+    padding: 2rem 0;
+    font-size: 14px;
+}
+
+thead {
+    background-color: #dcdcdc;
+}
+
+th {
+    text-transform: capitalize !important;
+}
+
+th,
+td {
+    padding: 0.5rem !important;
+}
+
+table,
+thead,
+th,
+td,
+tr {
+    border: none;
+}

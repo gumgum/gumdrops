@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Toggle> to render 1`] = `
+<Toggle
+  className="custom-class"
+  label="Toggle Label"
+  size="sm"
+  style={
+    Object {
+      "width": 100,
+    }
+  }
+  type="checkbox"
+>
+  <div
+    className="gds-form-group__toggleswitch custom-class gds-form-group__toggleswitch--sm"
+    style={
+      Object {
+        "width": 100,
+      }
+    }
+  >
+    <label
+      className="gds-form-group__toggleswitch-label"
+    >
+      <input
+        className="gds-form-group__toggleswitch-input"
+        type="checkbox"
+      />
+      <span
+        className="gds-form-group__toggleswitch-indicator"
+      />
+      Toggle Label
+    </label>
+  </div>
+</Toggle>
+`;

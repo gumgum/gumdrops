@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Badge> to render 1`] = `
+<Badge
+  className="foo-class"
+  context="inverse"
+  empty={false}
+  style={
+    Object {
+      "width": "1000px",
+    }
+  }
+  text="This is text"
+>
+  <span
+    className="gds-badge foo-class gds-badge--inverse"
+    style={
+      Object {
+        "width": "1000px",
+      }
+    }
+  >
+    This is text
+  </span>
+</Badge>
+`;
+
+exports[`Expect <Badge> to render properly with empty 1`] = `
+<Badge
+  className="foo-class"
+  context="inverse"
+  empty={true}
+  style={
+    Object {
+      "width": "1000px",
+    }
+  }
+  text="Ignored text"
+>
+  <span
+    className="gds-badge foo-class gds-badge--inverse gds-badge--empty"
+    style={
+      Object {
+        "width": "1000px",
+      }
+    }
+  />
+</Badge>
+`;

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <CardImage> to render 1`] = `
+<CardImage
+  className="custom"
+  option="top"
+  size="xl"
+  style={
+    Object {
+      "width": 120,
+    }
+  }
+  url="https://foo.bar"
+>
+  <div
+    className="gds-card__img-container custom gds-card__img-container--top gds-card__img-container--xl"
+    style={
+      Object {
+        "width": 120,
+      }
+    }
+  >
+    <img
+      className="gds-card__img"
+      src="https://foo.bar"
+    />
+    <div
+      className="gds-card__img-helper"
+    />
+  </div>
+</CardImage>
+`;

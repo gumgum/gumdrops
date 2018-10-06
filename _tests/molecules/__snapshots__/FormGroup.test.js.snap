@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <FormGroup> to render 1`] = `
+<FormGroup
+  className="custom-class"
+  context="warning"
+  isDisabled={false}
+  isInline={false}
+>
+  <div
+    className="gds-form-group custom-class gds-form-group--warning"
+  >
+    <input
+      type="text"
+    />
+  </div>
+</FormGroup>
+`;
+
+exports[`Expect <FormGroup> to render disabled 1`] = `
+<FormGroup
+  className="custom-class"
+  context="warning"
+  isDisabled={true}
+  isInline={false}
+>
+  <div
+    className="gds-form-group custom-class gds-form-group--warning gds-form-group--disabled"
+  >
+    <input
+      type="text"
+    />
+  </div>
+</FormGroup>
+`;
+
+exports[`Expect <FormGroup> to render inline 1`] = `
+<FormGroup
+  className="custom-class"
+  context="warning"
+  isDisabled={false}
+  isInline={true}
+>
+  <div
+    className="gds-form-group custom-class gds-form-group--warning gds-form-group--inline"
+  >
+    <input
+      type="text"
+    />
+  </div>
+</FormGroup>
+`;

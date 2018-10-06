@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <Avatar> to render 1`] = `
+<Avatar
+  className="custom-class"
+  img="http://foo.com"
+  menuCallback={[Function]}
+  menuOptions={
+    Array [
+      Object {
+        "name": "test",
+        "path": "/test",
+      },
+      Object {
+        "name": "moar",
+        "path": "/more",
+      },
+    ]
+  }
+  open={false}
+  optionCallback={[Function]}
+  style={
+    Object {
+      "width": "100px",
+    }
+  }
+  username="Kenny"
+>
+  <div
+    aria-controls="Avatar-region-QXZhdGFy0"
+    aria-expanded={false}
+    aria-label="Open menu options"
+    aria-pressed={false}
+    className="gds-avatar custom-class"
+    id="Avatar-label-QXZhdGFy0"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    style={
+      Object {
+        "width": "100px",
+      }
+    }
+    tabIndex={0}
+  >
+    <div
+      className="gds-avatar__image"
+    >
+      <img
+        alt="Kenny"
+        height="100%"
+        src="http://foo.com"
+      />
+    </div>
+    <nav
+      aria-labelledby="Avatar-label-QXZhdGFy0"
+      className="gds-avatar__menu"
+      id="Avatar-region-QXZhdGFy0"
+    >
+      <ul
+        className="gds-avatar__menu-list"
+      >
+        <li
+          className="gds-avatar__menu-list-item -color-tx-lt-5 -ellipsis -p-h-3 -p-v-2"
+        >
+          Kenny
+        </li>
+        <li
+          className="gds-avatar__menu-list-divider"
+        />
+        <li
+          className="gds-avatar__menu-list-item -ellipsis"
+          key="menu-item-0"
+        >
+          <div
+            className="gds-avatar__menu-list-link"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex={-1}
+          >
+            test
+          </div>
+        </li>
+        <li
+          className="gds-avatar__menu-list-item -ellipsis"
+          key="menu-item-1"
+        >
+          <div
+            className="gds-avatar__menu-list-link"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex={-1}
+          >
+            moar
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</Avatar>
+`;
+
+exports[`Expect <Avatar> to render opened 1`] = `
+<Avatar
+  className="custom-class"
+  img="http://foo.com"
+  menuCallback={[Function]}
+  menuOptions={
+    Array [
+      Object {
+        "name": "test",
+        "path": "/test",
+      },
+      Object {
+        "name": "moar",
+        "path": "/more",
+      },
+    ]
+  }
+  open={true}
+  optionCallback={[Function]}
+  style={
+    Object {
+      "width": "100px",
+    }
+  }
+  username="Kenny"
+>
+  <div
+    aria-controls="Avatar-region-QXZhdGFy1"
+    aria-expanded={true}
+    aria-label="Close menu options"
+    aria-pressed={true}
+    className="gds-avatar custom-class gds-avatar--menu-open"
+    id="Avatar-label-QXZhdGFy1"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    style={
+      Object {
+        "width": "100px",
+      }
+    }
+    tabIndex={0}
+  >
+    <div
+      className="gds-avatar__image"
+    >
+      <img
+        alt="Kenny"
+        height="100%"
+        src="http://foo.com"
+      />
+    </div>
+    <nav
+      aria-labelledby="Avatar-label-QXZhdGFy1"
+      className="gds-avatar__menu"
+      id="Avatar-region-QXZhdGFy1"
+    >
+      <ul
+        className="gds-avatar__menu-list"
+      >
+        <li
+          className="gds-avatar__menu-list-item -color-tx-lt-5 -ellipsis -p-h-3 -p-v-2"
+        >
+          Kenny
+        </li>
+        <li
+          className="gds-avatar__menu-list-divider"
+        />
+        <li
+          className="gds-avatar__menu-list-item -ellipsis"
+          key="menu-item-0"
+        >
+          <div
+            className="gds-avatar__menu-list-link"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            test
+          </div>
+        </li>
+        <li
+          className="gds-avatar__menu-list-item -ellipsis"
+          key="menu-item-1"
+        >
+          <div
+            className="gds-avatar__menu-list-link"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            moar
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</Avatar>
+`;

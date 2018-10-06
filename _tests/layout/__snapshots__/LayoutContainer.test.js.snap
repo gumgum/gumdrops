@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <LayoutContainer> to render 1`] = `
+<LayoutContainer
+  className="cool-stuff"
+  fullWidth={false}
+>
+  <div
+    className="gds-layout__container cool-stuff"
+  >
+    <div>
+      Content
+    </div>
+  </div>
+</LayoutContainer>
+`;
+
+exports[`Expect <LayoutContainer> to render as full width 1`] = `
+<LayoutContainer
+  className="cool-stuff"
+  fullWidth={true}
+>
+  <div
+    className="gds-layout__container cool-stuff gds-layout__container--full-width"
+  >
+    <div>
+      Content
+    </div>
+  </div>
+</LayoutContainer>
+`;
