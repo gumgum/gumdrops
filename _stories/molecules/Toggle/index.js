@@ -24,7 +24,9 @@ const component = () => (
         size={optionalSelect('Size', sizeOptions, '')}
         className={text('ClassName', '')}
         style={object('Style', {})}
-        onChange={action('toggle_checked')}
+        onChange={action('toggle_checked')}   
+        onText={text('OnText', '')}
+        offText={text('OffText', '')}
     />
 );
 
