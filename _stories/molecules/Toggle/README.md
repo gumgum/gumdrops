@@ -20,8 +20,8 @@ return (
         label="Default Toggle"
         checked={ this.state.myToggle }
         onChange={ this._handleToggle }
-        offText=""
-        onText=""
+        offText="Off"
+        onText="On"
     />
 )
 ```

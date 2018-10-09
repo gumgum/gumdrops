@@ -27,8 +27,8 @@ Toggle.displayName = 'Toggle';
 Toggle.defaultProps = {
     type: 'checkbox',
     label: '',
-    onText: 'on',
-    offText: 'off'
+    onText: '',
+    offText: ''
 };
 
 Toggle.propTypes = {
