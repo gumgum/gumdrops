@@ -4,6 +4,19 @@
 
 *Recommended Props*: `name`, `checked`, `defaultChecked`, `onChange`
 
+## Props
+
+The following props can be passed to the `<Toggle>` component. Any additional props will be passed to the `<input>` :
+
+| name      | type     | description                                               |
+| --------- | -------- | --------------------------------------------------------- |
+| className | `String` | Additional class to be added to the outermost element     |
+| label     | `String` | Text displayed as the label for the toggle                |
+| offText   | `String` | Label displayed when toggled off                          |
+| onText    | `String` | Label displayed when toggled on                           |
+| size      | `String` | Indicate the size of the table. One of `xs` or `sm`       |
+| type      | `String` | Indicate the type of toggle. One of `checkbox` or `radio` |
+
 **Controlled example - Example for single Toggle**:
 ```
 state = {
@@ -20,6 +33,8 @@ return (
         label="Default Toggle"
         checked={ this.state.myToggle }
         onChange={ this._handleToggle }
+        offText="Off"
+        onText="On"
     />
 )
 ```
