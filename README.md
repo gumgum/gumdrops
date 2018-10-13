@@ -10,7 +10,7 @@ Include GumGum Design System's CSS in your project:
 
 `<link rel="stylesheet" href="https://assets.ggops.com/stable/theme-blue.css">`
 
-[See the Design System documentation](http://ds.gumgum.com/stable/css/index.html) for themes, CSS utilities and more.
+[See the Design System documentation](https://ds.gumgum.com/stable/css) for themes, CSS utilities and more.
 
 ## Documentation
 
