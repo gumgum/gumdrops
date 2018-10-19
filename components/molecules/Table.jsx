@@ -123,13 +123,13 @@ class Table extends Component {
 
                                 return (
                                     <Heading
-                                        {...headingProps}
                                         isSecondary={isSecondary}
                                         key={reactKey}
                                         onClick={onClickHeading}
                                         sortDirection={
                                             sortBy.key === key ? sortBy.direction : undefined
-                                        }>
+                                        }
+                                        {...headingProps}>
                                         {children}
                                     </Heading>
                                 );

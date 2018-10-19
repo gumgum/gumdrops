@@ -135,19 +135,21 @@ const People = () => <Table columns={columns} data={data} />;
 
 ### Custom Heading Props
 
-Props can be passed to the `<TableHeading>` component with the `headingProp` property.
+Props can be passed to the `<TableHeading>` component with the `headingProps` property. This is useful when you need to size columns or sort the table data externally such as from an API.
 
 ```jsx
 const columnsAdvanced = [
     { key: 'name' },
     {
         key: 'title',
+        disableSorting: true,
         headingProps: {
             className: 'custom-class',
             style: {
                 width: '10%'
             },
-            onClick: event => {}
+            onClick: this.sortColumn('title'), // sorting handled externally
+            sortDirection: this.state.sortDirection // one of 'asc' or 'desc'
         }
     },
     { key: 'age' },
