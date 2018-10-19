@@ -4,6 +4,7 @@ exports[`Expect <Button> to render 1`] = `
 <Button
   className="foo-class"
   context="danger"
+  group={false}
   isBlock={false}
   isGroup={false}
   onBlur={[Function]}
@@ -38,6 +39,7 @@ exports[`Expect <Button> to renders as a blocked button 1`] = `
 <Button
   className="foo-class"
   context="danger"
+  group={false}
   isBlock={true}
   isGroup={false}
   onBlur={[Function]}
@@ -72,6 +74,7 @@ exports[`Expect <Button> to renders as a group button 1`] = `
 <Button
   className="foo-class"
   context="danger"
+  group={false}
   isBlock={false}
   isGroup={true}
   onBlur={[Function]}
