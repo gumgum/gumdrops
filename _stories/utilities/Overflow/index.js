@@ -1,5 +1,5 @@
 import React from 'react';
-import { selectV2 as select, object } from '@storybook/addon-knobs';
+import { select, object } from '@storybook/addon-knobs';
 import arrToObjOptions from '../../../components/utils/arrToObjOptions';
 
 import readme from './README.md';
