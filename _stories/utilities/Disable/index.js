@@ -1,5 +1,5 @@
 import React from 'react';
-import { selectV2 as select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import Button from '../../../components/atoms/Button';
 
 import readme from './README.md';

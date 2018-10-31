@@ -14,16 +14,18 @@ const options = [
 ];
 
 const component = () => (
-    <Avatar
-        open={boolean('Open', false)}
-        menuCallback={action('avatar_menu_toggled')}
-        optionCallback={action('avatar_menu_option_clicked')}
-        username={text('Username', 'Michele')}
-        img={text('Image url', '')}
-        menuOptions={options}
-        className={text('ClassName', '-float-right')}
-        style={object('Style', {})}
-    />
+    <div style={{ minHeight: 100 }}>
+        <Avatar
+            open={boolean('Open', false)}
+            menuCallback={action('avatar_menu_toggled')}
+            optionCallback={action('avatar_menu_option_clicked')}
+            username={text('Username', 'Michele')}
+            img={text('Image url', '')}
+            menuOptions={options}
+            className={text('ClassName', '-float-right')}
+            style={object('Style', {})}
+        />
+    </div>
 );
 
 export default [readme, component];

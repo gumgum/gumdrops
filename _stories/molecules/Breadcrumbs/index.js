@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { selectV2 as select, boolean } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 
 import readme from './README.md';
 import Breadcrumbs from '../../../components/molecules/Breadcrumbs';

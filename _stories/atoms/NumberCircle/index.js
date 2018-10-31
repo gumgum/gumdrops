@@ -24,13 +24,15 @@ const sizeOptions = {
 };
 
 const component = () => (
-    <NumberCircle
-        text={text('Text', '1')}
-        size={optionalSelect('Size', sizeOptions, '')}
-        context={optionalSelect('Context', contextOptions, '')}
-        className={text('ClassName', '')}
-        style={object('Styles', {})}
-    />
+    <div style={{ minHeight: 100 }}>
+        <NumberCircle
+            text={text('Text', '1')}
+            size={optionalSelect('Size', sizeOptions, '')}
+            context={optionalSelect('Context', contextOptions, '')}
+            className={text('ClassName', '')}
+            style={object('Styles', {})}
+        />
+    </div>
 );
 
 export default [readme, component];

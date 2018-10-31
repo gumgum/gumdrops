@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Accordion from './Accordion';
 import Avatar from './Avatar/';
@@ -24,11 +23,8 @@ import Toggle from './Toggle/';
 import Well from './Well/';
 
 const stories = storiesOf('Molecules', module);
-const storyWrapper = story => <div style={{ margin: '35px' }}>{story()}</div>;
 
 stories
-    .addDecorator((story, context) => withInfo('')(story)(context))
-    .addDecorator(storyWrapper)
     .addDecorator(withKnobs)
     .add('Accordion', withReadme(...Accordion))
     .add('Avatar', withReadme(...Avatar))
