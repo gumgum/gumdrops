@@ -1,5 +1,5 @@
 import React from 'react';
-import { text, boolean, object } from '@storybook/addon-knobs';
+import { text, object } from '@storybook/addon-knobs';
 import { optionalSelect } from '../../../components/utils/optionalSelect';
 import { action } from '@storybook/addon-actions';
 

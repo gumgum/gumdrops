@@ -1,5 +1,5 @@
+/* eslint-disable no-console */
 // PRs welcome!
-
 // import system dependencies
 const {
     lstatSync,
@@ -9,7 +9,7 @@ const {
     writeFile,
     rename
 } = require('fs');
-const { join, resolve: resolvePath } = require('path');
+const { join } = require('path');
 const { spawn } = require('child_process');
 
 // Import rollup plugins
@@ -17,7 +17,6 @@ const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
-const uglify = require('rollup-plugin-uglify');
 
 // Import package.json file for its configurations
 const pkg = require('../package.json');
@@ -29,8 +28,6 @@ const hasVersionTag = !!process.env.TAG;
 
 // Define reusable constants
 const COMPONENTS = 'components';
-// Formats used to build modules
-const formats = ['cjs'];
 
 // Configuration shared across builds
 const commonConfig = {
@@ -95,7 +92,7 @@ const listFiles = () => {
 };
 
 // Builds the filepath for the given file
-const getFileNameData = (file, format) => {
+const getFileNameData = file => {
     const originalPath = file
         .split('/')
         .reverse()[0]
@@ -171,8 +168,8 @@ function createPackageFile() {
         null,
         2
     );
-    return new Promise((resolve, reject) => {
-        const write = writeFile('dist/package.json', packageData, 'utf-8', resolve);
+    return new Promise(resolve => {
+        writeFile('dist/package.json', packageData, 'utf-8', resolve);
     }).catch(error => {
         throw error;
     });
@@ -283,11 +280,12 @@ async function build() {
         log('Building modules');
         log('Please wait');
         // create a bundle
-        for (config of configurations) {
+
+        for (let config of configurations) {
             const bundle = await rollup.rollup(config.inputOptions);
 
             // generate code and a sourcemap
-            const { code, map } = await bundle.generate(config.outputOptions);
+            await bundle.generate(config.outputOptions);
 
             // or write the bundle to disk
             await bundle.write(config.outputOptions);
@@ -295,6 +293,7 @@ async function build() {
 
         // Generate README, CHANGELOG, package.json of dist dir
         await createExtraFiles();
+
         if (shouldPublish) {
             // publish dist dir to npm
             const message = await publishDist();

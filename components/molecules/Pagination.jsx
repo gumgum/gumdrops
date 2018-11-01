@@ -13,7 +13,7 @@ class Pagination extends Component {
         };
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (this.props.lastPage !== nextProps.lastPage) {
             this.setState({
                 isPrevDisabled: nextProps.activePage === 1,
@@ -71,7 +71,7 @@ class Pagination extends Component {
         const displayLimit = 7;
         // Number of pages adjacent to the center
         const neighbors = boundaries ? 2 : 3;
-        // Set limits on the first sectioni of pages
+        // Set limits on the first section of pages
         const firstSetEnd = boundaries ? displayLimit - 2 : displayLimit - 1;
         // Set limits on the last section of pages
         const lastSetStart = lastPage > displayLimit ? lastPage - firstSetEnd : 1;
@@ -134,11 +134,6 @@ class Pagination extends Component {
         const linkClass = cx('gds-pagination__page-link', '-overflow-hidden', {
             'gds-pagination__page-link--fixed': !justify
         });
-
-        // fixes extra space below inline-block elements
-        const itemStyle = {
-            verticalAlign: 'top'
-        };
 
         // fixes style issues associated with using buttons
         const btnStyle = {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const BreadcrumbLink = ({ children, to, className }) => (
@@ -10,6 +10,8 @@ const BreadcrumbLink = ({ children, to, className }) => (
 BreadcrumbLink.displayName = 'BreadcrumbLink';
 
 BreadcrumbLink.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
     to: PropTypes.string.isRequired
 };
 

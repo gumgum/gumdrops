@@ -37,6 +37,6 @@ class TestPagination extends React.Component {
 
 TestPagination.displayName = 'Pagination';
 
-const component = () => <TestPagination />;
+const component = () => <TestPagination />; // eslint-disable-line
 
 export default [readme, component];
