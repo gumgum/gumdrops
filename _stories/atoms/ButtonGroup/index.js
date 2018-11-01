@@ -1,7 +1,6 @@
 import React from 'react';
 import { text, boolean, object } from '@storybook/addon-knobs';
 import { optionalSelect } from '../../../components/utils/optionalSelect';
-import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
 import ButtonGroup from '../../../components/atoms/ButtonGroup';

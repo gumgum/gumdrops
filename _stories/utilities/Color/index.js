@@ -2,7 +2,6 @@ import React from 'react';
 import { select } from '@storybook/addon-knobs';
 
 import readme from './README.md';
-import { colors } from '../constants';
 import arrToObjOptions from '../../../components/utils/arrToObjOptions';
 
 const divStyle = {

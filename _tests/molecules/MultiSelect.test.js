@@ -1,4 +1,4 @@
-/* globals mount */
+/* globals mount, shallow */
 import React from 'react';
 import MultiSelect from '../../components/molecules/MultiSelect';
 

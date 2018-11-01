@@ -5,11 +5,11 @@ import generateUID from '../utils/generateUID';
 import charCodes from '../../constants/charCodes';
 
 class AccordionItem extends Component {
-    uid = generateUID(this);
-
     state = {
         isOpen: false
     };
+
+    uid = generateUID(this);
 
     toggleOpen = event => {
         const { type, charCode } = event;

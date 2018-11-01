@@ -1,4 +1,5 @@
 /* globals mount */
+/* eslint-disable no-console */
 import { deprecateLog, deprecateFunction } from '../../components/utils/deprecate';
 
 const log = console.log;

@@ -87,9 +87,7 @@ exports[`Expect <Breadcrumb> to render 1`] = `
             </li>
           </ul>
         </div>
-        <span>
-           
-        </span>
+         
       </div>
     </BreadcrumbMenu>
     <BreadcrumbLink
@@ -194,9 +192,7 @@ exports[`Expect <Breadcrumb> to render as last 1`] = `
             </li>
           </ul>
         </div>
-        <span>
-           
-        </span>
+         
       </div>
     </BreadcrumbMenu>
     Breadcrumb Title
