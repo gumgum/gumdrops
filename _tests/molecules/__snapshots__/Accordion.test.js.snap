@@ -12,27 +12,102 @@ exports[`Expect <Accordion> to render 1`] = `
     <ul
       className="gds-accordion-list"
     >
-      <li
+      <AccordionItem
         context="primary"
         key=".0"
+        label="Accordion Item 1"
         size="sm"
       >
-        Accordion Item 1
-      </li>
-      <li
+        <li
+          aria-controls="AccordionItem-region-QWNjb3JkaW9uSXRlbQ==0"
+          className="gds-accordion__item gds-accordion__item--primary"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <h4
+            className="gds-accordion__item-title gds-accordion__item-title--sm"
+            id="AccordionItem-label-QWNjb3JkaW9uSXRlbQ==0"
+          >
+            Accordion Item 1
+          </h4>
+          <span
+            className="gds-accordion__item-icon gds-accordion__item-icon--sm"
+          />
+          <ul
+            aria-hidden={true}
+            aria-labelledby="AccordionItem-label-QWNjb3JkaW9uSXRlbQ==0"
+            className="gds-accordion__child-items gds-accordion__child-items--sm"
+            id="AccordionItem-region-QWNjb3JkaW9uSXRlbQ==0"
+            role="region"
+          />
+        </li>
+      </AccordionItem>
+      <AccordionItem
         context="primary"
         key=".1"
+        label="Accordion Item 2"
         size="sm"
       >
-        Accordion Item 2
-      </li>
-      <li
+        <li
+          aria-controls="AccordionItem-region-QWNjb3JkaW9uSXRlbQ==1"
+          className="gds-accordion__item gds-accordion__item--primary"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <h4
+            className="gds-accordion__item-title gds-accordion__item-title--sm"
+            id="AccordionItem-label-QWNjb3JkaW9uSXRlbQ==1"
+          >
+            Accordion Item 2
+          </h4>
+          <span
+            className="gds-accordion__item-icon gds-accordion__item-icon--sm"
+          />
+          <ul
+            aria-hidden={true}
+            aria-labelledby="AccordionItem-label-QWNjb3JkaW9uSXRlbQ==1"
+            className="gds-accordion__child-items gds-accordion__child-items--sm"
+            id="AccordionItem-region-QWNjb3JkaW9uSXRlbQ==1"
+            role="region"
+          />
+        </li>
+      </AccordionItem>
+      <AccordionItem
         context="primary"
         key=".2"
+        label="Accordion Item 3"
         size="sm"
       >
-        Accordion Item 3
-      </li>
+        <li
+          aria-controls="AccordionItem-region-QWNjb3JkaW9uSXRlbQ==2"
+          className="gds-accordion__item gds-accordion__item--primary"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <h4
+            className="gds-accordion__item-title gds-accordion__item-title--sm"
+            id="AccordionItem-label-QWNjb3JkaW9uSXRlbQ==2"
+          >
+            Accordion Item 3
+          </h4>
+          <span
+            className="gds-accordion__item-icon gds-accordion__item-icon--sm"
+          />
+          <ul
+            aria-hidden={true}
+            aria-labelledby="AccordionItem-label-QWNjb3JkaW9uSXRlbQ==2"
+            className="gds-accordion__child-items gds-accordion__child-items--sm"
+            id="AccordionItem-region-QWNjb3JkaW9uSXRlbQ==2"
+            role="region"
+          />
+        </li>
+      </AccordionItem>
     </ul>
   </div>
 </Accordion>
