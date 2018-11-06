@@ -48,21 +48,14 @@ describe('Expect <SearchSelectOptions>', () => {
 
     it('to handle focus with arrow keys', () => {
         const wrapper = mount(<SearchSelectOptions options={options} {...defaultProps} />);
-        wrapper
-            .find('button[name="option0"]')
-            .simulate('keydown', { keyCode: charCodes.ARROW_DOWN, preventDefault: () => {} });
-        expect(wrapper.state().focusedIndex).toBe(1);
-        wrapper
-            .find('button[name="option1"]')
-            .simulate('keydown', { keyCode: charCodes.ARROW_UP, preventDefault: () => {} });
-        expect(wrapper.state().focusedIndex).toBe(0);
-        wrapper
-            .find('button[name="option0"]')
-            .simulate('keydown', { keyCode: charCodes.ARROW_LEFT, preventDefault: () => {} });
-        expect(wrapper.state().focusedIndex).toBe(11);
-        wrapper
-            .find('button[name="option11"]')
-            .simulate('keydown', { keyCode: charCodes.ARROW_RIGHT, preventDefault: () => {} });
-        expect(wrapper.state().focusedIndex).toBe(0);
+        [
+            ['[name="option0"]', charCodes.ARROW_DOWN, 1],
+            ['[name="option1"]', charCodes.ARROW_UP, 0],
+            ['[name="option0"]', charCodes.ARROW_LEFT, 11],
+            ['[name="option11"]', charCodes.ARROW_RIGHT, 0]
+        ].forEach(([name, code, expected]) => {
+            wrapper.find(name).simulate('keydown', { keyCode: code, preventDefault: () => {} });
+            expect(wrapper.state().focusedIndex).toBe(expected);
+        });
     });
 });
