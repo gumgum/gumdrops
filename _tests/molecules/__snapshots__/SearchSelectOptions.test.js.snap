@@ -1,0 +1,376 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <SearchSelectOptions> to render 1`] = `
+<div
+  className="gds-search-select__menu"
+>
+  <ul
+    className="gds-search-select__menu-items "
+  >
+    <li
+      key="1"
+    >
+      <button
+        aria-label="Lorem ipsum dolor sit amet"
+        className="gds-search-select__menu-item"
+        name="option0"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={0}
+      >
+        0
+         
+        Lorem ipsum dolor sit amet
+      </button>
+    </li>
+    <li
+      key="2"
+    >
+      <button
+        aria-label="Consectetur adipiscing elit "
+        className="gds-search-select__menu-item"
+        name="option1"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        1
+         
+        Consectetur adipiscing elit 
+      </button>
+    </li>
+    <li
+      key="3"
+    >
+      <button
+        aria-label="Sed do eiusmod tempor incididunt ut"
+        className="gds-search-select__menu-item"
+        name="option2"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        2
+         
+        Sed do eiusmod tempor incididunt ut
+      </button>
+    </li>
+    <li
+      key="4"
+    >
+      <button
+        aria-label="Labore et dolore magna aliqua"
+        className="gds-search-select__menu-item"
+        name="option3"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        3
+         
+        Labore et dolore magna aliqua
+      </button>
+    </li>
+    <li
+      key="5"
+    >
+      <button
+        aria-label="Ut enim ad minim veniam"
+        className="gds-search-select__menu-item"
+        name="option4"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        4
+         
+        Ut enim ad minim veniam
+      </button>
+    </li>
+    <li
+      key="6"
+    >
+      <button
+        aria-label="Quis nostrud exercitation ullamco"
+        className="gds-search-select__menu-item"
+        name="option5"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        5
+         
+        Quis nostrud exercitation ullamco
+      </button>
+    </li>
+    <li
+      key="7"
+    >
+      <button
+        aria-label="Laboris nisi ut aliquip ex ea commodo"
+        className="gds-search-select__menu-item"
+        name="option6"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        6
+         
+        Laboris nisi ut aliquip ex ea commodo
+      </button>
+    </li>
+    <li
+      key="8"
+    >
+      <button
+        aria-label="Consequat Duis"
+        className="gds-search-select__menu-item"
+        name="option7"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        7
+         
+        Consequat Duis
+      </button>
+    </li>
+    <li
+      key="9"
+    >
+      <button
+        aria-label="Aute irure dolor in reprehenderit "
+        className="gds-search-select__menu-item"
+        name="option8"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        8
+         
+        Aute irure dolor in reprehenderit 
+      </button>
+    </li>
+    <li
+      key="10"
+    >
+      <button
+        aria-label="In voluptate velit esse cillum dolore"
+        className="gds-search-select__menu-item"
+        name="option9"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        9
+         
+        In voluptate velit esse cillum dolore
+      </button>
+    </li>
+    <li
+      key="11"
+    >
+      <button
+        aria-label="Eu fugiat nulla pariatur"
+        className="gds-search-select__menu-item"
+        name="option10"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        10
+         
+        Eu fugiat nulla pariatur
+      </button>
+    </li>
+    <li
+      key="12"
+    >
+      <button
+        aria-label="Deserunt mollit anim id est laborum"
+        className="gds-search-select__menu-item"
+        name="option11"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "border": 0,
+            "borderRadius": 0,
+            "display": "block",
+            "fontFamily": "inherit",
+            "fontSize": "inherit",
+            "fontWeight": "inherit",
+            "lineHeight": "inherit",
+            "textAlign": "left",
+            "width": "100%",
+          }
+        }
+        tabIndex={-1}
+      >
+        11
+         
+        Deserunt mollit anim id est laborum
+      </button>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Expect <SearchSelectOptions> to render no results 1`] = `
+<div
+  className="gds-search-select__menu"
+>
+  <ul
+    className="gds-search-select__menu-items "
+  >
+    <li
+      className="gds-search-select__menu-item"
+    >
+      oh no!
+    </li>
+  </ul>
+</div>
+`;

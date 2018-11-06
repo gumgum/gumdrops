@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import charCodes from '../../constants/charCodes';
 
-const EMPTY_RESULT = { id: 0, name: 'No result found' };
-
 const styleReset = {
     display: 'block',
     width: '100%',
@@ -27,51 +25,60 @@ class SearchSelectOptions extends Component {
                 title: PropTypes.string.isRequired
             })
         ),
-        handleOptionClick: PropTypes.func.isRequired
+        handleOptionClick: PropTypes.func.isRequired,
+        noResultsMessage: PropTypes.string.isRequired
     };
 
-    _handleFocus({ currentTarget, keyCode: charCode }) {
-        const nextBtn = currentTarget.nextElementSibling;
-        const prevBtn = currentTarget.previousElementSibling;
+    static defaultProps = {
+        noResultsMessage: 'No results found'
+    };
 
-        if (nextBtn && NEXT.includes(charCode)) {
-            nextBtn.firstChild.focus();
+    state = {
+        focusedIndex: 0
+    };
+
+    _handleFocus = currentIndex => event => {
+        const { options } = this.props;
+
+        if (NEXT.includes(event.keyCode)) {
+            event.preventDefault();
+            const nextIndex = currentIndex + 1 === options.length ? 0 : currentIndex + 1;
+            // console.log(nextIndex);
+            this[`_option${nextIndex}`].focus();
+            return this.setState({ focusedIndex: nextIndex });
         }
 
-        if (prevBtn && PREV.includes(charCode)) {
-            prevBtn.firstChild.focus();
+        if (PREV.includes(event.keyCode)) {
+            event.preventDefault();
+            const prevIndex = currentIndex - 1 < 0 ? options.length - 1 : currentIndex - 1;
+            // console.log(prevIndex);
+            this[`_option${prevIndex}`].focus();
+            return this.setState({ focusedIndex: prevIndex });
         }
-
-        if (!nextBtn && NEXT.includes(charCode)) {
-            currentTarget.parentElement.firstElementChild.firstChild.focus();
-        }
-
-        if (!prevBtn && PREV.includes(charCode)) {
-            currentTarget.parentElement.lastElementChild.firstChild.focus();
-        }
-    }
+    };
 
     renderOptions() {
-        const { options, handleOptionClick } = this.props;
+        const { options, handleOptionClick, noResultsMessage } = this.props;
+        const { focusedIndex } = this.state;
 
         return options.length ? (
-            options.map(item => {
-                const { id, title } = item;
-                return (
-                    <li key={id} onKeyUp={this._handleFocus}>
-                        <button
-                            className="gds-search-select__menu-item"
-                            style={styleReset}
-                            onClick={() => handleOptionClick({ id, title })}>
-                            {title}
-                        </button>
-                    </li>
-                );
-            })
+            options.map(({ id, title }, index) => (
+                <li key={id}>
+                    <button
+                        aria-label={title}
+                        tabIndex={focusedIndex === index ? 0 : -1}
+                        ref={ref => (this[`_option${index}`] = ref)}
+                        className="gds-search-select__menu-item"
+                        style={styleReset}
+                        name={`option${index}`}
+                        onKeyDown={this._handleFocus(index)}
+                        onClick={() => handleOptionClick({ id, title })}>
+                        {index} {title}
+                    </button>
+                </li>
+            ))
         ) : (
-            <li className="gds-search-select__menu-item" key={EMPTY_RESULT.id}>
-                {EMPTY_RESULT.name}
-            </li>
+            <li className="gds-search-select__menu-item">{noResultsMessage}</li>
         );
     }
 

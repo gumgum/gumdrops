@@ -1,0 +1,369 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <SearchSelect> to add classes based on size prop 1`] = `
+<div
+  aria-expanded={false}
+  aria-label="Search"
+  className="gds-search-select"
+  onFocus={[Function]}
+  role="listbox"
+>
+  <div
+    className="gds-search-select__control"
+  >
+    <input
+      autoComplete="off"
+      autoFocus={false}
+      className="gds-form-group__text-input md gds-form-group__text-input--xs"
+      name="searchSelect"
+      onChange={[Function]}
+      placeholder="Search"
+      type="text"
+      value=""
+    />
+    <i
+      className="btl bt-search bt-sm"
+      style={
+        Object {
+          "position": "absolute",
+          "right": "0.6rem",
+          "top": "31%",
+          "zIndex": 900,
+        }
+      }
+    />
+  </div>
+  <SearchSelectOptions
+    handleOptionClick={[Function]}
+    noResultsMessage="No results found"
+    options={
+      Array [
+        Object {
+          "id": 1,
+          "title": "Lorem ipsum dolor sit amet",
+        },
+        Object {
+          "id": 2,
+          "title": "Consectetur adipiscing elit ",
+        },
+        Object {
+          "id": 3,
+          "title": "Sed do eiusmod tempor incididunt ut",
+        },
+        Object {
+          "id": 4,
+          "title": "Labore et dolore magna aliqua",
+        },
+        Object {
+          "id": 5,
+          "title": "Ut enim ad minim veniam",
+        },
+        Object {
+          "id": 6,
+          "title": "Quis nostrud exercitation ullamco",
+        },
+        Object {
+          "id": 7,
+          "title": "Laboris nisi ut aliquip ex ea commodo",
+        },
+        Object {
+          "id": 8,
+          "title": "Consequat Duis",
+        },
+        Object {
+          "id": 9,
+          "title": "Aute irure dolor in reprehenderit ",
+        },
+        Object {
+          "id": 10,
+          "title": "In voluptate velit esse cillum dolore",
+        },
+        Object {
+          "id": 11,
+          "title": "Eu fugiat nulla pariatur",
+        },
+        Object {
+          "id": 12,
+          "title": "Deserunt mollit anim id est laborum",
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`Expect <SearchSelect> to add classes based on size prop 2`] = `
+<div
+  aria-expanded={false}
+  aria-label="Search"
+  className="gds-search-select"
+  onFocus={[Function]}
+  role="listbox"
+>
+  <div
+    className="gds-search-select__control"
+  >
+    <input
+      autoComplete="off"
+      autoFocus={false}
+      className="gds-form-group__text-input md gds-form-group__text-input--sm"
+      name="searchSelect"
+      onChange={[Function]}
+      placeholder="Search"
+      type="text"
+      value=""
+    />
+    <i
+      className="btl bt-search"
+      style={
+        Object {
+          "position": "absolute",
+          "right": "0.6rem",
+          "top": "31%",
+          "zIndex": 900,
+        }
+      }
+    />
+  </div>
+  <SearchSelectOptions
+    handleOptionClick={[Function]}
+    noResultsMessage="No results found"
+    options={
+      Array [
+        Object {
+          "id": 1,
+          "title": "Lorem ipsum dolor sit amet",
+        },
+        Object {
+          "id": 2,
+          "title": "Consectetur adipiscing elit ",
+        },
+        Object {
+          "id": 3,
+          "title": "Sed do eiusmod tempor incididunt ut",
+        },
+        Object {
+          "id": 4,
+          "title": "Labore et dolore magna aliqua",
+        },
+        Object {
+          "id": 5,
+          "title": "Ut enim ad minim veniam",
+        },
+        Object {
+          "id": 6,
+          "title": "Quis nostrud exercitation ullamco",
+        },
+        Object {
+          "id": 7,
+          "title": "Laboris nisi ut aliquip ex ea commodo",
+        },
+        Object {
+          "id": 8,
+          "title": "Consequat Duis",
+        },
+        Object {
+          "id": 9,
+          "title": "Aute irure dolor in reprehenderit ",
+        },
+        Object {
+          "id": 10,
+          "title": "In voluptate velit esse cillum dolore",
+        },
+        Object {
+          "id": 11,
+          "title": "Eu fugiat nulla pariatur",
+        },
+        Object {
+          "id": 12,
+          "title": "Deserunt mollit anim id est laborum",
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`Expect <SearchSelect> to add classes based on size prop 3`] = `
+<div
+  aria-expanded={false}
+  aria-label="Search"
+  className="gds-search-select"
+  onFocus={[Function]}
+  role="listbox"
+>
+  <div
+    className="gds-search-select__control"
+  >
+    <input
+      autoComplete="off"
+      autoFocus={false}
+      className="gds-form-group__text-input md gds-form-group__text-input--md"
+      name="searchSelect"
+      onChange={[Function]}
+      placeholder="Search"
+      type="text"
+      value=""
+    />
+    <i
+      className="btl bt-search bt-lg"
+      style={
+        Object {
+          "position": "absolute",
+          "right": "0.6rem",
+          "top": "31%",
+          "zIndex": 900,
+        }
+      }
+    />
+  </div>
+  <SearchSelectOptions
+    handleOptionClick={[Function]}
+    noResultsMessage="No results found"
+    options={
+      Array [
+        Object {
+          "id": 1,
+          "title": "Lorem ipsum dolor sit amet",
+        },
+        Object {
+          "id": 2,
+          "title": "Consectetur adipiscing elit ",
+        },
+        Object {
+          "id": 3,
+          "title": "Sed do eiusmod tempor incididunt ut",
+        },
+        Object {
+          "id": 4,
+          "title": "Labore et dolore magna aliqua",
+        },
+        Object {
+          "id": 5,
+          "title": "Ut enim ad minim veniam",
+        },
+        Object {
+          "id": 6,
+          "title": "Quis nostrud exercitation ullamco",
+        },
+        Object {
+          "id": 7,
+          "title": "Laboris nisi ut aliquip ex ea commodo",
+        },
+        Object {
+          "id": 8,
+          "title": "Consequat Duis",
+        },
+        Object {
+          "id": 9,
+          "title": "Aute irure dolor in reprehenderit ",
+        },
+        Object {
+          "id": 10,
+          "title": "In voluptate velit esse cillum dolore",
+        },
+        Object {
+          "id": 11,
+          "title": "Eu fugiat nulla pariatur",
+        },
+        Object {
+          "id": 12,
+          "title": "Deserunt mollit anim id est laborum",
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`Expect <SearchSelect> to render 1`] = `
+<div
+  aria-expanded={false}
+  aria-label="Search"
+  className="gds-search-select"
+  onFocus={[Function]}
+  role="listbox"
+>
+  <div
+    className="gds-search-select__control"
+  >
+    <input
+      autoComplete="off"
+      autoFocus={false}
+      className="gds-form-group__text-input md gds-form-group__text-input--sm"
+      name="searchSelect"
+      onChange={[Function]}
+      placeholder="Search"
+      type="text"
+      value=""
+    />
+    <i
+      className="btl bt-search"
+      style={
+        Object {
+          "position": "absolute",
+          "right": "0.6rem",
+          "top": "31%",
+          "zIndex": 900,
+        }
+      }
+    />
+  </div>
+  <SearchSelectOptions
+    handleOptionClick={[Function]}
+    noResultsMessage="No results found"
+    options={
+      Array [
+        Object {
+          "id": 1,
+          "title": "Lorem ipsum dolor sit amet",
+        },
+        Object {
+          "id": 2,
+          "title": "Consectetur adipiscing elit ",
+        },
+        Object {
+          "id": 3,
+          "title": "Sed do eiusmod tempor incididunt ut",
+        },
+        Object {
+          "id": 4,
+          "title": "Labore et dolore magna aliqua",
+        },
+        Object {
+          "id": 5,
+          "title": "Ut enim ad minim veniam",
+        },
+        Object {
+          "id": 6,
+          "title": "Quis nostrud exercitation ullamco",
+        },
+        Object {
+          "id": 7,
+          "title": "Laboris nisi ut aliquip ex ea commodo",
+        },
+        Object {
+          "id": 8,
+          "title": "Consequat Duis",
+        },
+        Object {
+          "id": 9,
+          "title": "Aute irure dolor in reprehenderit ",
+        },
+        Object {
+          "id": 10,
+          "title": "In voluptate velit esse cillum dolore",
+        },
+        Object {
+          "id": 11,
+          "title": "Eu fugiat nulla pariatur",
+        },
+        Object {
+          "id": 12,
+          "title": "Deserunt mollit anim id est laborum",
+        },
+      ]
+    }
+  />
+</div>
+`;

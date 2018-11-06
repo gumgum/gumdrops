@@ -13,7 +13,7 @@ class SearchSelect extends Component {
         onSelect: PropTypes.func.isRequired,
         options: PropTypes.array,
         placeholder: PropTypes.string,
-        renderLoader: PropTypes.bool,
+        renderLoader: PropTypes.func,
         size: PropTypes.oneOf(['xs', 'sm', 'md'])
     };
 
@@ -40,16 +40,16 @@ class SearchSelect extends Component {
     _mapBtnRef = ref => (this._clearBtn = ref);
 
     _addListeners() {
-        window.addEventListener('click', this._eventOutSide);
-        document.addEventListener('focus', this._eventOutSide, true);
+        document.addEventListener('click', this._eventOutside);
+        document.addEventListener('focus', this._eventOutside, true);
     }
 
     _removeListeners() {
-        window.removeEventListener('click', this._eventOutSide);
-        document.removeEventListener('focus', this._eventOutSide, true);
+        document.removeEventListener('click', this._eventOutside);
+        document.removeEventListener('focus', this._eventOutside, true);
     }
 
-    _eventOutSide = ({ target }) => {
+    _eventOutside = ({ target }) => {
         if (!this._container.contains(target)) {
             this.setState({ isOpen: false });
             this._removeListeners();
@@ -69,7 +69,7 @@ class SearchSelect extends Component {
 
     handleOptionClick = item => {
         const { onSelect } = this.props;
-        onSelect && onSelect(item);
+        onSelect(item);
         this.setState({
             isOpen: false,
             searchTerm: item.title
@@ -79,6 +79,7 @@ class SearchSelect extends Component {
     _clearSearch = event => {
         event.stopPropagation();
         this.setState({ searchTerm: '', isOpen: false });
+        this._removeListeners();
     };
 
     _searchItem = ({ target: { value } }) => {
@@ -95,10 +96,18 @@ class SearchSelect extends Component {
         });
     };
 
-    // Reduce the amount of calls to the api while the user is typing
     _callDebouncedSearch = debounce(value => {
         this.props.onChange(value);
     }, this.props.debounceTime);
+
+    _getLabel() {
+        const { placeholder } = this.props;
+        const { searchTerm } = this.state;
+        if (searchTerm) {
+            return searchTerm;
+        }
+        return placeholder;
+    }
 
     render() {
         const { placeholder, size, isLoading, renderLoader, options, isFocused } = this.props;
@@ -106,18 +115,20 @@ class SearchSelect extends Component {
 
         return (
             <div
-                className={cx('gds-search-select', {
-                    'gds-search-select--open': isOpen
-                })}
+                aria-expanded={isOpen}
+                aria-label={this._getLabel()}
+                className={cx('gds-search-select', { 'gds-search-select--open': isOpen })}
                 onFocus={this._showOnFocus}
-                ref={this._mapContainerRef}>
+                ref={this._mapContainerRef}
+                role="listbox">
                 <div className="gds-search-select__control">
                     <input
                         autoComplete="off"
+                        autoFocus={isFocused}
                         className={cx('gds-form-group__text-input md', {
                             [`gds-form-group__text-input--${size}`]: size
                         })}
-                        autoFocus={isFocused}
+                        name="searchSelect"
                         onChange={this._searchItem}
                         placeholder={placeholder}
                         type="text"
@@ -125,8 +136,10 @@ class SearchSelect extends Component {
                     />
                     {searchTerm.length > 0 ? (
                         <button
-                            ref={this._mapBtnRef}
+                            aria-label="Clear search select"
+                            name="clearSearchSelect"
                             onClick={this._clearSearch}
+                            ref={this._mapBtnRef}
                             style={{
                                 position: 'absolute',
                                 padding: 0,
