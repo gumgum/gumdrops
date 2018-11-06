@@ -1,6 +1,6 @@
 # SearchSelect
 
-`<SearchSelect>` allows for external options to be provided and selected through a dropdown.
+`<SearchSelect>` allows for external options to be provided and selected through a dropdown menu, such as a text input that calls an API endpoint for autocomplete options.
 
 | Name         | Default           | Description                                                                                      | type     |
 | ------------ | ----------------- | ------------------------------------------------------------------------------------------------ | -------- |

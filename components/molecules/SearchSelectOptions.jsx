@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import charCodes from '../../constants/charCodes';
+import modulo from '../utils/modulo';
 
 const styleReset = {
     display: 'block',
@@ -42,16 +43,14 @@ class SearchSelectOptions extends Component {
 
         if (NEXT.includes(event.keyCode)) {
             event.preventDefault();
-            const nextIndex = currentIndex + 1 === options.length ? 0 : currentIndex + 1;
-            // console.log(nextIndex);
+            const nextIndex = modulo(currentIndex + 1, options.length);
             this[`_option${nextIndex}`].focus();
             return this.setState({ focusedIndex: nextIndex });
         }
 
         if (PREV.includes(event.keyCode)) {
             event.preventDefault();
-            const prevIndex = currentIndex - 1 < 0 ? options.length - 1 : currentIndex - 1;
-            // console.log(prevIndex);
+            const prevIndex = modulo(currentIndex - 1, options.length);
             this[`_option${prevIndex}`].focus();
             return this.setState({ focusedIndex: prevIndex });
         }
