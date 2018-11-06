@@ -1,42 +1,38 @@
-import { configure, setAddon } from '@storybook/react';
-import infoAddon, { setDefaults } from '@storybook/addon-info';
-import { setOptions } from '@storybook/addon-options';
-// import ReadmeContainer from 'storybook-readme/components/readme-container';
-// import DefaultPreview from 'storybook-readme/with-docs';
+import React from 'react';
+import { configure, addDecorator } from '@storybook/react';
+import { withOptions } from '@storybook/addon-options';
+import { withInfo } from '@storybook/addon-info';
 
 import './index.css';
-
-setOptions({
-    name: 'Gumdrops',
-    url: 'https://storybook.gumgum.com',
-    goFullScreen: false,
-    showStoriesPanel: true,
-    showAddonPanel: true,
-    showSearchBox: false,
-    addonPanelInRight: true,
-    sortStoriesByKind: true
-});
-
-setDefaults({
-    inline: true,
-    header: false,
-    source: true,
-    styles: stylesheet => {
-        stylesheet.infoBody = {
-            infoBody: {
-                padding: '10px'
-            }
-        };
-        return stylesheet;
-    },
-    maxPropsIntoLine: 1
-    // propTablesExclude: [ReadmeContainer, DefaultPreview]
-});
 
 function loadStories() {
     require('../_stories/');
 }
 
-setAddon(infoAddon);
+const storyWrapper = story => <div style={{ margin: 35 }}>{story()}</div>;
+
+addDecorator(
+    withInfo({
+        inline: true,
+        header: false,
+        source: true,
+        maxPropsIntoLine: 1
+    })
+);
+
+addDecorator(
+    withOptions({
+        name: 'Gumdrops',
+        url: 'https://storybook.gumgum.com',
+        goFullScreen: false,
+        showStoriesPanel: true,
+        showAddonPanel: true,
+        showSearchBox: false,
+        addonPanelInRight: true,
+        sortStoriesByKind: true
+    })
+);
+
+addDecorator(storyWrapper);
 
 configure(loadStories, module);

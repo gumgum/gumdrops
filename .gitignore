@@ -29,6 +29,7 @@ $RECYCLE.BIN/
 
 # App specific
 .out/
+.cache/
 build/
 node_modules/
 dist/

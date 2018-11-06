@@ -9,8 +9,6 @@ exports[`Expect <AccordionItem> to render 1`] = `
 >
   <li
     aria-controls="AccordionItem-region-QWNjb3JkaW9uSXRlbQ==0"
-    aria-expanded={false}
-    aria-pressed={false}
     className="gds-accordion__item foo gds-accordion__item--danger"
     onClick={[Function]}
     onKeyPress={[Function]}

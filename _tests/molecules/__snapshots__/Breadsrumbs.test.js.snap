@@ -211,9 +211,7 @@ exports[`Expect <Breadcrumbs> to render 1`] = `
                     </li>
                   </ul>
                 </div>
-                <span>
-                   
-                </span>
+                 
               </div>
             </BreadcrumbMenu>
             <BreadcrumbLink
@@ -414,9 +412,7 @@ exports[`Expect <Breadcrumbs> to render a different path 1`] = `
                     </li>
                   </ul>
                 </div>
-                <span>
-                   
-                </span>
+                 
               </div>
             </BreadcrumbMenu>
             Home
@@ -615,9 +611,7 @@ exports[`Expect <Breadcrumbs> to render hidden root and menus 1`] = `
                     </li>
                   </ul>
                 </div>
-                <span>
-                   
-                </span>
+                 
               </div>
             </BreadcrumbMenu>
             <BreadcrumbLink

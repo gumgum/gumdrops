@@ -58,6 +58,6 @@ class BreadcrumbsWrapperStory extends Component {
     }
 }
 
-const component = () => <BreadcrumbsWrapperStory />;
+const component = () => <BreadcrumbsWrapperStory />; // eslint-disable-line
 
 export default [readme, component];

@@ -1,8 +1,6 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import Badge from './Badge/';
 import Button from './Button/';
@@ -20,13 +18,7 @@ import TextInput from './TextInput';
 import Select from './Select';
 
 const stories = storiesOf('Atoms', module);
-const storyWrapper = story => {
-    return <div style={{ margin: '35px' }}>{story()}</div>;
-};
-
 stories
-    .addDecorator((story, context) => withInfo('')(story)(context))
-    .addDecorator(storyWrapper)
     .addDecorator(withKnobs)
     .add('Badge', withReadme(...Badge))
     .add('Button', withReadme(...Button))

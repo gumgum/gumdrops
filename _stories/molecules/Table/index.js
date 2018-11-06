@@ -1,3 +1,4 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import readme from './README.md';
 import { boolean, number } from '@storybook/addon-knobs';
@@ -64,7 +65,7 @@ const columnsCustom = [
     { key: 'height', children: 'Height' }
 ];
 
-const weightCellDecorator = (cellData, key, rowData) => (
+const weightCellDecorator = (cellData, key) => (
     <TableData
         key={key}
         context={cellData < 200 ? 'positive' : cellData === 200 ? 'neutral' : 'negative'}>
@@ -72,7 +73,7 @@ const weightCellDecorator = (cellData, key, rowData) => (
     </TableData>
 );
 
-const heightCellDecorator = (cellData, key, rowData) => (
+const heightCellDecorator = (cellData, key) => (
     <TableData key={key} context={!cellData ? 'negative' : undefined}>
         {cellData ? cellData : 'n/a'}
     </TableData>
@@ -176,6 +177,7 @@ const component = () => {
             isInverse={boolean('isInverse', false)}
             isSecondary={boolean('isSecondary', false)}
             isStriped={boolean('isStriped', false)}
+            isResponsive={boolean('isResponsive', false)}
             onRowClick={boolean('onRowClick', false) ? action('row_clicked') : undefined}
             size={optionalSelect('Size', sizeOptions, '')}
         />

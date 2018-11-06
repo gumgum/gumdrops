@@ -5,15 +5,23 @@ import generateUID from '../utils/generateUID';
 import charCodes from '../../constants/charCodes';
 
 class AccordionItem extends Component {
-    uid = generateUID(this);
-
     state = {
-        isOpen: false
+        isOpen: this.props.isOpen
     };
+
+    static getDerivedStateFromProps({ isOpen }) {
+        return {
+            isOpen
+        };
+    }
+
+    uid = generateUID(this);
 
     toggleOpen = event => {
         const { type, charCode } = event;
         event.stopPropagation(); // don't want nested accordions to propagate events
+
+        if (this.props.isLocked) return;
 
         if (
             type === 'keypress' &&
@@ -27,7 +35,8 @@ class AccordionItem extends Component {
     };
 
     render() {
-        const { size, context, className, children, label } = this.props;
+        const { size, context, className, children, label, isLocked } = this.props;
+
         const { isOpen } = this.state;
 
         const rootClass = cx('gds-accordion__item', className, {
@@ -66,11 +75,11 @@ class AccordionItem extends Component {
                 onClick={this.toggleOpen}
                 onKeyPress={this.toggleOpen}
                 role="button"
-                tabIndex={0}>
+                tabIndex={isLocked ? -1 : 0}>
                 <h4 id={labelId} className={titleClass}>
                     {label}
                 </h4>
-                <span className={iconClass} />
+                {!isLocked && <span className={iconClass} />}
                 <ul
                     aria-labelledby={labelId}
                     aria-hidden={!isOpen}
@@ -89,9 +98,11 @@ AccordionItem.displayName = 'AccordionItem';
 AccordionItem.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    context: PropTypes.string,
+    isOpen: PropTypes.bool,
+    isLocked: PropTypes.bool,
     label: PropTypes.string,
-    size: PropTypes.string,
-    context: PropTypes.string
+    size: PropTypes.string
 };
 
 export default AccordionItem;

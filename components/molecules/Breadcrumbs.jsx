@@ -49,16 +49,14 @@ class Breadcrumbs extends Component {
             path: config.path.charAt(0) === '/' ? config.path : `/${config.path || ''}`
         };
 
+        const breadcrumbConfig = {
+            title: config.title || '/',
+            path: config.path
+        };
+
         // Set initial data if necessary
-        const initialData =
-            config.path === '/'
-                ? [initialBreadcrumb]
-                : [
-                      {
-                          title: config.title || '/',
-                          path: config.path
-                      }
-                  ];
+        const initialData = config.path === '/' ? [initialBreadcrumb] : [breadcrumbConfig];
+
         const searchBreakpoints = (pathSections, subpaths, accumulator = []) =>
             pathSections.reduce((trail, pathSection, index) => {
                 // Find current path subpathData

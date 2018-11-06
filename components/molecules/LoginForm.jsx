@@ -1,10 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 const wrapperStyle = { position: 'relative' };
 
-const LoginForm = ({ capText, children, logoText, onSubmit, recoveryFn, recoveryText }) => (
-    <div className="gds-account-modal gds-account-modal--logo" style={wrapperStyle}>
+const LoginForm = ({
+    capText,
+    children,
+    hideLogo,
+    logoText,
+    onSubmit,
+    recoveryFn,
+    recoveryText
+}) => (
+    <div
+        className={cx('gds-account-modal', { 'gds-account-modal--logo': !hideLogo })}
+        style={wrapperStyle}>
         <div className="gds-account-modal__form gds-card -p-t-3-sm -p-t-0">
             {logoText && <div className="gds-account-modal__logo-product">{logoText}</div>}
             {capText && (
@@ -29,7 +40,8 @@ LoginForm.displayName = 'LoginForm';
 LoginForm.defaultProps = {
     capText: '',
     logoText: '',
-    recoveryText: 'Forgot your password?'
+    recoveryText: 'Forgot your password?',
+    hideLogo: false
 };
 
 LoginForm.propTypes = {
@@ -38,7 +50,8 @@ LoginForm.propTypes = {
     logoText: PropTypes.string,
     onSubmit: PropTypes.func.isRequired,
     recoveryFn: PropTypes.func,
-    recoveryText: PropTypes.string
+    recoveryText: PropTypes.string,
+    hideLogo: PropTypes.bool
 };
 
 export default LoginForm;

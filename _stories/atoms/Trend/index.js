@@ -1,5 +1,5 @@
 import React from 'react';
-import { selectV2 as select, text, object } from '@storybook/addon-knobs';
+import { select, text, object } from '@storybook/addon-knobs';
 
 import readme from './README.md';
 import Trend from '../../../components/atoms/Trend';
