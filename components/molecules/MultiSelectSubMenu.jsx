@@ -53,13 +53,13 @@ MultiSelectSubMenu.propTypes = {
     name: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
     size: PropTypes.string,
-    value: PropTypes.any,
+    value: PropTypes.any, // eslint-disable-line react/forbid-prop-types
     selected: PropTypes.bool,
     children: PropTypes.node,
     options: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string.isRequired,
-            value: PropTypes.any,
+            value: PropTypes.any, // eslint-disable-line react/forbid-prop-types
             selected: PropTypes.bool
         })
     ).isRequired,

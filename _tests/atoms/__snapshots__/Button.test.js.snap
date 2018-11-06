@@ -5,6 +5,8 @@ exports[`Expect <Button> to render 1`] = `
   className="foo-class"
   context="danger"
   group={false}
+  isBlock={false}
+  isGroup={false}
   onBlur={[Function]}
   onClick={[Function]}
   size="sm"
@@ -33,11 +35,48 @@ exports[`Expect <Button> to render 1`] = `
 </Button>
 `;
 
+exports[`Expect <Button> to renders as a blocked button 1`] = `
+<Button
+  className="foo-class"
+  context="danger"
+  group={false}
+  isBlock={true}
+  isGroup={false}
+  onBlur={[Function]}
+  onClick={[Function]}
+  size="sm"
+  style={
+    Object {
+      "width": "1000px",
+    }
+  }
+  text="This is text"
+  type="button"
+>
+  <button
+    className="gds-button foo-class gds-button--danger gds-button--sm gds-button--block"
+    onBlur={[Function]}
+    onClick={[Function]}
+    style={
+      Object {
+        "width": "1000px",
+      }
+    }
+    text="This is text"
+    type="button"
+  >
+    My Cool Button
+  </button>
+</Button>
+`;
+
 exports[`Expect <Button> to renders as a group button 1`] = `
 <Button
   className="foo-class"
   context="danger"
-  group={true}
+  group={false}
+  isBlock={false}
+  isGroup={true}
   onBlur={[Function]}
   onClick={[Function]}
   size="sm"

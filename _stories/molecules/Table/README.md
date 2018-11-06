@@ -39,6 +39,7 @@ The following props can be passed to the `<Table>` component:
 | isInverse   | `Bool`     | Indicate if the table theme should be inversed (dark).                                                                                                                                                                                                     |         |
 | isSecondary | `Bool`     | Indicate if the table theme is the `secondary` style.                                                                                                                                                                                                      |         |
 | isStriped   | `Bool`     | Indicate if the table theme should use striped rows.                                                                                                                                                                                                       |         |
+| isResponsive| `Bool`     | Indicate if the table should be allowed ot scroll horizontally.
 | onRowClick  | `Function` | Click handler for rows. Will be called with the data contained in the row as the first arg.                                                                                                                                                                |         |
 | size        | `String`   | Indicate the size of the table. One of `sm`, `lg`, `xs` or `xl`                                                                                                                                                                                            |         |
 
@@ -134,19 +135,21 @@ const People = () => <Table columns={columns} data={data} />;
 
 ### Custom Heading Props
 
-Props can be passed to the `<TableHeading>` component with the `headingProp` property.
+Props can be passed to the `<TableHeading>` component with the `headingProps` property. This is useful when you need to size columns or sort the table data externally such as from an API.
 
 ```jsx
 const columnsAdvanced = [
     { key: 'name' },
     {
         key: 'title',
+        disableSorting: true,
         headingProps: {
             className: 'custom-class',
             style: {
                 width: '10%'
             },
-            onClick: event => {}
+            onClick: this.sortColumn('title'), // sorting handled externally
+            sortDirection: this.state.sortDirection // one of 'asc' or 'desc'
         }
     },
     { key: 'age' },

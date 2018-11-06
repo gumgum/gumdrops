@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { text } from '@storybook/addon-knobs';
+import PropTypes from 'prop-types';
+import { text, select } from '@storybook/addon-knobs';
 import { optionalSelect } from '../../../components/utils/optionalSelect';
-import { selectV2 as select } from '@storybook/addon-knobs';
-// import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
 import MultiSelect from '../../../components/molecules/MultiSelect';
@@ -104,6 +103,10 @@ const sizeOptions = {
 };
 
 class MultiSelectOptions extends Component {
+    static propTypes = {
+        options: PropTypes.array
+    };
+
     state = {
         options: this.props.options
     };
@@ -132,10 +135,11 @@ class MultiSelectOptions extends Component {
         );
     }
 }
-
+/* eslint-disable */
 const component = () => {
     const selectedOptions = select('Options Config', configSelect, 'A');
     return <MultiSelectOptions options={options[selectedOptions]} />;
 };
+/* eslint-enable */
 
 export default [readme, component];

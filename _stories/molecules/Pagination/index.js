@@ -1,5 +1,5 @@
 import React from 'react';
-import { number, boolean, selectV2 as select } from '@storybook/addon-knobs';
+import { number, boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -37,6 +37,6 @@ class TestPagination extends React.Component {
 
 TestPagination.displayName = 'Pagination';
 
-const component = () => <TestPagination />;
+const component = () => <TestPagination />; // eslint-disable-line
 
 export default [readme, component];

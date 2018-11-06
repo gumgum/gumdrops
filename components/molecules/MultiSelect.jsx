@@ -79,7 +79,7 @@ class MultiSelect extends Component {
     };
 
     render() {
-        const { options, callback, onChange, size, className, ...otherProps } = this.props;
+        const { options, callback, onChange, size, className, ...otherProps } = this.props; // eslint-disable-line no-unused-vars
         const { isOpen } = this.state;
 
         const deprecatedCallback = deprecateFunction(
@@ -165,7 +165,7 @@ MultiSelect.propTypes = {
             options: PropTypes.arrayOf(
                 PropTypes.shape({
                     name: PropTypes.string.isRequired,
-                    value: PropTypes.any,
+                    value: PropTypes.any, // eslint-disable-line react/forbid-prop-types
                     selected: PropTypes.bool
                 })
             )

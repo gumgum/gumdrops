@@ -10,12 +10,6 @@ import ModalHeader from '../../../components/atoms/ModalHeader';
 import ModalBody from '../../../components/atoms/ModalBody';
 import ModalFooter from '../../../components/atoms/ModalFooter';
 
-const contextOptions = {
-    up: 'up',
-    same: 'same',
-    down: 'down'
-};
-
 const component = () => {
     const submitAction = action('Submit form');
 

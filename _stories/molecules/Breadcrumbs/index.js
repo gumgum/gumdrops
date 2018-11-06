@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { selectV2 as select, boolean } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 
 import readme from './README.md';
 import Breadcrumbs from '../../../components/molecules/Breadcrumbs';
@@ -143,7 +143,7 @@ class BreadcrumbsStory extends Component {
     printCode = code => (code ? '\n' + JSON.stringify(code, null, 4) + '\n\n' : '');
 
     render() {
-        const selectedConfig = select('Configuration', configSelect, configSelect['A']);
+        const selectedConfig = select('Configuration', configSelect, configSelect.A);
 
         const noConfig = selectedConfig === 'C';
 
@@ -178,6 +178,6 @@ class BreadcrumbsStory extends Component {
     }
 }
 
-const component = () => <BreadcrumbsStory />;
+const component = () => <BreadcrumbsStory />; // eslint-disable-line
 
 export default [readme, component];

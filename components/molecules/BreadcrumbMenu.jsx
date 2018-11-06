@@ -44,8 +44,7 @@ class BreadcrumbMenu extends Component {
                             </li>
                         ))}
                     </ul>
-                </div>
-                <span> </span>
+                </div>{' '}
             </div>
         );
     }

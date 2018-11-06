@@ -1,5 +1,5 @@
 import React from 'react';
-import { text, selectV2 as select, boolean, object } from '@storybook/addon-knobs';
+import { text, select, boolean, object } from '@storybook/addon-knobs';
 import { optionalSelect } from '../../../components/utils/optionalSelect';
 import { action } from '@storybook/addon-actions';
 
@@ -29,7 +29,8 @@ const component = () => (
         type={text('Type', 'button')}
         size={optionalSelect('Size', sizeOptions, '')}
         context={select('Context', contextOptions, 'default')}
-        group={boolean('Group', false)}
+        isGroup={boolean('isGroup', false)}
+        isBlock={boolean('isBlock', false)}
         onClick={action('button_clicked')}
         className={text('ClassName', '')}
         style={object('Style', {})}>

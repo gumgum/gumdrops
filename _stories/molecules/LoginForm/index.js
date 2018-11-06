@@ -14,6 +14,7 @@ const component = () => (
     <LoginForm
         capText={text('Cap Text', 'Welcome')}
         logoText={text('Logo Text', 'Storybook')}
+        hideLogo={boolean('Hide Logo', false)}
         onSubmit={action('Form Submit')}
         recoveryFn={action('Recovery Action')}
         recoveryText={text('Recovery Text', 'Forgot Password?')}>
