@@ -9,7 +9,7 @@ class SearchSelect extends Component {
         debounceTime: PropTypes.number,
         isFocused: PropTypes.bool,
         isLoading: PropTypes.bool,
-        onChange: PropTypes.func,
+        onChange: PropTypes.func.isRequired,
         onSelect: PropTypes.func.isRequired,
         options: PropTypes.array,
         placeholder: PropTypes.string,
