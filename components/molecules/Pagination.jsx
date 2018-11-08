@@ -119,7 +119,7 @@ class Pagination extends Component {
             background: 'none'
         };
 
-        const shouldRender = lastPage > 0 && activePage > 0 && activePage <= lastPage;
+        const shouldRender = lastPage > 1 && activePage > 0 && activePage <= lastPage;
         if (!shouldRender) return null;
 
         return (
