@@ -22,6 +22,7 @@ exports[`Expect <Pagination> to render 1`] = `
         aria-label="Goto previous page"
         className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
         disabled={false}
+        name="prev"
         onClick={[Function]}
         style={
           Object {
@@ -193,6 +194,7 @@ exports[`Expect <Pagination> to render 1`] = `
         aria-label="Goto next page"
         className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
         disabled={false}
+        name="next"
         onClick={[Function]}
         style={
           Object {
@@ -239,6 +241,7 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
         aria-label="Goto previous page"
         className="gds-pagination__page-link -overflow-hidden"
         disabled={false}
+        name="prev"
         onClick={[Function]}
         style={
           Object {
@@ -410,6 +413,7 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
         aria-label="Goto next page"
         className="gds-pagination__page-link -overflow-hidden"
         disabled={false}
+        name="next"
         onClick={[Function]}
         style={
           Object {

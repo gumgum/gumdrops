@@ -27,4 +27,20 @@ describe('Expect <Pagination>', () => {
         const wrapper = mount(<Pagination {...props} />);
         expect(wrapper).toMatchSnapshot();
     });
+
+    it('to disable next/prev buttons', () => {
+        const props = {
+            onChange: () => {},
+            lastPage: 2,
+            activePage: 1,
+            boundaries: true,
+            justify: true
+        };
+        const wrapper = mount(<Pagination {...props} />);
+        expect(wrapper.find('button [name="prev"]').props().disabled).toBe(true);
+        expect(wrapper.find('button [name="next"]').props().disabled).toBe(false);
+        wrapper.setProps({ activePage: 2 });
+        expect(wrapper.find('button [name="prev"]').props().disabled).toBe(false);
+        expect(wrapper.find('button [name="next"]').props().disabled).toBe(true);
+    });
 });
