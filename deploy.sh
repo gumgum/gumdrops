@@ -31,10 +31,10 @@ do
   # set master/develop domain else custom domain
   if [ "$TRAVIS_BRANCH" == "master" ]
   then
-    DEPLOY_DOMAIN=PROD_SURGE_DOMAIN
+    DEPLOY_DOMAIN=${PROD_SURGE_DOMAIN}
   elif [ "$TRAVIS_BRANCH" == "develop" ]
   then
-    DEPLOY_DOMAIN=DEV_SURGE_DOMAIN
+    DEPLOY_DOMAIN=${DEV_SURGE_DOMAIN}
   else
     DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
   fi
