@@ -1,5 +1,37 @@
 # GumGum Common JS Changelog
 
+## 1.6.2 (11-09-18)
+
+###### Added
+
+* Added surge to travis
+
+## 1.6.1 (11-08-18)
+
+###### Fixed
+
+* Hide pagination ui
+* Fixed build script errors
+* Fixed pagination next/prev button states
+* Only allow initial accordion state to be set open/closed
+
+## 1.6.0 (11-06-18)
+
+###### Added
+
+* Allow logo on login page to be optional
+* Added isResponsive prop
+* Updated CSS documentation URL
+* Added isBlock to Button
+* Allow manually setting sort direction in `headingProps`
+* Upgrade storybook to v4
+* Added prop to set accordion items open/closed
+
+###### Fixed
+
+* Fixed regex issue on SearchMultiSelect
+* Improve eslint script and fix existing errors
+
 ## 1.5.0 (8-15-18)
 
 ###### Added
