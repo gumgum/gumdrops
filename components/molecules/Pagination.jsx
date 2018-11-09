@@ -5,23 +5,6 @@ import charCodes from '../../constants/charCodes';
 import cx from 'classnames';
 
 class Pagination extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isPrevDisabled: props.activePage === 1,
-            isNextDisabled: props.activePage === props.lastPage
-        };
-    }
-
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        if (this.props.lastPage !== nextProps.lastPage) {
-            this.setState({
-                isPrevDisabled: nextProps.activePage === 1,
-                isNextDisabled: nextProps.activePage === nextProps.lastPage
-            });
-        }
-    }
-
     _handleKeyPress = event => {
         const { keyCode } = event;
 
@@ -35,7 +18,6 @@ class Pagination extends Component {
 
     _changePage = page => {
         const { onChange, activePage, lastPage } = this.props;
-        const { isPrevDisabled, isNextDisabled } = this.state;
 
         const prev = activePage - 1;
         const next = activePage + 1;
@@ -50,15 +32,6 @@ class Pagination extends Component {
                 next: isLast ? lastPage : next,
                 prev: isFirst ? 1 : prev
             }[page];
-        }
-
-        const shouldUpdateState = isFirst !== isPrevDisabled || isLast !== isNextDisabled;
-
-        if (shouldUpdateState) {
-            this.setState({
-                isPrevDisabled: isFirst,
-                isNextDisabled: isLast
-            });
         }
 
         // Pass next page to callback
@@ -122,6 +95,9 @@ class Pagination extends Component {
     render() {
         const { className, justify, size, lastPage, activePage } = this.props;
 
+        const isPrevDisabled = activePage === 1;
+        const isNextDisabled = activePage === lastPage;
+
         const rootClass = cx('gds-pagination', 'gds-pagination--mobile-arrows', className, {
             'gds-pagination--fixed': !justify,
             [`gds-pagination--${size}`]: size
@@ -143,16 +119,17 @@ class Pagination extends Component {
             background: 'none'
         };
 
-        const shouldRender = lastPage > 0 && activePage > 0 && activePage <= lastPage;
+        const shouldRender = lastPage > 1 && activePage > 0 && activePage <= lastPage;
         if (!shouldRender) return null;
 
         return (
             <nav className={rootClass} onKeyDown={this._handleKeyPress}>
                 <div className={itemClass}>
                     <button
+                        name="prev"
                         aria-label="Goto previous page"
-                        className={linkClass}
-                        disabled={this.state.isPrevDisabled}
+                        className={cx(linkClass, { '-disabled': isPrevDisabled })}
+                        disabled={isPrevDisabled}
                         onClick={() => this._changePage('prev')}
                         style={btnStyle}>
                         <span className="-vis-hidden -ellipsis">Go to previous page</span>
@@ -172,9 +149,10 @@ class Pagination extends Component {
                 ))}
                 <div className={itemClass}>
                     <button
+                        name="next"
                         aria-label="Goto next page"
-                        className={linkClass}
-                        disabled={this.state.isNextDisabled}
+                        className={cx(linkClass, { '-disabled': isNextDisabled })}
+                        disabled={isNextDisabled}
                         onClick={() => this._changePage('next')}
                         style={btnStyle}>
                         <span className="-vis-hidden -ellipsis">Go to next page</span>
