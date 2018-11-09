@@ -9,12 +9,6 @@ class AccordionItem extends Component {
         isOpen: this.props.isOpen
     };
 
-    static getDerivedStateFromProps({ isOpen }) {
-        return {
-            isOpen
-        };
-    }
-
     uid = generateUID(this);
 
     toggleOpen = event => {

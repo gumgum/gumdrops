@@ -1,5 +1,5 @@
 import React from 'react';
-import { text, boolean } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 import { optionalSelect } from '../../../components/utils/optionalSelect';
 
 import readme from './README.md';
@@ -22,10 +22,11 @@ const contextOptions = {
 const component = () => (
     <Accordion
         size={optionalSelect('Size', sizeOptions, '')}
-        allOpen={boolean('allOpen', false)}
-        allLocked={boolean('allLocked', false)}
         context={optionalSelect('Context', contextOptions, '')}
         className={text('Class', '')}>
+        <AccordionItem label="I'm locked open" isLocked isOpen>
+            <AccordionItemContent>Locked Content</AccordionItemContent>
+        </AccordionItem>
         <AccordionItem label={text('Item Label 1', 'Item 1')}>
             <AccordionItemContent>Content 1</AccordionItemContent>
         </AccordionItem>
@@ -34,10 +35,8 @@ const component = () => (
         </AccordionItem>
         <AccordionItem label={text('Item Label 3', 'Item 3')}>
             <AccordionItemContent>Content 3</AccordionItemContent>
-            <Accordion
-                size={optionalSelect('Size', sizeOptions, '')}
-                context={optionalSelect('Context', contextOptions, '')}>
-                <AccordionItem label={text('Nested Item Label 1', 'Nested Item 1')} isLocked>
+            <Accordion>
+                <AccordionItem label="Nested Item">
                     <AccordionItemContent>Nested Content</AccordionItemContent>
                 </AccordionItem>
             </Accordion>
