@@ -1,13 +1,22 @@
 language: node_js
 node_js:
-- '10'
+  - '10'
 cache:
   directories:
-  - node_modules
+    - node_modules
 script: yarn test
 branches:
   only:
-  - "/.*/"
+    - '/.*/'
+notifications:
+  slack:
+    rooms:
+      - secure: "B6gvVjdN5wy/KfQnp+VWbMQQ6WxNw5pXd/qdkO8zZu87KzBn4vJJiCPNzhuQxYtBALyJq+i+bDdhY/jL9fbT9B2/7Ss7C38o4J4zyzX7o5nLeyph+a+BnprJ4/tVrkGjarSly6RRy/2CxY33LqW0tqkSwigR607d/0yPO39XjOGC1QPSntJfGv7p0M574k3aDtdKcfxdgyYUQfuKpjf0nPa50xC4fu4lfv7c1nLWFkc4JnNAl3RtPEgEb2Z7RgN9PDQMZsXvkzV/mHUJ7OnIZMtgu6gUIrxccyfjRUB1aT9Uz3dQS3YfoGxIrJlIwALfHRfewfT07TRw8PRruCm/IISsOnhpvLJ3RiBx3trlQC0wYweykg2rBzmjUPtzd8CQsXnv+0UflXwBczxhmapRyJZsmPJ8Nch3u0uvxDClT8pDTsMhLuWr28Yz22X7yC5KelBYtt2m7neA14n7tXqjgmKHx3JWbeOPWjZImxTGj6in65kDzHPyg1H4QAItO6Oq5OOgO1A6nG68pdYRIDpWHOo6f6fZcoeDTknQZFl/qfjlpoJaS9TrxsXCiOjSRI4G+VKrVQZHl1wJeKqUyJb0BKy9KF7f6YWcOddLCLuojvUQngseGusCh0i57NG/nGLX5rve14Lq1eKGJhGwEYDM98+qDLHkEvSFJ0IvS5Og9jE="
+    on_success: always 
+    on_failure: always 
+    on_start: always
+    on_cancel: always 
+    on_error: always 
 before_deploy: yarn buildstorybook
 deploy:
   provider: script
@@ -15,7 +24,8 @@ deploy:
   skip_cleanup: true
   on:
     all_branches: true
-env:
-  global:
-  - secure: RtlsBV7rVgguDc6obWFey4GTfPBYwPKwdqSLLaeT3/Y80XyxIzAGwGC4wtLXTVO/DmimyEX09P5NRKdgBzvQ2C7Jm12LyoNO08MU4gYexlfETjBxI5GHb5twlasvduWvta8eMERDOVdh64lK569Ul76iCkVzw0ea6SFZK3G75DZCepdp/WBmTLOnxhmfuqVJNepemenoMLCoM5xEREIv7n7atIkLHOmsZNnJg0hXnhSuIgq+YZ7gjwo6xAuPtAsq6NPQCmbGDo/bvMU2vbYxEBpzeheFCxI05UfpEnG5GzuVgD4dDWEg+GVCbCvH3jrMsaTCO1v4ZuQQN6BSaHTexBAIoHg3oekUpKi4Flqe/tkQUbutUk2SZVZ/KPiYnMczd97OuJ7v+p17cNoAGgU3g9M4PvOQZmr93o4tTA6uGlQU3XXSsRPMXM9jIWe+PyhlrVmhkXqnvJSB7Tku/P5YESxRJ+mD3sgiyIkraBjqfc2ve7UvKbca1ex8KeFsdN8TGjJeyMTjI+2lXuRxonReZsAVnfhaiY5eqjykY49rqYQNJxyC6Ba+dLG+lAq9+6RiWGL6JAumwOE/kRS6eGk7fgTjuQJQu2vFFLp/8PRzg2ZYmwoEFy03pG6U/DslK/TaLo5hgykYEMvPYJG+OKh64/nm6n2Ppt+CozYiC+cOG00=
-  - secure: ZA/zaw0wRUfEWV8T2hNms2GzQH5FbxT/23Vrc7BaPuxFI1aRgJFGv9k1eCoTQk6Jj9WiAUhg6IIVgUsUnz6vgCLxr3H/ssAJdLThAldZLxP9wq7frq3I367DisnGeBLs/nozycpGP5by9bQCZ5zONi5TNoLztTr3XQsfU1y24akfn+ubjVIKi4+Y7mHuBxAONuWkbuP8+MjOY7LL9ZW57qsgfQoFzRKZYy7hF7kVUlTpyq3m59ienUBLJ2KYhj/JfTdaCB1Y6bTU2cXUbXFoNiEMrcb8EVRZurpcF4pXfQKDZQ011+td78EFkm+H0CqkmfOzEFoLMqdJDSsSDxKzDn9/CFH8ORg3IaFVpBI4eyk7f2mAQMB5hH+jbtO4uu/aBDboRuO+YPnTRqWADtB7YK1Ka+CQx1gU7UFpM6l87KHLPOWe+cUajG0f2Hc/Q+sRZVXcAl2x78jcwOsUuNlu751k9p5HtogseEFrqrXLXhMM135E5H1xj45L1OzkU6SqjQwKhf/AB7Yyn1O93MuG3FzWuvi38sbvLylEoos2XRiOOUyloUacVKsG3q9s7S/URC84fP2KqAjmHjmCBbLsAA2Mc8ZYzIAuT7212p2MSS48TGbAEthh2mhOUrGbO8fDxv0bUuvNQYopJqleLOuhXzS2H2BX1b43AFIQva9maIc=
+
+# This is a workaround to make PRs deploy
+# after_success:
+#   - chmod ugo+x ./deploy.sh
+#   - ./deploy.sh
