@@ -10,6 +10,9 @@ branches:
     - '/.*/'
 notifications:
   slack:
+    template:
+      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration} \n <a href="https://%{branch}-gumdrops-gumgum.surge.sh">https://%{branch}-gumdrops-gumgum.surge.sh</a>"
+    format: html
     rooms:
       - secure: "B6gvVjdN5wy/KfQnp+VWbMQQ6WxNw5pXd/qdkO8zZu87KzBn4vJJiCPNzhuQxYtBALyJq+i+bDdhY/jL9fbT9B2/7Ss7C38o4J4zyzX7o5nLeyph+a+BnprJ4/tVrkGjarSly6RRy/2CxY33LqW0tqkSwigR607d/0yPO39XjOGC1QPSntJfGv7p0M574k3aDtdKcfxdgyYUQfuKpjf0nPa50xC4fu4lfv7c1nLWFkc4JnNAl3RtPEgEb2Z7RgN9PDQMZsXvkzV/mHUJ7OnIZMtgu6gUIrxccyfjRUB1aT9Uz3dQS3YfoGxIrJlIwALfHRfewfT07TRw8PRruCm/IISsOnhpvLJ3RiBx3trlQC0wYweykg2rBzmjUPtzd8CQsXnv+0UflXwBczxhmapRyJZsmPJ8Nch3u0uvxDClT8pDTsMhLuWr28Yz22X7yC5KelBYtt2m7neA14n7tXqjgmKHx3JWbeOPWjZImxTGj6in65kDzHPyg1H4QAItO6Oq5OOgO1A6nG68pdYRIDpWHOo6f6fZcoeDTknQZFl/qfjlpoJaS9TrxsXCiOjSRI4G+VKrVQZHl1wJeKqUyJb0BKy9KF7f6YWcOddLCLuojvUQngseGusCh0i57NG/nGLX5rve14Lq1eKGJhGwEYDM98+qDLHkEvSFJ0IvS5Og9jE="
     on_success: always 
