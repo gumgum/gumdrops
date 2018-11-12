@@ -19,6 +19,7 @@ describe('Expect <Tag>', () => {
     it('to render', () => {
         const wrapper = mount(<Tag {...defaultProps} />);
         expect(wrapper).toMatchSnapshot();
+        expect(true).toBe(false);
     });
 
     it('to render without option', () => {
