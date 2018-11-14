@@ -4,7 +4,7 @@ REPO_SLUG_ARRAY=(${TRAVIS_REPO_SLUG//\// })
 REPO_OWNER=${REPO_SLUG_ARRAY[0]}
 REPO_NAME=${REPO_SLUG_ARRAY[1]}
 DEPLOY_PATH=./build
-PROD_SURGE_DOMAIN=https://gumdrops.surge.sh
+PROD_SURGE_DOMAIN=https://gumdrops.gumgum.com
 DEV_SURGE_DOMAIN=https://gumdrops-develop.surge.sh
 
 DEPLOYMENT_BEGIN="== Running deploy script for $REPO_NAME by ${REPO_OWNER} =="
@@ -36,7 +36,7 @@ do
   then
     DEPLOY_DOMAIN=${DEV_SURGE_DOMAIN}
   else
-    DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
+    DEPLOY_DOMAIN=https://gumdrops.gumgum.com
   fi
 
   # send to surge
