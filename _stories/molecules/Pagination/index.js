@@ -1,11 +1,12 @@
 import React from 'react';
-import { number, boolean, select } from '@storybook/addon-knobs';
+import { number, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 
 import readme from './README.md';
 import Pagination from '../../../components/molecules/Pagination';
 
-const sizeOptions = ['xl', 'lg', 'sm', 'xs', ''];
+const sizeOptions = { xl: 'xl', lg: 'lg', sm: 'sm', xs: 'xs', 'No Value': '' };
 
 class TestPagination extends React.Component {
     state = {
@@ -28,7 +29,7 @@ class TestPagination extends React.Component {
                 lastPage={number('Last Page', lastPage)}
                 boundaries={boolean('Show Boundaries', false)}
                 justify={boolean('Justify', false)}
-                size={select('Size', sizeOptions, '')}
+                size={optionalSelect('Size', sizeOptions, '')}
                 onChange={this.handlePageChange}
             />
         );
