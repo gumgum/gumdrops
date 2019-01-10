@@ -1,5 +1,10 @@
 # GumGum Common JS Changelog
 
+## 1.7.0 (1-10-19)
+
+* Added toggle on/off labels
+* Fixed pagination "xs" styles
+
 ## 1.6.2 (11-09-18)
 
 ###### Added
