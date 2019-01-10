@@ -116,7 +116,8 @@ class Pagination extends Component {
             border: 0,
             fontFamily: 'inherit',
             padding: justify ? null : 0,
-            background: 'none'
+            background: 'none',
+            height: size === 'xs' ? '1.5rem' : ''
         };
 
         const shouldRender = lastPage > 1 && activePage > 0 && activePage <= lastPage;
