@@ -4,6 +4,8 @@ exports[`Expect <Toggle> to render 1`] = `
 <Toggle
   className="custom-class"
   label="Toggle Label"
+  offText=""
+  onText=""
   size="sm"
   style={
     Object {
@@ -29,7 +31,13 @@ exports[`Expect <Toggle> to render 1`] = `
       />
       <span
         className="gds-form-group__toggleswitch-indicator"
-      />
+      >
+        <span
+          className="gds-form-group__toggleswitch-indicator-labels"
+          gg-disabled-text=""
+          gg-enabled-text=""
+        />
+      </span>
       Toggle Label
     </label>
   </div>
