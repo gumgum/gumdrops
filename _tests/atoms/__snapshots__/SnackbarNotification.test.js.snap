@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <SnackbarNotification> to apply the given context as a css class 1`] = `
+<li
+  className="gds-snackbar__notification gds-snackbar__notification--warning"
+>
+  <p
+    className="gds-snackbar__notification-text"
+  >
+    Snackbar Message
+  </p>
+  <button
+    className="gds-snackbar__notification-button gds-snackbar__notification-button--warning"
+    onClick={[Function]}
+  />
+</li>
+`;
+
+exports[`Expect <SnackbarNotification> to be hidden when close button is pressed 1`] = `
+<li
+  className="gds-snackbar__notification gds-snackbar__notification--hidden gds-snackbar__notification--info"
+>
+  <p
+    className="gds-snackbar__notification-text"
+  >
+    Snackbar Message
+  </p>
+  <button
+    className="gds-snackbar__notification-button gds-snackbar__notification-button--info"
+    onClick={[Function]}
+  />
+</li>
+`;
+
+exports[`Expect <SnackbarNotification> to call callback after hide 1`] = `
+<li
+  className="gds-snackbar__notification gds-snackbar__notification--hidden gds-snackbar__notification--info"
+>
+  <p
+    className="gds-snackbar__notification-text"
+  >
+    Snackbar Message
+  </p>
+  <button
+    className="gds-snackbar__notification-button gds-snackbar__notification-button--info"
+    onClick={[Function]}
+  />
+</li>
+`;
+
+exports[`Expect <SnackbarNotification> to not render if there is no message 1`] = `""`;
+
+exports[`Expect <SnackbarNotification> to render a child component 1`] = `
+<li
+  className="gds-snackbar__notification"
+>
+  <p
+    className="gds-snackbar__notification-text"
+  >
+    Snackbar Message
+  </p>
+  <button
+    className="gds-snackbar__notification-button"
+    onClick={[Function]}
+  />
+</li>
+`;
+
+exports[`Expect <SnackbarNotification> to render the component 1`] = `
+<li
+  className="gds-snackbar__notification gds-snackbar__notification--info"
+>
+  <p
+    className="gds-snackbar__notification-text"
+  >
+    Snackbar Message
+  </p>
+  <button
+    className="gds-snackbar__notification-button gds-snackbar__notification-button--info"
+    onClick={[Function]}
+  />
+</li>
+`;
