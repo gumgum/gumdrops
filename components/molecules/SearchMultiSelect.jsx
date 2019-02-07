@@ -181,15 +181,15 @@ class SearchMultiSelect extends Component {
 
         const openTagsClass = isTagsOpen ? 'gds-search-select__tag-holder--bubble-active' : '';
 
-        const tagSize = size === 'sm' ? 'xs' : 'sm';
-        const tagStyle = size === 'sm' ? { top: '0.4rem' } : {};
+        const tagSize = size == 'xs' || 'sm' ? 'xs' : 'sm';
+        const tagIndicator = size == 'xs' || 'sm' ? `gds-search-select__tag-indicator--${size}` : '';
 
         return (
             <div ref={this._getContainer} className={rootClass}>
                 <div className="gds-search-select__control">
                     {numberSelected !== 0 && (
                         <Tag
-                            className="gds-search-select__tag-indicator"
+                            className={`gds-search-select__tag-indicator ${tagIndicator}`}
                             context={context}
                             hasOption
                             onClick={this._toggleTags}
@@ -197,7 +197,6 @@ class SearchMultiSelect extends Component {
                             optionIcon="bt-times"
                             optionLabel="Clear all tags"
                             size={tagSize}
-                            style={tagStyle}
                             text={`${numberSelected} Selected`}
                         />
                     )}
