@@ -72,8 +72,7 @@ exports[`Expect <SearchMultiSelect> to render 1`] = `
       />
     </div>
     <div
-      className="gds-search-select__tag-holder
-    gds-search-select__tag-holder--bubble "
+      className="gds-search-select__tag-holder gds-search-select__tag-holder--bubble-sm gds-search-select__tag-holder--bubble "
     >
       <div
         className="gds-search-select__tag-overflow"
@@ -86,18 +85,18 @@ exports[`Expect <SearchMultiSelect> to render 1`] = `
           onOptionClick={[Function]}
           optionIcon="bt-times"
           optionLabel="Remove option"
-          size="sm"
+          size="xs"
           style={Object {}}
           text="Name"
         >
           <div
-            className="gds-tag -m-a-1 gds-tag--primary gds-tag--with-button gds-tag--with-button--sm gds-tag--sm"
+            className="gds-tag -m-a-1 gds-tag--primary gds-tag--with-button gds-tag--with-button--xs gds-tag--xs"
             style={Object {}}
           >
             Name
             <button
               aria-label="Remove option"
-              className="gds-tag__option gds-tag__option--primary gds-tag__option--sm"
+              className="gds-tag__option gds-tag__option--primary gds-tag__option--xs"
               onClick={[Function]}
             >
               <i

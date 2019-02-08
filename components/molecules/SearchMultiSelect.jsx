@@ -180,9 +180,15 @@ class SearchMultiSelect extends Component {
         });
         const openTagsClass = isTagsOpen ? 'gds-search-select__tag-holder--bubble-active' : '';
 
-        const tagSize = (size === 'xs' || size === 'sm') ? 'xs' : 'sm';
-        const tagIndicatorSize = (size === 'xs' || size === 'sm') ? `gds-search-select__tag-indicator--${size}` : '';
-        const checkboxSize = (size === 'xs' || size === 'sm') ? 'gds-form-group__checkbox--xs' : '';
+        const tagSize = size === 'xs' || size === 'sm' ? 'xs' : 'sm';
+        const tagIndicatorSize =
+            size === 'xs' || size === 'sm' ? `gds-search-select__tag-indicator--${size}` : '';
+        const checkboxSize = size === 'xs' || size === 'sm' ? 'gds-form-group__checkbox--xs' : '';
+        const TagHolderClasses =
+            size === 'xs' || size === 'sm'
+                ? 'gds-search-select__tag-holder gds-search-select__tag-holder--bubble-sm gds-search-select__tag-holder--bubble'
+                : 'gds-search-select__tag-holder gds-search-select__tag-holder--bubble';
+        const hasTags = 'gds-search-select__input--has-tag';
 
         return (
             <div ref={this._getContainer} className={rootClass}>
@@ -230,7 +236,7 @@ class SearchMultiSelect extends Component {
                                     onOptionClick={() => this._removeOption(index)}
                                     optionIcon="bt-times"
                                     optionLabel="Remove option"
-                                    size="sm"
+                                    size={tagSize}
                                     text={name}
                                 />
                             );
@@ -272,11 +278,6 @@ class SearchMultiSelect extends Component {
     }
 }
 
-const TagHolderClasses = `gds-search-select__tag-holder
-    gds-search-select__tag-holder--bubble`;
-
-const hasTags = 'gds-search-select__input--has-tag';
-
 // Given an array of options, it returns the indexes where
 // the 'name' property matches the 'term' regEx
 const getMatchingIndexes = (options, query, config) => {
@@ -315,7 +316,7 @@ SearchMultiSelect.propTypes = {
     filter: PropTypes.func,
     context: PropTypes.string,
     placeholder: PropTypes.string,
-    size: PropTypes.oneOf(['sm', 'md']),
+    size: PropTypes.oneOf(['xs', 'sm', 'md']),
     searchKeys: PropTypes.bool,
     multiTerm: PropTypes.bool,
     termDivider: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(RegExp)]),
