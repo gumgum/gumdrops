@@ -22,12 +22,14 @@ exports[`Expect <Pagination> to render 1`] = `
         aria-label="Goto previous page"
         className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
         disabled={false}
+        name="prev"
         onClick={[Function]}
         style={
           Object {
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": 0,
           }
         }
@@ -53,6 +55,7 @@ exports[`Expect <Pagination> to render 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": 0,
           }
         }
@@ -74,6 +77,7 @@ exports[`Expect <Pagination> to render 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": 0,
           }
         }
@@ -95,6 +99,7 @@ exports[`Expect <Pagination> to render 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": 0,
           }
         }
@@ -116,6 +121,7 @@ exports[`Expect <Pagination> to render 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": 0,
           }
         }
@@ -137,6 +143,7 @@ exports[`Expect <Pagination> to render 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": 0,
           }
         }
@@ -158,6 +165,7 @@ exports[`Expect <Pagination> to render 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": 0,
           }
         }
@@ -179,6 +187,7 @@ exports[`Expect <Pagination> to render 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": 0,
           }
         }
@@ -193,12 +202,14 @@ exports[`Expect <Pagination> to render 1`] = `
         aria-label="Goto next page"
         className="gds-pagination__page-link -overflow-hidden gds-pagination__page-link--fixed"
         disabled={false}
+        name="next"
         onClick={[Function]}
         style={
           Object {
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": 0,
           }
         }
@@ -239,12 +250,14 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
         aria-label="Goto previous page"
         className="gds-pagination__page-link -overflow-hidden"
         disabled={false}
+        name="prev"
         onClick={[Function]}
         style={
           Object {
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": null,
           }
         }
@@ -270,6 +283,7 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": null,
           }
         }
@@ -291,6 +305,7 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": null,
           }
         }
@@ -312,6 +327,7 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": null,
           }
         }
@@ -333,6 +349,7 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": null,
           }
         }
@@ -354,6 +371,7 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": null,
           }
         }
@@ -375,6 +393,7 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": null,
           }
         }
@@ -396,6 +415,7 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": null,
           }
         }
@@ -410,12 +430,14 @@ exports[`Expect <Pagination> to render with boundaries and justify 1`] = `
         aria-label="Goto next page"
         className="gds-pagination__page-link -overflow-hidden"
         disabled={false}
+        name="next"
         onClick={[Function]}
         style={
           Object {
             "background": "none",
             "border": 0,
             "fontFamily": "inherit",
+            "height": "",
             "padding": null,
           }
         }

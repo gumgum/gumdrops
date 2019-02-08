@@ -198,7 +198,12 @@ function runNPMProcess(script, ...args) {
             fullError += err.toString();
         });
         childProcess.on('error', reject);
-        childProcess.on('close', () => (fullError ? reject(fullError) : resolve(stdOut)));
+        childProcess.on('close', code => {
+            if (code !== 0) {
+                return reject(fullError);
+            }
+            return resolve(stdOut);
+        });
     });
 }
 

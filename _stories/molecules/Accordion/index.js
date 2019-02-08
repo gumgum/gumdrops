@@ -24,6 +24,9 @@ const component = () => (
         size={optionalSelect('Size', sizeOptions, '')}
         context={optionalSelect('Context', contextOptions, '')}
         className={text('Class', '')}>
+        <AccordionItem label="I'm locked open" isLocked isOpen>
+            <AccordionItemContent>Locked Content</AccordionItemContent>
+        </AccordionItem>
         <AccordionItem label={text('Item Label 1', 'Item 1')}>
             <AccordionItemContent>Content 1</AccordionItemContent>
         </AccordionItem>
@@ -32,10 +35,8 @@ const component = () => (
         </AccordionItem>
         <AccordionItem label={text('Item Label 3', 'Item 3')}>
             <AccordionItemContent>Content 3</AccordionItemContent>
-            <Accordion
-                size={optionalSelect('Size', sizeOptions, '')}
-                context={optionalSelect('Context', contextOptions, '')}>
-                <AccordionItem label={text('Nested Item Label 1', 'Nested Item 1')}>
+            <Accordion>
+                <AccordionItem label="Nested Item">
                     <AccordionItemContent>Nested Content</AccordionItemContent>
                 </AccordionItem>
             </Accordion>
