@@ -112,7 +112,7 @@ exports[`Expect <SearchMultiSelect> to render 1`] = `
       className="gds-search-select__menu"
     >
       <div
-        className="gds-search-select__menu-items"
+        className="gds-search-select__menu-items gds-form-group__checkbox--xs"
       >
         <div
           className="gds-search-select__menu-item gds-search-select__menu-item--selected"

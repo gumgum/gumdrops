@@ -178,18 +178,18 @@ class SearchMultiSelect extends Component {
         const rootClass = cx('gds-search-select', {
             'gds-search-select--open': isOpen
         });
-
         const openTagsClass = isTagsOpen ? 'gds-search-select__tag-holder--bubble-active' : '';
 
-        const tagSize = size == 'xs' || 'sm' ? 'xs' : 'sm';
-        const tagIndicator = size == 'xs' || 'sm' ? `gds-search-select__tag-indicator--${size}` : '';
+        const tagSize = (size === 'xs' || size === 'sm') ? 'xs' : 'sm';
+        const tagIndicatorSize = (size === 'xs' || size === 'sm') ? `gds-search-select__tag-indicator--${size}` : '';
+        const checkboxSize = (size === 'xs' || size === 'sm') ? 'gds-form-group__checkbox--xs' : '';
 
         return (
             <div ref={this._getContainer} className={rootClass}>
                 <div className="gds-search-select__control">
                     {numberSelected !== 0 && (
                         <Tag
-                            className={`gds-search-select__tag-indicator ${tagIndicator}`}
+                            className={`gds-search-select__tag-indicator ${tagIndicatorSize}`}
                             context={context}
                             hasOption
                             onClick={this._toggleTags}
@@ -238,7 +238,7 @@ class SearchMultiSelect extends Component {
                     </div>
                 </div>
                 <div className="gds-search-select__menu">
-                    <div className="gds-search-select__menu-items">
+                    <div className={`gds-search-select__menu-items ${checkboxSize}`}>
                         {matchingIndexes.map(index => {
                             const { name, key, isSelected } = options[index];
 
