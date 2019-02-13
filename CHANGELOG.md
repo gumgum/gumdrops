@@ -1,5 +1,11 @@
 # GumGum Common JS Changelog
 
+## 1.8.0 (2-13-19)
+
+* Feature/netlify branch builds (#66)
+* #5 add xs searchmultiselect, fix tag size, update storybook (#70)
+* #6 Snackbar and SnackbarNotification components implemented (#67)
+
 ## 1.7.0 (1-10-19)
 
 * Added toggle on/off labels

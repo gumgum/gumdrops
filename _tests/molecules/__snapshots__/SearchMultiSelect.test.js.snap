@@ -29,7 +29,7 @@ exports[`Expect <SearchMultiSelect> to render 1`] = `
       className="gds-search-select__control"
     >
       <Tag
-        className="gds-search-select__tag-indicator"
+        className="gds-search-select__tag-indicator gds-search-select__tag-indicator--sm"
         context="primary"
         hasOption={true}
         onClick={[Function]}
@@ -37,21 +37,13 @@ exports[`Expect <SearchMultiSelect> to render 1`] = `
         optionIcon="bt-times"
         optionLabel="Clear all tags"
         size="xs"
-        style={
-          Object {
-            "top": "0.4rem",
-          }
-        }
+        style={Object {}}
         text="1 Selected"
       >
         <div
-          className="gds-tag gds-search-select__tag-indicator gds-tag--primary gds-tag--with-button gds-tag--with-button--xs gds-tag--xs"
+          className="gds-tag gds-search-select__tag-indicator gds-search-select__tag-indicator--sm gds-tag--primary gds-tag--with-button gds-tag--with-button--xs gds-tag--xs"
           onClick={[Function]}
-          style={
-            Object {
-              "top": "0.4rem",
-            }
-          }
+          style={Object {}}
         >
           1 Selected
           <button
@@ -80,8 +72,7 @@ exports[`Expect <SearchMultiSelect> to render 1`] = `
       />
     </div>
     <div
-      className="gds-search-select__tag-holder
-    gds-search-select__tag-holder--bubble "
+      className="gds-search-select__tag-holder gds-search-select__tag-holder--bubble gds-search-select__tag-holder--bubble-sm"
     >
       <div
         className="gds-search-select__tag-overflow"
@@ -94,18 +85,18 @@ exports[`Expect <SearchMultiSelect> to render 1`] = `
           onOptionClick={[Function]}
           optionIcon="bt-times"
           optionLabel="Remove option"
-          size="sm"
+          size="xs"
           style={Object {}}
           text="Name"
         >
           <div
-            className="gds-tag -m-a-1 gds-tag--primary gds-tag--with-button gds-tag--with-button--sm gds-tag--sm"
+            className="gds-tag -m-a-1 gds-tag--primary gds-tag--with-button gds-tag--with-button--xs gds-tag--xs"
             style={Object {}}
           >
             Name
             <button
               aria-label="Remove option"
-              className="gds-tag__option gds-tag__option--primary gds-tag__option--sm"
+              className="gds-tag__option gds-tag__option--primary gds-tag__option--xs"
               onClick={[Function]}
             >
               <i
@@ -120,7 +111,7 @@ exports[`Expect <SearchMultiSelect> to render 1`] = `
       className="gds-search-select__menu"
     >
       <div
-        className="gds-search-select__menu-items"
+        className="gds-search-select__menu-items gds-form-group__checkbox--xs"
       >
         <div
           className="gds-search-select__menu-item gds-search-select__menu-item--selected"
