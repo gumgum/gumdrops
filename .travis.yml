@@ -8,16 +8,3 @@ script: yarn test
 branches:
   only:
     - '/.*/'
-
-before_deploy: yarn buildstorybook
-deploy:
-  provider: script
-  script: bash ./deploy.sh
-  skip_cleanup: true
-  on:
-    all_branches: true
-
-# This is a workaround to make PRs deploy
-# after_success:
-#   - chmod ugo+x ./deploy.sh
-#   - ./deploy.sh
