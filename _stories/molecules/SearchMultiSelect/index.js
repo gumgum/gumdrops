@@ -43,7 +43,7 @@ class TestSearchMultiSelect extends React.Component {
                     update={this._updateNames}
                     onChange={this._handleInputChange}
                     context={select('Context', contextOptions, 'primary')}
-                    size={select('Size', ['sm', 'md'], 'md')}
+                    size={select('Size', ['xs', 'sm', 'md'], 'md')}
                     multiTerm={boolean('Multiple Terms', false)}
                     searchKeys={boolean('Search Keys', false)}
                     termDivider={text('Term Divider')}
