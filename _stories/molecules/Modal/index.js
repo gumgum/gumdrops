@@ -1,5 +1,6 @@
 import React from 'react';
 import { boolean, text, object } from '@storybook/addon-knobs';
+import { optionalSelect } from '../../../components/utils/optionalSelect';
 import { action } from '@storybook/addon-actions';
 
 import readme from './README.md';
@@ -18,6 +19,11 @@ const component = () => {
         submitAction();
     };
 
+    const sizeOptions = {
+        sm: 'sm',
+        'No Value': ''
+    };
+
     return (
         <Modal
             onClose={action('Close modal from overlay')}
@@ -31,6 +37,7 @@ const component = () => {
                 <ModalHeader
                     title={text('title', 'A sample title')}
                     onClose={action('Close modal')}
+                    size={optionalSelect('Size', sizeOptions, '')}
                 />
                 <ModalBody>
                     <p>Toggle the modal in the knobs section.</p>
