@@ -1,5 +1,9 @@
 # GumGum Common JS Changelog
 
+## 1.9.0 (3-1-19)
+
+* Add small modal header option (#71)
+
 ## 1.8.0 (2-13-19)
 
 * Feature/netlify branch builds (#66)
