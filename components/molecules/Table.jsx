@@ -16,19 +16,21 @@ const sortDirection = {
 };
 
 class Table extends Component {
-    static getDerivedStateFromProps(nextProps) {
-        return {
-            data: nextProps.data,
-            sortBy: {}
-        };
-    }
-
     constructor(props) {
         super(props);
         this.state = {
             data: props.data,
             sortBy: {}
         };
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.data !== this.props.data) {
+            /* eslint-disable react/no-did-update-set-state */
+            this.setState({
+                data: this.props.data
+            });
+        }
     }
 
     _sortCompareAlpha = (a, b, key) => {
