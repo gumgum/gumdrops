@@ -3,7 +3,7 @@ import { configure, addDecorator } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
 import { withInfo } from '@storybook/addon-info';
 
-import './index.css';
+import './index.scss';
 
 function loadStories() {
     require('../_stories/');
