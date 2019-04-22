@@ -17,6 +17,7 @@ import Tooltip from './Tooltip';
 import TextArea from './TextArea';
 import TextInput from './TextInput';
 import Select from './Select';
+import ProgressBar from './ProgressBar';
 
 const stories = storiesOf('Atoms', module);
 stories
@@ -29,6 +30,7 @@ stories
     .add('FormGroupTextHelp', withReadme(...FormGroupTextHelp))
     .add('LoadingDots', withReadme(...LoadingDots))
     .add('NumberCircle', withReadme(...NumberCircle))
+    .add('ProgressBar', withReadme(...ProgressBar))
     .add('RadioButton', withReadme(...RadioButton))
     .add('Select', withReadme(...Select))
     .add('Tag', withReadme(...Tag))

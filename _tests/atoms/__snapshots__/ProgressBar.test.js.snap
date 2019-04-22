@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <ProgressBar> to render 1`] = `
+<div
+  className="gds-progress-bar foo-class gds-progress-bar--sm"
+  data-value={50}
+/>
+`;
+
+exports[`Expect <ProgressBar> to render colorful 1`] = `
+<div
+  className="gds-progress-bar foo-class gds-progress-bar--sm gds-progress-bar--value-colors"
+  data-value={50}
+/>
+`;
+
+exports[`Expect <ProgressBar> to renders as secondary 1`] = `
+<div
+  className="gds-progress-bar foo-class gds-progress-bar--sm gds-progress-bar--secondary"
+  data-value={50}
+/>
+`;
+
+exports[`Expect <ProgressBar> to renders as striped 1`] = `
+<div
+  className="gds-progress-bar foo-class gds-progress-bar--sm gds-progress-bar--striped-primary"
+  data-value={50}
+/>
+`;
