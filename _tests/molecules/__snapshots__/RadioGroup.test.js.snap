@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <RadioGroup> to render 1`] = `
+<div
+  className="gds-form-group__radio custom-class gds-form-group__radio--sm"
+>
+  <RadioButton
+    className="-m-r-4"
+    context="success"
+    key="option-0"
+    label="Cool"
+    name="radio-buttons"
+    onBlur={[Function]}
+    onChange={[Function]}
+    value="cool"
+  />
+</div>
+`;

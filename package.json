@@ -16,7 +16,7 @@
         "buildstorybook": "build-storybook -c .storybook -o build",
         "publish-pack": "env PUBLISH_PACK=1 node tools/build",
         "prepare": "npm run build",
-        "lint": "eslint components/**/*.js _stories/**/*.js _tests/**/*.js .storybook constants tools --color",
+        "lint": "eslint . --ext .js,jsx --color",
         "test": "NODE_ENV='test' jest",
         "test:updateSnapshot": "NODE_ENV='test' jest --updateSnapshot",
         "test:watch": "NODE_ENV='test' jest --watch",
