@@ -12,7 +12,7 @@ exports[`Expect <LoadingDots> to render 1`] = `
   whiteDots={false}
 >
   <div
-    className="cool-class"
+    className="gds-loading"
     style={
       Object {
         "width": "100px",
@@ -20,12 +20,8 @@ exports[`Expect <LoadingDots> to render 1`] = `
     }
   >
     <div
-      className="gds-loading"
-    >
-      <div
-        className="gds-loading__dot gds-loading__dot--lg"
-      />
-    </div>
+      className="gds-loading__dot cool-class gds-loading__dot--lg"
+    />
   </div>
 </LoadingDots>
 `;
@@ -43,7 +39,7 @@ exports[`Expect <LoadingDots> to render as white 1`] = `
   whiteDots={false}
 >
   <div
-    className="cool-class"
+    className="gds-loading"
     style={
       Object {
         "width": "100px",
@@ -51,12 +47,8 @@ exports[`Expect <LoadingDots> to render as white 1`] = `
     }
   >
     <div
-      className="gds-loading"
-    >
-      <div
-        className="gds-loading__dot gds-loading__dot--lg"
-      />
-    </div>
+      className="gds-loading__dot cool-class gds-loading__dot--lg"
+    />
   </div>
 </LoadingDots>
 `;

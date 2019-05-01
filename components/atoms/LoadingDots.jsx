@@ -4,16 +4,14 @@ import cx from 'classnames';
 
 const LoadingDots = ({ whiteDots, size, className, style }) => {
     const baseClass = 'gds-loading__dot';
-    const dotClasses = cx(baseClass, {
+    const dotClasses = cx(baseClass, className, {
         [`${baseClass}--${size}`]: size,
         [`${baseClass}--white`]: whiteDots
     });
 
     return (
-        <div style={style} className={className}>
-            <div className="gds-loading">
-                <div className={dotClasses} />
-            </div>
+        <div style={style} className="gds-loading">
+            <div className={dotClasses} />
         </div>
     );
 };
