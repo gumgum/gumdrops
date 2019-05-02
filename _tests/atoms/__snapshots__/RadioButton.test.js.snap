@@ -9,7 +9,6 @@ exports[`Expect <RadioButton> to render 1`] = `
     name="radio-buttons"
     onBlur={[Function]}
     onChange={[Function]}
-    size="sm"
     type="radio"
     value="cool"
   />
