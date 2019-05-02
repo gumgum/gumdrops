@@ -1,5 +1,12 @@
 # GumGum Common JS Changelog
 
+## 1.10.0
+
+* Add cursor pointer to divider (#68)
+* Add <RadioGroup> and <RadioButton> components
+* Add <ProgressBar> component
+* Upgrade to storybook 5
+
 ## 1.9.0 (3-1-19)
 
 * Add small modal header option (#71)
