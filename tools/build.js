@@ -55,10 +55,7 @@ const commonConfig = {
         }),
         babel({
             exclude: 'node_modules/**',
-            plugins: [
-                'external-helpers',
-                ['transform-react-remove-prop-types', { removeImport: true }]
-            ]
+            plugins: [['transform-react-remove-prop-types', { removeImport: true }]]
         })
     ]
 };
