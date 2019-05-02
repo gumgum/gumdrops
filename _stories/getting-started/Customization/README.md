@@ -1,0 +1,51 @@
+## Customization
+
+When using GumDrops with the GumGum Design System npm package, you can customize the colors and styles to use any colors and styles you want, instead of or in addition to the default themes.
+
+---
+
+#### Overriding Sass variables
+
+Create an override Sass file and import before the main theme and main files in main.scss
+
+```scss
+@import './theme-overrides'; // import theme
+@import '~gg-design-system/scss/themes/theme-blue';
+@import '~gg-design-system/scss/themes/main';
+```
+
+In the override file, new values can be set for different levels of overrides
+
+```sass
+// PALETTE LEVEL
+$blueColor: #0033a6;
+
+// SLOT LEVEL
+$secondaryColor: #ff0000;
+
+// COMPONENT LEVEL
+$pageHeaderPrimaryBackgroundColor: orange;
+```
+
+#### Custom classes
+
+To create a new class that extends current classes, create the custom Sass file and import it after the theme and main files in App.scss:
+
+```scss
+@import './theme-overrides';
+@import '~gg-design-system/scss/themes/theme-blue';
+@import '~gg-design-system/scss/themes/main';
+@import './custom-text'; // import custom class file
+```
+
+In the custom Sass file:
+
+```scss
+.gds-text--header-custom {
+    @extend .gds-text--header-xl;
+    @extend .gds-text--bold;
+    @extend .-text-tr-cap;
+    @extend .-color-tx-ter;
+    @extend .-m-v-3;
+}
+```
