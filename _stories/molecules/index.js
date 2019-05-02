@@ -16,6 +16,7 @@ import LoginForm from './LoginForm/';
 import MultiSelect from './MultiSelect/';
 import Modal from './Modal/';
 import Pagination from './Pagination/';
+import RadioGroup from './RadioGroup/';
 import SearchMultiSelect from './SearchMultiSelect/';
 import Snackbar from './Snackbar/';
 import Table from './Table/';
@@ -40,6 +41,7 @@ stories
     .add('Modal', withReadme(...Modal))
     .add('MultiSelect', withReadme(...MultiSelect))
     .add('Pagination', withReadme(...Pagination))
+    .add('RadioGroup', withReadme(...RadioGroup))
     .add('SearchMultiSelect', withReadme(...SearchMultiSelect))
     .add('Snackbar', withReadme(...Snackbar))
     .add('Table', withReadme(...Table))

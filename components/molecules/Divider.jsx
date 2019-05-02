@@ -14,7 +14,7 @@ const Divider = ({
     const baseClass = 'gds-divider';
     const rootClass = cx(baseClass, className, {
         [`${baseClass}--${centered}`]: centered,
-        [`${baseClass}--${collapsible}`]: collapsible
+        [`${baseClass}--${collapsible} -cursor--pointer`]: collapsible
     });
 
     const arrowClasses = cx(`${baseClass}__arrow`, {

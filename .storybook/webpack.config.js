@@ -1,13 +1,18 @@
 const path = require('path');
 
-module.exports = {
-    module: {
-        rules: [
+module.exports = ({ config, mode }) => {
+    config.module.rules.push({
+        test: /\.scss/,
+        use: [
+            'style-loader',
+            'css-loader',
             {
-                test: /\.css?$/,
-                use: ['style-loader', 'raw-loader'],
-                include: path.resolve(__dirname, '../')
+                loader: 'sass-loader',
+                options: {
+                    outputStyle: 'expanded'
+                }
             }
         ]
-    }
+    });
+    return config;
 };
