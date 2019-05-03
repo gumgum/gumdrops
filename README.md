@@ -2,7 +2,7 @@
 
 This project contains reusable JavaScript React components that you can import into your project.
 
-[![npm version](https://badge.fury.io/js/gumdrops.svg)](https://badge.fury.io/js/gumdrops) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/gumgum/gumdrops.svg?branch=master)](https://travis-ci.org/gumgum/gumdrops)
+[![npm version](https://badge.fury.io/js/gumdrops.svg)](https://badge.fury.io/js/gumdrops) [![License: MIT](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)](https://opensource.org/licenses/Apache-2.0) [![Build Status](https://travis-ci.org/gumgum/gumdrops.svg?branch=master)](https://travis-ci.org/gumgum/gumdrops)
 
 ## Prerequisites
 
@@ -96,20 +96,10 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md) for information about contributing
 
 ## Contributors
 
-A special thank you to the following contributors!
-
-[David Mejorado](https://github.com/davidmh)
-Daniel McKenna
-[Eder Sanchez](https://github.com/edrpls)
-[Federico Caramelli](https://github.com/seedwalk)
-[Jose Santos](https://github.com/JMSantos94)
-[J Scott Smith](https://github.com/jscottsmith)
-[Michele Larson](https://github.com/mnicole)
-[Mike Watt](https://github.com/mikebikeboy)
-[Myles O'Connor](https://github.com/mocon)
+A special thank you to [all of our contributors](https://github.com/gumgum/gumdrops/graphs/contributors)! Plus the following who contributed before we moved to GitHub: [David Mejorado](https://github.com/davidmh), [Jose Santos](https://github.com/JMSantos94), [Mike Watt](https://github.com/mikebikeboy)
 
 ## License
 
-[MIT](LICENSE.md)
+[Apache 2.0](LICENSE.md)
 
 Important Note: This project does not redistribute third party libraries but identifies their availability. The libraries called by this project are subject to their creator licenses. Remember to consult and comply with all licenses in your uses.
