@@ -11,6 +11,7 @@ The following props may be passed to configure the Radio Group. All additional p
 | onChange  | `Function` |          | Change handler that will be called when a change event happens on a `<RadioButton>`. |
 | options   | `Array`    | true     | Radio button options list. An array of objects with `label` and `value` properties.  |
 | size      | `String`   |          | Indicate the size of the button. One of `xs` or `sm`.                                |
+| defaultValue | `String or Boolean or Number`|| Select a value by default from the options                                  |
 
 ## Example
 
