@@ -7,6 +7,7 @@ exports[`Expect <RadioGroup> to render 1`] = `
   <RadioButton
     className="-m-r-4"
     context="success"
+    defaultChecked={false}
     key="option-0"
     label="Cool"
     name="radio-buttons"

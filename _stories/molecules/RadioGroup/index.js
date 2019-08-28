@@ -26,6 +26,7 @@ const component = () => (
         context={optionalSelect('Context', contextOptions, '')}
         name="my-radio-group"
         options={[{ label: 'Foo', value: 'foo' }, { label: 'Bar', value: 'bar' }]}
+        defaultValue="bar"
     />
 );
 

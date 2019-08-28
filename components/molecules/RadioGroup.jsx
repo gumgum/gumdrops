@@ -3,7 +3,7 @@ import RadioButton from '../atoms/RadioButton';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 
-const RadioGroup = ({ context, size, options, onChange, onBlur, name, className, ...rest }) => {
+const RadioGroup = ({ context, size, options, onChange, onBlur, name, className, defaultValue, ...rest }) => {
     const baseClass = 'gds-form-group__radio';
 
     const rootClass = cx(baseClass, className, {
@@ -22,6 +22,7 @@ const RadioGroup = ({ context, size, options, onChange, onBlur, name, className,
                     context={context}
                     onChange={onChange}
                     value={value}
+                    defaultChecked={defaultValue === value}
                     {...rest}
                 />
             ))}
@@ -43,7 +44,8 @@ RadioGroup.propTypes = {
                 .isRequired,
             label: PropTypes.string.isRequired
         })
-    ).isRequired
+    ).isRequired,
+    defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
 };
 
 export default RadioGroup;
