@@ -82,7 +82,15 @@ class Table extends Component {
         return shouldSortDesc ? this._sortDescending(config) : this._sortAscending(config);
     };
 
-    renderTableContent({ columns, isStriped, isInverse, hasHeader, onRowClick, isSecondary }) {
+    renderTableContent({
+        columns,
+        isStriped,
+        isInverse,
+        hasHeader,
+        onRowClick,
+        isSecondary,
+        customRowKey
+    }) {
         const { sortBy, data } = this.state;
         return (
             <Fragment>
@@ -140,26 +148,32 @@ class Table extends Component {
                     </Header>
                 )}
                 <Body>
-                    {data.map((rowData, i) => (
-                        <Row
-                            key={`row-${i}`}
-                            className={onRowClick && '-cursor--pointer'}
-                            isInverse={isInverse}
-                            isStriped={isStriped}
-                            onClick={onRowClick && (() => onRowClick(rowData))}>
-                            {columns.map((column, k) => {
-                                const isString = typeof column === 'string';
-                                const cellData = isString ? rowData[column] : rowData[column.key];
-                                const decorator = column.dataCellDecorator;
-                                const key = `row-${i}-key-${k}`;
-                                return decorator ? (
-                                    decorator(cellData, key, rowData)
-                                ) : (
-                                    <Data key={key}>{cellData}</Data>
-                                );
-                            })}
-                        </Row>
-                    ))}
+                    {data.map((rowData, i) => {
+                        const rowKey =
+                            customRowKey && rowData[customRowKey] ? rowData[customRowKey] : i;
+                        return (
+                            <Row
+                                key={`row-${rowKey}`}
+                                className={onRowClick && '-cursor--pointer'}
+                                isInverse={isInverse}
+                                isStriped={isStriped}
+                                onClick={onRowClick && (() => onRowClick(rowData))}>
+                                {columns.map((column, k) => {
+                                    const isString = typeof column === 'string';
+                                    const cellData = isString
+                                        ? rowData[column]
+                                        : rowData[column.key];
+                                    const decorator = column.dataCellDecorator;
+                                    const key = `row-${rowKey}-key-${k}`;
+                                    return decorator ? (
+                                        decorator(cellData, key, rowData)
+                                    ) : (
+                                        <Data key={key}>{cellData}</Data>
+                                    );
+                                })}
+                            </Row>
+                        );
+                    })}
                 </Body>
             </Fragment>
         );
@@ -192,7 +206,43 @@ class Table extends Component {
 
 Table.propTypes = {
     // necessary for controlled tables
-    data: PropTypes.arrayOf(PropTypes.object),
+    data: function(props, propName, componentName) {
+        if (props.data) {
+            if (!Array.isArray(props.data)) {
+                return new Error(
+                    'Invalid prop `' +
+                        propName +
+                        '` supplied to' +
+                        ' `' +
+                        componentName   +
+                        '`, expected `array`.'
+                );
+            }
+            for (let i = 0; i < props.data.length; i++) {
+                if (typeof props.data[i] !== 'object') {
+                    return new Error(
+                        'Invalid prop `data[' +
+                            i +
+                            ']` supplied to' +
+                            ' `' +
+                            componentName +
+                            '`, expected `object`.'
+                    );
+                } else if (props.customRowKey && !props.data[i][props.customRowKey]) {
+                    return new Error(
+                        'Invalid prop `data[' +
+                            i +
+                            ']` supplied to' +
+                            ' `' +
+                            componentName +
+                            '`, expected an `object` with property `' +
+                            props.customRowKey +
+                            '`.'
+                    );
+                }
+            }
+        }
+    },
     columns: PropTypes.arrayOf(
         PropTypes.oneOfType([
             // columns can be a simple array of strings representing the keys
@@ -225,6 +275,7 @@ Table.propTypes = {
     isStriped: PropTypes.bool,
     isResponsive: PropTypes.bool,
     onRowClick: PropTypes.func,
+    customRowKey: PropTypes.string,
     size: PropTypes.oneOf(['sm', 'lg', 'xs', 'xl'])
 };
 
