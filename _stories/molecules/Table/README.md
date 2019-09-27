@@ -39,8 +39,9 @@ The following props can be passed to the `<Table>` component:
 | isInverse   | `Bool`     | Indicate if the table theme should be inversed (dark).                                                                                                                                                                                                     |         |
 | isSecondary | `Bool`     | Indicate if the table theme is the `secondary` style.                                                                                                                                                                                                      |         |
 | isStriped   | `Bool`     | Indicate if the table theme should use striped rows.                                                                                                                                                                                                       |         |
-| isResponsive| `Bool`     | Indicate if the table should be allowed ot scroll horizontally.
+| isResponsive| `Bool`     | Indicate if the table should be allowed ot scroll horizontally.                                                                                                                                                                                            |         |
 | onRowClick  | `Function` | Click handler for rows. Will be called with the data contained in the row as the first arg.                                                                                                                                                                |         |
+| customRowKey| `String`   | Column of the data to be used as key when creating `<Row>` elements.                                                                                                                                                                                       |         |
 | size        | `String`   | Indicate the size of the table. One of `sm`, `lg`, `xs` or `xl`                                                                                                                                                                                            |         |
 
 ## Columns
@@ -158,4 +159,20 @@ const columnsAdvanced = [
 ];
 
 const People = () => <Table columns={columns} data={data} />;
+```
+
+### Custom Row Key
+
+Default behaviour is to generate each row's key using a sequential iterator, (row-0, row-1, etc).
+If the Table has a `customRowKey` prop, this value will be generated from the column with the same name.
+
+The following example will produce rows with keys `key-x123` and `key-y456` from data rows `id: x123` and `id: y456` respectively.
+
+```js
+const data = [
+    { name : 'Alice', age: 20, id: 'x123' },
+    { name : 'Bob', age: 20, id: 'y456' },
+];
+
+const People = () => <Table columns={columns} data={data} customRowKey="id"/>;
 ```
