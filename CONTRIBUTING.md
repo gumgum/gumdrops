@@ -44,8 +44,7 @@ ButtonGroup.propTypes = {
 
 ##### Writing documentation (story)
 
-1. Go to the correct category in `/_stories`, create a new folder, and create an `index.js` and `README.md` following the format of the other stories. Be sure to `.add()` and import it into the parent `index.js` file.
-2. We use a few addon packages to enhance our stories. Please add knobs to your stories to show what options each of the component's props accepts. This also makes it interactive so a user can change and see the result of each different option.
+1. Go to the correct category in `/_stories`, create a new folder, and create a `[component].stories.js` and `[component].mdx` following the format of the other stories. We use a few addon packages to enhance our stories. Please add knobs to your stories to show what options each of the component's props accepts. This also makes it interactive so a user can change and see the result of each different option.
 
 **IMPORTANT**: Please wait for approvals, and when your PR has been approved, **please continue to follow the guidelines on [GITWORKFLOW.md](GITWORKFLOW.md) when rebasing and merging**.
 

@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 class SnackbarNotification extends Component {
+    displayName = 'SnackbarNotification';
+
     static propTypes = {
-        /** Unique key (string or number) for identification, *Required */
+        /** Unique key (string or number) for identification */
         id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-        /** Message or content of the notification */
+        /** Content of the notification, can be passed as children. If no text or children is passed, the component won't render. */
         text: PropTypes.string,
-        /** Context of notification (success, info, warning, danger, hidden) */
+        /** One of: `success`, `info`, `warning`, `danger`, `hidden` */
         context: PropTypes.string,
-        /** Time in ms to hide notification, if 0 is passed ignores timeout */
+        /** Time in ms to hide notification, if value is 0 the notification will remain open */
         msToClose: PropTypes.number,
         /** Hides the close button, if true auto enables timeout to hide notification */
         hideCloseButton: PropTypes.bool,
@@ -18,9 +20,7 @@ class SnackbarNotification extends Component {
         callback: PropTypes.func,
         /** Component children that can be used as content */
         children: PropTypes.node,
-        /** Styles passed through props */
         style: PropTypes.object,
-        /** Class names passed through props */
         className: PropTypes.string
     };
 
@@ -28,8 +28,6 @@ class SnackbarNotification extends Component {
         msToClose: 3000,
         hideCloseButton: false
     };
-
-    displayName = 'SnackbarNotification';
 
     state = {
         shouldHide: false // flag to know if component should be visible

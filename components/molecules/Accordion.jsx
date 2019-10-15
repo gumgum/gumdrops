@@ -25,11 +25,12 @@ const Accordion = ({ children, context, size, className, initialAllOpen, ...othe
 Accordion.displayName = 'Accordion';
 
 Accordion.propTypes = {
+    /** Children should be `<AccordionItem>` */
     children: PropTypes.node.isRequired,
-    /** dark, white */
+    /** One of: `dark`, `white` */
     context: PropTypes.string,
+    /** Should all `<AccordionItem>` children be open on initial mount? */
     initialAllOpen: PropTypes.bool,
-    /** sm */
     size: PropTypes.oneOf(['sm']),
     className: PropTypes.string
 };

@@ -317,16 +317,25 @@ SearchMultiSelect.defaultProps = {
 };
 
 SearchMultiSelect.propTypes = {
+    /** List of options {array of objects} */
     options: PropTypes.array.isRequired,
+    /** Function that returns the latest change on options */
     update: PropTypes.func.isRequired,
+    /** Function that returns the current input value, useful for autocompletion */
     onChange: PropTypes.func,
+    /** Optional custom function to filter elements. The arguments passed to it are current options {Array} and search term {String}. It must return an array with the indexes of the options to display in the dropdown. */
     filter: PropTypes.func,
+    /** For now, this only affects the color of the Tag elements. One of: `primary`, `secondary`, `success`, `warning`, `info`, `danger`, `white` */
     context: PropTypes.string,
     placeholder: PropTypes.string,
     size: PropTypes.oneOf(['xs', 'sm', 'md']),
+    /** Should the search also match against object keys? */
     searchKeys: PropTypes.bool,
+    /** Should the search also match against multiple terms? */
     multiTerm: PropTypes.bool,
+    /** String or regexp used to divide the search term, defaults to /[ ,]+/ (empty space and comma) */
     termDivider: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(RegExp)]),
+    /** Ref applied to the input, useful for setting focus */
     inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
 

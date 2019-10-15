@@ -1,1 +1,0 @@
-The `<CircularThumbnail>` component is used to display images within a circular frame. Recommended props to pass in are src="https://domain.com/yourimage.png" and alt="name". Any other props that are passed in are also accepted.

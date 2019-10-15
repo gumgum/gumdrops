@@ -30,12 +30,14 @@ Select.defaultProps = {
 };
 
 Select.propTypes = {
-    /** primary, no-border, dark */
+    /** One of: `primary`, `no-border`, `dark` */
     context: PropTypes.string,
-    /** xs, sm, lg */
     size: PropTypes.oneOf(['xs', 'sm', 'lg']),
+    /** If your options have values at a different key than "value", you can set the customValue="myValue" */
     customValue: PropTypes.string,
+    /** If your options have names at a different key than "name", you can set the customName="myName" */
     customName: PropTypes.string,
+    /** Array of objects with key/value pairs */
     options: PropTypes.array,
     className: PropTypes.string
 };

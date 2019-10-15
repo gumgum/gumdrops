@@ -20,10 +20,7 @@ TextInput.defaultProps = {
 };
 
 TextInput.propTypes = {
-    // This prevents people forcing this component out of its intended use
-    /** text, password */
     type: PropTypes.oneOf(['text', 'password']),
-    /** sm, md, lg */
     size: PropTypes.oneOf(['sm', 'md', 'lg']),
     className: PropTypes.string,
     value: PropTypes.string

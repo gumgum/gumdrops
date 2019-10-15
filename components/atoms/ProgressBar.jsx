@@ -28,7 +28,9 @@ ProgressBar.propTypes = {
     isSecondary: PropTypes.bool,
     isStriped: PropTypes.bool,
     size: PropTypes.oneOf(['xs', 'sm', 'lg']),
+    /** Indicate if the bar should change from color when progressing (from red to green) */
     useProgressColors: PropTypes.bool,
+    /** A number (`0` to `100`) representing progress percent */
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
 };
 

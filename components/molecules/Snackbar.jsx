@@ -16,9 +16,7 @@ const Snackbar = ({ children, className, style }) => {
 Snackbar.displayName = 'Snackbar';
 
 Snackbar.propTypes = {
-    /** Class names passed through props */
     className: PropTypes.string,
-    /** Styles passed through props */
     style: PropTypes.object,
     /** Component children to use as notifications, use <SnackbarNotification> component */
     children: PropTypes.node

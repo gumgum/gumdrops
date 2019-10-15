@@ -1,0 +1,84 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import SearchMultiSelect from '../../../components/molecules/SearchMultiSelect';
+
+# SearchMultiSelect
+
+The `<SearchMultiSelect>` is similar to the `<MultiSelect>` component, but it is tailored for situations where there are way too many options that the `<MultiSelect>` becomes impractical.
+
+As the name suggests, the `<SearchMultiSelect>` comes with a case insensitive term matching, and a small tag indicator to show you how many options were selected, as well a small balloon where you can quickly see what options you have selected so far.
+
+## Full Example
+```jsx
+state = {
+    names: namesList
+};
+
+componentDidMount() {
+    if (this._inputRef.current) {
+        this._inputRef.current.focus();
+    }
+}
+
+_inputRef = React.createRef()
+
+_updateNames = (names) => this.setState({ names });
+
+_handleInputChange = (value) => autocompleteRequest(value);
+
+render() {
+    return (
+        <FormGroup>
+           <FormGroupLabel text="names" />
+           <SearchMultiSelect
+               inputRef={this._inputRef}
+               placeholder="some placeholder text"
+               options={ this.state.names }
+               update={ this._updateNames }
+               onChange={ this._handleInputChange }
+               context="primary"
+               size="sm"
+               multiTerm
+               searchKeys
+               termDivider="-"
+           />
+        </FormGroup>
+    );
+}
+```
+
+## Options
+The format of the options must be an array of objects that contains at least three properties: `name`, `isSelected`, and `key`.
+
+| property   | description                                               |
+| ---------- | --------------------------------------------------------- |
+| name       | the text displayed on the dropdown                        |
+| isSelected | boolean that determines if the option is selected or not  |
+| key        | uniquely identifies each options (key must be \`unique\`) |
+
+```
+[
+    {
+        name: 'Jose Santos',
+        isSelected: true,
+        key: 0
+    },
+    ...
+]
+```
+
+## Keybindings
+| key   | description                              |
+| ----- | ---------------------------------------- |
+| enter | toggles the currently highlighted option |
+| up    | highlights the previous options          |
+| down  | highlights the next option               |
+| esc   | closes the dropdown                      |
+
+
+## Component Example
+<Story
+    id="molecules-searchmultiselect--default"
+/>
+
+## Props
+<Props of={SearchMultiSelect} />

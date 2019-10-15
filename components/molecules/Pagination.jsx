@@ -168,11 +168,17 @@ class Pagination extends Component {
 Pagination.displayName = 'Pagination';
 
 Pagination.propTypes = {
+    /** Callback to run when changing a page. Receives an object with next page and offsets */
     onChange: PropTypes.func.isRequired,
+    /** Total number of pages */
     lastPage: PropTypes.number.isRequired,
+    /** Current active page */
     activePage: PropTypes.number,
+    /** Should the component always show the start and end pages? */
     boundaries: PropTypes.bool,
+    /** Should the component take the available width of the container? */
     justify: PropTypes.bool,
+    /** One of: `xl`, `lg`, `sm`, `xs`` */
     size: PropTypes.string,
     className: PropTypes.string
 };

@@ -36,7 +36,6 @@ Tooltip.defaultProps = {
 
 Tooltip.propTypes = {
     text: PropTypes.string,
-    /** top, top-right, right, bottom-right, bottom, bottom-left, left, top-left */
     position: PropTypes.oneOf([
         'top',
         'top-right',
@@ -47,11 +46,9 @@ Tooltip.propTypes = {
         'left',
         'top-left'
     ]),
-    /** success, warning, info, danger */
+    /** One of: `success`, `warning`, `info`, `danger` */
     context: PropTypes.string,
-    /** lg */
     size: PropTypes.oneOf(['lg']),
-    /** always, no-animate, bounce */
     variations: PropTypes.oneOf(['always', 'no-animate', 'bounce']),
     className: PropTypes.string,
     children: PropTypes.node

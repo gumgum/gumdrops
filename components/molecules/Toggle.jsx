@@ -36,14 +36,15 @@ Toggle.defaultProps = {
 };
 
 Toggle.propTypes = {
-    /** radio, checkbox */
     type: PropTypes.oneOf(['radio', 'checkbox']),
     label: PropTypes.string,
     /** xs, sm */
     size: PropTypes.string,
     style: PropTypes.object,
     className: PropTypes.string,
+    /** Label displayed when toggled on */
     onText: PropTypes.string,
+    /** Label displayed when toggled off */
     offText: PropTypes.string
 };
 

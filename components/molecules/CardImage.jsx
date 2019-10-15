@@ -25,9 +25,7 @@ CardImage.defaultProps = {
 
 CardImage.propTypes = {
     url: PropTypes.string.isRequired,
-    /** top, bottom */
     option: PropTypes.oneOf(['top', 'bottom']),
-    /** xs, sm, md, lg, xl */
     size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
     className: PropTypes.string,
     style: PropTypes.object

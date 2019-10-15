@@ -92,10 +92,15 @@ AccordionItem.displayName = 'AccordionItem';
 AccordionItem.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    /** One of: `dark`, `white` */
     context: PropTypes.string,
+    /** Should the item should be open or closed on initial mount? */
     isOpen: PropTypes.bool,
+    /** Should the item be locked open (or closed) and ignore user interaction? */
     isLocked: PropTypes.bool,
+    /** The text label for an item */
     label: PropTypes.string,
+    /** One of: `sm` */
     size: PropTypes.string
 };
 

@@ -26,7 +26,7 @@ Badge.defaultProps = {
 
 Badge.propTypes = {
     text: PropTypes.string,
-    /** inverse, success, success-inverse, info, info-inverse, warning, warning-inverse, danger, danger-inverse */
+    /** One of: `inverse`, `success`, `success-inverse`, `info`, `info-inverse`, `warning`, `warning-inverse`, `danger`, `danger-inverse` */
     context: PropTypes.string,
     empty: PropTypes.bool,
     className: PropTypes.string,

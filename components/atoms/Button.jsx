@@ -53,14 +53,17 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-    /** outline, primary, secondary, success, warning, info, danger */
+    /** One of: `default`, `outline`, `primary`, `secondary`, `success`, `warning`, `info`, `danger` */
     context: PropTypes.string,
+    /** Type of button, for example "button" or "submit" */
     type: PropTypes.string,
-    /** xs, sm, lg */
     size: PropTypes.oneOf(['xs', 'sm', 'lg']),
     isGroup: PropTypes.bool,
+    /** Is this button part of a button group? */
     group: PropTypes.bool,
+    /** Is this is a block element button? */
     isBlock: PropTypes.bool,
+    /** Adds the disabled attribute and styles (opacity, gray scale filter, no pointer events) */
     disabled: PropTypes.bool,
     onClick: PropTypes.func,
     className: PropTypes.string,

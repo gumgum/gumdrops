@@ -26,7 +26,6 @@ LoadingDots.defaultProps = {
 
 LoadingDots.propTypes = {
     whiteDots: PropTypes.bool,
-    /** sm, lg */
     style: PropTypes.object,
     size: PropTypes.oneOf(['sm', 'lg']),
     className: PropTypes.string

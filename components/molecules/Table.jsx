@@ -206,6 +206,7 @@ class Table extends Component {
 
 Table.propTypes = {
     // necessary for controlled tables
+    /** An `Array` of `Objects` with simple key/value pairs. */
     data: function(props, propName, componentName) {
         if (props.data) {
             if (!Array.isArray(props.data)) {
@@ -214,7 +215,7 @@ Table.propTypes = {
                         propName +
                         '` supplied to' +
                         ' `' +
-                        componentName   +
+                        componentName +
                         '`, expected `array`.'
                 );
             }
@@ -243,6 +244,7 @@ Table.propTypes = {
             }
         }
     },
+    /** An `Array` of `Strings` identifying the keys from the `data` to be displayed in columns. Customization of columns can be made by providing an `Array` of `Objects`. Order of the columns in the table is determined by the order of the array */
     columns: PropTypes.arrayOf(
         PropTypes.oneOfType([
             // columns can be a simple array of strings representing the keys
@@ -266,15 +268,22 @@ Table.propTypes = {
             })
         ])
     ),
-
+    /** To render children in the `<Table>`. Use if you want to manually construct a table. */
     children: PropTypes.node,
     className: PropTypes.string,
+    /** Should the table have a header? */
     hasHeader: PropTypes.bool,
+    /** Should the table theme be inversed (dark)? */
     isInverse: PropTypes.bool,
+    /** Should the table theme use the secondary style? */
     isSecondary: PropTypes.bool,
+    /** Should the table use striped rows? */
     isStriped: PropTypes.bool,
+    /** Should the table be allowed to scroll horizontally? */
     isResponsive: PropTypes.bool,
+    /** Click handler for rows. Will be called with the data contained in the row as the first arg. */
     onRowClick: PropTypes.func,
+    /** Column of the data to be used as key when creating `<Row>` elements. */
     customRowKey: PropTypes.string,
     size: PropTypes.oneOf(['sm', 'lg', 'xs', 'xl'])
 };
