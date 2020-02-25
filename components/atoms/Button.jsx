@@ -13,11 +13,13 @@ const Button = ({
     className,
     style,
     children,
+    disabled,
     ...otherProps
 }) => {
     const baseClass = 'gds-button';
 
     const rootClass = cx(baseClass, className, {
+        ['-disabled']: disabled,
         [`${baseClass}--${context}`]: context,
         [`${baseClass}--${size}`]: size,
         [`${baseClass}-group__button`]: isGroup || group,
@@ -37,6 +39,7 @@ Button.defaultProps = {
     context: 'default',
     type: 'button',
     isGroup: false,
+    disabled: false,
     group: false,
     isBlock: false,
     onClick: null,
@@ -52,6 +55,7 @@ Button.propTypes = {
     isGroup: PropTypes.bool,
     group: PropTypes.bool,
     isBlock: PropTypes.bool,
+    disabled: PropTypes.bool,
     onClick: PropTypes.func,
     className: PropTypes.string,
     style: PropTypes.object,
