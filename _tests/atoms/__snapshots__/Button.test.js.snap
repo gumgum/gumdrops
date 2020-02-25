@@ -4,6 +4,7 @@ exports[`Expect <Button> to render 1`] = `
 <Button
   className="foo-class"
   context="danger"
+  disabled={false}
   group={false}
   isBlock={false}
   isGroup={false}
@@ -20,6 +21,7 @@ exports[`Expect <Button> to render 1`] = `
 >
   <button
     className="gds-button foo-class gds-button--danger gds-button--sm"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     style={
@@ -39,6 +41,7 @@ exports[`Expect <Button> to renders as a blocked button 1`] = `
 <Button
   className="foo-class"
   context="danger"
+  disabled={false}
   group={false}
   isBlock={true}
   isGroup={false}
@@ -55,6 +58,7 @@ exports[`Expect <Button> to renders as a blocked button 1`] = `
 >
   <button
     className="gds-button foo-class gds-button--danger gds-button--sm gds-button--block"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     style={
@@ -74,6 +78,7 @@ exports[`Expect <Button> to renders as a group button 1`] = `
 <Button
   className="foo-class"
   context="danger"
+  disabled={false}
   group={false}
   isBlock={false}
   isGroup={true}
@@ -90,6 +95,7 @@ exports[`Expect <Button> to renders as a group button 1`] = `
 >
   <button
     className="gds-button foo-class gds-button--danger gds-button--sm gds-button-group__button"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     style={
