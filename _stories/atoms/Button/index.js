@@ -31,6 +31,7 @@ const component = () => (
         context={select('Context', contextOptions, 'default')}
         isGroup={boolean('isGroup', false)}
         isBlock={boolean('isBlock', false)}
+        disabled={boolean('disabled', false)}
         onClick={action('button_clicked')}
         className={text('ClassName', '')}
         style={object('Style', {})}>
