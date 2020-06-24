@@ -1,0 +1,159 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import Table from '../../../components/molecules/Table';
+
+# Table
+**Note:** The table component requires `React ^16.3.0`
+
+The `<Table>` component creates a table from a provided data source. It allows for column configuration, alphanumeric sorting, custom sorting, and theming.
+
+
+## Simple Usage
+Simple usage of the `<Table>` just requires `data` and `columns` props. Data must be provided as an array of objects with keys that match column identifiers. Columns are also provided by an array that identifies the keys of the data to use. Array order will determine their order in the table. Here's an example:
+
+```js
+const data = [
+    {
+        name: 'John',
+        age: 36
+    },
+    {
+        name: 'Jane',
+        age: 32
+    }
+];
+
+const columns = ['name', 'age']; // table columns will be ordered by the array
+
+const People = () => <Table columns={columns} data={data} />;
+```
+
+## Advanced Column Examples
+The `columns` prop config can take a number of more advanced configurations as seen above. For more advanced configuration you can supply additional properties to the `columns` array:
+
+| property          | type       | description                                                                                                                                             |
+| ----------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key               | `String`   | Key representing the corresponding data property.                                                                                                       |
+| children          | `Node`     | Custom markup to render in the column heading [See example](#custom-column-markup)                                                                      |
+| disableSorting    | `Boolean`  | Disables ability to sort column data                                                                                                                    |
+| dataCellDecorator | `Function` | Customize cell markup with a decorator, a function that is called with the cell data, a React key, and the row data. [See example](#custom-cell-markup) |
+| headingProps      | `Object`   | Props object to be passed to the `<TableHeading>` component. [See example](#custom-heading-props)                                                       |
+| sortCompareAsc    | `Function` | Custom ascending sort compare function. [See example](#custom-sorting)                                                                                  |
+| sortCompareDesc   | `Function` | Custom descending sort compare function. [See example](#custom-sorting)                                                                                 |
+
+### Custom Column Markup Example
+If custom markup is needed in the column heading, use the `children` property:
+
+```jsx
+const columns = [
+    {
+        key: 'name',
+        children: 'Employee Name'
+    },
+    {
+        key: 'age',
+        children: <ToolTip text="Custom markup">Age (years)</ToolTip>
+    }
+];
+
+const People = () => <Table columns={columns} data={data} />;
+```
+
+### Custom Cell Markup Example
+Custom markup can be created for individual table data cells (`<td>`) by adding a `dataCellDecorator` function:
+
+```jsx
+import TableData from 'gumdrops/TableData';
+
+const weightCellDecorator = (cellData, key, rowData) => (
+    <TableData
+        key={key}
+        context={cellData < 200 ? 'positive' : cellData === 200 ? 'neutral' : 'negative'}>
+        <a href={`/people/${rowData.name}`}>
+            {cellData < 200 ? `↓ ${cellData}` : cellData === 200 ? cellData : `↑ ${cellData}`}
+        </a>
+    </TableData>
+);
+
+const columns = [
+    { key: 'name', children: 'First Name' },
+    { key: 'title', children: 'Job Title' },
+    { key: 'age', children: 'Age (years)' },
+    {
+        key: 'weight',
+        children: 'Weight (pounds)',
+        dataCellDecorator: weightCellDecorator
+    },
+    { key: 'height', children: 'Height' }
+];
+
+const People = () => <Table columns={columns} data={data} />;
+```
+
+### Custom Sorting Example
+Sorting can be customized with the `sortCompareAsc` and `sortCompareDesc` properties which define the compare functions to be used for ascending and descending sorting.
+
+```jsx
+const columnsAdvanced = [
+    { key: 'name' },
+    {
+        key: 'title',
+        children: 'Job Title (sorted by title length)',
+        sortCompareAsc: (a, b) => a.title.length - b.title.length,
+        sortCompareDesc: (a, b) => b.title.length - a.title.length
+    },
+    { key: 'age' },
+    { key: 'weight' },
+    { key: 'height' }
+];
+
+const People = () => <Table columns={columns} data={data} />;
+```
+
+### Custom Heading Props Example
+Props can be passed to the `<TableHeading>` component with the `headingProps` property. This is useful when you need to size columns or sort the table data externally such as from an API.
+
+```jsx
+const columnsAdvanced = [
+    { key: 'name' },
+    {
+        key: 'title',
+        disableSorting: true,
+        headingProps: {
+            className: 'custom-class',
+            style: {
+                width: '10%'
+            },
+            onClick: this.sortColumn('title'), // sorting handled externally
+            sortDirection: this.state.sortDirection // one of 'asc' or 'desc'
+        }
+    },
+    { key: 'age' },
+    { key: 'weight' },
+    { key: 'height' }
+];
+
+const People = () => <Table columns={columns} data={data} />;
+```
+
+### Custom Row Key Example
+Default behaviour is to generate each row's key using a sequential iterator, (row-0, row-1, etc).
+If the Table has a `customRowKey` prop, this value will be generated from the column with the same name.
+
+The following example will produce rows with keys `key-x123` and `key-y456` from data rows `id: x123` and `id: y456` respectively.
+
+```jsx
+const data = [
+    { name : 'Alice', age: 20, id: 'x123' },
+    { name : 'Bob', age: 20, id: 'y456' },
+];
+
+const People = () => <Table columns={columns} data={data} customRowKey="id"/>;
+```
+
+## Component Example
+<Story
+    id="molecules-table--default"
+/>
+
+## Props
+<Props of={Table} />

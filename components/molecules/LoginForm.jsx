@@ -45,12 +45,18 @@ LoginForm.defaultProps = {
 };
 
 LoginForm.propTypes = {
+    /** Text to display in the cap between the logo and form. */
     capText: PropTypes.string,
     children: PropTypes.node.isRequired,
+    /** Product name, shown right below GumGum's logo */
     logoText: PropTypes.string,
+    /** Function called on form submission */
     onSubmit: PropTypes.func.isRequired,
+    /** Callback used to redirect to a password recovery page */
     recoveryFn: PropTypes.func,
+    /** Text to show for password recovery */
     recoveryText: PropTypes.string,
+    /** Do you want the GumGum logo hidden? */
     hideLogo: PropTypes.bool
 };
 

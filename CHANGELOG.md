@@ -1,4 +1,15 @@
-# GumGum Common JS Changelog
+# GumDrops Changelog
+# 1.14.0
+* Upgrade storybook version and change components to Component Story Format
+
+# 1.13.0
+* Add styles to <Button> disable (#91)
+
+## 1.12.0
+* Update Table component to support custom keys (#83)
+
+## 1.11.0
+* Allow to select a default value for a RadioGroup (#82)
 
 ## 1.10.0
 

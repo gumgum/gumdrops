@@ -19,9 +19,8 @@ const Card = ({ option, size, className, style, children }) => {
 Card.displayName = 'Card';
 
 Card.propTypes = {
-    /** white, underlined, underlined-secondary */
+    /** One of: `white`, `underlined`, `underlined-secondary` */
     option: PropTypes.string,
-    /** xs, sm, md, lg, xl */
     size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
     className: PropTypes.string,
     style: PropTypes.object,

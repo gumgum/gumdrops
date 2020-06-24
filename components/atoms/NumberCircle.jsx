@@ -21,9 +21,8 @@ NumberCircle.displayName = 'NumberCircle';
 
 NumberCircle.propTypes = {
     text: PropTypes.string,
-    /** secondary, success, warning, info, danger, white */
+    /** One of: `secondary`, `success`, `warning`, `info`, `danger`, `white` */
     context: PropTypes.string,
-    /** xs, sm, lg, xl */
     size: PropTypes.oneOf(['xs', 'sm', 'lg', 'xl']),
     className: PropTypes.string,
     style: PropTypes.object

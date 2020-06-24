@@ -90,7 +90,6 @@
         "react/no-did-mount-set-state": 1,
         "react/no-did-update-set-state": 1,
         "react/no-direct-mutation-state": 1,
-        "react/no-multi-comp": 1,
         "react/no-set-state": 0,
         "react/no-unescaped-entities": 1,
         "react/no-unknown-property": 1,

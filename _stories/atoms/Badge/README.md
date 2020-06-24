@@ -1,1 +1,0 @@
-The `<Badge>` component is a numerical indicator of associated items. For a simple colored circle without a number inside, pass in the "empty" prop. If empty, it will not display any text within the badge.

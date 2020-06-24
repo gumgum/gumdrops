@@ -1,0 +1,75 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import LoginForm from '../../../components/molecules/LoginForm';
+
+# LoginForm
+
+**NOTE:** The minimum DS version required for this component to render properly is: **1.3.5**
+
+The `<LoginForm>`, as the name implies, renders a form that can be customized to look like any of [these prototypes](http://ds.gumgum.com/stable/#gds-account-modal).
+This component can display the Product name (underneath GumGum's logo), a Cap with text above the form fields and a link for password recovery. If you do not want to show GumGum's logo, you can pass the prop `hideLogo`. The form inputs and submit buttons must be provided.
+
+All of its atoms are optional.
+
+Form values can be accessed on submission with the `onSubmit` callback.
+
+## Full Example
+```jsx
+state {
+    username: null,
+    password: null,
+    staySignedIn: false,
+}
+
+_login = (event) => {
+    event.preventDefault();
+    const elts = event.target.elements;
+    this.setState({
+        username: elts['username'].value,
+        password: elts['password'].value,
+        staySignedIn: elts['password'].checked
+    });
+}
+
+_recovery = (event) => {
+    event.preventDefault();
+    window.location.pathname = '/recovery';
+}
+
+return(
+    <LayoutContainer>
+        <Row>
+            <LoginForm
+                auth="username"
+                capText="Dashboard"
+                logoText="Sports"
+                onSubmit={ this._login }
+                recoveryFn={ this._goToRecovery }
+                recoveryText="Trouble signing in?"
+            >
+                <FormGroup className="-m-b-1" >
+                    <FormGroupLabel text="username" />
+                    <TextInput name="username" type="text" placeholder="username" />
+                </FormGroup>
+                <FormGroup className="-m-b-2" >
+                    <FormGroupLabel text="Password" />
+                    <TextInput name="password" type="password" placeholder="password123" />
+                </FormGroup>
+                <FormGroup className="-m-b-2" >
+                    <Checkbox name="staySignedIn" label="Stay signed in" />
+                </FormGroup>
+                <Button type="submit" className="gds-button--block" context="primary" >
+                    Login
+                </Button>
+            </LoginForm>
+        </Row>
+    </LayoutContainer>
+)
+```
+
+## Component Example
+<Story
+    id="molecules-loginform--default"
+/>
+
+## Props
+<Props of={LoginForm} />

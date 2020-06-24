@@ -25,7 +25,6 @@ ButtonGroup.defaultProps = {
 };
 
 ButtonGroup.propTypes = {
-    /** xs, sm, lg */
     size: PropTypes.oneOf(['xs', 'sm', 'lg']),
     responsive: PropTypes.bool,
     className: PropTypes.string,

@@ -1,0 +1,21 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import Snackbar from '../../../components/molecules/Snackbar';
+
+# Snackbar
+
+The `<Snackbar>` component is a style wrapper for the `<SnackbarNotification>` components.
+
+## Snackbar Notification
+The `<SnackbarNotification>` component displays a notification inside the `<Snackbar>` component wrapper.
+
+The notification can be hidden by clicking a button or after waiting for a timeout to complete.
+
+A callback function can be executed after hiding a notification. The first parameter of the callback will be the id of the notification if it is passed as a prop.
+
+## Component Example
+<Story
+    id="molecules-snackbar--default"
+/>
+
+## Props
+<Props of={Snackbar} />

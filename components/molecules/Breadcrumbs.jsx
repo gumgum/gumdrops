@@ -8,6 +8,25 @@ import BreadcrumbsWrapper from './BreadcrumbsWrapper';
 class Breadcrumbs extends Component {
     static displayName = 'Breadcrumbs';
 
+    static propTypes = {
+        /** Optional component to display as the breadcrumbs. Receives prop "to" as its href  */
+        linkComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
+        /** Object that defines the app routes */
+        config: PropTypes.shape({
+            title: PropTypes.string,
+            path: PropTypes.string,
+            subpaths: PropTypes.array
+        }).isRequired,
+        /** Current pathname either from react-router or window.location.pathname */
+        pathname: PropTypes.string.isRequired,
+        /** Optional function for transforming titles when defaulting to the path. By default will Capitalize first letter and replace dashes and underscores for spaces */
+        titleDecorator: PropTypes.func,
+        /** Prevent displaying subpath submenus? */
+        hideMenus: PropTypes.bool,
+        /** Prevent displaying the Root element (only if other breadcrumbs are available)? */
+        hideRoot: PropTypes.bool
+    };
+
     static defaultProps = {
         config: { path: '/' },
         linkComponent: BreadcrumbLink,
@@ -15,19 +34,6 @@ class Breadcrumbs extends Component {
             title.replace(/^\w/, chr => chr.toUpperCase()).replace(/-|_/g, ' '),
         hideMenus: false,
         hideRoot: false
-    };
-
-    static propTypes = {
-        linkComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
-        config: PropTypes.shape({
-            title: PropTypes.string,
-            path: PropTypes.string,
-            subpaths: PropTypes.array
-        }).isRequired,
-        pathname: PropTypes.string.isRequired,
-        titleDecorator: PropTypes.func,
-        hideMenus: PropTypes.bool,
-        hideRoot: PropTypes.bool
     };
 
     // Create the full path for the current slug based on the previous entry

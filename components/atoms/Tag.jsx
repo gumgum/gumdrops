@@ -52,16 +52,21 @@ Tag.defaultProps = {
 
 Tag.propTypes = {
     className: PropTypes.string,
-    /** normal, primary, success, warning, danger  */
+    /** One of: `normal`, `primary`, `success`, `warning`, `danger`  */
     context: PropTypes.string,
+    /** Does the tag has an option button? */
     hasOption: PropTypes.bool,
+    /** Click handler for the root element */
     onClick: PropTypes.func,
+    /** Click handler for the option button element */
     onOptionClick: PropTypes.func,
+    /** Icon name for the option button */
     optionIcon: PropTypes.string,
+    /** Aria label for the option button */
     optionLabel: PropTypes.string,
-    /** sm, xs */
     size: PropTypes.oneOf(['xs', 'sm']),
     style: PropTypes.object,
+    /** Aria label for the option button */
     text: PropTypes.string.isRequired
 };
 

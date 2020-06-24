@@ -1,0 +1,40 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import TextArea from '../../../components/atoms/TextArea';
+
+# TextArea
+
+Textarea inputs are used for inputting large blocks of text into a form. It is recommended that you wrap it with the `<FormGroup>` component.
+
+## Controlled vs Uncontrolled
+This component can be controlled or uncontrolled. This component accepts any prop that you may want to add. The only drawback is that there is not validation for unlisted props. **It is highly recommended that you use controlled components in React.**
+
+*Recommended props*: `value` and `onChange`.
+
+## Controlled example
+```jsx
+state = {
+    textAreaContent: ''
+}
+
+_handleInputChange = ({ target }) => this.setState({ textAreaContent: target.value });
+
+render() {
+    return (
+        <FormGroup>
+            <TextArea
+                placeholder="Enter your content"
+                onChange={ this._handleInputChange }
+                value={ this.state.textAreaContent }
+            />
+        </FormGroup>
+    );
+}
+```
+
+## Component Example
+<Story
+    id="atoms-textarea--default"
+/>
+
+## Props
+<Props of={TextArea} />

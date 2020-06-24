@@ -23,7 +23,6 @@ Checkbox.displayName = 'Checkbox';
 
 Checkbox.propTypes = {
     label: PropTypes.string,
-    /** xs, sm */
     size: PropTypes.oneOf(['xs', 'sm']),
     className: PropTypes.string,
     style: PropTypes.object

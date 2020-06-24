@@ -18,9 +18,7 @@ const TextArea = ({ className, resize, size, placeholder, style, ...otherProps }
 TextArea.displayName = 'TextArea';
 
 TextArea.propTypes = {
-    /** resize-h, resize-v, no-resize */
     resize: PropTypes.oneOf(['resize-h', 'resize-v', 'no-resize']),
-    /** xs, sm, lg */
     size: PropTypes.oneOf(['xs', 'sm', 'lg']),
     placeholder: PropTypes.string,
     className: PropTypes.string,

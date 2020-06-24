@@ -24,7 +24,7 @@ Trend.defaultProps = {
 };
 
 Trend.propTypes = {
-    /** up, same, down */
+    /** One of: `up`, `same`, `down` */
     context: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     unit: PropTypes.string,

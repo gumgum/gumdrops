@@ -157,6 +157,7 @@ class MultiSelect extends Component {
 MultiSelect.displayName = 'MultiSelect';
 
 MultiSelect.propTypes = {
+    /** `Array` of `Objects` */
     options: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string.isRequired,
@@ -172,7 +173,9 @@ MultiSelect.propTypes = {
         })
     ).isRequired,
     callback: PropTypes.func,
+    /** Change handler will be called with the updated list of `option` based on user selection. */
     onChange: PropTypes.func,
+    /** Text that appears before any options are selected */
     placeholder: PropTypes.string,
     size: PropTypes.oneOf(['xs', 'sm', '']),
     className: PropTypes.string

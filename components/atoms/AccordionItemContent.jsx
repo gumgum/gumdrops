@@ -31,7 +31,9 @@ AccordionItemContent.displayName = 'AccordionItemContent';
 AccordionItemContent.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    /** One of: `dark`, `white` */
     context: PropTypes.string,
+    /** One of: `sm` */
     size: PropTypes.string
 };
 
