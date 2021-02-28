@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "lib": ["es2020", "dom"],
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "module": "es2020",
+        "target": "es6",
+        "allowJs": true,
+        "checkJs": false,
+        "noEmit": true,
+        "typeRoots": ["./node_modules/@types"],
+        "baseUrl": "./src"
+    },
+    "exclude": ["build", "dist"]
+}
