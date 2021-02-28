@@ -11,7 +11,13 @@
         "checkJs": false,
         "noEmit": true,
         "typeRoots": ["./node_modules/@types"],
-        "baseUrl": "./src"
+        "baseUrl": "./src",
+        "paths": {
+            "types/*": ["types/*"],
+            "stories/*": ["stories/*"],
+            "hooks/*": ["hooks/*"],
+            "styles/*": ["styles/*"]
+        }
     },
     "exclude": ["build", "dist"]
 }

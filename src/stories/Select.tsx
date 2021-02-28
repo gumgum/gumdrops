@@ -2,16 +2,17 @@ import React, { ChangeEventHandler } from 'react';
 import cx from 'classnames';
 import { Colors, SelectOptions, Sizes } from 'types';
 
-export interface SelectProps {
+export interface SelectPropsInterface extends React.SelectHTMLAttributes<HTMLSelectElement> {
     onChange: (value: unknown) => void;
     options: SelectOptions;
     color?: Colors;
-    size?: Sizes;
     customValue?: string;
     customName?: string;
-    className?: string;
-    disabled?: boolean;
 }
+
+export type SelectProps = Omit<SelectPropsInterface, 'size'> & {
+    size?: Sizes;
+};
 
 const baseClass = 'gds-form-group__select-input';
 

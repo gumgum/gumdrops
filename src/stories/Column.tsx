@@ -2,9 +2,7 @@ import React, { ReactChild, ReactChildren } from 'react';
 
 type ColumnValue = string | number;
 
-export interface ColumnProps {
-    children: ReactChildren | ReactChild;
-    className?: string;
+export interface ColumnProps extends React.HTMLAttributes<Element> {
     xs?: ColumnValue;
     sm?: ColumnValue;
     md?: ColumnValue;

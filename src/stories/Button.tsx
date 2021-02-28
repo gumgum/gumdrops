@@ -2,29 +2,24 @@ import React, { CSSProperties, MouseEventHandler, ReactChild, ReactChildren } fr
 import cx from 'classnames';
 import { Colors, Sizes } from 'types';
 
-export interface ButtonProps {
-    onClick: MouseEventHandler;
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     color?: Colors;
     type?: 'button' | 'submit';
     size?: Sizes;
     isGroup?: boolean;
     isBlock?: boolean;
-    className?: string;
-    style?: CSSProperties;
     disabled?: boolean;
-    children: ReactChildren | ReactChild;
 }
 
 const baseClass = 'gds-button';
 
 export const Button: React.FC<ButtonProps> = ({
     color = 'default',
-    type = 'button',
     size = 'md',
+    type = 'button',
     onClick,
     isGroup,
     isBlock,
-    style,
     children,
     disabled,
     className,
@@ -43,7 +38,6 @@ export const Button: React.FC<ButtonProps> = ({
         <button
             className={rootClass}
             type={type}
-            style={style}
             onClick={onClick}
             disabled={disabled}
             {...otherProps}>

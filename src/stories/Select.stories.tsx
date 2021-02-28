@@ -18,13 +18,13 @@ const Template: Story<SelectProps> = args => <Select {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    color: Colors.primary,
+    color: 'primary',
     options: [{ name: 'first', value: 1 }, { name: 'second', value: 'Second' }, 3]
 };
 
 export const CustomValue = Template.bind({});
 CustomValue.args = {
-    color: Colors.primary,
+    color: 'primary',
     customValue: 'foo',
     options: [
         { name: 'first', value: 1, foo: 'foo1' },
@@ -35,7 +35,7 @@ CustomValue.args = {
 
 export const CustomName = Template.bind({});
 CustomName.args = {
-    color: Colors.primary,
+    color: 'primary',
     customName: 'foo',
     options: [
         { name: 'first', value: 1, foo: 'foo1' },

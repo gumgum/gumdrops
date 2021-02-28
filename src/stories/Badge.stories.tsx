@@ -3,7 +3,6 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Badge, BadgeProps } from './Badge';
-import { Colors } from '../types';
 
 export default {
     title: 'Badge',
@@ -14,18 +13,18 @@ const Template: Story<BadgeProps> = args => <Badge {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    color: Colors.primary,
+    color: 'primary',
     text: 'Primary badge'
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-    color: Colors.warning,
+    color: 'warning',
     text: 'Warning Badge'
 };
 
 export const Empty = Template.bind({});
 Empty.args = {
-    color: Colors.info,
+    color: 'info',
     empty: true
 };

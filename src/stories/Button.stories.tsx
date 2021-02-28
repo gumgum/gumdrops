@@ -3,7 +3,6 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Button, ButtonProps } from './Button';
-import { Colors } from '../types';
 
 export default {
     title: 'Button',
@@ -19,13 +18,13 @@ const Template: Story<ButtonProps> = args => <Button {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
     children: 'Button',
-    color: Colors.primary
+    color: 'primary'
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
     children: 'Button',
-    color: Colors.secondary
+    color: 'secondary'
 };
 
 export const ExtraSmall = Template.bind({});

@@ -3,9 +3,7 @@ import cx from 'classnames';
 
 const baseClass = 'gds-layout__container';
 
-export interface LayoutContainerProps {
-    children: ReactChildren | ReactChild;
-    className?: string;
+export interface LayoutContainerProps extends React.HTMLAttributes<Element> {
     fullWidth?: boolean;
 }
 
@@ -13,14 +11,14 @@ export const LayoutContainer: React.FC<LayoutContainerProps> = ({
     className,
     fullWidth,
     children,
-    ...props
+    ...otherProps
 }) => {
     const rootClass = cx(baseClass, className, {
         [`${baseClass}--full-width`]: fullWidth
     });
 
     return (
-        <div className={rootClass} {...props}>
+        <div className={rootClass} {...otherProps}>
             {children}
         </div>
     );
