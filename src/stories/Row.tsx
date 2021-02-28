@@ -2,7 +2,7 @@ import React, { ReactChild, ReactChildren } from 'react';
 import cx from 'classnames';
 
 export interface RowProps {
-    children: ReactChildren | ReactChild;
+    children?: ReactChildren | ReactChild;
     className?: string;
 }
 

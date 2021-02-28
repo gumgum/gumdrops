@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button calls the given callback on click 1`] = `
+<button
+  class="gds-button gds-button--default gds-button--md"
+  type="button"
+>
+  Test
+</button>
+`;

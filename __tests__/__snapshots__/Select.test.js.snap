@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select changes the count select 1`] = `
+<select
+  class="gds-form-group__select-input"
+>
+  <option
+    value="1"
+  >
+    first
+  </option>
+  <option
+    value="Second"
+  >
+    second
+  </option>
+  <option
+    value="3"
+  >
+    3
+  </option>
+</select>
+`;

@@ -1,13 +1,15 @@
 import React, { ReactChild, ReactChildren } from 'react';
 
+type ColumnValue = string | number;
+
 export interface ColumnProps {
     children: ReactChildren | ReactChild;
     className?: string;
-    xs?: number;
-    sm?: number;
-    md?: number;
-    lg?: number;
-    xl?: number;
+    xs?: ColumnValue;
+    sm?: ColumnValue;
+    md?: ColumnValue;
+    lg?: ColumnValue;
+    xl?: ColumnValue;
 }
 
 export const Column: React.FC<ColumnProps> = ({
