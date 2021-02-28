@@ -24,7 +24,8 @@ export enum Sizes {
     xs = 'xs',
     sm = 'sm',
     md = 'md',
-    lg = 'lg'
+    lg = 'lg',
+    xl = 'xl'
 }
 
 export type SelectOption = { key: string; value: string | number } | unknown;
