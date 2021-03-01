@@ -9,9 +9,7 @@ export default {
     component: NumberCircle
 } as Meta;
 
-const Template: Story<NumberCircleProps> = args => (
-    <NumberCircle {...args}>NumberCircle</NumberCircle>
-);
+const Template: Story<NumberCircleProps> = args => <NumberCircle {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = { text: 123 };
