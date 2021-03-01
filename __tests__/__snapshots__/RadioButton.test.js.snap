@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton calls the given callback on click 1`] = `
+<label
+  class="gds-form-group gds-form-group__radio-label gds-form-group--default"
+>
+  <input
+    class="gds-form-group__radio-input"
+    type="radio"
+  />
+  <span
+    class="gds-form-group__radio-indicator"
+  />
+  My Checkbox
+</label>
+`;
+
+exports[`RadioButton renders a value 1`] = `
+<label
+  class="gds-form-group gds-form-group__radio-label gds-form-group--default"
+>
+  <input
+    checked=""
+    class="gds-form-group__radio-input"
+    type="radio"
+  />
+  <span
+    class="gds-form-group__radio-indicator"
+  />
+  My Checkbox
+</label>
+`;

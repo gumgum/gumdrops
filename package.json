@@ -9,6 +9,8 @@
     "scripts": {
         "start": "npm-run-all storybook",
         "storybook": "start-storybook -p 6006",
+        "lint:staged": "lint-staged",
+        "build": "npm-run-all build-storybook",
         "build-storybook": "build-storybook",
         "test": "is-ci \"test:coverage\" \"test:watch\"",
         "test:coverage": "jest --coverage",
@@ -45,6 +47,9 @@
         "babel-preset-react-app": "^10.0.0",
         "classnames": "^2.2.6",
         "eslint": "^7.21.0",
+        "eslint-config-prettier": "^8.1.0",
+        "eslint-plugin-react": "^7.22.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
         "gg-design-system": "1.4.8",
         "husky": "^5.1.1",
         "identity-obj-proxy": "^3.0.0",

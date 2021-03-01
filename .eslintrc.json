@@ -1,7 +1,7 @@
 {
     "extends": ["eslint:recommended", "plugin:react/recommended"],
     "plugins": ["react", "react-hooks"],
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaVersion": 2020,
         "sourceType": "module",
@@ -58,7 +58,7 @@
             "extends": [
                 "plugin:@typescript-eslint/eslint-recommended",
                 "plugin:@typescript-eslint/recommended",
-                "eslint-config-prettier/@typescript-eslint"
+                "prettier"
             ],
             "rules": {
                 "@typescript-eslint/explicit-function-return-type": ["error"]
@@ -67,11 +67,10 @@
         {
             "files": ["**/__tests__/**"],
             "settings": {
-                "jest" :{
+                "jest": {
                     "jestConfigFile": "./jest.config.js"
                 }
             }
         }
     ]
 }
-

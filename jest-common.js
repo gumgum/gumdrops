@@ -13,7 +13,7 @@ module.exports = {
         '\\.scss$': require.resolve('./style-mock.js'),
         '\\.sass$': require.resolve('./style-mock.js')
     },
-    modulePathIgnorePatterns: [],
+    //modulePathIgnorePatterns: [],
     watchPlugins: [
         'jest-watch-select-projects',
         'jest-watch-typeahead/filename',

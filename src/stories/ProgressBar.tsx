@@ -10,6 +10,8 @@ export interface ProgressBarProps extends React.HTMLAttributes<Element> {
     value: number | string;
 }
 
+const baseClass = 'gds-progress-bar';
+
 export const ProgressBar: React.FC<ProgressBarProps> = ({
     color = 'primary',
     className,
@@ -19,7 +21,6 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     value,
     ...rest
 }) => {
-    const baseClass = 'gds-progress-bar';
     const rootClass = cx(baseClass, className, {
         [`${baseClass}--${size}`]: !!size,
         [`${baseClass}--striped-${color}`]: isStriped,

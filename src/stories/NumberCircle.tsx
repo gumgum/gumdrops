@@ -8,6 +8,8 @@ export interface NumberCircleProps extends React.HTMLAttributes<Element> {
     size?: Sizes;
 }
 
+const baseClass = 'gds-number-circle';
+
 export const NumberCircle: React.FC<NumberCircleProps> = ({
     text,
     color,
@@ -15,8 +17,6 @@ export const NumberCircle: React.FC<NumberCircleProps> = ({
     className,
     ...otherProps
 }) => {
-    const baseClass = 'gds-number-circle';
-
     const rootClass = cx(baseClass, className, {
         [`${baseClass}--${color}`]: color,
         [`${baseClass}--${size}`]: size
