@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Button } from '../src/stories/Button';
 import { ButtonGroup } from '../src/stories/ButtonGroup';
-import { Colors } from '../src/types';
 
 describe('ButtonGroup', () => {
     it('renders', () => {

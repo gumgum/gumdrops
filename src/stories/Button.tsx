@@ -1,4 +1,4 @@
-import React, { CSSProperties, MouseEventHandler, ReactChild, ReactChildren } from 'react';
+import React from 'react';
 import cx from 'classnames';
 import { Colors, Sizes } from 'types';
 
@@ -17,7 +17,6 @@ export const Button: React.FC<ButtonProps> = ({
     color = 'default',
     size = 'md',
     type = 'button',
-    onClick,
     isGroup,
     isBlock,
     children,
@@ -35,12 +34,7 @@ export const Button: React.FC<ButtonProps> = ({
     });
 
     return (
-        <button
-            className={rootClass}
-            type={type}
-            onClick={onClick}
-            disabled={disabled}
-            {...otherProps}>
+        <button className={rootClass} type={type} disabled={disabled} {...otherProps}>
             {children}
         </button>
     );

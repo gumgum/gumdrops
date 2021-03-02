@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import user from '@testing-library/user-event';
-import { RadioButton } from '../src/stories/RadioButton';
+import { RadioButton } from 'src/stories/RadioButton';
 
 describe('RadioButton', () => {
     it('calls the given callback on click', () => {
