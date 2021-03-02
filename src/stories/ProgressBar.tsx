@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import { Colors, Sizes } from 'types';
+import { Sizes } from 'types';
 
 export interface ProgressBarProps extends React.HTMLAttributes<Element> {
     color?: 'primary' | 'secondary';

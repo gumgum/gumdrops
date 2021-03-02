@@ -11,7 +11,7 @@ describe('Tag', () => {
         expect(mockOnClick).toHaveBeenCalledTimes(1);
         expect(container.firstChild).toMatchInlineSnapshot(`
             <div
-              class="gds-tag gds-tag--sm"
+              class="gds-tag"
             >
               My tag
             </div>
@@ -30,12 +30,12 @@ describe('Tag', () => {
         expect(mockOptionOnClick).toHaveBeenCalledTimes(1);
         expect(container.firstChild).toMatchInlineSnapshot(`
             <div
-              class="gds-tag gds-tag--with-button gds-tag--with-button--sm gds-tag--sm"
+              class="gds-tag gds-tag--with-button"
             >
               My tag
               <button
                 aria-label="Remove tag"
-                class="gds-tag__option gds-tag__option--sm"
+                class="gds-tag__option"
               >
                 <i
                   class="btl bt-fw bt-times"

@@ -4,7 +4,7 @@ import { Colors } from 'types';
 
 export interface TagProps extends React.HTMLAttributes<Element> {
     color?: Colors;
-    size?: 'xs' | 'sm';
+    size?: 'xs' | 'sm' | '';
     onOptionClick?: MouseEventHandler;
     hasOption?: boolean;
     optionIcon?: string;
@@ -14,7 +14,7 @@ export interface TagProps extends React.HTMLAttributes<Element> {
 
 export const Tag: React.FC<TagProps> = ({
     color,
-    size = 'sm',
+    size = '',
     className,
     text,
     onOptionClick,
