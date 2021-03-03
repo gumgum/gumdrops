@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreadcrumbMenu renders without option button 1`] = `
+<div
+  aria-expanded="true"
+  aria-haspopup="listbox"
+  class="gds-page-header__breadcrumbs-menu"
+>
+  <button
+    aria-label="Close section menu"
+    class="gds-page-header__breadcrumbs-menu-dots"
+    style="outline: none; padding: 0px;"
+    type="button"
+  />
+  <div
+    class="gds-bubble__menu gds-bubble__menu--left gds-bubble__menu--sm gds-bubble__menu--menu-open"
+  >
+    <ul
+      aria-label="Section Menu"
+      class="gds-bubble__menu-list"
+    >
+      <li
+        class="gds-bubble__menu-list-item -ellipsis"
+      >
+        <div
+          class="gds-bubble__menu-list-link -text-tr-cap"
+          to="/foo/bar"
+        >
+          Bar
+        </div>
+      </li>
+      <li
+        class="gds-bubble__menu-list-item -ellipsis"
+      >
+        <div
+          class="gds-bubble__menu-list-link -text-tr-cap"
+          to="/foo/baz"
+        >
+          baz
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
