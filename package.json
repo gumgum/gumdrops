@@ -5,7 +5,7 @@
     "license": "MIT",
     "files": [
         "dist",
-        "stories"
+        "src"
     ],
     "scripts": {
         "start": "npm-run-all storybook",
