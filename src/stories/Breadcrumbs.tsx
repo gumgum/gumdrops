@@ -6,7 +6,7 @@ import { BreadcrumbsWrapper } from './BreadcrumbsWrapper';
 
 export interface BreadcrumbsProps extends React.HTMLAttributes<Element> {
     linkComponent?: LinkComponent;
-    config?: BreadCrumb;
+    config?: BreadCrumb | BreadCrumb[];
     pathname: string;
     titleDecorator?: (title: string) => string;
     hideMenus?: boolean;
@@ -100,7 +100,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
         return breadcrumbs;
     };
 
-    const breadcrumbs = _findTrail(pathname, config);
+    const breadcrumbs = Array.isArray(config) ? config : _findTrail(pathname, config);
     const displayBreadcrumbs =
         hideRoot && breadcrumbs.length > 1 ? breadcrumbs.slice(1) : breadcrumbs;
     return (

@@ -40,6 +40,21 @@ const defaultProps = {
     hideRoot: false
 };
 
+const arrayConfig = [
+    {
+        title: 'Home',
+        path: '/'
+    },
+    {
+        title: 'Folder',
+        path: '/folder'
+    },
+    {
+        title: 'File',
+        path: '/folder/file'
+    }
+];
+
 describe('Breadcrumbs', () => {
     it('renders', () => {
         const { container } = render(<Breadcrumbs {...defaultProps} />);
@@ -61,5 +76,13 @@ describe('Breadcrumbs', () => {
         user.click(screen.getByRole('button', { name: 'Close Main Category menu' }));
         expect(screen.queryByText('Sub Category 1')).toBe(null);
         expect(screen.queryByText('Sub Category 3')).toBe(null);
+    });
+
+    it('renders an array config explicitly', () => {
+        render(<Breadcrumbs config={arrayConfig} pathname="/folder/file" />);
+        const items = screen.getAllByRole('listitem');
+        expect(within(items[0]).getByText('Home')).toHaveAttribute('href', '/');
+        expect(within(items[1]).getByText('Folder')).toHaveAttribute('href', '/folder');
+        expect(within(items[2]).getByText('File')).not.toHaveAttribute('href');
     });
 });

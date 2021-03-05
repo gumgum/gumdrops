@@ -10,7 +10,7 @@ export default {
     component: Breadcrumbs
 } as Meta;
 
-const printCode = (code: BreadCrumb): string =>
+const printCode = (code: BreadCrumb | BreadCrumb[]): string =>
     code ? '\n' + JSON.stringify(code, null, 4) + '\n\n' : '';
 
 const Template: Story<BreadcrumbsProps> = args => (
@@ -22,7 +22,7 @@ const Template: Story<BreadcrumbsProps> = args => (
         </header>
         <pre className="-m-t-6">
             Config:
-            {printCode(configA)}
+            {printCode(args.config)}
         </pre>
     </div>
 );
@@ -172,4 +172,25 @@ NoConfig.argTypes = {
 };
 NoConfig.args = {
     pathname: '/home'
+};
+
+const directArrayConfig = [
+    {
+        title: 'Home',
+        path: '/'
+    },
+    {
+        title: 'Folder',
+        path: '/folder'
+    },
+    {
+        title: 'File',
+        path: '/folder/file'
+    }
+];
+
+export const DirectArrayConfig = Template.bind({});
+DirectArrayConfig.args = {
+    pathname: '/folder/file',
+    config: directArrayConfig
 };
