@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { LiHTMLAttributes, ReactChild } from 'react';
 import cx from 'classnames';
 
 import { BreadcrumbMenu } from './BreadcrumbMenu';
@@ -9,14 +9,15 @@ const filterMenu = (pathname: string) => ({ path }): boolean =>
     path.charAt(0) !== ':' && !pathname.includes(path);
 
 export interface BreadCrumb {
-    title?: string;
+    title?: ReactChild;
+    label?: string;
     path: string;
     subpaths?: BreadCrumb[];
 }
 
 export type LinkComponent = React.FunctionComponent<{ to: string; className: string }>;
 
-export interface BreadcrumbProps extends BreadCrumb, React.HTMLAttributes<HTMLOListElement> {
+export interface BreadcrumbProps extends BreadCrumb, Omit<LiHTMLAttributes<Element>, 'title'> {
     linkComponent?: LinkComponent;
     pathname: string;
     isLast?: boolean;
@@ -26,12 +27,14 @@ export interface BreadcrumbProps extends BreadCrumb, React.HTMLAttributes<HTMLOL
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({
     linkComponent: LinkComponent,
     title,
+    label,
     path,
     subpaths,
     pathname,
     hideMenus,
     isLast,
-    className
+    className,
+    ...otherProps
 }) => {
     const hasSubpaths = !hideMenus && subpaths && subpaths.length;
     const menu = hasSubpaths && subpaths.filter(filterMenu(pathname));
@@ -39,16 +42,18 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
     const rootClass = cx(baseClass, className, {
         [`${baseClass}--has-menu`]: hasMenu
     });
-    const displayTitle = title || path;
+    const displayTitle = title || label || path;
+    const fallbackLabel = typeof title === 'string' ? (title as string) : path;
+    const displayLabel = label || fallbackLabel;
 
     return (
-        <li className={rootClass} aria-label={displayTitle}>
+        <li className={rootClass} {...otherProps} aria-label={displayLabel}>
             {hasMenu && (
                 <BreadcrumbMenu
                     linkComponent={LinkComponent}
                     menu={menu}
                     path={path}
-                    sectionTitle={displayTitle}
+                    sectionTitle={displayLabel}
                 />
             )}
             {isLast ? (

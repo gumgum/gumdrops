@@ -41,12 +41,14 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
     const _findTrail = (pathname: string, config: BreadCrumb): BreadCrumb[] => {
         const initialBreadcrumb: BreadCrumb = {
             title: config.title || '/',
-            path: config.path?.charAt(0) === '/' ? config.path : `/${config.path || ''}`
+            path: config.path?.charAt(0) === '/' ? config.path : `/${config.path || ''}`,
+            label: config.label
         };
 
         const breadcrumbConfig: BreadCrumb = {
             title: config.title || '/',
-            path: config.path || '/'
+            path: config.path || '/',
+            label: config.label
         };
 
         // Set initial data if necessary
@@ -73,11 +75,20 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                     const breadcrumbTitle = breadcrumbData.title || _getParamTitle(pathSection);
                     // Build full path for link
                     const currentPath = _buildHref(trail, breadcrumbPath);
-                    trail.push({
+
+                    const fallbackLabel =
+                        typeof breadcrumbTitle === 'string'
+                            ? (breadcrumbData.title as string)
+                            : currentPath;
+                    const label = breadcrumbData.label;
+
+                    const bc = {
                         ...breadcrumbData,
                         path: currentPath,
-                        title: breadcrumbTitle
-                    });
+                        title: breadcrumbTitle,
+                        label: label || fallbackLabel
+                    };
+                    trail.push(bc);
                 }
                 const trailContinues = trail.length < maxLength;
                 // Go deeper if there are subpaths
@@ -105,12 +116,13 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
         hideRoot && breadcrumbs.length > 1 ? breadcrumbs.slice(1) : breadcrumbs;
     return (
         <BreadcrumbsWrapper {...otherProps}>
-            {displayBreadcrumbs.map(({ title, path, subpaths }, index, arr) => (
+            {displayBreadcrumbs.map(({ title, label, path, subpaths }, index, arr) => (
                 <Breadcrumb
                     key={path}
                     hideMenus={hideMenus}
                     linkComponent={linkComponent}
                     title={title}
+                    label={label}
                     path={path}
                     subpaths={subpaths}
                     pathname={pathname}

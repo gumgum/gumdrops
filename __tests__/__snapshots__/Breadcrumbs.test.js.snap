@@ -27,7 +27,10 @@ exports[`Breadcrumbs renders 1`] = `
         class="gds-page-header__breadcrumbs-link"
         href="/home"
       >
-        Home
+        <i
+          class="fa fa-home"
+        />
+         Home
       </a>
     </li>
     <li

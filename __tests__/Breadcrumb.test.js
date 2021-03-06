@@ -27,6 +27,14 @@ describe('Breadcrumb', () => {
             />
         );
         expect(screen.getByText('Baz')).not.toHaveAttribute('to', '/foo/baz');
-        expect(container.firstChild).toMatchSnapshot();
+        expect(container.firstChild).toMatchInlineSnapshot(`
+            <li
+              aria-label="Baz"
+              class="gds-page-header__breadcrumbs-list-item"
+              menu="[object Object]"
+            >
+              Baz
+            </li>
+        `);
     });
 });

@@ -11,7 +11,12 @@ const defaultProps = {
         path: '/',
         subpaths: [
             {
-                title: 'Home',
+                title: (
+                    <>
+                        <i className="fa fa-home" /> Home
+                    </>
+                ),
+                label: 'Home',
                 path: 'home',
                 subpaths: [
                     {
@@ -56,8 +61,13 @@ const arrayConfig = [
 ];
 
 describe('Breadcrumbs', () => {
-    it('renders', () => {
-        const { container } = render(<Breadcrumbs {...defaultProps} />);
+    it('renders', async () => {
+        const { container } = render(
+            <>
+                <Breadcrumbs {...defaultProps} />
+                <p>Outside</p>
+            </>
+        );
         screen.getByRole('navigation', { name: 'Breadcrumbs' });
         const items = screen.getAllByRole('listitem');
         expect(within(items[0]).getByText('Start')).toHaveAttribute('href', '/');
@@ -76,6 +86,10 @@ describe('Breadcrumbs', () => {
         user.click(screen.getByRole('button', { name: 'Close Main Category menu' }));
         expect(screen.queryByText('Sub Category 1')).toBe(null);
         expect(screen.queryByText('Sub Category 3')).toBe(null);
+        user.click(screen.getByRole('button', { name: 'Open Main Category menu' }));
+        screen.getByText('Sub Category 1');
+        user.click(screen.getByText('Outside'));
+        expect(screen.getAllByRole('listitem').length).toBe(4);
     });
 
     it('renders an array config explicitly', () => {

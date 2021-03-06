@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import cx from 'classnames';
 import { BreadCrumb, LinkComponent } from './Breadcrumb';
+import { useHandleClickOutside } from 'hooks/useHandleClickOutside';
 
 export interface BreadcrumbMenuProps extends React.HTMLAttributes<Element> {
     path: string;
@@ -19,8 +20,12 @@ export const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({
     ...otherProps
 }) => {
     const [showMenu, setShowMenu] = useState(false);
+    const containerRef = useRef(null);
 
+    const closeMenu = (): void => setShowMenu(false);
     const toggleMenu = (): void => setShowMenu(currentValue => !currentValue);
+
+    useHandleClickOutside(containerRef, closeMenu);
 
     const menuClass = cx('gds-bubble__menu', 'gds-bubble__menu--left', 'gds-bubble__menu--sm', {
         'gds-bubble__menu--menu-open': showMenu
@@ -28,6 +33,7 @@ export const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({
 
     return (
         <div
+            ref={containerRef}
             onClick={toggleMenu}
             className="gds-page-header__breadcrumbs-menu"
             aria-haspopup="listbox"
@@ -42,12 +48,12 @@ export const BreadcrumbMenu: React.FC<BreadcrumbMenuProps> = ({
             {showMenu && (
                 <div className={menuClass}>
                     <ul className="gds-bubble__menu-list" aria-label="Section Menu">
-                        {menu.map(({ title, path }) => (
+                        {menu.map(({ title, label, path }) => (
                             <li key={path} className="gds-bubble__menu-list-item -ellipsis">
                                 <LinkComponent
                                     className="gds-bubble__menu-list-link -text-tr-cap"
                                     to={`${parentPath}/${path}`}>
-                                    {title || path}
+                                    {title || label || path}
                                 </LinkComponent>
                             </li>
                         ))}

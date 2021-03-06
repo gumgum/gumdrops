@@ -13,17 +13,24 @@ The `<Breadcrumbs>` component creates navigation links for the current pathname 
 
 The configuration is simply an object that represents the app's routes:
 
-| property | description                                                                                                                                     | required |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| title    | String to display in breadcrumbs and submenus Defaults to capitalized slug.                                                                     | false    |
-| path     | Path value on the URL. Prepend with ":" to treat pathname value as parameters (ie /posts/:id). **Only one parameter is allowed for each level** | true     |
-| subpaths | Optional Array containing objects of the same shape (title, path, subpaths)                                                                     | false    |
+| property  | description                                                                                                                                     | required |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| title?    | Component or string to display in breadcrumbs and submenus Defaults to capitalized slug.                                                        | false    |
+| label?    | String for aria-labels when title is a a component. Leave undefined for string titles. Defaults to string title or slug.                        | false    |
+| path      | Path value on the URL. Prepend with ":" to treat pathname value as parameters (ie /posts/:id). **Only one parameter is allowed for each level** | true     |
+| subpaths? | Optional Array containing objects of the same shape (title, path, subpaths)                                                                     | false    |
 
 ### Configuration Example
 
 ```jsx
 const routes = {
-    title: 'Home', // Root title
+    // Root title
+    title: (
+        <>
+            <i className="fa fa-home" /> Home
+        </>
+    ),
+    label: 'Home', // Label for aria-labels since the title is a component. Leave undefined when using string titles.
     path: 'home', // Root path is optional, defaults to '/'
     subpaths: [
         // Children paths

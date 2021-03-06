@@ -28,7 +28,12 @@ const Template: Story<BreadcrumbsProps> = args => (
 );
 
 const configA = {
-    title: 'Home',
+    title: (
+        <>
+            <i className="fa fa-home" /> Home
+        </>
+    ),
+    label: 'Home',
     path: 'home',
     subpaths: [
         {
@@ -40,7 +45,12 @@ const configA = {
                     path: 'subcategory-1'
                 },
                 {
-                    title: 'Sub Category 2',
+                    title: (
+                        <>
+                            <i className="fa fa-car" /> Sub Categoery 2
+                        </>
+                    ),
+                    label: 'Sub Category 2',
                     path: 'subcategory-2'
                 },
                 {
