@@ -1,7 +1,5 @@
 import React, { MouseEvent, KeyboardEvent, useState } from 'react';
 import cx from 'classnames';
-//import generateUID from '../utils/generateUID';
-//import charCodes from '../../constants/charCodes';
 import { AccordionItemProps } from './Accordion';
 import { keyCodes } from 'types';
 
