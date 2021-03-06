@@ -22,3 +22,8 @@ export type Colors =
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type SelectOptions = Array<{ key: string; value: string | number } | unknown>;
+
+export enum keyCodes {
+    space = 'Space',
+    enter = 'Enter'
+}

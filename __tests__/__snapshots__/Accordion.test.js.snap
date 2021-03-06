@@ -1,0 +1,751 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion renders 1`] = `
+<div
+  class="gds-accordion"
+>
+  <ul
+    class="gds-accordion-list"
+  >
+    <li
+      aria-controls="AccordionItem-region-I'm locked and open"
+      aria-expanded="true"
+      aria-pressed="true"
+      class="gds-accordion__item gds-accordion__item--active"
+      role="button"
+      tabindex="-1"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-I'm locked and open"
+      >
+        I'm locked and open
+      </h4>
+      <ul
+        aria-hidden="false"
+        aria-labelledby="AccordionItem-label-I'm locked and open"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-I'm locked and open"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Locked Content
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 1"
+      class="gds-accordion__item"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 1"
+      >
+        Item 1
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="true"
+        aria-labelledby="AccordionItem-label-Item 1"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 1"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 1
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 2"
+      class="gds-accordion__item"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 2"
+      >
+        Item 2
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="true"
+        aria-labelledby="AccordionItem-label-Item 2"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 2"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 2
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 3"
+      class="gds-accordion__item"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 3"
+      >
+        Item 3
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="true"
+        aria-labelledby="AccordionItem-label-Item 3"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 3"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 3
+          </h4>
+        </li>
+        <div
+          class="gds-accordion"
+        >
+          <ul
+            class="gds-accordion-list"
+          >
+            <li
+              aria-controls="AccordionItem-region-Nested Item"
+              class="gds-accordion__item"
+              role="button"
+              tabindex="0"
+            >
+              <h4
+                class="gds-accordion__item-title"
+                id="AccordionItem-label-Nested Item"
+              >
+                Nested Item
+              </h4>
+              <span
+                class="gds-accordion__item-icon"
+              />
+              <ul
+                aria-hidden="true"
+                aria-labelledby="AccordionItem-label-Nested Item"
+                class="gds-accordion__child-items"
+                id="AccordionItem-region-Nested Item"
+                role="region"
+              >
+                <li
+                  class="gds-accordion__child-item"
+                >
+                  <h4
+                    class="gds-accordion__child-item-title"
+                  >
+                    Nested Content
+                  </h4>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Accordion renders 2`] = `
+<div
+  class="gds-accordion"
+>
+  <ul
+    class="gds-accordion-list"
+  >
+    <li
+      aria-controls="AccordionItem-region-I'm locked and open"
+      aria-expanded="true"
+      aria-pressed="true"
+      class="gds-accordion__item gds-accordion__item--active"
+      role="button"
+      tabindex="-1"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-I'm locked and open"
+      >
+        I'm locked and open
+      </h4>
+      <ul
+        aria-hidden="false"
+        aria-labelledby="AccordionItem-label-I'm locked and open"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-I'm locked and open"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Locked Content
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 1"
+      aria-expanded="true"
+      aria-pressed="true"
+      class="gds-accordion__item gds-accordion__item--active"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 1"
+      >
+        Item 1
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="false"
+        aria-labelledby="AccordionItem-label-Item 1"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 1"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 1
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 2"
+      aria-expanded="true"
+      aria-pressed="true"
+      class="gds-accordion__item gds-accordion__item--active"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 2"
+      >
+        Item 2
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="false"
+        aria-labelledby="AccordionItem-label-Item 2"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 2"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 2
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 3"
+      aria-expanded="true"
+      aria-pressed="true"
+      class="gds-accordion__item gds-accordion__item--active"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 3"
+      >
+        Item 3
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="false"
+        aria-labelledby="AccordionItem-label-Item 3"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 3"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 3
+          </h4>
+        </li>
+        <div
+          class="gds-accordion"
+        >
+          <ul
+            class="gds-accordion-list"
+          >
+            <li
+              aria-controls="AccordionItem-region-Nested Item"
+              class="gds-accordion__item"
+              role="button"
+              tabindex="0"
+            >
+              <h4
+                class="gds-accordion__item-title"
+                id="AccordionItem-label-Nested Item"
+              >
+                Nested Item
+              </h4>
+              <span
+                class="gds-accordion__item-icon"
+              />
+              <ul
+                aria-hidden="true"
+                aria-labelledby="AccordionItem-label-Nested Item"
+                class="gds-accordion__child-items"
+                id="AccordionItem-region-Nested Item"
+                role="region"
+              >
+                <li
+                  class="gds-accordion__child-item"
+                >
+                  <h4
+                    class="gds-accordion__child-item-title"
+                  >
+                    Nested Content
+                  </h4>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Accordion renders 3`] = `
+<div
+  class="gds-accordion"
+>
+  <ul
+    class="gds-accordion-list"
+  >
+    <li
+      aria-controls="AccordionItem-region-I'm locked and open"
+      aria-expanded="true"
+      aria-pressed="true"
+      class="gds-accordion__item gds-accordion__item--active"
+      role="button"
+      tabindex="-1"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-I'm locked and open"
+      >
+        I'm locked and open
+      </h4>
+      <ul
+        aria-hidden="false"
+        aria-labelledby="AccordionItem-label-I'm locked and open"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-I'm locked and open"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Locked Content
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 1"
+      aria-expanded="false"
+      aria-pressed="false"
+      class="gds-accordion__item"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 1"
+      >
+        Item 1
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="true"
+        aria-labelledby="AccordionItem-label-Item 1"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 1"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 1
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 2"
+      aria-expanded="false"
+      aria-pressed="false"
+      class="gds-accordion__item"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 2"
+      >
+        Item 2
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="true"
+        aria-labelledby="AccordionItem-label-Item 2"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 2"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 2
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 3"
+      aria-expanded="false"
+      aria-pressed="false"
+      class="gds-accordion__item"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 3"
+      >
+        Item 3
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="true"
+        aria-labelledby="AccordionItem-label-Item 3"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 3"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 3
+          </h4>
+        </li>
+        <div
+          class="gds-accordion"
+        >
+          <ul
+            class="gds-accordion-list"
+          >
+            <li
+              aria-controls="AccordionItem-region-Nested Item"
+              class="gds-accordion__item"
+              role="button"
+              tabindex="0"
+            >
+              <h4
+                class="gds-accordion__item-title"
+                id="AccordionItem-label-Nested Item"
+              >
+                Nested Item
+              </h4>
+              <span
+                class="gds-accordion__item-icon"
+              />
+              <ul
+                aria-hidden="true"
+                aria-labelledby="AccordionItem-label-Nested Item"
+                class="gds-accordion__child-items"
+                id="AccordionItem-region-Nested Item"
+                role="region"
+              >
+                <li
+                  class="gds-accordion__child-item"
+                >
+                  <h4
+                    class="gds-accordion__child-item-title"
+                  >
+                    Nested Content
+                  </h4>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Accordion renders 4`] = `
+<div
+  class="gds-accordion"
+>
+  <ul
+    class="gds-accordion-list"
+  >
+    <li
+      aria-controls="AccordionItem-region-I'm locked and open"
+      aria-expanded="true"
+      aria-pressed="true"
+      class="gds-accordion__item gds-accordion__item--active"
+      role="button"
+      tabindex="-1"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-I'm locked and open"
+      >
+        I'm locked and open
+      </h4>
+      <ul
+        aria-hidden="false"
+        aria-labelledby="AccordionItem-label-I'm locked and open"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-I'm locked and open"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Locked Content
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 1"
+      aria-expanded="false"
+      aria-pressed="false"
+      class="gds-accordion__item"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 1"
+      >
+        Item 1
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="true"
+        aria-labelledby="AccordionItem-label-Item 1"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 1"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 1
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 2"
+      aria-expanded="true"
+      aria-pressed="true"
+      class="gds-accordion__item gds-accordion__item--active"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 2"
+      >
+        Item 2
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="false"
+        aria-labelledby="AccordionItem-label-Item 2"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 2"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 2
+          </h4>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-controls="AccordionItem-region-Item 3"
+      aria-expanded="false"
+      aria-pressed="false"
+      class="gds-accordion__item"
+      role="button"
+      tabindex="0"
+    >
+      <h4
+        class="gds-accordion__item-title"
+        id="AccordionItem-label-Item 3"
+      >
+        Item 3
+      </h4>
+      <span
+        class="gds-accordion__item-icon"
+      />
+      <ul
+        aria-hidden="true"
+        aria-labelledby="AccordionItem-label-Item 3"
+        class="gds-accordion__child-items"
+        id="AccordionItem-region-Item 3"
+        role="region"
+      >
+        <li
+          class="gds-accordion__child-item"
+        >
+          <h4
+            class="gds-accordion__child-item-title"
+          >
+            Content 3
+          </h4>
+        </li>
+        <div
+          class="gds-accordion"
+        >
+          <ul
+            class="gds-accordion-list"
+          >
+            <li
+              aria-controls="AccordionItem-region-Nested Item"
+              class="gds-accordion__item"
+              role="button"
+              tabindex="0"
+            >
+              <h4
+                class="gds-accordion__item-title"
+                id="AccordionItem-label-Nested Item"
+              >
+                Nested Item
+              </h4>
+              <span
+                class="gds-accordion__item-icon"
+              />
+              <ul
+                aria-hidden="true"
+                aria-labelledby="AccordionItem-label-Nested Item"
+                class="gds-accordion__child-items"
+                id="AccordionItem-region-Nested Item"
+                role="region"
+              >
+                <li
+                  class="gds-accordion__child-item"
+                >
+                  <h4
+                    class="gds-accordion__child-item-title"
+                  >
+                    Nested Content
+                  </h4>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;
