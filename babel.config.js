@@ -18,11 +18,11 @@ module.exports = function (api) {
         ],
         env: {
             test: {
-                targets: { node: 'current' },
                 presets: [
                     [
                         '@babel/preset-env',
                         {
+                            targets: { node: 'current' },
                             modules: 'commonjs'
                         }
                     ]
