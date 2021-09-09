@@ -11,8 +11,7 @@ Create an override Sass file and import before the main theme and main files in 
 
 ```scss
 @import './theme-overrides'; // import theme
-@import '~gg-design-system/scss/themes/theme-blue';
-@import '~gg-design-system/scss/themes/main';
+import '~gumgum-design/styles/scss/index';
 ```
 
 In the override file, new values can be set for different levels of overrides
@@ -33,8 +32,7 @@ To create a new class that extends current classes, create the custom Sass file 
 
 ```scss
 @import './theme-overrides';
-@import '~gg-design-system/scss/themes/theme-blue';
-@import '~gg-design-system/scss/themes/main';
+import '~gumgum-design/styles/scss/index';
 @import './custom-text'; // import custom class file
 ```
 
