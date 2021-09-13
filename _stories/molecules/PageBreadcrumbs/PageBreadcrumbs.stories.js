@@ -13,9 +13,7 @@ const optionsA = {
     '/home/category/subcategory-2': '/home/category/subcategory-2',
     '/home/category/subcategory-3': '/home/category/subcategory-3',
     '/home/products/42': '/home/products/42',
-    '/home/products/42/edit': '/home/products/42/edit',
-    '/home/products/stringId': '/home/products/stringId',
-    '/home/products/stringId/edit': '/home/products/stringId/edit'
+    '/home/products/42/edit': '/home/products/42/edit'
 };
 
 const optionsB = {
