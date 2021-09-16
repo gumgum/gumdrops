@@ -1,0 +1,60 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import PageBreadcrumbsWrapper from '../../../components/molecules/PageBreadcrumbsWrapper';
+
+# PagesBreadcrumbsWrapper
+**NOTE**: This is a newer component of GG previous breadcrumbs. These breadcrumbs are designed to be used at the page level and not in header. These are new classnames as well.
+
+**See the `<PageBreadcrumbs/>` component for an opinionated plug and play version**
+
+The `<PageBreadcrumbsWrapper>` component helps when you need more customization than what the `<Breadcrumbs/>` component provides, use it together with the `<Breadcrumb>` component to get the desired styles or pass your own.
+
+## Full Example
+Create a custom array of breadcrumbs and pass it to the component:
+
+```jsx
+class Header extends Component {
+    state = {
+        breadcrumbs: [
+            {
+                title: 'Home',
+                to: '/'
+            },
+            {
+                title: 'Publishers',
+                to: '/publishers'
+            },
+            {
+                title: 'Some Publisher',
+                to: '/publishers/123'
+            },
+            {
+                title: 'Random Page',
+                to: '/random-route/123'
+            }
+        ]
+    };
+
+    render() {
+        const { breadcrumbs } = this.state;
+
+        return (
+            <div>
+                <PageBreadcrumbsWrapper>
+                    {breadcrumbs.map(({ title, to }, index) => (
+                        <PageBreadcrumb
+                            key={to}
+                            linkComponent={Link}
+                            title={title}
+                            path={to}
+                            isLast={index === breadcrumbs.length - 1}
+                        />
+                    ))}
+                </PageBreadcrumbsWrapper>
+            </div>
+        );
+    }
+}
+```
+
+## Props
+<Props of={PageBreadcrumbsWrapper} />
