@@ -1,0 +1,95 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import PageBreadcrumbs from '../../../components/molecules/PageBreadcrumbs';
+
+# PageBreadcrumbs
+
+**NOTE**: This is a newer component of GG previous breadcrumbs. These breadcrumbs are designed to be used at the page level and not in header. These are new classnames as well.
+
+The `<PageBreadcrumbs>` component creates navigation links for the current pathname based on an opinionated configuration object. The idea behind this component is to drop it anywhere with minimal or no configuration and get breadcrumbs generated automatically. The only required prop is a pathname, but a config object is also accepted for fine tuning. The library also has a `<PageBreadcrumbsWrapper>` component if you need to customize the implementation yourself.
+
+
+
+## Configuration
+
+The configuration is simply an object that represents the app's routes:
+
+| property | description                                                                                                                                     | required |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| title    | String to display in breadcrumbs and submenus Defaults to capitalized slug.                                                                     | false    |
+| path     | Path value on the URL. Prepend with ":" to treat pathname value as parameters (ie /posts/:id). **Only one parameter is allowed for each level** | true     |
+
+### Configuration Example
+
+```jsx
+const routes = {
+    title: 'Home', // Root title
+    path: 'home', // Root path is optional, defaults to '/'
+    subpaths: [ // Children paths
+        {
+            title: 'Main Category', // Children Title
+            path: 'category', // Children
+            subpaths: [
+                { // Each subpath group can specify one parameter
+                    path: ':categoryId'
+                },
+                { // Or multiple specific paths
+                    title: 'Sub Category 1', // Grand children title
+                    path: 'subcategory-1' //Grand children path
+                },
+                {
+                    title: 'Sub Category 2',
+                    path: 'subcategory-2'
+                },
+                {
+                    title: 'Sub Category 3',
+                    path: 'subcategory-3'
+                },
+            ]
+        },
+        {
+            path: 'products', // The title will default to "Products"
+            subpaths: [
+                {
+                    path: ':id', // The value will be treated as a parameter, the title is optional
+                    subpaths: [ // Add as many subpaths as you need!
+                        {
+                            path: 'edit'
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+## Usage Examples
+
+
+### Passing a configuration object, custom component and hiding submenus:
+
+```jsx
+const CustomLink = (props) => (
+    <a href={props.to} >
+        {props.children}
+    </a>
+);
+
+render() {
+    const pathname = '/products/12/edit';
+    return (
+        <div>
+            <PageBreadcrumbs
+                pathname={pathname}
+                config={routes}
+                linkComponent={CustomLink}
+                hideMenus />
+        </div>
+
+    );
+}
+```
+
+
+## Props
+<Props of={PageBreadcrumbs} />

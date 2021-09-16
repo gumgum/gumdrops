@@ -11,22 +11,14 @@ The current and previous versions can be found in [CHANGELOG.md](https://github.
 ### Design System
 There are two ways to use GumGum's Design System:
 
-#### 1. Link to CSS
+#### 1. NPM package (preferred)
 
-Include one of the available CSS theme files in the `<head>` of your HTML document:
+Add [gumgum-design](https://www.npmjs.com/package/gumgum-design) and [sass](https://www.npmjs.com/package/sass) to your project:
 
-```html
-<link rel="stylesheet" href="https://assets.ggops.com/stable/theme-blue.css">
-```
-
-[See the Design System documentation](https://ds.gumgum.com/stable/md/docs/index.html) for themes, CSS utilities and more.
-
-#### 2. NPM package
-
-Add [gg-design-system](https://www.npmjs.com/package/gg-design-system) and [node-sass](https://www.npmjs.com/package/node-sass) to your project:
+Note: [node-sass](https://www.npmjs.com/package/node-sass) has been deprecated.
 
 ```
-yarn add gg-design-system node-sass
+yarn add gumgum-design sass
 ```
 
 Create and import your main Sass file in main App component:
@@ -47,9 +39,21 @@ export default App;
 In main.scss, import the theme first to declare all color variables:
 
 ```scss
-@import '~gg-design-system/scss/themes/theme-X'; // X - theme color
-@import '~gg-design-system/scss/themes/main';
+import '~gumgum-design/styles/scss/index';
 ```
 
 The theme file contains variables for every color used in Design System, along with 5 shades darker and lighter of each color.
 The prime slots defines theme-specific colors, while the component slots defines component-specific colors.
+
+
+#### 2. Link to CSS
+
+Include one of the available CSS theme files in the `<head>` of your HTML document:
+
+Note: This links to old Design System and will no longer receive updates.
+
+```html
+<link rel="stylesheet" href="https://assets.ggops.com/stable/theme-blue.css">
+```
+
+[See the Design System documentation](https://ds.gumgum.com/stable/md/docs/index.html) for themes, CSS utilities and more.
