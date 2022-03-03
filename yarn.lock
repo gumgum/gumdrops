@@ -6871,10 +6871,10 @@ gud@^1.0.0:
   resolved "https://registry.yarnpkg.com/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
   integrity sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==
 
-gumgum-design@^1.9.20:
-  version "1.9.20"
-  resolved "https://registry.yarnpkg.com/gumgum-design/-/gumgum-design-1.9.20.tgz#93754047117b46fce6b5e113e7febbad1756fa87"
-  integrity sha512-16EtcxXlElRGAIYJwaNn7+rUVIkGzwizlE04yqjneMoCohZemjVlMbsGHIGxCTUiBMYGc2CoeWNiMW08M3zRBQ==
+gumgum-design@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/gumgum-design/-/gumgum-design-2.0.4.tgz#c921194f699ab1eaf4bb4f00beee95b78008c70f"
+  integrity sha512-tFlsQXEHkfkKhcripW1u84G/rZ85OEagPK9eartRa+R9r0GssMy+TY4Ldas9cZfdKK9j8kCY9q+RaCVUQ7aiiw==
   dependencies:
     "@fontsource/public-sans" "^4.5.0"
     "@fortawesome/fontawesome-free" "^5.15.4"
