@@ -11,6 +11,7 @@ module.exports = {
             }
         },
         '@storybook/addon-options/register',
-        '@storybook/addon-actions/register'
+        '@storybook/addon-actions/register',
+        '@storybook/addon-postcss'
     ]
 };
