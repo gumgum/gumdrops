@@ -81,7 +81,7 @@
         "enzyme-to-json": "^3.3.1",
         "eslint": "^5.8.0",
         "eslint-plugin-react": "^7.11.1",
-        "gumgum-design": "^1.9.20",
+        "gumgum-design": "2.0.12",
         "jest": "^24.1.0",
         "jest-cli": "^24.1.0",
         "prettier": "1.10.2",

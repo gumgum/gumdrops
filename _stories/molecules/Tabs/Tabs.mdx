@@ -1,0 +1,40 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import Tabs from '../../../components/molecules/Tabs';
+
+# Tabs
+
+`<Tabs>` is as a header that allows to update the content of a page based on the selected option.
+
+By default, `<Link>` from `react-router-dom` are used to navigate to the selected path (composed of topPath + option's path).
+Meaning it has to be used within a `<Router>` context if you are using this default option.
+
+To bypass that and use instead a variable in your component, pass a function to `onClick` to know when to update the value.
+```
+<Tabs
+    location={currentTab}
+    options={tabOptions}
+    onClick(path => doSomething(path))
+/>
+```
+
+A tab is active when the `location` endsWith a tab's `path`. To override this, use `isTabActive`
+```
+<Tabs
+    topPath="/top"
+    location={currentLocation} // currentLocation = "/top/tab-2/abc?someVar=123"
+    options={[
+        { name: 'Tab 1', path: '/tab-1'},
+        { name: 'Tab 2', path: '/tab-2'}
+    ]}
+    isTabActive={path => currentLocation.includes(path)}
+/>
+```
+
+
+## Component Example
+<Story
+    id="molecules-tabs--default"
+/>
+
+## Props
+<Props of={Tabs} />
