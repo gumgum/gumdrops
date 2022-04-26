@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
-const Tabs = ({ options, topPath, location, className, onClick, isTabActive }) => (
+const Tabs = ({ options, location, className, onClick, isTabActive }) => (
     <nav>
         <ul className={cx('gds-nav-tabs', className)}>
             {options.map(({ name, path }) => (
@@ -14,15 +13,9 @@ const Tabs = ({ options, topPath, location, className, onClick, isTabActive }) =
                             ? isTabActive(path)
                             : location.endsWith(path),
                     })}>
-                    {onClick ? (
-                        <div onClick={() => onClick(path)} className="gds-nav-tabs__link">
-                            {name}
-                        </div>
-                    ) : (
-                        <Link to={topPath + path} className="gds-nav-tabs__link">
-                            {name}
-                        </Link>
-                    )}
+                    <div onClick={() => onClick(path)} className="gds-nav-tabs__link">
+                        {name}
+                    </div>
                 </li>
             ))}
         </ul>
@@ -37,10 +30,9 @@ Tabs.defaultProps = {
 Tabs.propTypes = {
     className: PropTypes.string,
     options: PropTypes.array.isRequired,
-    topPath: PropTypes.string,
     location: PropTypes.string.isRequired,
     isTabActive: PropTypes.func,
-    onClick: PropTypes.func,
+    onClick: PropTypes.func.isRequired,
 };
 
 export default Tabs;
