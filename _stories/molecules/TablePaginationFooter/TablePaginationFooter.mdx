@@ -21,6 +21,12 @@ const handleSizeChange = ({ target: { value: size } }) => {
     ...
 ]
 ```
+Based on the number of element, the component, the pagination or the size dropwown will be hidden.
+
+For example:
+- No items, nothing is visible.
+- 15 items for a table size of 20, all the items fit on 1 page, the pagination is not visible
+- 2 items for a table size of 10 (the minimum in the example above), both the pagination and size dropdown are hidden.
 
 ## Component Example
 <Story

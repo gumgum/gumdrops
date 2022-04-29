@@ -59,7 +59,7 @@ TablePaginationFooter.propTypes = {
     totalPages: PropTypes.number.isRequired,
     totalElements: PropTypes.number.isRequired,
     handlePageChange: PropTypes.func.isRequired,
-    handleSizeChange: PropTypes.func,
+    handleSizeChange: PropTypes.func.isRequired,
     activePage: PropTypes.number,
     size: PropTypes.number,
     sizeOptions: PropTypes.array.isRequired,
