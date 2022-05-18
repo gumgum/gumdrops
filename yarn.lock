@@ -2339,10 +2339,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/public-sans/-/public-sans-4.5.0.tgz#ba15c59ae0602e0dc7da4063ee83a061b3be5a32"
   integrity sha512-fSVbcSGKDIZKRuu1Vd1Ky8RFZdMDsIWXqTAKJT2qgXTuNhb+4EjlQQWTfjB5QlFN+fMpMzvXWOQJrIYb0DtCsA==
 
-"@fortawesome/fontawesome-free@^5.15.4":
-  version "5.15.4"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.4.tgz#ecda5712b61ac852c760d8b3c79c96adca5554e5"
-  integrity sha512-eYm8vijH/hpzr/6/1CJ/V/Eb1xQFW2nnUKArb3z+yUWv7HTwj6M7SP957oMjfZjAHU6qpoNc2wQvIxBLWYa/Jg==
+"@fortawesome/fontawesome-free@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.1.1.tgz#bf5d45611ab74890be386712a0e5d998c65ee2a1"
+  integrity sha512-J/3yg2AIXc9wznaVqpHVX3Wa5jwKovVF0AMYSnbmcXTiL3PpRPfF58pzWucCwEiCJBp+hCNRLWClTomD8SseKg==
 
 "@gar/promisify@^1.0.1":
   version "1.1.3"
@@ -7878,13 +7878,13 @@ gud@^1.0.0:
   resolved "https://registry.yarnpkg.com/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
   integrity sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==
 
-gumgum-design@^1.9.20:
-  version "1.9.20"
-  resolved "https://registry.yarnpkg.com/gumgum-design/-/gumgum-design-1.9.20.tgz#93754047117b46fce6b5e113e7febbad1756fa87"
-  integrity sha512-16EtcxXlElRGAIYJwaNn7+rUVIkGzwizlE04yqjneMoCohZemjVlMbsGHIGxCTUiBMYGc2CoeWNiMW08M3zRBQ==
+gumgum-design@^2.0.12:
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/gumgum-design/-/gumgum-design-2.0.12.tgz#b90dc7b54bbfccfd6d5eca61d383d5d6c78073c7"
+  integrity sha512-ZBnspcpYIlJHDqa92hKL9JrzzgmrlpKDnZjpjFqTZ/0a5HA51prPkq+lxxBGho06nLFzm0nXFpbennG5NVU/KA==
   dependencies:
     "@fontsource/public-sans" "^4.5.0"
-    "@fortawesome/fontawesome-free" "^5.15.4"
+    "@fortawesome/fontawesome-free" "^6.1.1"
 
 handlebars@^4.7.7:
   version "4.7.7"
