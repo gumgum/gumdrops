@@ -1,0 +1,34 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import TooltipIcon from '../../../components/atoms/TooltipIcon';
+
+# TooltipIcon
+
+The `<Icon>` displays an item from the <a href="https://fontawesome.com/v5/search" target="_blank">Font Awesome</a> library.
+
+It is useful in combination of a tooltip or to trigger an action. See `<TooltipIcon>`
+
+Any other props that are passed in are also accepted and passed to the `button` element.
+
+This can be used to trigger an action when the user clicks on the `<TooltipIcon>`
+```
+<TooltipIcon
+    name="my-icon"
+    icon="trash"
+    label="Delete"
+    onClick={() => deleteThis(someId)}
+/>
+```
+
+Alternatively, instead of using the `onClick` property of the button, `<TooltipIcon>` can be wrapped in a `<Link>`
+
+<Link to="/new-page">
+    <TooltipIcon icon="arrow" label="Go to the new page" />
+</Link>
+
+## Component Example
+<Story
+    id="atoms-tooltipicon--default"
+/>
+
+## Props
+<Props of={TooltipIcon} />

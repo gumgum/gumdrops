@@ -1,0 +1,38 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import Tabs from '../../../components/molecules/Tabs';
+
+# Tabs
+
+`<Tabs>` is as a header that allows to update the content of a page based on the selected option.
+
+Use `onClick` to update the content of the page according to the selected tab.
+The clicked path will be passed to the function. It can be used to update the content of the component calling the tabs or redirect to a new page for instance.
+```
+<Tabs
+    location={currentTab}
+    options={tabOptions}
+    onClick(path => updateLocalState(path))
+/>
+```
+
+A tab is active when the `location` endsWith a tab's `path`. To override this, use `isTabActive`
+```
+<Tabs
+    location={currentLocation} // currentLocation = "/top/tab-2/abc?someVar=123"
+    options={[
+        { name: 'Tab 1', path: '/tab-1'},
+        { name: 'Tab 2', path: '/tab-2'}
+    ]}
+    onClick(path => history.push(fullPath + path))
+    isTabActive={path => currentLocation.includes(path)}
+/>
+```
+
+
+## Component Example
+<Story
+    id="molecules-tabs--default"
+/>
+
+## Props
+<Props of={Tabs} />

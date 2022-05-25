@@ -1,0 +1,37 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import TablePaginationFooter from '../../../components/molecules/TablePaginationFooter';
+
+# TablePaginationFooter
+
+`<TablePaginationFooter>` extends `<Pagination>` to add a size dropdown to control the number of elements displayed per page in the associated table.
+
+`handlePageChange` and `handleSizeChange` are used to update the table data to reflect the pagination state.
+
+```
+const handleSizeChange = ({ target: { value: size } }) => {
+    // Call api or update local values to get a number of elements equivalent to the selected size
+};
+````
+
+`sizeOptions` can be customized following the format
+```
+[
+    { name: '10', value: '10' },
+    { name: '20', value: '20' },
+    ...
+]
+```
+Based on the number of element, the component, the pagination or the size dropwown will be hidden.
+
+For example:
+- No items, nothing is visible.
+- 15 items for a table size of 20, all the items fit on 1 page, the pagination is not visible
+- 2 items for a table size of 10 (the minimum in the example above), both the pagination and size dropdown are hidden.
+
+## Component Example
+<Story
+    id="molecules-tablepaginationfooter--default"
+/>
+
+## Props
+<Props of={TablePaginationFooter} />
