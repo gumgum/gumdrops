@@ -8,6 +8,8 @@ export { default as ButtonGroup } from './atoms/ButtonGroup';
 export { default as CircularThumbnail } from './atoms/CircularThumbnail';
 export { default as FormGroupLabel } from './atoms/FormGroupLabel';
 export { default as FormGroupTextHelp } from './atoms/FormGroupTextHelp';
+export { default as FormInputWrapper } from './atoms/FormInputWrapper';
+export { default as Icon } from './atoms/Icon';
 export { default as LoadingDots } from './atoms/LoadingDots';
 export { default as ModalBody } from './atoms/ModalBody';
 export { default as ModalFooter } from './atoms/ModalFooter';
@@ -21,6 +23,7 @@ export { default as Tag } from './atoms/Tag';
 export { default as TextArea } from './atoms/TextArea';
 export { default as TextInput } from './atoms/TextInput';
 export { default as Tooltip } from './atoms/Tooltip';
+export { default as TooltipIcon } from './atoms/TooltipIcon';
 export { default as Trend } from './atoms/Trend';
 
 // Export Layout
@@ -49,5 +52,7 @@ export { default as Pagination } from './molecules/Pagination';
 export { default as RadioGroup } from './molecules/RadioGroup';
 export { default as SearchMultiSelect } from './molecules/SearchMultiSelect';
 export { default as Table } from './molecules/Table';
+export { default as TablePaginationFooter } from './molecules/TablePaginationFooter';
+export { default as Tabs } from './molecules/Tabs';
 export { default as Toggle } from './molecules/Toggle';
 export { default as Well } from './molecules/Well';

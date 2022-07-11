@@ -3,7 +3,17 @@ import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import cx from 'classnames';
 
-const Modal = ({ onClose, isOpen, className, overlayClassName, style, md, children }) => (
+const Modal = ({
+    onClose,
+    isOpen,
+    shouldCloseOnOverlayClick,
+    shouldCloseOnEsc,
+    className,
+    overlayClassName,
+    style,
+    md,
+    children
+}) => (
     <ReactModal
         className={cx('gds-modal', className, '-float-none', {
             [`gds-layout__column--md-${md}`]: md
@@ -12,6 +22,8 @@ const Modal = ({ onClose, isOpen, className, overlayClassName, style, md, childr
         contentLabel="default"
         onRequestClose={onClose}
         isOpen={isOpen}
+        shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+        shouldCloseOnEsc={shouldCloseOnEsc}
         style={style}
         ariaHideApp={false}>
         {children}
@@ -28,6 +40,8 @@ Modal.defaultProps = {
 Modal.propTypes = {
     onClose: PropTypes.func,
     isOpen: PropTypes.bool.isRequired,
+    shouldCloseOnOverlayClick: PropTypes.bool,
+    shouldCloseOnEsc: PropTypes.bool,
     className: PropTypes.string,
     overlayClassName: PropTypes.string,
     style: PropTypes.object,
