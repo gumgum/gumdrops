@@ -39,6 +39,8 @@ export const Default = () => {
         <Modal
             onClose={action('Close modal from overlay')}
             isOpen={boolean('Open', true)}
+            shouldCloseOnOverlayClick={boolean('shouldCloseOnOverlayClick', true)}
+            shouldCloseOnEsc={boolean('shouldCloseOnEsc', true)}
             md={text('Column size', '6')}
             className={text('Container ClassName', '')}
             overlayClassName={text('Overlay ClassName', '')}
