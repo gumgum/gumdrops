@@ -1,9 +1,12 @@
 # GumDrops Changelog
+# 1.15.3
+* Fix gumdrops npm published package
+
 # 1.15.2
 * Update gumgum design system version
 
 # 1.15.0
-* Add page level breadcrumbs
+* Add page level breadcrumbsg
 
 # 1.14.0
 * Upgrade storybook version and change components to Component Story Format
