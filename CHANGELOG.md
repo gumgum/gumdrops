@@ -1,5 +1,5 @@
 # GumDrops Changelog
-# 1.15.3
+# 1.15.3 and 1.15.4
 * Fix gumdrops npm published package
 
 # 1.15.2
