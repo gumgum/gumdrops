@@ -49,8 +49,8 @@
         "url": "git@github.com:gumgum/gumdrops.git"
     },
     "peerDependencies": {
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "dependencies": {
         "classnames": "^2.2.6",
