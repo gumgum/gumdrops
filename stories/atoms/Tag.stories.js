@@ -28,8 +28,7 @@ export default {
             control: { type: 'select' }
         },
         onClick: 'tag_click',
-        onOptionClick: 'option_click',
-        style: { control: 'object' }
+        onOptionClick: 'option_click'
     }
 };
 

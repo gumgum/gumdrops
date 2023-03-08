@@ -1,0 +1,53 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import Modal from '../../components/molecules/Modal';
+
+# Modal
+
+The `<Modal>` component can contain any arbitrary content.
+
+Additionally, the following atom components are optional and can be used to wrap content inside the appropriate Concrete Design System modal classNames:
+
+`<ModalForm>`
+Renders a form to be used inside a modal. Allows scrolling inside ModalBody.
+This component must be a direct child of Modal, and must contain the other Modal components or any arbitrary content.
+Can receive any props. Using onSubmit is recommended.
+
+`<ModalHeader>`
+Renders modal header. Self closing.
+
+`<ModalBody>`
+Renders modal content.
+
+`<ModalFooter>`
+Renders modal footer content.
+
+## Full Example
+
+```jsx
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+return (
+    <Modal onClose={() => setIsModalOpen(!isModalOpen)} isOpen={isModalOpen} md="6">
+        {/* Begin arbitrary content */}
+        <ModalForm onSubmit={this.submitForm}>
+            <ModalHeader title="A sample title" onClose={() => setIsModalOpen(!isModalOpen)} />
+            <ModalBody>
+                <p>Toggle the modal in the knobs section.</p>
+            </ModalBody>
+            <ModalFooter>
+                <Button size="sm" onClick={() => setIsModalOpen(!isModalOpen)}>
+                    Cancel
+                </Button>
+                <Button context="primary" size="sm" onClick={() => setIsModalOpen(!isModalOpen)}>
+                    Save Changes
+                </Button>
+            </ModalFooter>
+        </ModalForm>
+        {/* End arbitrary content */}
+    </Modal>
+);
+```
+
+## Props
+
+<Props of={Modal} />

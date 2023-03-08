@@ -15,8 +15,7 @@ export default {
         }
     },
     argTypes: {
-        fullWidth: { type: 'boolean' },
-        style: { control: 'object' }
+        fullWidth: { type: 'boolean' }
     }
 };
 

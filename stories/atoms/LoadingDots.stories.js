@@ -18,8 +18,7 @@ export default {
         size: {
             options: sizeOptions,
             control: { type: 'select' }
-        },
-        style: { control: 'object' }
+        }
     }
 };
 

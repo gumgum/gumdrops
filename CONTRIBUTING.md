@@ -2,9 +2,9 @@
 
 #### General Notes
 
-* When adding a component, think about how you can make the component flexible and usable in multiple situations. Some ways we do this are to pass in `...otherProps` and `className`.
-* Consult the [Design System Docs](https://ds.gumgum.com/stable/css) and [Design System Prototypes Page](https://ds.gumgum.com/stable) for information about your component, including all of the various options you can use to customize a component.
-* Documentation is really important. The first line of the README should contain a description of the component (the DS docs can be a good starting place). If your component is more complex, we encourage writing out real world examples of how to use your component in the component's README file. Think about how you are using it and what you would need to do to make it work within your React project if you are viewing it for the first time with no knowledge of how it is built.
+-   When adding a component, think about how you can make the component flexible and usable in multiple situations. Some ways we do this are to pass in `...otherProps` and `className`.
+-   Consult the [Concrete Design System Docs](https://concrete.gumgum.com) for information about your component, including all of the various options you can use to customize a component.
+-   Documentation is really important. The story documentation should contain a description of the component (the Concrete docs can be a good starting place). If your component is more complex, we encourage writing out real world examples of how to use your component in the component's documentation. Think about how you are using it and what you would need to do to make it work within your React project if you are viewing it for the first time with no knowledge of how it is built.
 
 #### Prerequisites
 
@@ -15,8 +15,8 @@ The following instructions assume you have followed the section on [README.md](R
 ##### Creating a component
 
 1. Follow our [GITWORKFLOW.md](GITWORKFLOW.md) to create a new branch.
-2. Add your component `.jsx` file in the correct folder in `/components`. It should be in the same category as found on Design System Docs.
-3. Write your component. Follow the format of other components, including adding `...otherProps`. You should also include `displayName` (storybook needs this), `defaultProps` and `propTypes`. In `propTypes`, please include comments when the prop only accepts specific options (as dictated by the Design System). These will render in the description column.
+2. Add your component `.jsx` file in the correct folder in `/components`. It should be in the same category as found on the Concrete Design System Docs.
+3. Write your component. Follow the format of other components, including adding `...otherProps`. You should also include `displayName` (storybook needs this), `defaultProps` and `propTypes`. In `propTypes`, please include comments when the prop only accepts specific options (as dictated by Concrete Design System). These will render in the description column in the Storybook docs tab.
 
 For example:
 
@@ -44,7 +44,7 @@ ButtonGroup.propTypes = {
 
 ##### Writing documentation (story)
 
-1. Go to the correct category in `/_stories`, create a new folder, and create a `[component].stories.js` and `[component].mdx` following the format of the other stories. We use a few addon packages to enhance our stories. Please add knobs to your stories to show what options each of the component's props accepts. This also makes it interactive so a user can change and see the result of each different option.
+1. Go to the correct category in `/stories`, create a new folder, and create a `[component].stories.js`. If the documentation for the component is simple, you can write the markdown documentation within the component file (see `/atoms/Badge.stories.js` for an example to use). If the documentation is a bit more complex, we separate it out into its own markdown file. Please also create a `[component].mdx` file. You can use `/atoms/Select.mdx` and `/atoms/Select.stories.js` as an example. You can also consult the official Storybook documentation for info on [how to write stories](https://storybook.js.org/docs/react/writing-stories/introduction) and [documentation](https://storybook.js.org/docs/react/writing-docs/introduction).
 
 **IMPORTANT**: Please wait for approvals, and when your PR has been approved, **please continue to follow the guidelines on [GITWORKFLOW.md](GITWORKFLOW.md) when rebasing and merging**.
 

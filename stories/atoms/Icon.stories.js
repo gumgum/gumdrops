@@ -24,8 +24,7 @@ export default {
         context: {
             options: contextOptions,
             control: { type: 'select' }
-        },
-        style: { control: 'object' }
+        }
     }
 };
 

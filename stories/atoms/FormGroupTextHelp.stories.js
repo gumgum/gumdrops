@@ -14,8 +14,7 @@ export default {
         }
     },
     argTypes: {
-        text: { control: 'text' },
-        style: { control: 'object' }
+        text: { control: 'text' }
     }
 };
 

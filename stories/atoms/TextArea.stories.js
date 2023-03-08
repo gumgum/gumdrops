@@ -24,8 +24,7 @@ export default {
             resizeOptions,
             control: { type: 'select' }
         },
-        onChange: { action: 'input changed' },
-        style: { control: 'object' }
+        onChange: { action: 'input changed' }
     }
 };
 

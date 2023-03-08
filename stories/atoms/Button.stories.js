@@ -37,8 +37,7 @@ export default {
             control: { type: 'select' }
         },
         onClick: { action: 'button clicked' },
-        group: { table: { disable: true } },
-        style: { control: 'object' }
+        group: { table: { disable: true } }
     }
 };
 

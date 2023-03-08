@@ -44,8 +44,7 @@ export default {
         variations: {
             options: variationOptions,
             control: { type: 'select' }
-        },
-        style: { control: 'object' }
+        }
     }
 };
 

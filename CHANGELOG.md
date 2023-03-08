@@ -3,7 +3,8 @@
 # 1.16.0
 
 -   Upgrade storybook version to 6.5
--   Deprecate CircularThumbnail, NumberCircle, ProgressBar, Trend
+-   Deprecate CircularThumbnail, NumberCircle, ProgressBar, Trend, Avatar, Breadcrumbs, BreadcrumbsWrapper
+-   Update examples in documentation to use hooks
 
 # 1.15.3 and 1.15.4
 

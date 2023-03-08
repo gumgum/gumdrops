@@ -14,8 +14,7 @@ export default {
             control: { type: 'select' }
         },
         onChange: { action: 'input changed' },
-        onBlur: { action: 'input blurred' },
-        style: { control: 'object' }
+        onBlur: { action: 'input blurred' }
     }
 };
 

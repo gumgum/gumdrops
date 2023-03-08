@@ -50,8 +50,7 @@ export default {
         name: { control: 'text' },
         value: { control: 'text' },
         customName: { control: 'text' },
-        customValue: { control: 'text' },
-        style: { control: 'object' }
+        customValue: { control: 'text' }
     }
 };
 

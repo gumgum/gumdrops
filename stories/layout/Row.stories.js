@@ -9,9 +9,6 @@ export default {
                 component: 'A `<Row>` component is meant to hold one or more `<Column>` components.'
             }
         }
-    },
-    argTypes: {
-        style: { control: 'object' }
     }
 };
 

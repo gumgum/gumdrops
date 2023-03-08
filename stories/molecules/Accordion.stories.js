@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Accordion from '../../components/molecules/Accordion';
 import AccordionItem from '../../components/atoms/AccordionItem';
 import AccordionItemContent from '../../components/atoms/AccordionItemContent';
@@ -55,3 +53,4 @@ const Template = args => {
 };
 
 export const Default = Template.bind({});
+Default.parameters = { controls: { exclude: ['children'] } };

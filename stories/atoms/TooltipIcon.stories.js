@@ -44,8 +44,7 @@ export default {
         buttonStyles: {
             control: { type: 'object' }
         },
-        onClick: 'Click on the icon',
-        style: { control: 'object' }
+        onClick: 'Click on the icon'
     }
 };
 

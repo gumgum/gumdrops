@@ -7,7 +7,14 @@ export const parameters = {
             color: /(background|color)$/i,
             date: /Date$/
         }
+    },
+    options: {
+        storySort: {
+            method: 'alphabetical',
+            order: [],
+            locales: ''
+        }
     }
 };
 
-export const argTypes = { className: '', style: {} };
+export const argTypes = { className: { control: 'text' }, style: { control: 'object' } };
