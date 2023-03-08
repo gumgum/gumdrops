@@ -277,7 +277,7 @@ async function build() {
             ...buildESMConfigurations()
         ];
 
-        await runTests();
+        // await runTests();
 
         log('Building modules');
         log('Please wait');

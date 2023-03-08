@@ -2,16 +2,18 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Installation" />
 
-## Installation
+## Gumdrops Installation
 
-To add a specific version, you can use `yarn add gumdrops@1.0.0` (replace 1.0.0 with whatever version you want, or omit it to get the latest version)
+[Gumdrops](https://github.com/gumgum/gumdrops) is an [npm package](https://www.npmjs.com/package/gumdrops).
+Run `yarn add gumdrops` or `npm install gumdrops` in your project folder.
+
+To add a specific version, you can use `yarn add gumdrops@1.0.0` (replace 1.0.0 with whatever version you want, or omit it to get the latest version) or `npm install gumdrops@1.0.0`
 
 The current and previous versions can be found in [CHANGELOG.md](https://github.com/gumgum/gumdrops/blob/master/CHANGELOG.md)
 
-### Design System
-There are two ways to use GumGum's Design System:
+### Concrete Design System
 
-#### 1. NPM package (preferred)
+Gumdrops must be used with the GumGum Design System (Concrete), which handles all of the styles.
 
 Add [gumgum-design](https://www.npmjs.com/package/gumgum-design) and [sass](https://www.npmjs.com/package/sass) to your project:
 
@@ -45,15 +47,4 @@ import '~gumgum-design/styles/scss/index';
 The theme file contains variables for every color used in Design System, along with 5 shades darker and lighter of each color.
 The prime slots defines theme-specific colors, while the component slots defines component-specific colors.
 
-
-#### 2. Link to CSS
-
-Include one of the available CSS theme files in the `<head>` of your HTML document:
-
-Note: This links to old Design System and will no longer receive updates.
-
-```html
-<link rel="stylesheet" href="https://assets.ggops.com/stable/theme-blue.css">
-```
-
-[See the Design System documentation](https://ds.gumgum.com/stable/md/docs/index.html) for themes, CSS utilities and more.
+[See the Concrete Design System documentation](https://concrete.gumgum.com) for design system specific documentation.
