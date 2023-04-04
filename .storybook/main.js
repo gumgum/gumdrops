@@ -13,5 +13,8 @@ module.exports = {
             }
         }
     ],
-    framework: '@storybook/react'
+    framework: '@storybook/react',
+    features: {
+        interactionsDebugger: true
+    }
 };

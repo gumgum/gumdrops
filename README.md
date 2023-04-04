@@ -78,7 +78,7 @@ require('babel-register')({
 ### Prerequisites for running project locally
 
 -   Git and [Git Flow](https://github.com/petervanderdoes/gitflow-avh)
--   [NodeJS/NPM](http://nodejs.org/download/) & [Yarn](https://yarnpkg.com/): _Minimum Required Versions_ - We have tested with the following versions - `node: ^8.9.0, npm: ^5.5.1, yarn ^1.2.1`
+-   [NodeJS/NPM](http://nodejs.org/download/) & [Yarn](https://yarnpkg.com/): _Minimum Required Versions_ - We have tested with the following versions - `node: ^16.16.0, npm: ^5.5.1, yarn ^1.2.1`
 -   Install the ESLint validators and [Prettier](https://prettier.io/docs/en/editors.html) on your editor of choice. We have the configuration files on the root of the project, `.eslinrc` and `.prettierrc`. There is a precommit hook to run the Prettier scripts on the files.
 
 ### Running storybook locally

@@ -5,6 +5,7 @@
 -   Upgrade storybook version to 6.5
 -   Deprecate CircularThumbnail, NumberCircle, ProgressBar, Trend, Avatar, Breadcrumbs, BreadcrumbsWrapper
 -   Update examples in documentation to use hooks
+-   Update tests to react test library/react-test-renderer since Enzyme is deprecated
 
 # 1.15.3 and 1.15.4
 

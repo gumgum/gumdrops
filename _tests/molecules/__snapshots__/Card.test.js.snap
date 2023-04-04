@@ -1,27 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <Card> to render 1`] = `
-<Card
-  className="custom"
-  option="underlined-secondary"
-  size="sm"
+exports[`Expect <Card> to render properly 1`] = `
+<div
+  className="gds-card custom gds-card--underlined-secondary gds-card--sm"
   style={
-    Object {
+    {
       "width": 120,
     }
   }
 >
-  <div
-    className="gds-card custom gds-card--underlined-secondary gds-card--sm"
-    style={
-      Object {
-        "width": 120,
-      }
-    }
-  >
-    <div>
-      Foo
-    </div>
+  <div>
+    Foo
   </div>
-</Card>
+</div>
 `;

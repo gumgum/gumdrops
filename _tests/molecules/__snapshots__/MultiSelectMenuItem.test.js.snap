@@ -1,55 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <MultiSelectMenuItem> to render 1`] = `
-<MultiSelectMenuItem
-  callback={[Function]}
-  index={1}
-  isActive={false}
-  name="Foo"
-  onChange={[Function]}
-  onClick={[Function]}
-  selected={false}
-  size="xs"
-  value={0}
+exports[`Expect <MultiSelectMenuItem> to render properly 1`] = `
+<li
+  className="gds-multi-select__menu-item"
+  onClick={[MockFunction]}
 >
-  <li
-    className="gds-multi-select__menu-item"
-    onClick={[Function]}
+  <div
+    className="gds-multi-select__menu-link"
   >
     <div
-      className="gds-multi-select__menu-link"
+      className="gds-form-group gds-multi-select__option"
+      onClick={[Function]}
     >
       <div
-        className="gds-form-group gds-multi-select__option"
-        onClick={[Function]}
+        className="gds-form-group__checkbox gds-form-group__checkbox--xs"
       >
-        <Checkbox
-          checked={false}
-          label="Foo"
-          onChange={[Function]}
-          size="xs"
+        <label
+          className="gds-form-group__checkbox-label"
         >
-          <div
-            className="gds-form-group__checkbox gds-form-group__checkbox--xs"
-          >
-            <label
-              className="gds-form-group__checkbox-label"
-            >
-              <input
-                checked={false}
-                className="gds-form-group__checkbox-input"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <span
-                className="gds-form-group__checkbox-indicator"
-              />
-              Foo
-            </label>
-          </div>
-        </Checkbox>
+          <input
+            checked={false}
+            className="gds-form-group__checkbox-input"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <span
+            className="gds-form-group__checkbox-indicator"
+          />
+          Foo
+        </label>
       </div>
     </div>
-  </li>
-</MultiSelectMenuItem>
+  </div>
+</li>
+`;
+
+exports[`Expect <MultiSelectMenuItem> to render properly 2`] = `
+<li
+  className="gds-multi-select__menu-item"
+  onClick={[MockFunction]}
+>
+  <div
+    className="gds-multi-select__menu-link"
+  >
+    <div
+      className="gds-form-group gds-multi-select__option"
+      onClick={[Function]}
+    >
+      <div
+        className="gds-form-group__checkbox gds-form-group__checkbox--xs"
+      >
+        <label
+          className="gds-form-group__checkbox-label"
+        >
+          <input
+            checked={false}
+            className="gds-form-group__checkbox-input"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <span
+            className="gds-form-group__checkbox-indicator"
+          />
+          Foo
+        </label>
+      </div>
+    </div>
+  </div>
+</li>
 `;

@@ -1,12 +1,12 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import Tag from '../../components/atoms/Tag';
 
 const defaultProps = {
     context: 'primary',
     className: 'custom-class',
-    onClick: () => {},
-    onOptionClick: () => {},
+    onClick: jest.fn(),
+    onOptionClick: jest.fn(),
     hasOption: true,
     optionIcon: 'bt-times',
     optionLabel: 'Remove me',
@@ -15,20 +15,18 @@ const defaultProps = {
     text: 'Cool Tagz'
 };
 
-describe('Expect <Tag>', () => {
-    it('to render', () => {
-        const wrapper = mount(<Tag {...defaultProps} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Tag> to render properly', () => {
+    const tree = renderer.create(<Tag {...defaultProps} />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('to render without option', () => {
-        const props = {
-            ...defaultProps,
-            hasOption: false,
-            onOptionClick: undefined,
-            optionIcon: undefined
-        };
-        const wrapper = mount(<Tag {...props} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Button> to render properly without option', () => {
+    const props = {
+        ...defaultProps,
+        hasOption: false,
+        onOptionClick: undefined,
+        optionIcon: undefined
+    };
+    const tree = renderer.create(<Tag {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
 });

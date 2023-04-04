@@ -1,112 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <Button> to render 1`] = `
-<Button
-  className="foo-class"
-  context="danger"
+exports[`Expect <Button> to render properly 1`] = `
+<button
+  className="gds-button foo-class gds-button--danger gds-button--sm"
   disabled={false}
-  group={false}
-  isBlock={false}
-  isGroup={false}
-  onBlur={[Function]}
-  onClick={[Function]}
-  size="sm"
+  onBlur={[MockFunction]}
+  onClick={[MockFunction]}
   style={
-    Object {
+    {
       "width": "1000px",
     }
   }
   text="This is text"
   type="button"
 >
-  <button
-    className="gds-button foo-class gds-button--danger gds-button--sm"
-    disabled={false}
-    onBlur={[Function]}
-    onClick={[Function]}
-    style={
-      Object {
-        "width": "1000px",
-      }
-    }
-    text="This is text"
-    type="button"
-  >
-    My Cool Button
-  </button>
-</Button>
+  My Cool Button
+</button>
 `;
 
-exports[`Expect <Button> to renders as a blocked button 1`] = `
-<Button
-  className="foo-class"
-  context="danger"
+exports[`Expect <Button> to render properly as blocked 1`] = `
+<button
+  className="gds-button foo-class gds-button--danger gds-button--sm gds-button--block"
   disabled={false}
-  group={false}
-  isBlock={true}
-  isGroup={false}
-  onBlur={[Function]}
-  onClick={[Function]}
-  size="sm"
+  onBlur={[MockFunction]}
+  onClick={[MockFunction]}
   style={
-    Object {
+    {
       "width": "1000px",
     }
   }
   text="This is text"
   type="button"
 >
-  <button
-    className="gds-button foo-class gds-button--danger gds-button--sm gds-button--block"
-    disabled={false}
-    onBlur={[Function]}
-    onClick={[Function]}
-    style={
-      Object {
-        "width": "1000px",
-      }
-    }
-    text="This is text"
-    type="button"
-  >
-    My Cool Button
-  </button>
-</Button>
-`;
-
-exports[`Expect <Button> to renders as a group button 1`] = `
-<Button
-  className="foo-class"
-  context="danger"
-  disabled={false}
-  group={false}
-  isBlock={false}
-  isGroup={true}
-  onBlur={[Function]}
-  onClick={[Function]}
-  size="sm"
-  style={
-    Object {
-      "width": "1000px",
-    }
-  }
-  text="This is text"
-  type="button"
->
-  <button
-    className="gds-button foo-class gds-button--danger gds-button--sm gds-button-group__button"
-    disabled={false}
-    onBlur={[Function]}
-    onClick={[Function]}
-    style={
-      Object {
-        "width": "1000px",
-      }
-    }
-    text="This is text"
-    type="button"
-  >
-    My Cool Button
-  </button>
-</Button>
+  My Cool Button
+</button>
 `;

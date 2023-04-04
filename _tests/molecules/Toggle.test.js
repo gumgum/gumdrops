@@ -1,4 +1,4 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import Toggle from '../../components/molecules/Toggle';
 
@@ -10,9 +10,7 @@ const defaultProps = {
     className: 'custom-class'
 };
 
-describe('Expect <Toggle>', () => {
-    it('to render', () => {
-        const wrapper = mount(<Toggle {...defaultProps} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Toggle> to render properly', () => {
+    const tree = renderer.create(<Toggle {...defaultProps} />).toJSON();
+    expect(tree).toMatchSnapshot();
 });
