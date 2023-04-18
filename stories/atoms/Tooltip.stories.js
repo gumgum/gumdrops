@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import Tooltip from '../../components/atoms/Tooltip';
 import Button from '../../components/atoms/Button';
 
@@ -24,7 +25,19 @@ export default {
             description: {
                 component:
                     "The `<Tooltip>` component is a small explanatory message that appears when hovering over an element. Tooltips require a 'text' prop containing their message. Any other props that are passed in are also accepted."
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>Tooltip Props</h2>
+                    <ArgsTable />
+                </>
+            )
         }
     },
     argTypes: {

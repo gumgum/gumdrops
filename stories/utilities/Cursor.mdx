@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as CursorStories from './Cursor.stories';
 
 # Cursor
 
@@ -23,8 +25,8 @@ The available classes are:
 
 ## Component Example
 
-<Story id="utilities-cursor--default" />
+<Canvas of={CursorStories.Default} />
 
 ## Source
 
-<Source id="utilities-cursor--default" />
+<Source of={CursorStories.Default} />

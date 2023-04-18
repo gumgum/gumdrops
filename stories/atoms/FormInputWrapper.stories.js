@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import FormInputWrapper from '../../components/atoms/FormInputWrapper';
 import TextInput from '../../components/atoms/TextInput';
 
@@ -12,7 +13,19 @@ export default {
             description: {
                 component:
                     "`<FormInputWrapper>` is used to wrap a form's inputs to (usually) display error messages. It is composed of the first example in `<FormGroup>` doc, with: `<FormGroup>` to contains all the elements, `<FormGroupLabel>` to display a title above the input, and `<FormGroupTextHelp>` to display a message below the input."
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>FormInputWrapper Props</h2>
+                    <ArgsTable of={FormInputWrapper} />
+                </>
+            )
         }
     },
     argTypes: {

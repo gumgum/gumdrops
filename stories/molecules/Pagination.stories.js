@@ -2,18 +2,11 @@ import React from 'react';
 
 import Pagination from '../../components/molecules/Pagination';
 
-import mdx from './Pagination.mdx';
-
 const sizeOptions = ['', 'xs', 'sm', 'lg', 'xl'];
 
 export default {
     title: 'Molecules/Pagination',
     component: Pagination,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         activePage: { control: 'number' },
         lastPage: { control: 'number' },

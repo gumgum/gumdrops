@@ -1,4 +1,7 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as TextAreaStories from './TextArea.stories';
 import TextArea from '../../components/atoms/TextArea';
 
 # TextArea
@@ -14,19 +17,17 @@ _Recommended props_: `value` and `onChange`.
 ## Controlled example
 
 ```jsx
-state = {
-    textAreaContent: ''
-}
-
-_handleInputChange = ({ target }) => this.setState({ textAreaContent: target.value });
+const [textAreaContent, setTextAreaContent] = useState('');
 
 render() {
     return (
         <FormGroup>
             <TextArea
                 placeholder="Enter your content"
-                onChange={ this._handleInputChange }
-                value={ this.state.textAreaContent }
+                value={ textAreaContent }
+                onChange={e => {
+                setTextAreaContent(e.target.checked) }
+            }
             />
         </FormGroup>
     );
@@ -35,12 +36,12 @@ render() {
 
 ## Component Example
 
-<Story id="atoms-textarea--default" />
+<Canvas of={TextAreaStories.Default} />
 
-## Source
+## Component Example Source
 
-<Source id="atoms-textarea--default" />
+<Source of={TextAreaStories.Default} />
 
-## Props
+## TextArea Props
 
-<Props of={TextArea} />
+<ArgsTable of={TextArea} />

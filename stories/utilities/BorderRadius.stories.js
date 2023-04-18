@@ -31,7 +31,7 @@ const divStyle = {
 };
 
 export default {
-    title: 'Utilities/Border Radius',
+    title: 'Utilities/BorderRadius',
     parameters: {
         docs: {
             page: mdx

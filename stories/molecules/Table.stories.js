@@ -2,8 +2,6 @@ import Table from '../../components/molecules/Table';
 import TableData from '../../components/molecules/TableData';
 import ToolTip from '../../components/atoms/Tooltip';
 
-import mdx from './Table.mdx';
-
 const columnsSimple = ['id', 'name', 'title', 'age', 'height'];
 
 const columnsCustom = [
@@ -121,11 +119,6 @@ const generateData = amount =>
 export default {
     title: 'Molecules/Table',
     component: Table,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         columns: { control: 'object' },
         hasHeader: { control: 'boolean' },
@@ -143,13 +136,19 @@ export default {
 
 const Template = args => {
     return (
-        <Table
-            {...args}
-            onRowClick={() => console.log('row clicked')}
-            data={generateData(args.numOfRows)}
-            handleSizeChange={() => console.log('page change')}
-            onChange={() => console.log('page change')}
-        />
+        <div>
+            <p>
+                These examples use automatically generated data. See the Docs for how to format your
+                own data.
+            </p>
+            <Table
+                {...args}
+                onRowClick={() => console.log('row clicked')}
+                data={generateData(args.numOfRows)}
+                handleSizeChange={() => console.log('page change')}
+                onChange={() => console.log('page change')}
+            />
+        </div>
     );
 };
 
@@ -158,18 +157,18 @@ Simple.args = {
     columns: columnsSimple,
     numOfRows: 10
 };
-Simple.parameters = { controls: { exclude: ['children'] } };
+Simple.parameters = { controls: { exclude: ['children', 'data'] } };
 
 export const Custom = Template.bind({});
 Custom.args = {
     columns: columnsCustom,
     numOfRows: 10
 };
-Custom.parameters = { controls: { exclude: ['children'] } };
+Custom.parameters = { controls: { exclude: ['children', 'data'] } };
 
 export const Advanced = Template.bind({});
 Advanced.args = {
     columns: columnsAdvanced,
     numOfRows: 10
 };
-Advanced.parameters = { controls: { exclude: ['children'] } };
+Advanced.parameters = { controls: { exclude: ['children', 'data'] } };

@@ -1,7 +1,5 @@
 import TablePaginationFooter from '../../components/molecules/TablePaginationFooter';
 
-import mdx from './TablePaginationFooter.mdx';
-
 const sizeOptions = [
     { name: '10', value: '10' },
     { name: '20', value: '20' },
@@ -12,11 +10,6 @@ const sizeOptions = [
 export default {
     title: 'Molecules/TablePaginationFooter',
     component: TablePaginationFooter,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         totalPages: { control: 'number' },
         totalElements: { control: 'number' },

@@ -1,4 +1,7 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as CheckboxStories from './Checkbox.stories';
 import Checkbox from '../../components/molecules/Checkbox';
 
 # Checkbox
@@ -24,7 +27,6 @@ const [pineapple, setPineapple] = useState(false);
             label="pineapple on pizza?"
             checked={ pineapple }
             onChange={e => {
-              console.log(e.target.checked)
               setPineapple(e.target.checked) }
             }
         />
@@ -65,12 +67,12 @@ render() {
 
 ## Component Example
 
-<Story id="molecules-checkbox--default" />
+<Canvas of={CheckboxStories.Default} />
 
-## Source
+## Component Example Source
 
-<Source id="molecules-checkbox--default" />
+<Source of={CheckboxStories.Default} />
 
-## Props
+## Checkbox Props
 
-<Props of={Checkbox} />
+<ArgsTable of={Checkbox} />

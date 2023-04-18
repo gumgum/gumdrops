@@ -1,4 +1,7 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as MultiSelectStories from './MultiSelect.stories';
 import MultiSelect from '../../components/molecules/MultiSelect';
 
 # MultiSelect
@@ -9,7 +12,7 @@ The state of the multi-select is handled by the parent component. An `onChange` 
 
 Multi-select also supports nested options [See Nested Options](#nested-options). When a parent option is selected, all children will be selected. If all children are selected, the parent will be selected too.
 
-**NOTE**: This is a controlled component, so don't forget to pass the updated props to `MultiSelect` to see the changes. [See Example](#example)
+**NOTE**: This is a controlled component, so don't forget to pass the updated props to `MultiSelect` to see the changes. [See Example](#full-example)
 
 ## Options
 
@@ -107,12 +110,12 @@ return <MultiSelect onChange={newPets => setPets(newPets)} options={pets} size="
 
 ## Component Example
 
-<Story id="molecules-multiselect--default" />
+<Canvas of={MultiSelectStories.Default} />
 
-## Source
+## Component Example Source
 
-<Source id="molecules-multiselect--default" />
+<Source of={MultiSelectStories.Default} />
 
-## Props
+## MultiSelect Props
 
-<Props of={MultiSelect} />
+<ArgsTable of={MultiSelect} />

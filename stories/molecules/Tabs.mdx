@@ -1,4 +1,7 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as TabsStories from './Tabs.stories';
 import Tabs from '../../components/molecules/Tabs';
 
 # Tabs
@@ -32,12 +35,12 @@ A tab is active when the `location` endsWith a tab's `path`. To override this, u
 
 ## Component Example
 
-<Story id="molecules-tabs--default" />
+<Canvas of={TabsStories.Default} />
 
-## Source
+## Component Example Source
 
-<Source id="molecules-tabs--default" />
+<Source of={TabsStories.Default} />
 
-## Props
+## Tabs Props
 
-<Props of={Tabs} />
+<ArgsTable of={Tabs} />

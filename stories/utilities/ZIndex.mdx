@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as ZIndexStories from './ZIndex.stories';
 
 # Z-Index
 
@@ -11,8 +13,8 @@ The available classes are:
 
 ## Component Example
 
-<Story id="utilities-z-index--default" />
+<Canvas of={ZIndexStories.Default} />
 
 ## Source
 
-<Source id="utilities-z-index--default" />
+<Source of={ZIndexStories.Default} />

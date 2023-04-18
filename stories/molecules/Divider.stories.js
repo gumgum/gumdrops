@@ -1,14 +1,9 @@
 import Divider from '../../components/molecules/Divider';
 
-import mdx from './Divider.mdx';
-
 export default {
     title: 'Molecules/Divider',
     component: Divider,
     parameters: {
-        docs: {
-            page: mdx
-        },
         actions: {
             handles: ['click', '.gds-divider__arrow']
         }
@@ -22,12 +17,18 @@ export default {
 };
 
 const Template = args => {
-    return <Divider {...args} callback={() => console.log('divider_toggled')} />;
+    return (
+        <Divider {...args} callback={() => console.log('divider_toggled')}>
+            console.log(args)
+            {args.open && <div>Content to show when toggled open</div>}
+        </Divider>
+    );
 };
 
 export const Default = Template.bind({});
 
 Default.args = {
     collapsible: true,
-    open: true
+    open: true,
+    label: 'See more'
 };

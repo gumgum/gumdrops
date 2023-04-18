@@ -4,8 +4,6 @@ import FormGroupTextHelp from '../../components/atoms/FormGroupTextHelp';
 import TextInput from '../../components/atoms/TextInput';
 import Select from '../../components/atoms/Select';
 
-import mdx from './FormGroup.mdx';
-
 const contextOptions = ['', 'danger', 'warning', 'success'];
 
 const selectOptions = [
@@ -30,11 +28,6 @@ export default {
     title: 'Molecules/FormGroup',
     component: FormGroup,
     subcomponents: { FormGroupLabel, FormGroupTextHelp },
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         isInline: { control: 'boolean' },
         isDisabled: { control: 'boolean' },

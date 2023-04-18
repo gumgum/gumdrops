@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import Tag from '../../components/atoms/Tag';
 
 const sizeOptions = ['', 'sm', 'xs'];
@@ -11,7 +12,19 @@ export default {
             description: {
                 component:
                     'The `<Tag>` component is used to indicate active or selected items, filters or options. Refer to [this](http://design-prototypes.gumgum.com/black-tie/documentation/#icons-btl) page for icon names.'
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>Tag Props</h2>
+                    <ArgsTable />
+                </>
+            )
         }
     },
     argTypes: {

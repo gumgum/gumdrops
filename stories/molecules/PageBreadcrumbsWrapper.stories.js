@@ -2,8 +2,6 @@ import PageBreadcrumbsWrapper from '../../components/molecules/PageBreadcrumbsWr
 import PageBreadcrumb from '../../components/molecules/PageBreadcrumb';
 import PageBreadcrumbLink from '../../components/molecules/PageBreadcrumbLink';
 
-import mdx from './PageBreadcrumbsWrapper.mdx';
-
 const breadcrumbs = [
     {
         title: 'Home',
@@ -31,11 +29,6 @@ export default {
     title: 'Molecules/PageBreadcrumbsWrapper',
     component: PageBreadcrumbsWrapper,
     subcomponents: { PageBreadcrumb, PageBreadcrumbLink },
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         children: { control: 'object' }
     }

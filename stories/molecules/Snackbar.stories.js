@@ -1,19 +1,12 @@
 import Snackbar from '../../components/molecules/Snackbar';
 import SnackbarNotification from '../../components/atoms/SnackbarNotification';
 
-import mdx from './Snackbar.mdx';
-
 const contextOptions = ['', 'success', 'info', 'warning', 'danger', 'hidden'];
 
 export default {
     title: 'Molecules/Snackbar',
     component: Snackbar,
     subcomponents: { SnackbarNotification },
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         id: { control: 'number' },
         text: { control: 'text' },

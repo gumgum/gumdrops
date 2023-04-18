@@ -1,5 +1,4 @@
 // Export Atoms
-
 export { default as AccordionItem } from './atoms/AccordionItem';
 export { default as AccordionItemContent } from './atoms/AccordionItemContent';
 export { default as Badge } from './atoms/Badge';

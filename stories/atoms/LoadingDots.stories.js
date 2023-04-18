@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import LoadingDots from '../../components/atoms/LoadingDots';
 
 const sizeOptions = ['', 'sm', 'lg'];
@@ -10,7 +11,19 @@ export default {
             description: {
                 component:
                     'The `<LoadingDots>` component is used to indicate asynchronous loading of content.'
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>LoadingDots Props</h2>
+                    <ArgsTable />
+                </>
+            )
         }
     },
     argTypes: {

@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as BorderRadiusStories from './BorderRadius.stories';
 
 # Border Radius
 
@@ -23,8 +25,8 @@ The classes are named using the format:
 
 ## Component Example
 
-<Story id="utilities-border-radius--default" />
+<Canvas of={BorderRadiusStories.Default} />
 
 ## Source
 
-<Source id="utilities-border-radius--default" />
+<Source of={BorderRadiusStories.Default} />

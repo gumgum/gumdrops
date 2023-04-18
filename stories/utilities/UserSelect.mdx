@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as UserSelectStories from './UserSelect.stories';
 
 # User Select
 
@@ -6,8 +8,8 @@ Disable the user's ability to select text within any element by adding the helpe
 
 ## Component Example
 
-<Story id="utilities-user-select--default" />
+<Canvas of={UserSelectStories.Default} />
 
 ## Source
 
-<Source id="utilities-user-select--default" />
+<Source of={UserSelectStories.Default} />

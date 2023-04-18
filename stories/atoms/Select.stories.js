@@ -2,8 +2,6 @@ import Select from '../../components/atoms/Select';
 import FormGroupLabel from '../../components/atoms/FormGroupLabel';
 import FormGroup from '../../components/molecules/FormGroup';
 
-import mdx from './Select.mdx';
-
 const options = [
     {
         name: 'bananas',
@@ -28,20 +26,16 @@ const sizeOptions = ['', 'xs', 'sm', 'lg'];
 export default {
     title: 'Atoms/Select',
     component: Select,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         size: {
-            sizeOptions,
+            options: sizeOptions,
             control: { type: 'select' }
         },
         context: {
-            contextOptions,
+            options: contextOptions,
             control: { type: 'select' }
         },
+
         options: {
             options,
             control: { type: 'object' }

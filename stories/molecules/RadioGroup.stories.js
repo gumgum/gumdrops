@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import RadioGroup from '../../components/molecules/RadioGroup';
 
 const contextOptions = ['', 'success', 'warning', 'danger'];
@@ -11,7 +12,19 @@ export default {
         docs: {
             description: {
                 component: 'The `<RadioGroup>` component is used to group radio buttons.'
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>RadioGroup Props</h2>
+                    <ArgsTable />
+                </>
+            )
         }
     },
     argTypes: {

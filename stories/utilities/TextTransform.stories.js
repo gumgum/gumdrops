@@ -3,7 +3,7 @@ import mdx from './TextTransform.mdx';
 const options = ['', '-text-tr-up', '-text-tr-low', '-text-tr-cap'];
 
 export default {
-    title: 'Utilities/Text Transform',
+    title: 'Utilities/TextTransform',
     parameters: {
         docs: {
             page: mdx

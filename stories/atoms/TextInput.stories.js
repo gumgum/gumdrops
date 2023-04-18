@@ -1,17 +1,10 @@
 import TextInput from '../../components/atoms/TextInput';
 
-import mdx from './TextInput.mdx';
-
 const sizeOptions = ['', 'xs', 'sm', 'lg'];
 
 export default {
     title: 'Atoms/TextInput',
     component: TextInput,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         readOnly: { control: { type: 'boolean' } },
         type: {

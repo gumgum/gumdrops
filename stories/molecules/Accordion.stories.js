@@ -2,8 +2,6 @@ import Accordion from '../../components/molecules/Accordion';
 import AccordionItem from '../../components/atoms/AccordionItem';
 import AccordionItemContent from '../../components/atoms/AccordionItemContent';
 
-import mdx from './Accordion.mdx';
-
 const sizeOptions = ['', 'sm'];
 const contextOptions = ['', 'dark', 'white'];
 
@@ -19,11 +17,6 @@ export default {
         context: {
             options: contextOptions,
             control: { type: 'select' }
-        }
-    },
-    parameters: {
-        docs: {
-            page: mdx
         }
     }
 };

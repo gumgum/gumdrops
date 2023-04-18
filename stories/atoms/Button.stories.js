@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import Button from '../../components/atoms/Button';
 
 const sizeOptions = ['', 'xs', 'sm', 'lg'];
@@ -20,7 +21,19 @@ export default {
             description: {
                 component:
                     'Wrap the content you want to appear as a Button in the `<Button>` component.'
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>Button Props</h2>
+                    <ArgsTable />
+                </>
+            )
         }
     },
     argTypes: {

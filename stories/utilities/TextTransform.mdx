@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as TextTransformStories from './TextTransform.stories';
 
 # Text Transform
 
@@ -12,8 +14,8 @@ The available classes are:
 
 ## Component Example
 
-<Story id="utilities-text-transform--default" />
+<Canvas of={TextTransformStories.Default} />
 
 ## Source
 
-<Source id="utilities-text-transform--default" />
+<Source of={TextTransformStories.Default} />

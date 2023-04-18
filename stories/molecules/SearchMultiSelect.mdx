@@ -1,4 +1,7 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as SearchMultiSelectStories from './SearchMultiSelect.stories';
 import SearchMultiSelect from '../../components/molecules/SearchMultiSelect';
 
 # SearchMultiSelect
@@ -63,12 +66,12 @@ The format of the options must be an array of objects that contains at least thr
 
 ## Component Example
 
-<Story id="molecules-searchmultiselect--default" />
+<Canvas of={SearchMultiSelectStories.Default} />
 
-## Source
+## Component Example Source
 
-<Source id="molecules-searchmultiselect--default" />
+<Source of={SearchMultiSelectStories.Default} />
 
-## Props
+## SearchMultiSelect Props
 
-<Props of={SearchMultiSelect} />
+<ArgsTable of={SearchMultiSelect} />

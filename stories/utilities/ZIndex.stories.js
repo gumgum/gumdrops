@@ -33,7 +33,7 @@ const bDivStyles = {
 };
 
 export default {
-    title: 'Utilities/Z-Index',
+    title: 'Utilities/ZIndex',
     parameters: {
         docs: {
             page: mdx

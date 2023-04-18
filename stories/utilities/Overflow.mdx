@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as OverflowStories from './Overflow.stories';
 
 # Overflow
 
@@ -15,8 +17,8 @@ The available classes are:
 
 ## Component Example
 
-<Story id="utilities-overflow--default" />
+<Canvas of={OverflowStories.Default} />
 
 ## Source
 
-<Source id="utilities-overflow--default" />
+<Source of={OverflowStories.Default} />

@@ -1,7 +1,5 @@
 import Tabs from '../../components/molecules/Tabs';
 
-import mdx from './Tabs.mdx';
-
 const tabOptions = [
     { name: 'Tab 1', path: '/tab1' },
     { name: 'Tab 2', path: '/tab2' },
@@ -11,11 +9,6 @@ const tabOptions = [
 export default {
     title: 'Molecules/Tabs',
     component: Tabs,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         location: { control: 'text' },
         options: { control: 'object' },

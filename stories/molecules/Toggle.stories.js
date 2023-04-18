@@ -1,7 +1,5 @@
 import Toggle from '../../components/molecules/Toggle';
 
-import mdx from './Toggle.mdx';
-
 const typeOptions = ['checkbox', 'radio'];
 
 const sizeOptions = ['', 'sm', 'xs'];
@@ -9,11 +7,6 @@ const sizeOptions = ['', 'sm', 'xs'];
 export default {
     title: 'Molecules/Toggle',
     component: Toggle,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         label: { control: 'text' },
         onText: { control: 'text' },

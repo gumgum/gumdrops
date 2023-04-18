@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import Badge from '../../components/atoms/Badge';
 
 const contextOptions = [
@@ -21,7 +22,19 @@ export default {
             description: {
                 component:
                     'The `<Badge>` component is a numerical indicator of associated items. For a simple colored circle without a number inside, pass in the "empty" prop. If empty, it will not display any text within the badge.'
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>Badge Props</h2>
+                    <ArgsTable />
+                </>
+            )
         }
     },
     argTypes: {

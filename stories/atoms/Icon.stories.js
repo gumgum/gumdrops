@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import Icon from '../../components/atoms/Icon';
 
 const contextOptions = ['', 'primary', 'secondary', 'danger'];
@@ -11,7 +12,19 @@ export default {
             description: {
                 component:
                     'The `<Icon>` displays an item from the <a href="https://fontawesome.com/v5/search" target="_blank">Font Awesome</a> library. It is useful in combination of a tooltip or to trigger an action (see `<TooltipIcon>`). Any other props that are passed in are also accepted.'
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>Icon Props</h2>
+                    <ArgsTable />
+                </>
+            )
         }
     },
     argTypes: {

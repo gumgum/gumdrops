@@ -4,8 +4,6 @@ import SearchMultiSelect from '../../components/molecules/SearchMultiSelect';
 import FormGroupLabel from '../../components/atoms/FormGroupLabel';
 import FormGroup from '../../components/molecules/FormGroup';
 
-import mdx from './SearchMultiSelect.mdx';
-
 const contextOptions = ['', 'success', 'warning', 'danger'];
 const sizeOptions = ['', 'xs', 'sm', 'md'];
 
@@ -45,11 +43,6 @@ const namesList = [
 export default {
     title: 'Molecules/SearchMultiSelect',
     component: SearchMultiSelect,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         placeholder: { control: 'text' },
         termDivider: { control: 'text' },
@@ -60,6 +53,10 @@ export default {
         update: 'update',
         context: {
             options: contextOptions,
+            control: { type: 'select' }
+        },
+        size: {
+            options: sizeOptions,
             control: { type: 'select' }
         }
     }

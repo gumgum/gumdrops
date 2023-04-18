@@ -5,16 +5,11 @@ import ModalHeader from '../../components/atoms/ModalHeader';
 import ModalBody from '../../components/atoms/ModalBody';
 import ModalFooter from '../../components/atoms/ModalFooter';
 
-import mdx from './Modal.mdx';
-
 export default {
     title: 'Molecules/Modal',
     component: Modal,
     subcomponents: { ModalForm, ModalHeader, ModalBody, ModalFooter },
     parameters: {
-        docs: {
-            page: mdx
-        },
         actions: {
             handles: ['click', '.gds-button--default'],
             handles: ['click', '.gds-button--primary'],

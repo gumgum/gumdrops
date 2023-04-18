@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as PointerEventsStories from './PointerEvents.stories';
 
 # Pointer Events
 
@@ -11,8 +13,8 @@ The available classes are:
 
 ## Component Example
 
-<Story id="utilities-pointer-events--default" />
+<Canvas of={PointerEventsStories.Default} />
 
 ## Source
 
-<Source id="utilities-pointer-events--default" />
+<Source of={PointerEventsStories.Default} />

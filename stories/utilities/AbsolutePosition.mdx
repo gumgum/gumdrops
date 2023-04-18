@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as AbsolutePositionStories from './AbsolutePosition.stories';
 
 # Absolute Position
 
@@ -20,8 +22,8 @@ The available classes are:
 
 ## Component Example
 
-<Story id="utilities-absolute-position--default" />
+<Canvas of={AbsolutePositionStories.Default} />
 
 ## Source
 
-<Source id="utilities-absolute-position--default" />
+<Source of={AbsolutePositionStories.Default} />

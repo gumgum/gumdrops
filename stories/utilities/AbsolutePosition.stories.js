@@ -27,7 +27,7 @@ const innerDivStyle = {
 };
 
 export default {
-    title: 'Utilities/Absolute Position',
+    title: 'Utilities/AbsolutePosition',
     parameters: {
         docs: {
             page: mdx

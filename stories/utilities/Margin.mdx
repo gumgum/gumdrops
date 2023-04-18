@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as MarginStories from './Margin.stories';
 
 # Margin
 
@@ -25,8 +27,8 @@ Finally, you can use `-m-h-c` to horizontally center a block element with an ass
 
 ## Component Example
 
-<Story id="utilities-margin--default" />
+<Canvas of={MarginStories.Default} />
 
 ## Source
 
-<Source id="utilities-margin--default" />
+<Source of={MarginStories.Default} />

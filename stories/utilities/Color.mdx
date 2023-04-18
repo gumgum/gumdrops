@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as ColorStories from './Color.stories';
 
 # Color
 
@@ -39,8 +41,8 @@ For example: `-color-bg-pri-lt-1`
 
 ## Component Example
 
-<Story id="utilities-color--default" />
+<Canvas of={ColorStories.Default} />
 
 ## Source
 
-<Source id="utilities-color--default" />
+<Source of={ColorStories.Default} />

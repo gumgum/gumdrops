@@ -1,11 +1,16 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as TooltipIconStories from './TooltipIcon.stories';
 import TooltipIcon from '../../components/atoms/TooltipIcon';
+import Tooltip from '../../components/atoms/Tooltip';
+import Icon from '../../components/atoms/Icon';
 
 # TooltipIcon
 
-The `<Icon>` displays an item from the <a href="https://fontawesome.com/v5/search" target="_blank">Font Awesome</a> library.
+`<TooltipIcon>` combines `<Tooltip>` and `<Icon>` into one.
 
-It is useful in combination of a tooltip or to trigger an action. See `<TooltipIcon>`
+The `<Icon>` component displays an item from the <a href="https://fontawesome.com/v5/search" target="_blank">Font Awesome</a> library.
 
 Any other props that are passed in are also accepted and passed to the `button` element.
 
@@ -22,18 +27,20 @@ This can be used to trigger an action when the user clicks on the `<TooltipIcon>
 
 Alternatively, instead of using the `onClick` property of the button, `<TooltipIcon>` can be wrapped in a `<Link>`
 
+```
 <Link to="/new-page">
     <TooltipIcon icon="arrow" label="Go to the new page" />
 </Link>
+```
 
 ## Component Example
 
-<Story id="atoms-tooltipicon--default" />
+<Canvas of={TooltipIconStories.Default} />
 
-## Source
+## Component Example Source
 
-<Source id="atoms-tooltipicon--default" />
+<Source of={TooltipIconStories.Default} />
 
-## Props
+## TooltipIcon Props
 
-<Props of={TooltipIcon} />
+<ArgsTable of={TooltipIcon} />

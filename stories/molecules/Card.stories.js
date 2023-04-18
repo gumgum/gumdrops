@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import Card from '../../components/molecules/Card';
 import CardBlock from '../../components/molecules/CardBlock';
 import CardImage from '../../components/molecules/CardImage';
@@ -15,7 +16,19 @@ export default {
             description: {
                 component:
                     'The `<Card>` component is a standard container component, designed to hold groups of related information. Cards are usually arranged in a uniform grid. You can nest `<CardBlock>` and `<CardImage>` components within a `<Card>`.'
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>Card Props</h2>
+                    <ArgsTable of={Card} />
+                </>
+            )
         }
     },
     argTypes: {

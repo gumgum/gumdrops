@@ -12,7 +12,7 @@ const options = [
 ];
 
 export default {
-    title: 'Utilities/Vertical Align',
+    title: 'Utilities/VerticalAlign',
     parameters: {
         docs: {
             page: mdx

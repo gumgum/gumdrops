@@ -1,7 +1,5 @@
 import PageBreadcrumbs from '../../components/molecules/PageBreadcrumbs';
 
-import mdx from './PageBreadcrumbs.mdx';
-
 const pathOptions = [
     '/',
     '/home',
@@ -63,11 +61,6 @@ const printCode = code => (code ? '\n' + JSON.stringify(code, null, 4) + '\n\n' 
 export default {
     title: 'Molecules/PageBreadcrumbs',
     component: PageBreadcrumbs,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         config: { control: 'object' },
         pathname: { control: 'text' },
@@ -98,3 +91,6 @@ export const NoConfig = Template.bind({});
 NoConfig.args = {
     pathname: '/'
 };
+
+Config.parameters = { controls: { exclude: ['linkComponent'] } };
+NoConfig.parameters = { controls: { exclude: ['linkComponent', 'config'] } };

@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as TextAlignStories from './TextAlign.stories';
 
 # Text Align
 
@@ -24,8 +26,8 @@ Breakpoint-specific classes cascade downwards.
 
 ## Component Example
 
-<Story id="utilities-text-align--default" />
+<Canvas of={TextAlignStories.Default} />
 
 ## Source
 
-<Source id="utilities-text-align--default" />
+<Source of={TextAlignStories.Default} />

@@ -1,18 +1,11 @@
 import TextArea from '../../components/atoms/TextArea';
 
-import mdx from './TextArea.mdx';
-
 const sizeOptions = ['', 'xs', 'sm', 'lg'];
 const resizeOptions = ['', 'resize-h', 'resize-v', 'no-resize'];
 
 export default {
     title: 'Atoms/TextArea',
     component: TextArea,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         placeholder: { control: { type: 'text' } },
         value: { control: { type: 'text' } },

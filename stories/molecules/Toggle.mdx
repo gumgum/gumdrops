@@ -1,4 +1,7 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as ToggleStories from './Toggle.stories';
 import Toggle from '../../components/molecules/Toggle';
 
 # Toggle
@@ -54,12 +57,12 @@ render() {
 
 ## Component Example
 
-<Story id="molecules-toggle--default" />
+<Canvas of={ToggleStories.Default} />
 
-## Source
+## Component Example Source
 
-<Source id="molecules-toggle--default" />
+<Source of={ToggleStories.Default} />
 
-## Props
+## Toggle Props
 
-<Props of={Toggle} />
+<ArgsTable of={Toggle} />

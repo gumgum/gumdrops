@@ -4,7 +4,7 @@ import Button from '../../components/atoms/Button';
 const options = ['', '-pointer-events--auto', '-pointer-events--none'];
 
 export default {
-    title: 'Utilities/Pointer Events',
+    title: 'Utilities/PointerEvents',
     parameters: {
         docs: {
             page: mdx

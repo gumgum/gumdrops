@@ -1,4 +1,7 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as LoginFormStories from './LoginForm.stories';
 import LoginForm from '../../components/molecules/LoginForm';
 
 # LoginForm
@@ -96,12 +99,12 @@ return (
 
 ## Component Example
 
-<Story id="molecules-loginform--default" />
+<Canvas of={LoginFormStories.Default} />
 
-## Source
+## Component Example Source
 
-<Source id="molecules-loginform--default" />
+<Source of={LoginFormStories.Default} />
 
-## Props
+## LoginForm Props
 
-<Props of={LoginForm} />
+<ArgsTable of={LoginForm} />

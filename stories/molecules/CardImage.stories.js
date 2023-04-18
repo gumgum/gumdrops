@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import Card from '../../components/molecules/Card';
 import CardImage from '../../components/molecules/CardImage';
 
@@ -13,7 +14,19 @@ export default {
             description: {
                 component:
                     'The `<CardImage>` component is used to append images inside of a `<Card>`. It can add an image to the top or bottom of the card.'
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>CardImage Props</h2>
+                    <ArgsTable />
+                </>
+            )
         }
     },
     argTypes: {

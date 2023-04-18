@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import ButtonGroup from '../../components/atoms/ButtonGroup';
 import Button from '../../components/atoms/Button';
 
@@ -11,7 +12,21 @@ export default {
             description: {
                 component:
                     'The `<ButtonGroup>` wraps a series of `<Button>` components with a group prop.'
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>ButtonGroup Props</h2>
+                    <ArgsTable of={ButtonGroup} />
+                    <h2>Button Props</h2>
+                    <ArgsTable of={Button} />
+                </>
+            )
         }
     },
     argTypes: {

@@ -1,11 +1,9 @@
 import mdx from './UserSelect.mdx';
 
-import { colors } from './constants';
-
 const options = ['', '-user-select--none'];
 
 export default {
-    title: 'Utilities/User Select',
+    title: 'Utilities/UserSelect',
     parameters: {
         docs: {
             page: mdx

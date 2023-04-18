@@ -2,10 +2,13 @@
 
 # 1.16.0
 
--   Upgrade storybook version to 6.5
+-   Upgrade Storybook version to 7 - requires react and react-dom be added as dev dependencies
+-   Upgrade React to 18
+-   Added color swatches page
 -   Deprecate CircularThumbnail, NumberCircle, ProgressBar, Trend, Avatar, Breadcrumbs, BreadcrumbsWrapper
 -   Update examples in documentation to use hooks
--   Update tests to react test library/react-test-renderer since Enzyme is deprecated
+-   Update gumdrops docs
+-   Update tests to React Test Library/react-test-renderer since Enzyme is deprecated
 
 # 1.15.3 and 1.15.4
 

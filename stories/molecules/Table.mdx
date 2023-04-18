@@ -1,5 +1,10 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as TableStories from './Table.stories';
 import Table from '../../components/molecules/Table';
+import TableData from '../../components/molecules/TableData';
+import TableHeading from '../../components/molecules/TableHeading';
 
 # Table
 
@@ -157,14 +162,38 @@ const data = [
 const People = () => <Table columns={columns} data={data} customRowKey="id" />;
 ```
 
-## Component Example
+## Component Example Simple
 
-<Story id="molecules-table--default" />
+<Canvas of={TableStories.Simple} />
 
-## Source
+## Component Example Source Simple
 
-<Source id="molecules-table--default" />
+<Source of={TableStories.Simple} />
 
-## Props
+## Component Example Advanced
 
-<Props of={Table} />
+<Canvas of={TableStories.Advanced} />
+
+## Component Example Source Advanced
+
+<Source of={TableStories.Advanced} />
+
+## Component Example Custom
+
+<Canvas of={TableStories.Custom} />
+
+## Component Example Source Custom
+
+<Source of={TableStories.Custom} />
+
+## Table Props
+
+<ArgsTable of={Table} />
+
+## TableData Props
+
+<ArgsTable of={TableData} />
+
+## TableHeading Props
+
+<ArgsTable of={TableHeading} />

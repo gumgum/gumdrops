@@ -29,7 +29,7 @@ const divStyle = {
 };
 
 export default {
-    title: 'Utilities/Text Align',
+    title: 'Utilities/TextAlign',
     parameters: {
         docs: {
             page: mdx

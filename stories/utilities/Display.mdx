@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as DisplayStories from './Display.stories';
 
 # Display
 
@@ -25,8 +27,8 @@ For example: `-block--xs`
 
 ## Component Example
 
-<Story id="utilities-display--default" />
+<Canvas of={DisplayStories.Default} />
 
 ## Source
 
-<Source id="utilities-display--default" />
+<Source of={DisplayStories.Default} />

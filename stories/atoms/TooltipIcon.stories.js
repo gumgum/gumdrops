@@ -1,7 +1,5 @@
 import TooltipIcon from '../../components/atoms/TooltipIcon';
 
-import mdx from './TooltipIcon.mdx';
-
 const positionOptions = [
     '',
     'top',
@@ -19,11 +17,6 @@ const prefixOptions = ['fas', 'far', 'fal', 'fab'];
 export default {
     title: 'Atoms/TooltipIcon',
     component: TooltipIcon,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         iconClassName: { control: { type: 'text' } },
         icon: { control: { type: 'text' } },

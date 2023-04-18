@@ -45,6 +45,7 @@ Modal.propTypes = {
     className: PropTypes.string,
     overlayClassName: PropTypes.string,
     style: PropTypes.object,
+    /** Value for md breakpoint; controls width using grid system (see Column component) */
     md: PropTypes.string,
     children: PropTypes.element.isRequired
 };

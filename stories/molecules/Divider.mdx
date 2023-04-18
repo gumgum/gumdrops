@@ -1,4 +1,7 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as DividerStories from './Divider.stories';
 import Divider from '../../components/molecules/Divider';
 
 # Divider
@@ -26,12 +29,12 @@ return (
 
 ## Component Example
 
-<Story id="molecules-divider--default" />
+<Canvas of={DividerStories.Default} />
 
-## Source
+## Component Example Source
 
-<Source id="molecules-divider--default" />
+<Source of={DividerStories.Default} />
 
-## Props
+## Divider Props
 
-<Props of={Divider} />
+<ArgsTable of={Divider} />

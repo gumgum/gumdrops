@@ -5,15 +5,10 @@ import FormGroupLabel from '../../components/atoms/FormGroupLabel';
 import Button from '../../components/atoms/Button';
 import TextInput from '../../components/atoms/TextInput';
 
-import mdx from './LoginForm.mdx';
-
 export default {
     title: 'Molecules/LoginForm',
     component: LoginForm,
     parameters: {
-        docs: {
-            page: mdx
-        },
         actions: {
             handles: ['click', '.gds-button--primary'],
             handles: ['click', '.gds-text--link']

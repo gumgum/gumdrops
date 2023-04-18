@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as PaddingStories from './Padding.stories';
 
 # Padding
 
@@ -23,8 +25,8 @@ For the spacing to take effect at a certain breakpoint only, use the format `p-{
 
 ## Component Example
 
-<Story id="utilities-padding--default" />
+<Canvas of={PaddingStories.Default} />
 
 ## Source
 
-<Source id="utilities-padding--default" />
+<Source of={PaddingStories.Default} />

@@ -2,8 +2,6 @@ import React from 'react';
 
 import MultiSelect from '../../components/molecules/MultiSelect';
 
-import mdx from './MultiSelect.mdx';
-
 const optionsA = [
     {
         name: 'Lassie',
@@ -89,14 +87,9 @@ const sizeOptions = ['', 'xs', 'sm'];
 export default {
     title: 'Molecules/MultiSelect',
     component: MultiSelect,
-    parameters: {
-        docs: {
-            page: mdx
-        }
-    },
     argTypes: {
         placeholder: { control: 'text' },
-        onChange: 'change',
+        onChange: { action: 'change' },
         size: {
             options: sizeOptions,
             control: { type: 'select' }
@@ -104,47 +97,8 @@ export default {
     }
 };
 
-// class MultiSelectOptions extends Component {
-//     static propTypes = {
-//         options: PropTypes.array
-//     };
-
-//     state = {
-//         options: this.props.options
-//     };
-
-//     static getDerivedStateFromProps(props) {
-//         return {
-//             options: props.options
-//         };
-//     }
-
-//     handleChange = newOptions => {
-//         this.setState({
-//             options: newOptions
-//         });
-//     };
-
-//     render() {
-//         return (
-//             <MultiSelect
-//                 placeholder={text('Placeholder', 'Select an option')}
-//                 size={optionalSelect('Size', sizeOptions, '')}
-//                 onChange={this.handleChange}
-//                 options={this.state.options}
-//                 className={text('className', '')}
-//             />
-//         );
-//     }
-// }
-
 const Template = args => {
-    return (
-        <MultiSelect
-            {...args}
-            // onChange={() => console.log('changed')}
-        />
-    );
+    return <MultiSelect {...args} />;
 };
 
 export const Default = Template.bind({});

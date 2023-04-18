@@ -1,4 +1,6 @@
-import { Story, Source } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/addon-docs/blocks';
+
+import * as DisableStories from './Disable.stories';
 
 # Disable
 
@@ -8,8 +10,8 @@ Add the helper class `-disabled` to any element to indicate it is disabled.
 
 ## Component Example
 
-<Story id="utilities-disable--default" />
+<Canvas of={DisableStories.Default} />
 
 ## Source
 
-<Source id="utilities-disable--default" />
+<Source of={DisableStories.Default} />

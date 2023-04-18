@@ -1,4 +1,7 @@
-import { Story, Source, Props } from '@storybook/addon-docs/blocks';
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as TablePaginationFooterStories from './TablePaginationFooter.stories';
 import TablePaginationFooter from '../../components/molecules/TablePaginationFooter';
 
 # TablePaginationFooter
@@ -33,12 +36,12 @@ For example:
 
 ## Component Example
 
-<Story id="molecules-tablepaginationfooter--default" />
+<Canvas of={TablePaginationFooterStories.Default} />
 
-## Source
+## Component Example Source
 
-<Source id="molecules-tablepaginationfooter--default" />
+<Source of={TablePaginationFooterStories.Default} />
 
-## Props
+## TablePaginationFooter Props
 
-<Props of={TablePaginationFooter} />
+<ArgsTable of={TablePaginationFooter} />

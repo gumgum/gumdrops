@@ -1,3 +1,4 @@
+import { Title, Description, Primary, Source, ArgsTable } from '@storybook/addon-docs';
 import FormGroupLabel from '../../components/atoms/FormGroupLabel';
 import TextInput from '../../components/atoms/TextInput';
 import FormGroup from '../../components/molecules/FormGroup';
@@ -10,7 +11,19 @@ export default {
             description: {
                 component:
                     'The `<FormGroupLabel>` component is used to add a label to your `<FormGroup>`.'
-            }
+            },
+            page: () => (
+                <>
+                    <Title />
+                    <Description />
+                    <h2>Component Example</h2>
+                    <Primary />
+                    <h2>Component Example Source</h2>
+                    <Source />
+                    <h2>FormGroupLabel Props</h2>
+                    <ArgsTable />
+                </>
+            )
         }
     },
     argTypes: {
