@@ -1,4 +1,4 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import Card from '../../components/molecules/Card';
 
@@ -9,13 +9,13 @@ const defaultProps = {
     style: { width: 120 }
 };
 
-describe('Expect <Card>', () => {
-    it('to render', () => {
-        const wrapper = mount(
+test('Expect <Card> to render properly', () => {
+    const tree = renderer
+        .create(
             <Card {...defaultProps}>
                 <div>Foo</div>
             </Card>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
 });

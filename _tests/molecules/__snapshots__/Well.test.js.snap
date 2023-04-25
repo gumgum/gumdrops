@@ -1,61 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <Well> to render 1`] = `
-<Well
-  button={false}
-  callback={null}
-  className=""
-  context="primary"
+exports[`Expect <Well> to render properly 1`] = `
+<div
+  className="gds-well gds-well--primary"
   style={
-    Object {
+    {
       "width": 100,
     }
   }
-  text="Foo"
 >
-  <div
-    className="gds-well gds-well--primary"
-    style={
-      Object {
-        "width": 100,
-      }
-    }
+  <p
+    className="gds-well__text"
   >
-    <p
-      className="gds-well__text"
-    >
-      Foo
-    </p>
-  </div>
-</Well>
+    Foo
+  </p>
+</div>
 `;
 
 exports[`Expect <Well> to render with a button 1`] = `
-<Well
-  button={false}
-  callback={[Function]}
-  className=""
-  context="primary"
+<div
+  className="gds-well gds-well--primary"
   style={
-    Object {
+    {
       "width": 100,
     }
   }
-  text="Foo"
 >
-  <div
-    className="gds-well gds-well--primary"
-    style={
-      Object {
-        "width": 100,
-      }
-    }
+  <p
+    className="gds-well__text"
   >
-    <p
-      className="gds-well__text"
-    >
-      Foo
-    </p>
-  </div>
-</Well>
+    Foo
+  </p>
+</div>
 `;

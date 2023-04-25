@@ -1,0 +1,54 @@
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as FormGroupStories from './FormGroup.stories';
+import FormGroup from '../../components/molecules/FormGroup';
+import FormGroupLabel from '../../components/atoms/FormGroupLabel';
+import FormGroupTextHelp from '../../components/atoms/FormGroupTextHelp';
+
+# FormGroup
+
+The `<FormGroup>` component is used to wrap your form's inputs.
+
+For a simple text input, it can consist of `<FormGroupLabel>`, `<TextInput>`, and `<FormGroupTextHelp>` components.
+
+However, this depends on what type of input you are working on. Context is optional, and you probably don't need it unless you want to display a hint, warning, or error.
+
+## TextInput example
+
+```jsx
+<FormGroup context="danger">
+    <FormGroupLabel .../>
+    <TextInput .../>
+    <FormGroupTextHelp .../>
+</FormGroup>
+```
+
+## Select example
+
+```jsx
+<FormGroup>
+    <FormGroupLabel .../>
+    <Select .../>
+</FormGroup>
+```
+
+## Component Example
+
+<Canvas of={FormGroupStories.Default} />
+
+## Component Example Source
+
+<Source of={FormGroupStories.Default} />
+
+## FormGroup Props
+
+<ArgsTable of={FormGroup} />
+
+## FormGroupLabel Props
+
+<ArgsTable of={FormGroupLabel} />
+
+## FormGroupTextHelp Props
+
+<ArgsTable of={FormGroupTextHelp} />

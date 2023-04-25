@@ -1,69 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <Divider> to render 1`] = `
-<Divider
-  callback={[Function]}
-  centered={false}
-  collapsible={false}
-  label="Divider Label"
-  open={false}
+exports[`Expect <Divider> to render open 1`] = `
+<div
+  className="gds-divider"
+  onClick={[MockFunction]}
   style={
-    Object {
+    {
       "width": 150,
     }
   }
 >
-  <div
-    className="gds-divider"
-    onClick={[Function]}
-    style={
-      Object {
-        "width": 150,
-      }
-    }
+  <span
+    className="gds-divider__label gds-form-group__label"
   >
-    <span
-      className="gds-divider__label gds-form-group__label"
-    >
-      Divider Label
-    </span>
-    <span
-      className="gds-divider__line"
-    />
-  </div>
-</Divider>
+    Divider Label
+  </span>
+  <span
+    className="gds-divider__line"
+  />
+</div>
 `;
 
-exports[`Expect <Divider> to render open 1`] = `
-<Divider
-  callback={[Function]}
-  centered={false}
-  collapsible={false}
-  label="Divider Label"
-  open={true}
+exports[`Expect <Divider> to render properly 1`] = `
+<div
+  className="gds-divider"
+  onClick={[MockFunction]}
   style={
-    Object {
+    {
       "width": 150,
     }
   }
 >
-  <div
-    className="gds-divider"
-    onClick={[Function]}
-    style={
-      Object {
-        "width": 150,
-      }
-    }
+  <span
+    className="gds-divider__label gds-form-group__label"
   >
-    <span
-      className="gds-divider__label gds-form-group__label"
-    >
-      Divider Label
-    </span>
-    <span
-      className="gds-divider__line"
-    />
-  </div>
-</Divider>
+    Divider Label
+  </span>
+  <span
+    className="gds-divider__line"
+  />
+</div>
 `;

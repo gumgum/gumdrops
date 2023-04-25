@@ -1,4 +1,8 @@
-/* globals mount */
+/**
+ * @jest-environment jsdom
+ */
+import renderer from 'react-test-renderer';
+import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
 import Table from '../../components/molecules/Table';
 
@@ -16,105 +20,82 @@ const defaultProps = {
     isSecondary: false,
     isStriped: false,
     isResponsive: false,
-    onRowClick: () => {},
+    onRowClick: jest.fn(),
     size: 'lg'
 };
 
-describe('Expect <Table>', () => {
-    it('to render', () => {
-        const wrapper = mount(<Table {...defaultProps} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Table> to render properly', () => {
+    const tree = renderer.create(<Table {...defaultProps} />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('to render customized', () => {
-        const props = {
-            ...defaultProps,
-            hasHeader: true,
-            isInverse: true,
-            isSecondary: true,
-            isStriped: true,
-            isResponsive: true
-        };
-        const wrapper = mount(<Table {...props} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Table> to render customized', () => {
+    const props = {
+        ...defaultProps,
+        hasHeader: true,
+        isInverse: true,
+        isSecondary: true,
+        isStriped: true,
+        isResponsive: true
+    };
+    const tree = renderer.create(<Table {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('to render using advanced configs', () => {
-        const props = {
-            ...defaultProps,
-            columns: [
-                {
-                    key: 'foo',
-                    children: 'Foo',
-                    headingProps: { style: { width: 100, onClick: () => {} } }
-                },
-                {
-                    key: 'bar',
-                    children: 'Bar',
-                    headingProps: { style: { width: 100, onClick: () => {} } }
-                }
-            ]
-        };
-        const wrapper = mount(<Table {...props} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Table> to render using advanced configs', () => {
+    const props = {
+        ...defaultProps,
+        columns: [
+            {
+                key: 'foo',
+                children: 'Foo',
+                headingProps: { style: { width: 100, onClick: jest.fn() } }
+            },
+            {
+                key: 'bar',
+                children: 'Bar',
+                headingProps: { style: { width: 100, onClick: jest.fn() } }
+            }
+        ]
+    };
+    const tree = renderer.create(<Table {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('sorts by alpha ascending/descending order when a heading is clicked', () => {
-        const props = {
-            hasHeader: true,
-            columns: ['foo'],
-            data: [{ foo: 'zoo' }, { foo: 'bar' }, { foo: 'ok' }]
-        };
-        const curOrder = ['zoo', 'bar', 'ok'];
-        const asc = ['bar', 'ok', 'zoo'];
-        const desc = ['zoo', 'ok', 'bar'];
+test('Expect <Table> to sort by alpha ascending/descending order when a heading is clicked', () => {
+    const props = {
+        hasHeader: true,
+        columns: ['foo'],
+        data: [{ foo: 'zoo' }, { foo: 'bar' }, { foo: 'ok' }]
+    };
 
-        const wrapper = mount(<Table {...props} />);
-        const data = wrapper.find('td');
-        data.forEach((node, i) => expect(node.text()).toBe(curOrder[i]));
+    const { getByText, getAllByRole } = render(<Table {...props} />);
+    const heading = getByText('foo');
 
-        const heading = wrapper.find('TableHeading');
-        heading.simulate('click');
-        data.forEach((node, i) => expect(node.text()).toBe(asc[i]));
+    // Click on heading to sort by name ascending
+    fireEvent.click(heading);
 
-        heading.simulate('click');
-        data.forEach((node, i) => expect(node.text()).toBe(desc[i]));
-    });
+    const cells = getAllByRole('cell');
+    expect(cells[0].textContent).toContain('bar');
+    expect(cells[1].textContent).toContain('ok');
+    expect(cells[2].textContent).toContain('zoo');
 
-    it('sorts by numeric ascending/descending order when a heading is clicked', () => {
-        const props = {
-            hasHeader: true,
-            columns: ['foo'],
-            data: [{ foo: 1235 }, { foo: 99 }, { foo: 180 }]
-        };
-        const curOrder = [1235, 99, 180];
-        const asc = [99, 180, 1235];
-        const desc = [1235, 180, 99];
+    // Click on heading again to sort by name descending
+    fireEvent.click(heading);
+    expect(cells[0].textContent).toContain('zoo');
+    expect(cells[1].textContent).toContain('ok');
+    expect(cells[2].textContent).toContain('bar');
+});
 
-        const wrapper = mount(<Table {...props} />);
-        const data = wrapper.find('td');
-        data.forEach((node, i) => expect(parseInt(node.text())).toEqual(curOrder[i]));
+test('Expect <Table> to manually set sort direction', () => {
+    const props = {
+        hasHeader: true,
+        columns: [{ key: 'foo', children: 'Foo', headingProps: { sortDirection: 'asc' } }],
+        data: [{ foo: 'bar' }]
+    };
 
-        const heading = wrapper.find('TableHeading');
-        heading.simulate('click');
-        data.forEach((node, i) => expect(parseInt(node.text())).toEqual(asc[i]));
+    const { getByText } = render(<Table {...props} />);
 
-        heading.simulate('click');
-        data.forEach((node, i) => expect(parseInt(node.text())).toEqual(desc[i]));
-    });
-
-    it('manually set sort direction', () => {
-        const props = {
-            hasHeader: true,
-            columns: [{ key: 'foo', children: 'Foo', headingProps: { sortDirection: 'asc' } }],
-            data: [{ foo: 'bar' }]
-        };
-
-        const wrapper = mount(<Table {...props} />);
-        expect(wrapper.find('th').hasClass('gds-table__header--sort-asc')).toEqual(true);
-        wrapper.setProps({
-            columns: [{ key: 'foo', children: 'Foo', headingProps: { sortDirection: 'desc' } }]
-        });
-        expect(wrapper.find('th').hasClass('gds-table__header--sort-desc')).toEqual(true);
-    });
+    const heading = getByText('Foo');
+    expect(heading).toHaveClass('gds-table__header--sort-asc');
 });

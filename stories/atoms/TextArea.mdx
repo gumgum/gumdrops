@@ -1,0 +1,47 @@
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as TextAreaStories from './TextArea.stories';
+import TextArea from '../../components/atoms/TextArea';
+
+# TextArea
+
+Textarea inputs are used for inputting large blocks of text into a form. It is recommended that you wrap it with the `<FormGroup>` component.
+
+## Controlled vs Uncontrolled
+
+This component can be controlled or uncontrolled. This component accepts any prop that you may want to add. The only drawback is that there is not validation for unlisted props. **It is highly recommended that you use controlled components in React.**
+
+_Recommended props_: `value` and `onChange`.
+
+## Controlled example
+
+```jsx
+const [textAreaContent, setTextAreaContent] = useState('');
+
+render() {
+    return (
+        <FormGroup>
+            <TextArea
+                placeholder="Enter your content"
+                value={ textAreaContent }
+                onChange={e => {
+                setTextAreaContent(e.target.checked) }
+            }
+            />
+        </FormGroup>
+    );
+}
+```
+
+## Component Example
+
+<Canvas of={TextAreaStories.Default} />
+
+## Component Example Source
+
+<Source of={TextAreaStories.Default} />
+
+## TextArea Props
+
+<ArgsTable of={TextArea} />

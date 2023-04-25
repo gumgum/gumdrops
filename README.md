@@ -6,11 +6,11 @@ This project contains reusable JavaScript React components that you can import i
 
 ## Prerequisites
 
-Include GumGum Design System's CSS in your project:
+Gumdrops must be used with the GumGum Design System (Concrete), which handles all of the styles, as well as Sass.
 
-`<link rel="stylesheet" href="https://assets.ggops.com/stable/theme-blue.css">`
+Add [gumgum-design](https://www.npmjs.com/package/gumgum-design) and [sass](https://www.npmjs.com/package/sass) to your project.
 
-[See the Design System documentation](https://ds.gumgum.com/stable/css) for themes, CSS utilities and more.
+[See the Concrete Design System documentation](https://concrete.gumgum.com) for themes, CSS utilities and more.
 
 ## Documentation
 
@@ -53,15 +53,15 @@ node_modules/gumdrops/gumdrops.umd.js
 
 Unfortunately, ESM is not yet widely available for some current tools, and running tests using components from this library could throw errors because of the ES module syntax. To prevent this, try the following:
 
-* **For Jest**:
-  Jest uses its own implementation of require and will attempt to parse files with it and babel-jest, by default, it ignores node_modules which will result in syntax errors from the import statements. Add the next line to your jest config so that it ignores everything in node_modules, except for this library:
+-   **For Jest**:
+    Jest uses its own implementation of require and will attempt to parse files with it and babel-jest, by default, it ignores node_modules which will result in syntax errors from the import statements. Add the next line to your jest config so that it ignores everything in node_modules, except for this library:
 
     ```
     "transformIgnorePatterns": ["/node_modules/(?!gumdrops)"]
     ```
 
-* **For Mocha + Webpack**:
-  It is very likely that your mocha and webpack configurations also ignore the node_modules directory, to prevent any syntax errors, load babel through a configuration file instead of calling `--compilers js:babel-register` or `--require babel-register` directly.
+-   **For Mocha + Webpack**:
+    It is very likely that your mocha and webpack configurations also ignore the node_modules directory, to prevent any syntax errors, load babel through a configuration file instead of calling `--compilers js:babel-register` or `--require babel-register` directly.
 
 The file contents can be as simple as:
 
@@ -77,9 +77,9 @@ require('babel-register')({
 
 ### Prerequisites for running project locally
 
-* Git and [Git Flow](https://github.com/petervanderdoes/gitflow-avh)
-* [NodeJS/NPM](http://nodejs.org/download/) & [Yarn](https://yarnpkg.com/): _Minimum Required Versions_ - We have tested with the following versions - `node: ^8.9.0, npm: ^5.5.1, yarn ^1.2.1`
-* Install the ESLint validators and [Prettier](https://prettier.io/docs/en/editors.html) on your editor of choice. We have the configuration files on the root of the project, `.eslintrc` and `.prettierrc`. There is a precommit hook to run the Prettier scripts on the files.
+-   Git and [Git Flow](https://github.com/petervanderdoes/gitflow-avh)
+-   [NodeJS/NPM](http://nodejs.org/download/) & [Yarn](https://yarnpkg.com/): _Minimum Required Versions_ - We have tested with the following versions - `node: ^16.16.0, npm: ^5.5.1, yarn ^1.2.1`
+-   Install the ESLint validators and [Prettier](https://prettier.io/docs/en/editors.html) on your editor of choice. We have the configuration files on the root of the project, `.eslinrc` and `.prettierrc`. There is a precommit hook to run the Prettier scripts on the files.
 
 ### Running storybook locally
 

@@ -1,11 +1,9 @@
 // Export Atoms
-
 export { default as AccordionItem } from './atoms/AccordionItem';
 export { default as AccordionItemContent } from './atoms/AccordionItemContent';
 export { default as Badge } from './atoms/Badge';
 export { default as Button } from './atoms/Button';
 export { default as ButtonGroup } from './atoms/ButtonGroup';
-export { default as CircularThumbnail } from './atoms/CircularThumbnail';
 export { default as FormGroupLabel } from './atoms/FormGroupLabel';
 export { default as FormGroupTextHelp } from './atoms/FormGroupTextHelp';
 export { default as FormInputWrapper } from './atoms/FormInputWrapper';
@@ -15,8 +13,6 @@ export { default as ModalBody } from './atoms/ModalBody';
 export { default as ModalFooter } from './atoms/ModalFooter';
 export { default as ModalForm } from './atoms/ModalForm';
 export { default as ModalHeader } from './atoms/ModalHeader';
-export { default as NumberCircle } from './atoms/NumberCircle';
-export { default as ProgressBar } from './atoms/ProgressBar';
 export { default as RadioButton } from './atoms/RadioButton';
 export { default as Select } from './atoms/Select';
 export { default as Tag } from './atoms/Tag';
@@ -24,7 +20,6 @@ export { default as TextArea } from './atoms/TextArea';
 export { default as TextInput } from './atoms/TextInput';
 export { default as Tooltip } from './atoms/Tooltip';
 export { default as TooltipIcon } from './atoms/TooltipIcon';
-export { default as Trend } from './atoms/Trend';
 
 // Export Layout
 export { default as Column } from './layout/Column';
@@ -33,12 +28,6 @@ export { default as Row } from './layout/Row';
 
 // Export Molecules
 export { default as Accordion } from './molecules/Accordion';
-export { default as Avatar } from './molecules/Avatar';
-export { default as Breadcrumb } from './molecules/Breadcrumb';
-export { default as BreadcrumbLink } from './molecules/BreadcrumbLink';
-export { default as BreadcrumbMenu } from './molecules/BreadcrumbMenu';
-export { default as Breadcrumbs } from './molecules/Breadcrumbs';
-export { default as BreadcrumbsWrapper } from './molecules/BreadcrumbsWrapper';
 export { default as CardBlock } from './molecules/CardBlock';
 export { default as CardImage } from './molecules/CardImage';
 export { default as Card } from './molecules/Card';

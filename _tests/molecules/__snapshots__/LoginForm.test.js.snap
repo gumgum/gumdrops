@@ -1,54 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <LoginForm> to render 1`] = `
-<LoginForm
-  capText="Text"
-  hideLogo={false}
-  logoText="Logo Text"
-  onSubmit={[Function]}
-  recoveryFn={[Function]}
-  recoveryText="Recovery message"
+exports[`Expect <LoginForm> to render properly 1`] = `
+<div
+  className="gds-account-modal gds-account-modal--logo"
+  style={
+    {
+      "position": "relative",
+    }
+  }
 >
   <div
-    className="gds-account-modal gds-account-modal--logo"
-    style={
-      Object {
-        "position": "relative",
-      }
-    }
+    className="gds-account-modal__form gds-card -p-t-3-sm -p-t-0"
   >
     <div
-      className="gds-account-modal__form gds-card -p-t-3-sm -p-t-0"
+      className="gds-account-modal__logo-product"
     >
-      <div
-        className="gds-account-modal__logo-product"
-      >
-        Logo Text
-      </div>
-      <div
-        className="gds-account-modal__form-cap -m-t-3-sm -m-t-0"
-      >
-        Text
-      </div>
-      <form
-        className="gds-form -pointer-events--auto -p-a-3"
-        onSubmit={[Function]}
-      >
-        <input
-          type="text"
-        />
-      </form>
+      Logo Text
     </div>
-    <p
-      className="gds-account-modal__extra-links"
+    <div
+      className="gds-account-modal__form-cap -m-t-3-sm -m-t-0"
     >
-      <a
-        className="gds-text--link -cursor--pointer"
-        onClick={[Function]}
-      >
-        Recovery message
-      </a>
-    </p>
+      Text
+    </div>
+    <form
+      className="gds-form -pointer-events--auto -p-a-3"
+      onSubmit={[MockFunction]}
+    >
+      <input
+        type="text"
+      />
+    </form>
   </div>
-</LoginForm>
+  <p
+    className="gds-account-modal__extra-links"
+  >
+    <a
+      className="gds-text--link -cursor--pointer"
+      onClick={[MockFunction]}
+    >
+      Recovery message
+    </a>
+  </p>
+</div>
 `;

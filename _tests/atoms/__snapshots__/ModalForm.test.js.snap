@@ -1,25 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <ModalForm> to render 1`] = `
-<ModalForm
-  className="modal-class"
+exports[`Expect <ModalForm> to render properly 1`] = `
+<form
+  className="gds-modal__form modal-class"
   style={
-    Object {
+    {
       "width": "100px",
     }
   }
 >
-  <form
-    className="gds-modal__form modal-class"
-    style={
-      Object {
-        "width": "100px",
-      }
-    }
-  >
-    <div>
-      My form content
-    </div>
-  </form>
-</ModalForm>
+  <div>
+    My modal content
+  </div>
+</form>
 `;

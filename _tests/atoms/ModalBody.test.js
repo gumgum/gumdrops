@@ -1,4 +1,4 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import ModalBody from '../../components/atoms/ModalBody';
 
@@ -7,13 +7,13 @@ const defaultProps = {
     style: { width: '100px' }
 };
 
-describe('Expect <ModalBody>', () => {
-    it('to render', () => {
-        const wrapper = mount(
+test('Expect <ModalBody> to render properly', () => {
+    const tree = renderer
+        .create(
             <ModalBody {...defaultProps}>
                 <div>My modal content</div>
             </ModalBody>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
 });

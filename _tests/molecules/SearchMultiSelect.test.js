@@ -1,17 +1,26 @@
-/* globals mount */
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
+import { render } from '@testing-library/react';
+
 import SearchMultiSelect from '../../components/molecules/SearchMultiSelect';
 
 const defaultProps = {
     options: [
         {
-            name: 'Name',
-            key: 10,
+            name: 'Name 1',
+            key: 0,
             isSelected: true
+        },
+        {
+            name: 'Name 2',
+            key: 1,
+            isSelected: false
         }
     ],
-    onChange: () => {},
-    update: () => {},
+    onChange: jest.fn(),
+    update: jest.fn(),
     placeholder: 'placeholder',
     size: 'sm',
     className: 'custom-class',
@@ -20,9 +29,10 @@ const defaultProps = {
     multiTerm: false
 };
 
-describe('Expect <SearchMultiSelect>', () => {
-    it('to render', () => {
-        const wrapper = mount(<SearchMultiSelect {...defaultProps} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+// Note - We cannot write a snapshot test since SearchMultiSelect uses refs which need a DOM
+test('Expect <SearchMultiSelect> to show correct options and checked values', () => {
+    const { getAllByRole } = render(<SearchMultiSelect {...defaultProps} />);
+    const checkboxes = getAllByRole('checkbox');
+    expect(checkboxes[0].checked).toEqual(true);
+    expect(checkboxes[1].checked).toEqual(false);
 });

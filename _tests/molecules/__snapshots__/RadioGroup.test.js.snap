@@ -1,19 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <RadioGroup> to render 1`] = `
+exports[`Expect <RadioGroup> to render properly 1`] = `
 <div
   className="gds-form-group__radio custom-class gds-form-group__radio--sm"
 >
-  <RadioButton
-    className="-m-r-4"
-    context="success"
-    defaultChecked={false}
-    key="option-0"
-    label="Cool"
-    name="radio-buttons"
-    onBlur={[Function]}
-    onChange={[Function]}
-    value="cool"
-  />
+  <label
+    className="gds-form-group gds-form-group__radio-label -m-r-4 gds-form-group--success"
+  >
+    <input
+      className="gds-form-group__radio-input"
+      defaultChecked={false}
+      name="radio-buttons"
+      onBlur={[MockFunction]}
+      onChange={[MockFunction]}
+      type="radio"
+      value="cool"
+    />
+    <span
+      className="gds-form-group__radio-indicator"
+    />
+    Cool
+  </label>
 </div>
 `;
