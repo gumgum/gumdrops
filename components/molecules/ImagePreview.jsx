@@ -30,17 +30,20 @@ function ImagePreview({
         () => {
             const img = new Image();
             img.onload = () => {
+                console.log('success');
                 setIsLoaded(true);
                 setHasFailed(false);
                 setWidth(img.width);
                 setHeight(img.height);
             };
             img.onerror = () => {
+                console.log('failed');
                 setIsLoaded(true);
                 setHasFailed(true);
                 setWidth(150);
                 setHeight(20);
             };
+            console.log('requesting', src);
             img.src = src;
         },
         [src]
