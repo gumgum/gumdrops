@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { withKnobs, text, object, select, array } from '@storybook/addon-knobs';
 
@@ -23,13 +22,7 @@ export const Default = () => (
         errors={array('Errors', ['Error 1', 'Error 2'])}
         errorStyles={object('Error Styles', {})}
         groupClassName={text('Group Classname', '')}
-        context={select('Context', ['danger', 'success', 'warning'], 'danger')}
-    >
-        <TextInput
-            className="-m-b-4"
-            name="password"
-            type="password"
-            placeholder="*******"
-        />
+        context={select('Context', ['danger', 'success', 'warning'], 'danger')}>
+        <TextInput className="-m-b-4" name="password" type="password" placeholder="*******" />
     </FormInputWrapper>
 );

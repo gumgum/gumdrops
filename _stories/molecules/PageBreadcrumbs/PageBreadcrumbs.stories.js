@@ -151,13 +151,11 @@ export const ConfigA = () => (
 
 export const ConfigB = () => (
     <div>
-
-                <PageBreadcrumbs
-                    config={configB}
-                    pathname={select('Pathname', optionsB, '/publishers')}
-                    hideRoot={boolean('Hide root breadcrumb', false)}
-                />
-
+        <PageBreadcrumbs
+            config={configB}
+            pathname={select('Pathname', optionsB, '/publishers')}
+            hideRoot={boolean('Hide root breadcrumb', false)}
+        />
 
         <pre className="-m-t-6">
             Config:
@@ -168,11 +166,10 @@ export const ConfigB = () => (
 
 export const ConfigC = () => (
     <div>
-
-                <PageBreadcrumbs
-                    pathname={select('Pathname', optionsC, '/home')}
-                    hideRoot={boolean('Hide root breadcrumb', false)}
-                />
+        <PageBreadcrumbs
+            pathname={select('Pathname', optionsC, '/home')}
+            hideRoot={boolean('Hide root breadcrumb', false)}
+        />
 
         <pre className="-m-t-6">No Config</pre>
     </div>

@@ -15,14 +15,14 @@ export default {
 };
 
 const tabOptions = [
-    { name: 'Tab 1', path: '/tab1'},
-    { name: 'Tab 2', path: '/tab2'},
-    { name: 'Tab 3', path: '/tab3'},
+    { name: 'Tab 1', path: '/tab1' },
+    { name: 'Tab 2', path: '/tab2' },
+    { name: 'Tab 3', path: '/tab3' }
 ];
 
 export const Default = () => (
     <Tabs
-        location={text('Location', "/top-path/123/sub-path/tab1")}
+        location={text('Location', '/top-path/123/sub-path/tab1')}
         options={tabOptions}
         onClick={path => action(path)}
     />

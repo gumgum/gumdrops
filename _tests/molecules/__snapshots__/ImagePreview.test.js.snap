@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <ImagePreview> to render 1`] = `
+<div>
+  <ImagePreview
+    arrowSize={5}
+    maxHeight={200}
+    padding={5}
+    position="top"
+    showArrow={true}
+    src="https://c.gumgum.com/ads/com/gumgum/mantii/internal_mobile_inscreen_test/full_canvas/01/mantii_fullscreen.hyperesources/girl@2x.png"
+  >
+    <span
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+          "display": "inline-block",
+          "position": "relative",
+        }
+      }
+    >
+      <input
+        type="text"
+      />
+      <Portal
+        containerInfo={
+          <body>
+            <div
+              class="image-preview-tooltip"
+              style="position: absolute; z-index: 9999; background-color: rgba(0, 0, 0, 0.8); color: rgb(255, 255, 255); padding: 5px; border-radius: 3px; transition: 0.4s ease; transition-property: transform, opacity; transform-origin: bottom center; transform: scale(0); opacity: 0; left: -30px; top: -30px; width: 50px; height: 20px;"
+            >
+              <div
+                style="margin-top: 3px;"
+              >
+                <div
+                  class="gds-loading"
+                >
+                  <div
+                    class="gds-loading__dot gds-loading__dot--sm gds-loading__dot--white"
+                  />
+                </div>
+              </div>
+              <span
+                style="position: absolute; width: 0px; height: 0px; top: 100%; left: 50%; transform: translateX(-50%); border-left: 5px solid transparent; border-right: 5px solid transparent;"
+              />
+            </div>
+          </body>
+        }
+      >
+        <div
+          className="image-preview-tooltip"
+          style={
+            Object {
+              "backgroundColor": "rgba(0, 0, 0, 0.8)",
+              "borderRadius": 3,
+              "color": "#fff",
+              "height": "20px",
+              "left": -30,
+              "opacity": 0,
+              "padding": "5px",
+              "position": "absolute",
+              "top": -30,
+              "transform": "scale(0)",
+              "transformOrigin": "bottom center",
+              "transition": "0.4s ease",
+              "transitionProperty": "transform, opacity",
+              "width": "50px",
+              "zIndex": 9999,
+            }
+          }
+        >
+          <LoadingDots
+            size="sm"
+            style={
+              Object {
+                "marginTop": 3,
+              }
+            }
+            whiteDots={true}
+          >
+            <div
+              style={
+                Object {
+                  "marginTop": 3,
+                }
+              }
+            >
+              <div
+                className="gds-loading"
+              >
+                <div
+                  className="gds-loading__dot gds-loading__dot--sm gds-loading__dot--white"
+                />
+              </div>
+            </div>
+          </LoadingDots>
+          <span
+            style={
+              Object {
+                "borderLeft": "5px solid transparent",
+                "borderRight": "5px solid transparent",
+                "borderTop": "5px solid rgba(0, 0, 0, 0.8)",
+                "height": 0,
+                "left": "50%",
+                "position": "absolute",
+                "top": "100%",
+                "transform": "translateX(-50%)",
+                "width": 0,
+              }
+            }
+          />
+        </div>
+      </Portal>
+    </span>
+  </ImagePreview>
+</div>
+`;

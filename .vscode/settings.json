@@ -1,0 +1,3 @@
+{
+    "jest.jestCommandLine": "nvm use && npm run test"
+}

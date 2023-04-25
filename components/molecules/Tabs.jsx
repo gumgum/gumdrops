@@ -11,7 +11,7 @@ const Tabs = ({ options, location, className, onClick, isTabActive }) => (
                     className={cx('gds-nav-tabs__list-item', {
                         'gds-nav-tabs__list-item--active': isTabActive
                             ? isTabActive(path)
-                            : location.endsWith(path),
+                            : location.endsWith(path)
                     })}>
                     <div onClick={() => onClick(path)} className="gds-nav-tabs__link">
                         {name}
@@ -32,7 +32,7 @@ Tabs.propTypes = {
     options: PropTypes.array.isRequired,
     location: PropTypes.string.isRequired,
     isTabActive: PropTypes.func,
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired
 };
 
 export default Tabs;

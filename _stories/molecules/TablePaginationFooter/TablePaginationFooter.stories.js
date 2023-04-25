@@ -20,7 +20,7 @@ const sizeOptions = [
     { name: '10', value: '10' },
     { name: '20', value: '20' },
     { name: '50', value: '50' },
-    { name: '100', value: '100' },
+    { name: '100', value: '100' }
 ];
 
 export const Default = () => (

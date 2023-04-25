@@ -45,6 +45,7 @@ export { default as Card } from './molecules/Card';
 export { default as Checkbox } from './molecules/Checkbox';
 export { default as Divider } from './molecules/Divider';
 export { default as FormGroup } from './molecules/FormGroup';
+export { default as ImagePreview } from './molecules/ImagePreview';
 export { default as LoginForm } from './molecules/LoginForm';
 export { default as Modal } from './molecules/Modal';
 export { default as MultiSelect } from './molecules/MultiSelect';
