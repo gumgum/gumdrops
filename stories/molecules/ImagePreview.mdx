@@ -1,0 +1,30 @@
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+import * as ImagePreviewStories from './ImagePreview.stories';
+import ImagePreview from '../../components/molecules/ImagePreview';
+
+# ImagePreview
+
+The `<ImagePreview>` component is used to preview images or gifs.
+
+It will pre-load the image and show a loading indicator until resolved, then the preview will display.
+
+
+## ImagePreview example
+```jsx
+<ImagePreview src="PATH_TO_IMAGE">
+  <Icon icon="plus" />
+</ImagePreview>
+```
+
+## Component Example
+
+<Canvas of={ImagePreviewStories.Default} />
+
+## Component Example Source
+
+<Source of={ImagePreviewStories.Default} />
+
+## ImagePreview Props
+
+<ArgsTable of={ImagePreview} />

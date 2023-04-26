@@ -16,7 +16,8 @@ function ImagePreview({
     position = 'top',
     showArrow = true,
     arrowSize = 5,
-    style: customStyles = {}
+    style: customStyles = {},
+    tooltipStyles: customTooltipStyles = {},
 }) {
     const triggerRef = useRef();
     const [isLoaded, setIsLoaded] = useState(false);
@@ -30,20 +31,17 @@ function ImagePreview({
         () => {
             const img = new Image();
             img.onload = () => {
-                console.log('success');
                 setIsLoaded(true);
                 setHasFailed(false);
                 setWidth(img.width);
                 setHeight(img.height);
             };
             img.onerror = () => {
-                console.log('failed');
                 setIsLoaded(true);
                 setHasFailed(true);
                 setWidth(150);
                 setHeight(20);
             };
-            console.log('requesting', src);
             img.src = src;
         },
         [src]
@@ -56,40 +54,46 @@ function ImagePreview({
     const getTooltipPosition = useCallback(
         () => {
             const el = triggerRef.current;
-            const hoveredElementRect = el.getBoundingClientRect();
+            const {
+                top,
+                left,
+                width,
+                right,
+                height
+            } = el.getBoundingClientRect();
             const tooltipWidth = hasFailed ? width : isLoaded ? newWidth : LOADING_DIMENSIONS.width;
             const tooltipHeight = hasFailed
                 ? height
                 : isLoaded ? maxHeight : LOADING_DIMENSIONS.height;
             let tooltipX, tooltipY;
             const arrowOffset = showArrow ? arrowSize * 2 : 0;
-            let hoverTop = el.offsetTop + (el.offsetParent ? el.offsetParent.offsetTop : 0);
+            let hoverTop = top + window.scrollY;
 
             switch (position) {
                 case 'bottom':
                     tooltipX =
-                        hoveredElementRect.left -
+                        left -
                         padding +
-                        hoveredElementRect.width / 2 -
+                        width / 2 -
                         tooltipWidth / 2;
-                    tooltipY = hoverTop + hoveredElementRect.height + arrowOffset;
+                    tooltipY = hoverTop + height + arrowOffset;
                     break;
                 case 'left':
-                    tooltipX = hoveredElementRect.left - tooltipWidth - padding * 2 - arrowOffset;
+                    tooltipX = left - tooltipWidth - padding * 2 - arrowOffset;
                     tooltipY =
-                        hoverTop + hoveredElementRect.height / 2 - tooltipHeight / 2 - padding;
+                        hoverTop + height / 2 - tooltipHeight / 2 - padding;
                     break;
                 case 'right':
-                    tooltipX = hoveredElementRect.right + arrowOffset;
+                    tooltipX = right + arrowOffset;
                     tooltipY =
-                        hoverTop + hoveredElementRect.height / 2 - tooltipHeight / 2 - padding;
+                        hoverTop + height / 2 - tooltipHeight / 2 - padding;
                     break;
                 case 'top':
                 default:
                     tooltipX =
-                        hoveredElementRect.left -
+                        left -
                         padding +
-                        hoveredElementRect.width / 2 -
+                        width / 2 -
                         tooltipWidth / 2;
                     tooltipY = hoverTop - tooltipHeight - padding * 2 - arrowOffset;
                     break;
@@ -150,7 +154,7 @@ function ImagePreview({
     );
 
     const getArrowStyles = useCallback(
-        () => {
+        (position, tooltipStyles) => {
             switch (position) {
                 case 'bottom':
                     return {
@@ -159,7 +163,7 @@ function ImagePreview({
                         transform: 'translateX(-50%)',
                         borderLeft: `${arrowSize}px solid transparent`,
                         borderRight: `${arrowSize}px solid transparent`,
-                        borderBottom: `${arrowSize}px solid rgba(0, 0, 0, 0.8)`
+                        borderBottom: `${arrowSize}px solid ${tooltipStyles.backgroundColor}`
                     };
                 case 'right':
                     return {
@@ -168,7 +172,7 @@ function ImagePreview({
                         transform: 'translateY(-50%)',
                         borderTop: `${arrowSize}px solid transparent`,
                         borderBottom: `${arrowSize}px solid transparent`,
-                        borderRight: `${arrowSize}px solid rgba(0, 0, 0, 0.8)`
+                        borderRight: `${arrowSize}px solid ${tooltipStyles.backgroundColor}`
                     };
                 case 'left':
                     return {
@@ -177,7 +181,7 @@ function ImagePreview({
                         transform: 'translateY(-50%)',
                         borderTop: `${arrowSize}px solid transparent`,
                         borderBottom: `${arrowSize}px solid transparent`,
-                        borderLeft: `${arrowSize}px solid rgba(0, 0, 0, 0.8)`
+                        borderLeft: `${arrowSize}px solid ${tooltipStyles.backgroundColor}`
                     };
                 case 'top':
                 default:
@@ -187,65 +191,73 @@ function ImagePreview({
                         transform: 'translateX(-50%)',
                         borderLeft: `${arrowSize}px solid transparent`,
                         borderRight: `${arrowSize}px solid transparent`,
-                        borderTop: `${arrowSize}px solid rgba(0, 0, 0, 0.8)`
+                        borderTop: `${arrowSize}px solid ${tooltipStyles.backgroundColor}`
                     };
             }
         },
         [position, arrowSize]
     );
 
-    const tooltipElement = (
-        <div
-            className="image-preview-tooltip"
-            style={{
-                position: 'absolute',
-                zIndex: 9999,
-                backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                color: '#fff',
-                padding: `${padding}px`,
-                borderRadius: 3,
-                transition: '0.4s ease',
-                transitionProperty: 'transform, opacity',
-                transformOrigin: `${getOppositeSide(position)} center`,
-                transform: 'scale(0)',
-                opacity: 0
-            }}>
-            {isLoaded && !hasFailed ? (
-                <img
-                    src={src}
-                    alt={alt}
-                    style={{ width: `${newWidth}px`, height: `${maxHeight}px`, display: 'block' }}
-                />
-            ) : hasFailed ? null : (
-                <LoadingDots
-                    style={{
-                        marginTop: 3
-                    }}
-                    size="sm"
-                    whiteDots
-                />
-            )}
-            {hasFailed && (
-                <span
-                    className="-text-center gds-text--body-xs"
-                    style={{ width: `${width}px`, height: `${height}px`, display: 'block' }}>
-                    Failed to load GIF.
-                </span>
-            )}
-            {showArrow && (
-                <span
-                    style={{
-                        position: 'absolute',
-                        width: 0,
-                        height: 0,
-                        ...getArrowStyles(position)
-                    }}
-                />
-            )}
-        </div>
-    );
+    const tooltipElement = () => {
+        const tooltipStyles = {
+            position: 'absolute',
+            zIndex: 9999,
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            color: '#fff',
+            padding: `${padding}px`,
+            borderRadius: 3,
+            transition: '0.4s ease',
+            transitionProperty: 'transform, opacity',
+            transformOrigin: `${getOppositeSide(position)} center`,
+            transform: 'scale(0)',
+            opacity: 0,
+            ...customTooltipStyles,
+        }
+        return (
+            <div
+                data-testid="image-preview-tooltip"
+                style={tooltipStyles}>
+                {isLoaded && !hasFailed ? (
+                    <img
+                        data-testid="image-preview-tooltip-image"
+                        src={src}
+                        alt={alt}
+                        style={{ width: `${newWidth}px`, height: `${maxHeight}px`, display: 'block' }}
+                    />
+                ) : hasFailed ? null : (
+                    <LoadingDots
+                        style={{
+                            marginTop: 3
+                        }}
+                        size="sm"
+                        whiteDots
+                    />
+                )}
+                {hasFailed && (
+                    <span
+                        data-testid="image-preview-load-failure"
+                        className="-text-center gds-text--body-xs"
+                        style={{ width: `${width}px`, height: `${height}px`, display: 'block' }}>
+                        Failed to load GIF.
+                    </span>
+                )}
+                {showArrow && (
+                    <span
+                        data-testid="image-preview-arrow"
+                        style={{
+                            position: 'absolute',
+                            width: 0,
+                            height: 0,
+                            ...getArrowStyles(position, tooltipStyles)
+                        }}
+                    />
+                )}
+            </div>
+        );
+    };
     return (
         <span
+            data-testid="image-preview-hover-element"
             onMouseEnter={() => onEnterLeave(true)}
             onMouseLeave={() => onEnterLeave(false)}
             ref={triggerRef}
@@ -257,9 +269,9 @@ function ImagePreview({
             }}>
             {children}
             {ReactDOM.createPortal(
-                React.cloneElement(tooltipElement, {
+                React.cloneElement(tooltipElement(), {
                     style: {
-                        ...tooltipElement.props.style,
+                        ...tooltipElement().props.style,
                         ...styles,
                         transform: isHovering ? 'scale(1)' : 'scale(0)',
                         opacity: isHovering ? 1 : 0
@@ -286,6 +298,7 @@ ImagePreview.propTypes = {
     padding: PropTypes.number,
     position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
     style: PropTypes.object,
+    tooltipStyles: PropTypes.object,
     showArrow: PropTypes.bool,
     arrowSize: PropTypes.number
 };

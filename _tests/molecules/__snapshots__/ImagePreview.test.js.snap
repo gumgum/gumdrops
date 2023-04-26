@@ -1,93 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <ImagePreview> to render 1`] = `
-<div>
-  <ImagePreview
-    arrowSize={5}
-    maxHeight={200}
-    padding={5}
-    position="top"
-    showArrow={true}
-    src="LOAD_SUCCESS_SRC"
+exports[`Expect <ImagePreview> to render in loading state 1`] = `
+<span
+  data-testid="image-preview-hover-element"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    {
+      "cursor": "pointer",
+      "display": "inline-block",
+      "position": "relative",
+    }
+  }
+>
+  <input
+    type="text"
+  />
+  <div
+    data-testid="image-preview-tooltip"
+    style={
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0.8)",
+        "borderRadius": 3,
+        "color": "#fff",
+        "opacity": 0,
+        "padding": "5px",
+        "position": "absolute",
+        "transform": "scale(0)",
+        "transformOrigin": "bottom center",
+        "transition": "0.4s ease",
+        "transitionProperty": "transform, opacity",
+        "zIndex": 9999,
+      }
+    }
   >
-    <span
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
+    <div
       style={
-        Object {
-          "cursor": "pointer",
-          "display": "inline-block",
-          "position": "relative",
+        {
+          "marginTop": 3,
         }
       }
     >
-      <input
-        type="text"
-      />
-      <Portal
-        containerInfo={
-          <body>
-            <div
-              class="image-preview-tooltip"
-              style="position: absolute; z-index: 9999; background-color: rgba(0, 0, 0, 0.8); color: rgb(255, 255, 255); padding: 5px; border-radius: 3px; transition: 0.4s ease; transition-property: transform, opacity; transform-origin: bottom center; transform: scale(0); opacity: 0;"
-            >
-              <img
-                src="LOAD_SUCCESS_SRC"
-                style="height: 200px; display: block;"
-              />
-              <span
-                style="position: absolute; width: 0px; height: 0px; top: 100%; left: 50%; transform: translateX(-50%); border-left: 5px solid transparent; border-right: 5px solid transparent;"
-              />
-            </div>
-          </body>
-        }
+      <div
+        className="gds-loading"
       >
         <div
-          className="image-preview-tooltip"
-          style={
-            Object {
-              "backgroundColor": "rgba(0, 0, 0, 0.8)",
-              "borderRadius": 3,
-              "color": "#fff",
-              "opacity": 0,
-              "padding": "5px",
-              "position": "absolute",
-              "transform": "scale(0)",
-              "transformOrigin": "bottom center",
-              "transition": "0.4s ease",
-              "transitionProperty": "transform, opacity",
-              "zIndex": 9999,
-            }
-          }
-        >
-          <img
-            src="LOAD_SUCCESS_SRC"
-            style={
-              Object {
-                "display": "block",
-                "height": "200px",
-                "width": "NaNpx",
-              }
-            }
-          />
-          <span
-            style={
-              Object {
-                "borderLeft": "5px solid transparent",
-                "borderRight": "5px solid transparent",
-                "borderTop": "5px solid rgba(0, 0, 0, 0.8)",
-                "height": 0,
-                "left": "50%",
-                "position": "absolute",
-                "top": "100%",
-                "transform": "translateX(-50%)",
-                "width": 0,
-              }
-            }
-          />
-        </div>
-      </Portal>
-    </span>
-  </ImagePreview>
-</div>
+          className="gds-loading__dot gds-loading__dot--sm gds-loading__dot--white"
+        />
+      </div>
+    </div>
+    <span
+      data-testid="image-preview-arrow"
+      style={
+        {
+          "borderLeft": "5px solid transparent",
+          "borderRight": "5px solid transparent",
+          "borderTop": "5px solid rgba(0, 0, 0, 0.8)",
+          "height": 0,
+          "left": "50%",
+          "position": "absolute",
+          "top": "100%",
+          "transform": "translateX(-50%)",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+</span>
 `;
