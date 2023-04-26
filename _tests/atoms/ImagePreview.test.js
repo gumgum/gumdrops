@@ -4,7 +4,7 @@
 import { create } from 'react-test-renderer';
 import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
-import ImagePreview from '../../components/molecules/ImagePreview';
+import ImagePreview from '../../components/atoms/ImagePreview';
 
 const LOAD_FAILURE_SRC = 'LOAD_FAILURE_SRC';
 const LOAD_SUCCESS_SRC = 'LOAD_SUCCESS_SRC';

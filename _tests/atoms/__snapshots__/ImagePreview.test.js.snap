@@ -18,6 +18,7 @@ exports[`Expect <ImagePreview> to render in loading state 1`] = `
     type="text"
   />
   <div
+    className="gds-flex gds-flex--content-center gds-flex--justify-center"
     data-testid="image-preview-tooltip"
     style={
       {
@@ -30,26 +31,21 @@ exports[`Expect <ImagePreview> to render in loading state 1`] = `
         "transform": "scale(0)",
         "transformOrigin": "bottom center",
         "transition": "0.4s ease",
-        "transitionProperty": "transform, opacity",
+        "transitionProperty": "transform, opacity, padding",
         "zIndex": 9999,
       }
     }
   >
     <div
+      className="gds-loading__dot gds-loading__dot--sm gds-loading__dot--white"
       style={
         {
-          "marginTop": 6,
+          "left": "auto",
+          "position": "relative",
+          "top": "auto",
         }
       }
-    >
-      <div
-        className="gds-loading"
-      >
-        <div
-          className="gds-loading__dot gds-loading__dot--sm gds-loading__dot--white"
-        />
-      </div>
-    </div>
+    />
     <span
       data-testid="image-preview-arrow"
       style={

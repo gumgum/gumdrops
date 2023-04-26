@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import LoadingDots from '../atoms/LoadingDots';
 
 const LOADING_DIMENSIONS = {
     width: 50,
@@ -11,7 +10,7 @@ const LOADING_DIMENSIONS = {
 
 const FAILED_DIMENSIONS = {
     width: 150,
-    height: 20
+    height: 25
 };
 function ImagePreview({
     children,
@@ -71,49 +70,48 @@ function ImagePreview({
 
     const getTooltipPosition = useCallback(
         () => {
+            let tooltipX, tooltipY;
             const el = triggerRef.current;
-            const tooltipWidth = hasFailed ? FAILED_DIMENSIONS.width : isLoaded ? newWidth : LOADING_DIMENSIONS.width;
+            const tooltipWidth = hasFailed ? width : isLoaded ? newWidth : LOADING_DIMENSIONS.width;
+            const tooltipHeight = hasFailed ? height : isLoaded ? maxHeight : LOADING_DIMENSIONS.height;
             const {
                 top,
                 left,
-                width,
+                width: _width,
                 right,
-                height
+                height: _height
             } = el.getBoundingClientRect();
-            const tooltipHeight = hasFailed
-                ? FAILED_DIMENSIONS.height
-                : isLoaded ? maxHeight : LOADING_DIMENSIONS.height;
-            let tooltipX, tooltipY;
             const arrowOffset = showArrow ? arrowSize * 2 : 0;
-            let hoverTop = top + window.scrollY;
+            const hoverTop = top + window.scrollY;
+            const offset = !isLoaded || hasFailed ? 0 : padding;
 
             switch (position) {
                 case 'bottom':
                     tooltipX =
                         left -
-                        padding +
-                        width / 2 -
+                        offset +
+                        _width / 2 -
                         tooltipWidth / 2;
-                    tooltipY = hoverTop + height + arrowOffset;
+                    tooltipY = hoverTop + _height + arrowOffset;
                     break;
                 case 'left':
-                    tooltipX = left - tooltipWidth - padding * 2 - arrowOffset;
+                    tooltipX = left - tooltipWidth - (offset * 2) - arrowOffset;
                     tooltipY =
-                        hoverTop + height / 2 - tooltipHeight / 2 - padding;
+                        hoverTop + _height / 2 - tooltipHeight / 2 - offset;
                     break;
                 case 'right':
                     tooltipX = right + arrowOffset;
                     tooltipY =
-                        hoverTop + height / 2 - tooltipHeight / 2 - padding;
+                        hoverTop + _height / 2 - tooltipHeight / 2 - offset;
                     break;
                 case 'top':
                 default:
                     tooltipX =
                         left -
-                        padding +
-                        width / 2 -
+                        offset +
+                        _width / 2 -
                         tooltipWidth / 2;
-                    tooltipY = hoverTop - tooltipHeight - padding * 2 - arrowOffset;
+                    tooltipY = hoverTop - tooltipHeight - offset * 2 - arrowOffset;
                     break;
             }
             if (
@@ -125,8 +123,8 @@ function ImagePreview({
                 return {
                     left: tooltipX,
                     top: tooltipY,
-                    width: isLoaded ? 'auto' : `${LOADING_DIMENSIONS.width}px`,
-                    height: isLoaded ? 'auto' : `${LOADING_DIMENSIONS.height}px`,
+                    width: isLoaded && !hasFailed ? 'auto' : `${tooltipWidth}px`,
+                    height: isLoaded && !hasFailed ? 'auto' : `${tooltipHeight}px`,
                 };
             }
             return {};
@@ -134,6 +132,8 @@ function ImagePreview({
         [
             maxHeight,
             newWidth,
+            width,
+            height,
             padding,
             isLoaded,
             hasFailed,
@@ -223,7 +223,7 @@ function ImagePreview({
             padding: `${padding}px`,
             borderRadius: 3,
             transition: '0.4s ease',
-            transitionProperty: 'transform, opacity',
+            transitionProperty: 'transform, opacity, padding',
             transformOrigin: `${getOppositeSide(position)} center`,
             transform: 'scale(0)',
             opacity: 0,
@@ -232,6 +232,7 @@ function ImagePreview({
         return (
             <div
                 data-testid="image-preview-tooltip"
+                className="gds-flex gds-flex--content-center gds-flex--justify-center"
                 style={tooltipStyles}>
                 {isLoaded && !hasFailed ? (
                     <img
@@ -241,21 +242,18 @@ function ImagePreview({
                         style={{ width: `${newWidth}px`, height: `${maxHeight}px`, display: 'block' }}
                     />
                 ) : hasFailed ? null : (
-                    <LoadingDots
-                        style={{
-                            marginTop: 6
-                        }}
-                        size="sm"
-                        whiteDots
-                    />
+                    <div className="gds-loading__dot gds-loading__dot--sm gds-loading__dot--white" style={{
+                        position: 'relative',
+                        top: 'auto',
+                        left: 'auto',
+                    }} />
                 )}
                 {hasFailed && (
-                    <span
+                    <p
                         data-testid="image-preview-load-failure"
-                        className="-text-center gds-text--body-xs"
-                        style={{ width: `${width}px`, height: `${height}px`, display: 'block' }}>
-                        Failed to load GIF.
-                    </span>
+                        className="-text-center gds-text--body-xs">
+                        Failed to load image.
+                    </p>
                 )}
                 {showArrow && (
                     <span

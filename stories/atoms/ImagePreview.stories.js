@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../components/atoms/Button';
-import ImagePreview from '../../components/molecules/ImagePreview';
+import ImagePreview from '../../components/atoms/ImagePreview';
 
 const positionOptions = [
     'top',
@@ -11,7 +11,7 @@ const positionOptions = [
 
 export default {
     component: ImagePreview,
-    title: 'Molecules/ImagePreview',
+    title: 'Atoms/ImagePreview',
     argTypes: {
         position: {
             options: positionOptions,
