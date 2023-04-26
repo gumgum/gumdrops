@@ -2,6 +2,7 @@
 
 exports[`Expect <ImagePreview> to render in loading state 1`] = `
 <span
+  className="gds-image-preview gds-image-preview--show-arrow"
   data-testid="image-preview-hover-element"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
