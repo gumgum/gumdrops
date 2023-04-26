@@ -10,7 +10,7 @@ const PageBreadcrumb = props => {
         path,
         linkComponent: LinkComponent,
         isLast,
-        className,
+        className
     } = props;
 
     const rootClass = cx(baseClass, className);
@@ -36,7 +36,7 @@ PageBreadcrumb.propTypes = {
     title: PropTypes.string,
     path: PropTypes.string.isRequired,
     isLast: PropTypes.bool.isRequired,
-    className: PropTypes.string,
+    className: PropTypes.string
 };
 
 export default PageBreadcrumb;
