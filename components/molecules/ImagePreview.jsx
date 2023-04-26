@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import LoadingDots from '../atoms/LoadingDots';
 
 const LOADING_DIMENSIONS = {
@@ -18,6 +19,8 @@ function ImagePreview({
     arrowSize = 5,
     style: customStyles = {},
     tooltipStyles: customTooltipStyles = {},
+    className,
+    ...otherProps
 }) {
     const triggerRef = useRef();
     const [isLoaded, setIsLoaded] = useState(false);
@@ -26,6 +29,14 @@ function ImagePreview({
     const [height, setHeight] = useState(0);
     const [styles, setStyles] = useState({});
     const [hasFailed, setHasFailed] = useState(false);
+
+    const baseClass = 'gds-image-preview';
+
+    const rootClass = cx(baseClass, className, {
+        [`${baseClass}--loaded`]: isLoaded,
+        [`${baseClass}--failed`]: hasFailed,
+        [`${baseClass}--show-arrow`]: showArrow,
+    });
 
     useEffect(
         () => {
@@ -266,7 +277,9 @@ function ImagePreview({
                 cursor: 'pointer',
                 display: 'inline-block',
                 ...customStyles
-            }}>
+            }}
+            className={rootClass}
+            {...otherProps}>
             {children}
             {ReactDOM.createPortal(
                 React.cloneElement(tooltipElement(), {
@@ -308,6 +321,8 @@ ImagePreview.propTypes = {
     arrowSize: PropTypes.number,
     /** custom styles for the wrapper */
     style: PropTypes.object,
+    /** any additional classnames */
+    className: PropTypes.string,
     /** custom styles for the tooltip */
     tooltipStyles: PropTypes.object,
 };
