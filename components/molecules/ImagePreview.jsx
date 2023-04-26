@@ -6,7 +6,12 @@ import LoadingDots from '../atoms/LoadingDots';
 
 const LOADING_DIMENSIONS = {
     width: 50,
-    height: 10
+    height: 20
+};
+
+const FAILED_DIMENSIONS = {
+    width: 150,
+    height: 20
 };
 function ImagePreview({
     children,
@@ -41,6 +46,8 @@ function ImagePreview({
     useEffect(
         () => {
             const img = new Image();
+            setIsLoaded(false);
+            setHasFailed(false);
             img.onload = () => {
                 setIsLoaded(true);
                 setHasFailed(false);
@@ -50,8 +57,8 @@ function ImagePreview({
             img.onerror = () => {
                 setIsLoaded(true);
                 setHasFailed(true);
-                setWidth(150);
-                setHeight(20);
+                setWidth(FAILED_DIMENSIONS.width);
+                setHeight(FAILED_DIMENSIONS.height);
             };
             img.src = src;
         },
@@ -65,7 +72,7 @@ function ImagePreview({
     const getTooltipPosition = useCallback(
         () => {
             const el = triggerRef.current;
-            const tooltipWidth = hasFailed ? width : isLoaded ? newWidth : LOADING_DIMENSIONS.width;
+            const tooltipWidth = hasFailed ? FAILED_DIMENSIONS.width : isLoaded ? newWidth : LOADING_DIMENSIONS.width;
             const {
                 top,
                 left,
@@ -74,7 +81,7 @@ function ImagePreview({
                 height
             } = el.getBoundingClientRect();
             const tooltipHeight = hasFailed
-                ? height
+                ? FAILED_DIMENSIONS.height
                 : isLoaded ? maxHeight : LOADING_DIMENSIONS.height;
             let tooltipX, tooltipY;
             const arrowOffset = showArrow ? arrowSize * 2 : 0;
@@ -118,8 +125,8 @@ function ImagePreview({
                 return {
                     left: tooltipX,
                     top: tooltipY,
-                    width: isLoaded ? 'auto' : `50px`,
-                    height: isLoaded ? 'auto' : `20px`
+                    width: isLoaded ? 'auto' : `${LOADING_DIMENSIONS.width}px`,
+                    height: isLoaded ? 'auto' : `${LOADING_DIMENSIONS.height}px`,
                 };
             }
             return {};
@@ -130,8 +137,6 @@ function ImagePreview({
             padding,
             isLoaded,
             hasFailed,
-            width,
-            height,
             position,
             arrowSize,
             showArrow
@@ -238,7 +243,7 @@ function ImagePreview({
                 ) : hasFailed ? null : (
                     <LoadingDots
                         style={{
-                            marginTop: 3
+                            marginTop: 6
                         }}
                         size="sm"
                         whiteDots

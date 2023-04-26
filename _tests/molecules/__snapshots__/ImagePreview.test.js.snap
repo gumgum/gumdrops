@@ -38,7 +38,7 @@ exports[`Expect <ImagePreview> to render in loading state 1`] = `
     <div
       style={
         {
-          "marginTop": 3,
+          "marginTop": 6,
         }
       }
     >
