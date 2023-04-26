@@ -5,7 +5,13 @@ import cx from 'classnames';
 const baseClass = 'gds-breadcrumb__item';
 
 const PageBreadcrumb = props => {
-    const { title, path, linkComponent: LinkComponent, isLast, className } = props;
+    const {
+        title,
+        path,
+        linkComponent: LinkComponent,
+        isLast,
+        className
+    } = props;
 
     const rootClass = cx(baseClass, className);
     const displayTitle = title || path;
@@ -30,7 +36,7 @@ PageBreadcrumb.propTypes = {
     title: PropTypes.string,
     path: PropTypes.string.isRequired,
     isLast: PropTypes.bool.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string,
 };
 
 export default PageBreadcrumb;

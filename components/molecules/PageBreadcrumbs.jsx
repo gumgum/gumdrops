@@ -111,19 +111,17 @@ class PageBreadcrumbs extends Component {
             hideRoot && breadcrumbs.length > 1 ? breadcrumbs.slice(1) : breadcrumbs;
         return (
             <PageBreadcrumbsWrapper>
-                {displayBreadcrumbs.map(
-                    ({ title, path }, index, arr) =>
-                        title !== '/' ? (
-                            <PageBreadcrumb
-                                key={path}
-                                linkComponent={linkComponent}
-                                title={title}
-                                path={path}
-                                pathname={pathname}
-                                isLast={arr.length - 1 === index}
-                            />
-                        ) : null
-                )}
+                {displayBreadcrumbs.map(({ title, path }, index, arr) => (
+                    title !== "/" ?
+                    <PageBreadcrumb
+                        key={path}
+                        linkComponent={linkComponent}
+                        title={title}
+                        path={path}
+                        pathname={pathname}
+                        isLast={arr.length - 1 === index}
+                    /> : null
+                ))}
             </PageBreadcrumbsWrapper>
         );
     }

@@ -10,7 +10,7 @@ const DEFAULT_STYLES = {
     marginTop: '-2px',
     top: '100%',
     width: '100%',
-    padding: '0.01rem 0.25rem'
+    padding: '0.01rem 0.25rem',
 };
 
 const FormInputWrapper = ({ children, groupClassName, label, errors, errorStyles, context }) => {
@@ -41,7 +41,7 @@ FormInputWrapper.propTypes = {
     errors: PropTypes.array,
     label: PropTypes.string,
     context: PropTypes.oneOf(['danger', 'success', 'warning']),
-    errorStyles: PropTypes.object
+    errorStyles: PropTypes.object,
 };
 
 FormInputWrapper.defaultProps = {
@@ -49,7 +49,7 @@ FormInputWrapper.defaultProps = {
     label: '',
     errors: [],
     context: 'danger',
-    errorStyles: {}
+    errorStyles: {},
 };
 
 export default FormInputWrapper;

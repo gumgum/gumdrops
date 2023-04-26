@@ -11,7 +11,7 @@ const TablePaginationFooter = ({
     size,
     handlePageChange,
     handleSizeChange,
-    sizeOptions
+    sizeOptions,
 }) => {
     const showFooter = !!totalPages;
     const showPagination = totalPages && totalPages > 1;
@@ -62,7 +62,7 @@ TablePaginationFooter.propTypes = {
     handleSizeChange: PropTypes.func.isRequired,
     activePage: PropTypes.number,
     size: PropTypes.number,
-    sizeOptions: PropTypes.array.isRequired
+    sizeOptions: PropTypes.array.isRequired,
 };
 
 TablePaginationFooter.defaultProps = {
@@ -74,8 +74,8 @@ TablePaginationFooter.defaultProps = {
         { name: '10', value: '10' },
         { name: '20', value: '20' },
         { name: '50', value: '50' },
-        { name: '100', value: '100' }
-    ]
+        { name: '100', value: '100' },
+    ],
 };
 
 export default TablePaginationFooter;

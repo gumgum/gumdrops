@@ -11,7 +11,7 @@ const LOAD_SUCCESS_SRC = 'LOAD_SUCCESS_SRC';
 
 jest.mock('react-dom', () => ({
     ...jest.requireActual('react-dom'),
-    createPortal: (node) => node,
+    createPortal: node => node
 }));
 
 describe('Expect <ImagePreview>', () => {
@@ -21,20 +21,20 @@ describe('Expect <ImagePreview>', () => {
     beforeAll(() => {
         global.Image = class {
             set src(src) {
-              if (src === LOAD_FAILURE_SRC) {
-                this.onerror(new Error('mocked error'));
-                onErrorMock();
-              } else if (src === LOAD_SUCCESS_SRC) {
-                this.onload();
-                onLoadMock();
-              }
+                if (src === LOAD_FAILURE_SRC) {
+                    this.onerror(new Error('mocked error'));
+                    onErrorMock();
+                } else if (src === LOAD_SUCCESS_SRC) {
+                    this.onload();
+                    onLoadMock();
+                }
             }
         };
     });
 
     afterAll(() => {
         global.Image = OriginalImage;
-    })
+    });
     it('to render in loading state', () => {
         const container = document.createElement('div');
         const tree = create(
@@ -105,8 +105,8 @@ describe('Expect <ImagePreview>', () => {
                 <input type="text" />
             </ImagePreview>
         );
-      // should contain failure text
-      expect(getByTestId('image-preview-load-failure')).toBeInTheDocument();
+        // should contain failure text
+        expect(getByTestId('image-preview-load-failure')).toBeInTheDocument();
     });
 
     it('should not show the arrow element when prop is updated', () => {
@@ -116,9 +116,11 @@ describe('Expect <ImagePreview>', () => {
             </ImagePreview>
         );
         expect(queryByTestId('image-preview-arrow')).toBeInTheDocument();
-        rerender(<ImagePreview src={LOAD_FAILURE_SRC} showArrow={false}>
-            <input type="text" />
-        </ImagePreview>);
+        rerender(
+            <ImagePreview src={LOAD_FAILURE_SRC} showArrow={false}>
+                <input type="text" />
+            </ImagePreview>
+        );
         // should contain failure text
         expect(queryByTestId('image-preview-arrow')).not.toBeInTheDocument();
     });

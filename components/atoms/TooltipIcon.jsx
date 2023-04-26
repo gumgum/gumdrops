@@ -18,13 +18,7 @@ const TooltipIcon = ({
 }) => (
     <button type="button" className={className} style={buttonStyles} label={label} {...rest}>
         <Tooltip text={label} position={position}>
-            <Icon
-                prefix={prefix}
-                icon={icon}
-                fontSize={fontSize}
-                className={iconClassName}
-                context={context}
-            />
+            <Icon prefix={prefix} icon={icon} fontSize={fontSize} className={iconClassName} context={context}/>
         </Tooltip>
     </button>
 );
@@ -46,7 +40,7 @@ TooltipIcon.propTypes = {
         'left',
         'bottom-right',
         'bottom',
-        'bottom-left'
+        'bottom-left',
     ])
 };
 
@@ -65,7 +59,7 @@ TooltipIcon.defaultProps = {
         font: 'inherit',
         color: 'inherit',
         backgroundColor: 'transparent',
-        cursor: 'pointer'
+        cursor: 'pointer',
     }
 };
 
