@@ -10,7 +10,7 @@ const PageBreadcrumb = props => {
         path,
         linkComponent: LinkComponent,
         isLast,
-        className
+        className,
     } = props;
 
     const rootClass = cx(baseClass, className);

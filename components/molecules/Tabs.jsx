@@ -24,7 +24,7 @@ const Tabs = ({ options, location, className, onClick, isTabActive }) => (
 
 Tabs.defaultProps = {
     className: 'gds-nav-tabs--justified gds-nav-tabs--sm',
-    topPath: '',
+    topPath: ''
 };
 
 Tabs.propTypes = {

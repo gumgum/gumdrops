@@ -41,7 +41,7 @@ TooltipIcon.propTypes = {
         'bottom-right',
         'bottom',
         'bottom-left',
-    ])
+    ]),
 };
 
 TooltipIcon.defaultProps = {

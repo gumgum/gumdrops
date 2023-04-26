@@ -107,8 +107,7 @@ class PageBreadcrumbs extends Component {
     render() {
         const { config, linkComponent, hideRoot, pathname } = this.props;
         const breadcrumbs = this._findTrail(pathname, config);
-        const displayBreadcrumbs =
-            hideRoot && breadcrumbs.length > 1 ? breadcrumbs.slice(1) : breadcrumbs;
+        const displayBreadcrumbs = hideRoot && breadcrumbs.length > 1 ? breadcrumbs.slice(1) : breadcrumbs;
         return (
             <PageBreadcrumbsWrapper>
                 {displayBreadcrumbs.map(({ title, path }, index, arr) => (
