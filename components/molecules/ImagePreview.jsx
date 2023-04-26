@@ -46,14 +46,15 @@ function ImagePreview({
         },
         [src]
     );
-
+    // calculate the width based on the height to match the original aspect ratio
     const newWidth = isLoaded ? maxHeight / height * width : 0;
-
+    // simple listener to set a flag when we're hovering
     const onEnterLeave = useCallback(isHovering => setIsHovering(isHovering), []);
 
     const getTooltipPosition = useCallback(
         () => {
             const el = triggerRef.current;
+            const tooltipWidth = hasFailed ? width : isLoaded ? newWidth : LOADING_DIMENSIONS.width;
             const {
                 top,
                 left,
@@ -61,7 +62,6 @@ function ImagePreview({
                 right,
                 height
             } = el.getBoundingClientRect();
-            const tooltipWidth = hasFailed ? width : isLoaded ? newWidth : LOADING_DIMENSIONS.width;
             const tooltipHeight = hasFailed
                 ? height
                 : isLoaded ? maxHeight : LOADING_DIMENSIONS.height;
@@ -292,15 +292,24 @@ ImagePreview.defaultProps = {
 };
 ImagePreview.propTypes = {
     children: PropTypes.node.isRequired,
+    /** the url to the image */
     src: PropTypes.string.isRequired,
+    /** the alt text for the image */
     alt: PropTypes.string,
+    /** the maximum height of the image, width is calculated automatically */
     maxHeight: PropTypes.number,
+    /** the padding around the image in the tooltip */
     padding: PropTypes.number,
+    /** the position of the tooltip relative to the element */
     position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
-    style: PropTypes.object,
-    tooltipStyles: PropTypes.object,
+    /** whether or not to show the arrow */
     showArrow: PropTypes.bool,
-    arrowSize: PropTypes.number
+    /** the size of the arrow in pixels */
+    arrowSize: PropTypes.number,
+    /** custom styles for the wrapper */
+    style: PropTypes.object,
+    /** custom styles for the tooltip */
+    tooltipStyles: PropTypes.object,
 };
 
 export default ImagePreview;
