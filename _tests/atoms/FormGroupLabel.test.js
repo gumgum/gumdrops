@@ -1,15 +1,12 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import FormGroupLabel from '../../components/atoms/FormGroupLabel';
 
-const defaultProps = {
-    text: 'Label Baby Jr',
-    className: 'my-classy-class'
-};
-
-describe('Expect <FormGroupLabel>', () => {
-    it('to render', () => {
-        const wrapper = mount(<FormGroupLabel {...defaultProps} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <FormGroupLabel> to render properly', () => {
+    const defaultProps = {
+        text: 'Label Baby Jr',
+        className: 'my-classy-class'
+    };
+    const tree = renderer.create(<FormGroupLabel {...defaultProps} />).toJSON();
+    expect(tree).toMatchSnapshot();
 });

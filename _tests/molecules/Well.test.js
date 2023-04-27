@@ -1,4 +1,4 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import Well from '../../components/molecules/Well';
 
@@ -9,19 +9,17 @@ const defaultProps = {
     style: { width: 100 }
 };
 
-describe('Expect <Well>', () => {
-    it('to render', () => {
-        const wrapper = mount(<Well {...defaultProps} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Well> to render properly', () => {
+    const tree = renderer.create(<Well {...defaultProps} />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('to render with a button', () => {
-        const props = {
-            ...defaultProps,
-            button: false,
-            callback: () => {}
-        };
-        const wrapper = mount(<Well {...props} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Well> to render with a button', () => {
+    const props = {
+        ...defaultProps,
+        button: false,
+        callback: jest.fn()
+    };
+    const tree = renderer.create(<Well {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
 });

@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <Snackbar> to render 1`] = `
-<ul
-  className="gds-snackbar"
-/>
-`;
-
 exports[`Expect <Snackbar> to render a child component 1`] = `
 <ul
   className="gds-snackbar"
@@ -18,4 +12,10 @@ exports[`Expect <Snackbar> to render a child component 1`] = `
     </p>
   </li>
 </ul>
+`;
+
+exports[`Expect <Snackbar> to render properly 1`] = `
+<ul
+  className="gds-snackbar"
+/>
 `;

@@ -1,30 +1,28 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import LayoutContainer from '../../components/layout/LayoutContainer';
 
-describe('Expect <LayoutContainer>', () => {
-    it('to render', () => {
-        const props = {
-            className: 'cool-stuff'
-        };
-        const wrapper = mount(
-            <LayoutContainer {...props}>
+test('Expect <LayoutContainer> to render properly', () => {
+    const tree = renderer
+        .create(
+            <LayoutContainer>
                 <div>Content</div>
             </LayoutContainer>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('to render as full width', () => {
-        const props = {
-            className: 'cool-stuff',
-            fullWidth: true
-        };
-        const wrapper = mount(
+test('Expect <LayoutContainer> to render as full width', () => {
+    const props = {
+        fullWidth: true
+    };
+    const tree = renderer
+        .create(
             <LayoutContainer {...props}>
                 <div>Content</div>
             </LayoutContainer>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
 });

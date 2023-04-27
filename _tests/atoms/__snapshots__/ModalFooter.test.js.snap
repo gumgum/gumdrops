@@ -1,25 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <ModalFooter> to render 1`] = `
-<ModalFooter
-  className="modal-class"
+exports[`Expect <ModalFooter> to render properly 1`] = `
+<div
+  className="gds-modal__footer -text-right modal-class"
   style={
-    Object {
+    {
       "width": "100px",
     }
   }
 >
-  <div
-    className="gds-modal__footer -text-right modal-class"
-    style={
-      Object {
-        "width": "100px",
-      }
-    }
-  >
-    <div>
-      My modal content
-    </div>
+  <div>
+    My modal content
   </div>
-</ModalFooter>
+</div>
 `;

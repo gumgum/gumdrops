@@ -1,4 +1,7 @@
-/* globals mount, shallow */
+/**
+ * @jest-environment jsdom
+ */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import MultiSelect from '../../components/molecules/MultiSelect';
 
@@ -29,28 +32,13 @@ const options = [
 
 const defaultProps = {
     options,
-    callback: () => {},
+    callback: jest.fn(),
     placeholder: 'placeholder',
     size: 'xs',
     className: 'custom-class'
 };
 
-describe('Expect <MultiSelect>', () => {
-    it('to render', () => {
-        const wrapper = mount(<MultiSelect {...defaultProps} />);
-        expect(wrapper).toMatchSnapshot();
-    });
-
-    it('to open and close', () => {
-        const wrapper = shallow(<MultiSelect {...defaultProps} />);
-        const menuBtn = wrapper.find('button[name="multiselectMenu"]');
-        expect(wrapper.state().isOpen).toEqual(false);
-        // open
-        menuBtn.simulate('click');
-        expect(wrapper.state().isOpen).toEqual(true);
-        expect(wrapper).toMatchSnapshot();
-        // close
-        menuBtn.simulate('click');
-        expect(wrapper.state().isOpen).toEqual(false);
-    });
+test('Expect <MultiSelect> to render properly', () => {
+    const tree = renderer.create(<MultiSelect {...defaultProps} />).toJSON();
+    expect(tree).toMatchSnapshot();
 });

@@ -1,52 +1,62 @@
-/* globals mount, shallow */
+/**
+ * @jest-environment jsdom
+ */
+import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
+
 import React from 'react';
 import Accordion from '../../components/molecules/Accordion';
 import AccordionItem from '../../components/atoms/AccordionItem';
 
-describe('Expect <Accordion>', () => {
-    it('to render', () => {
-        const props = {
-            context: 'primary',
-            size: 'sm',
-            className: 'cool-stuff'
-        };
-        const wrapper = mount(
-            <Accordion {...props}>
+const defaultProps = {
+    label: 'Check Me',
+    size: 'sm',
+    className: 'custom-class',
+    style: { width: 140 }
+};
+
+test('Expect <Accordion> to render properly', () => {
+    const tree = renderer
+        .create(
+            <Accordion {...defaultProps}>
                 <AccordionItem label="Accordion Item 1" />
                 <AccordionItem label="Accordion Item 2" />
                 <AccordionItem label="Accordion Item 3" />
             </Accordion>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('to render expanded', () => {
-        const props = {
-            initialAllOpen: true
-        };
-        const wrapper = mount(
-            <Accordion {...props}>
-                <AccordionItem label="Accordion Item 1" />
-                <AccordionItem label="Accordion Item 2" />
-                <AccordionItem label="Accordion Item 3" />
-            </Accordion>
-        );
-        wrapper.find('AccordionItem li').forEach(item => {
-            expect(item.hasClass('gds-accordion__item--active')).toBe(true);
-        });
-    });
+test('Expect <Accordion> to render expanded', () => {
+    const props = {
+        ...defaultProps,
+        initialAllOpen: true
+    };
 
-    it('to render locked', () => {
-        const wrapper = mount(
-            <Accordion>
-                <AccordionItem label="Accordion Item 1" isLocked />
-                <AccordionItem label="Accordion Item 2" isLocked />
-                <AccordionItem label="Accordion Item 3" isLocked />
-            </Accordion>
-        );
+    const component = (
+        <Accordion {...props}>
+            <AccordionItem label="Accordion Item 1" />
+            <AccordionItem label="Accordion Item 2" />
+            <AccordionItem label="Accordion Item 3" />
+        </Accordion>
+    );
+    render(component);
 
-        wrapper.find('AccordionItem li').forEach(item => {
-            expect(item.find('.gds-accordion__item-icon').length).toBe(0);
-        });
-    });
+    expect(document.querySelectorAll('.gds-accordion__item--active').length).toBe(3);
+    expect(renderer.create(component).toJSON()).toMatchSnapshot();
+});
+
+test('Expect <Accordion> to render locked', () => {
+    const component = (
+        <Accordion>
+            <AccordionItem label="Accordion Item 1" isLocked />
+            <AccordionItem label="Accordion Item 2" isLocked />
+            <AccordionItem label="Accordion Item 3" isLocked />
+        </Accordion>
+    );
+    render(component);
+
+    expect(document.querySelectorAll('.gds-accordion__item-icon').length).toBe(0);
+    expect(renderer.create(component).toJSON()).toMatchSnapshot();
 });

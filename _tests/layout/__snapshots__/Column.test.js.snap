@@ -1,19 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Expect <Column> to render 1`] = `
-<Column
-  lg={3}
-  md={4}
-  sm={6}
-  xl={2}
-  xs={12}
+exports[`Expect <Column> to render properly 1`] = `
+<div
+  className="gds-layout__column--xs-12 gds-layout__column--sm-6 gds-layout__column--md-4 gds-layout__column--lg-3 gds-layout__column--xl-2"
 >
-  <div
-    className="gds-layout__column--xs-12 gds-layout__column--sm-6 gds-layout__column--md-4 gds-layout__column--lg-3 gds-layout__column--xl-2"
-  >
-    <div>
-      Content
-    </div>
+  <div>
+    Content
   </div>
-</Column>
+</div>
 `;

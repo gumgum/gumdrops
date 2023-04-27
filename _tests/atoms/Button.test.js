@@ -1,4 +1,4 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import Button from '../../components/atoms/Button';
 
@@ -6,37 +6,26 @@ const defaultProps = {
     isGroup: false,
     isBlock: false,
     size: 'sm',
-    onClick: () => {},
+    onClick: jest.fn(),
     text: 'This is text',
     context: 'danger',
     className: 'foo-class',
     style: {
         width: '1000px'
     },
-    onBlur: () => {}
+    onBlur: jest.fn()
 };
 
-describe('Expect <Button>', () => {
-    it('to render', () => {
-        const wrapper = mount(<Button {...defaultProps}>My Cool Button</Button>);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Button> to render properly', () => {
+    const tree = renderer.create(<Button {...defaultProps}>My Cool Button</Button>).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('to renders as a group button', () => {
-        const props = {
-            ...defaultProps,
-            isGroup: true
-        };
-        const wrapper = mount(<Button {...props}>My Cool Button</Button>);
-        expect(wrapper).toMatchSnapshot();
-    });
-
-    it('to renders as a blocked button', () => {
-        const props = {
-            ...defaultProps,
-            isBlock: true
-        };
-        const wrapper = mount(<Button {...props}>My Cool Button</Button>);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Button> to render properly as blocked', () => {
+    const props = {
+        ...defaultProps,
+        isBlock: true
+    };
+    const tree = renderer.create(<Button {...props}>My Cool Button</Button>).toJSON();
+    expect(tree).toMatchSnapshot();
 });

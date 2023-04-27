@@ -1,0 +1,30 @@
+import { ArgsTable } from '@storybook/addon-docs';
+
+import Pagination from '../../components/molecules/Pagination';
+
+# Pagination
+
+The `<Pagination>` component creates a set of indicators to show how many pages exist for the current list and helps navigate them.
+
+When a page change is detected, the `onChange` prop will be called with the next page number as its only argument.
+
+## Full Example
+
+```jsx
+const [activePage, setActivePage] = useState(1);
+return (
+    <Pagination
+        activePage={activePage}
+        lastPage={30}
+        onChange={nextPage => setActivePage(nextPage)}
+    />
+);
+```
+
+## Keyboard Accessibility
+
+When pagination is in focus, you can use the arrow key to navigate to the next (arrow right and arrow down) and previous (arrow up and arrow left) pages. You can also focus on the next/previous button and "press" them with the spacebar or enter keys.
+
+## Pagination Props
+
+<ArgsTable of={Pagination} />
