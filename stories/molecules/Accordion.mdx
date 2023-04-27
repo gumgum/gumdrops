@@ -1,0 +1,75 @@
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as AccordionStories from './Accordion.stories';
+import Accordion from '../../components/molecules/Accordion';
+import AccordionItem from '../../components/atoms/AccordionItem';
+import AccordionItemContent from '../../components/atoms/AccordionItemContent';
+
+# Accordion
+
+The `<Accordion>` component is a collapsible container for holding related elements. Nest `<AccordionItem>` components inside `<Accordion>` for each drawer. Nest `<AccordionItemContent>` in each `<AccordionItem>` if you would like to display listed information within an open `<AccordionItem>`. Each `<Accordion>` related component accepts a className and otherProps so you are able to further customize the component.
+
+## Examples
+
+You can use `<Accordion>` to display any information that you pass in, such as:
+
+```jsx
+<Accordion>
+    <AccordionItem label="Controls">
+        <FormGroup>
+            <FormGroupLabel text="Name" />
+            <TextInput name="name" />
+        </FormGroup>
+    </AccordionItem>
+</Accordion>
+```
+
+You can also use `<Accordion>` to display information in a list form, in the case you want to list items in rows. Example:
+
+```jsx
+<Accordion>
+    <AccordionItem label="Settings">
+        <AccordionItemContent>
+            <Column md="6">
+                Setting 1
+            </Column>
+            <Column md=6>
+                <Button>Save</Button>
+            </Column>
+        </AccordionItemContent>
+        <AccordionItemContent>
+            <Column md="6">
+                Setting 2
+            </Column>
+            <Column md=6>
+                <Button>Save</Button>
+            </Column>
+        </AccordionItemContent>
+    </AccordionItem>
+</Accordion>
+```
+
+## Keyboard Accessibility
+
+When an accordion is in focus, you can toggle it expanded/collapsed with the spacebar or enter keys.
+
+## Component Example
+
+<Canvas of={AccordionStories.Default} />
+
+## Component Example Source
+
+<Source of={AccordionStories.Default} />
+
+## Accordion Props
+
+<ArgsTable of={Accordion} />
+
+## AccordionItem Props
+
+<ArgsTable of={AccordionItem} />
+
+## AccordionItemContent Props
+
+<ArgsTable of={AccordionItemContent} />

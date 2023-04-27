@@ -1,0 +1,51 @@
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as TextInputStories from './TextInput.stories';
+import TextInput from '../../components/atoms/TextInput';
+
+# TextInput
+
+The `<TextInput>` component can be user for any single-lined text or password input. It is recommended that you wrap it with the `<FormGroup>` component.
+
+## Controlled vs Uncontrolled
+
+This component can be controlled or uncontrolled. This component accepts any prop that you may want to add. The only drawback is that there is not validation for unlisted props. **It is highly recommended that you use controlled components in React.**
+
+_Recommended props_: `value`, `defaultValue` and `onChange`.
+
+### Controlled example
+
+```jsx
+const [username, setUsername] = useState('');
+return (
+    <TextInput
+        name="username"
+        type="text"
+        onChange={e => setUsername(e.target.value)}
+        value={username}
+    />
+);
+```
+
+### Uncontrolled example
+
+```jsx
+return (
+    <form onSubmit={e => console.log(e.target.username.value)}>
+        <TextInput name="username" type="text" defaultValue={'A default username'} />
+    </form>
+);
+```
+
+## Component Example
+
+<Canvas of={TextInputStories.Default} />
+
+## Component Example Source
+
+<Source of={TextInputStories.Default} />
+
+## TextInput Props
+
+<ArgsTable of={TextInput} />

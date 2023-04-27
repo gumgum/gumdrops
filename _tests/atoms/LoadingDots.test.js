@@ -1,4 +1,4 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import LoadingDots from '../../components/atoms/LoadingDots';
 
@@ -8,19 +8,17 @@ const defaultProps = {
     style: { width: '100px' }
 };
 
-describe('Expect <LoadingDots>', () => {
-    it('to render', () => {
-        const wrapper = mount(<LoadingDots {...defaultProps} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <LoadingDots> to render properly', () => {
+    const tree = renderer.create(<LoadingDots {...defaultProps} />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('to render as white', () => {
-        const props = {
-            ...defaultProps,
-            isWhite: true
-        };
+test('Expect <LoadingDots> to render properly with empty', () => {
+    const props = {
+        ...defaultProps,
+        isWhite: true
+    };
 
-        const wrapper = mount(<LoadingDots {...props} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+    const tree = renderer.create(<LoadingDots {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
 });

@@ -1,4 +1,4 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import FormGroup from '../../components/molecules/FormGroup';
 
@@ -9,39 +9,43 @@ const defaultProps = {
     className: 'custom-class'
 };
 
-describe('Expect <FormGroup>', () => {
-    it('to render', () => {
-        const wrapper = mount(
+test('Expect <FormGroup> to render properly', () => {
+    const tree = renderer
+        .create(
             <FormGroup {...defaultProps}>
                 <input type="text" />
             </FormGroup>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('to render disabled', () => {
-        const props = {
-            ...defaultProps,
-            isDisabled: true
-        };
-        const wrapper = mount(
+test('Expect <FormGroup> to render disabled', () => {
+    const props = {
+        ...defaultProps,
+        isDisabled: true
+    };
+    const tree = renderer
+        .create(
             <FormGroup {...props}>
                 <input type="text" />
             </FormGroup>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
-    it('to render inline', () => {
-        const props = {
-            ...defaultProps,
-            isInline: true
-        };
-        const wrapper = mount(
+test('Expect <FormGroup> to render inline', () => {
+    const props = {
+        ...defaultProps,
+        isInline: true
+    };
+    const tree = renderer
+        .create(
             <FormGroup {...props}>
                 <input type="text" />
             </FormGroup>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
 });

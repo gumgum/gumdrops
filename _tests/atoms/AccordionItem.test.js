@@ -1,20 +1,20 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import AccordionItem from '../../components/atoms/AccordionItem';
 
-describe('Expect <AccordionItem>', () => {
-    it('to render', () => {
-        const props = {
-            className: 'foo',
-            label: 'Foo!',
-            size: 'xs',
-            context: 'danger'
-        };
-        const wrapper = mount(
+test('Expect <AccordionItem> to render properly', () => {
+    const props = {
+        className: 'foo',
+        label: 'Foo!',
+        size: 'xs',
+        context: 'danger'
+    };
+    const tree = renderer
+        .create(
             <AccordionItem {...props}>
                 <div>foo</div>
             </AccordionItem>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
 });

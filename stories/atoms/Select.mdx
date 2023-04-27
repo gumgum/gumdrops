@@ -1,0 +1,76 @@
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as SelectStories from './Select.stories';
+import Select from '../../components/atoms/Select';
+
+# Select
+
+The `<Select>` component is used to allow the user to choose a value from a set of options. It is recommended that you wrap it with the `<FormGroup>` component.
+
+## Options
+
+The default format for each option is `{ name: 'my name', value: 'my value' }`. If your options are in a different format, you may pass in `customValue` and/or `customName` props to override the default values of "name" and "value". For example, if your data looks like `{ id: 'my id', val: 'my value' }`, you can pass in `customName="id"` and `customValue="val"`.
+
+## Controlled vs Uncontrolled
+
+This component can be controlled or uncontrolled. This component accepts any prop that you may want to add. The only drawback is that there is not validation for unlisted props. **It is highly recommended that you use controlled components in React.**
+
+_Recommended Props_: `name`, `value`, `defaultValue`, `onChange`
+
+### Controlled example
+
+```jsx
+const fruitOptions = [
+    { name: 'bananas', value: 1 },
+    { name: 'apples', value: 2 }
+];
+
+const [selectedOption, setSelectedOption] = useState(1);
+return (
+    <FormGroup>
+        <FormGroupLabel text="Fruits" />
+        <Select
+            options={fruitOptions}
+            name="fruit"
+            value={selectedOption}
+            onChange={e => {
+                setSelectedOption(e.target.value);
+            }}
+        />
+    </FormGroup>
+);
+```
+
+### Uncontrolled example
+
+```jsx
+_handleSubmit = ({ target }) => console.log(target.fruit.value);
+
+render() {
+    return (
+        <form onSubmit={ this._handleSubmit }>
+            <FormGroup>
+                <FormGroupLabel text="Fruits" />
+                <Select
+                   options={ myOptions }
+                   name="fruit"
+                   defaultValue="3"
+                />
+            </FormGroup>
+        </form>
+    );
+}
+```
+
+## Component Example
+
+<Canvas of={SelectStories.Default} />
+
+## Component Example Source
+
+<Source of={SelectStories.Default} />
+
+## Select Props
+
+<ArgsTable of={Select} />

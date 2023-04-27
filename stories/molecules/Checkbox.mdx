@@ -1,0 +1,78 @@
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as CheckboxStories from './Checkbox.stories';
+import Checkbox from '../../components/molecules/Checkbox';
+
+# Checkbox
+
+The `<Checkbox>` component can be wrapped with the `<FormGroup>` component. It can be used as a controlled or uncontrolled component.
+
+## Controlled vs Uncontrolled
+
+This component can be controlled or uncontrolled. This component accepts any prop that you may want to add. The only drawback is that there is not validation for unlisted props. **It is highly recommended that you use controlled components in React.**
+
+_Recommended Props_: `name`, `checked`, `defaultChecked`, `onChange`
+
+### Controlled example
+
+**Example with reusable checkbox handler**:
+
+```jsx
+const [pineapple, setPineapple] = useState(false);
+  return (
+    <FormGroup>
+      <Checkbox
+            name="pineapple"
+            label="pineapple on pizza?"
+            checked={ pineapple }
+            onChange={e => {
+              setPineapple(e.target.checked) }
+            }
+        />
+      </FormGroup>
+  );
+};
+```
+
+### Uncontrolled example
+
+```jsx
+_handleSubmit = (e) => {
+    e.preventDefault();
+    const {
+        pineapple,
+        otherName,
+        otherName2
+    } = e.target.elements;
+    console.log(pineapple.checked);
+};
+
+render() {
+    return (
+        <form onSubmit={ this._handleSubmit }>
+            <FormGroup>
+                { /* Pass defaultChecked if you want
+                the input to be checked initially */ }
+                <Checkbox
+                    name="pineapple"
+                    label="pineapple on pizza?"
+                    defaultChecked
+                />
+            </FormGroup>
+        </form>
+    );
+}
+```
+
+## Component Example
+
+<Canvas of={CheckboxStories.Default} />
+
+## Component Example Source
+
+<Source of={CheckboxStories.Default} />
+
+## Checkbox Props
+
+<ArgsTable of={Checkbox} />

@@ -1,0 +1,34 @@
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as SnackbarStories from './Snackbar.stories';
+import Snackbar from '../../components/molecules/Snackbar';
+import SnackbarNotification from '../../components/atoms/SnackbarNotification';
+
+# Snackbar
+
+The `<Snackbar>` component is a style wrapper for the `<SnackbarNotification>` components.
+
+## Snackbar Notification
+
+The `<SnackbarNotification>` component displays a notification inside the `<Snackbar>` component wrapper.
+
+The notification can be hidden by clicking a button or after waiting for a timeout to complete.
+
+A callback function can be executed after hiding a notification. The first parameter of the callback will be the id of the notification if it is passed as a prop.
+
+## Component Example
+
+<Canvas of={SnackbarStories.Default} />
+
+## Component Example Source
+
+<Source of={SnackbarStories.Default} />
+
+## Snackbar Props
+
+<ArgsTable of={Snackbar} />
+
+## SnackbarNotification Props
+
+<ArgsTable of={SnackbarNotification} />

@@ -18,7 +18,7 @@ exports[`Expect <SnackbarNotification> to apply the given context as a css class
 
 exports[`Expect <SnackbarNotification> to be hidden when close button is pressed 1`] = `
 <li
-  className="gds-snackbar__notification gds-snackbar__notification--hidden gds-snackbar__notification--info"
+  className="gds-snackbar__notification gds-snackbar__notification--info"
 >
   <p
     className="gds-snackbar__notification-text"
@@ -34,7 +34,7 @@ exports[`Expect <SnackbarNotification> to be hidden when close button is pressed
 
 exports[`Expect <SnackbarNotification> to call callback after hide 1`] = `
 <li
-  className="gds-snackbar__notification gds-snackbar__notification--hidden gds-snackbar__notification--info"
+  className="gds-snackbar__notification gds-snackbar__notification--info"
 >
   <p
     className="gds-snackbar__notification-text"
@@ -48,9 +48,21 @@ exports[`Expect <SnackbarNotification> to call callback after hide 1`] = `
 </li>
 `;
 
-exports[`Expect <SnackbarNotification> to not render if there is no message 1`] = `""`;
+exports[`Expect <SnackbarNotification> to not render if there is no message 1`] = `null`;
 
-exports[`Expect <SnackbarNotification> to render a child component 1`] = `
+exports[`Expect <SnackbarNotification> to not show close button 1`] = `
+<li
+  className="gds-snackbar__notification gds-snackbar__notification--info"
+>
+  <p
+    className="gds-snackbar__notification-text"
+  >
+    Snackbar Message
+  </p>
+</li>
+`;
+
+exports[`Expect <SnackbarNotification> to render child component 1`] = `
 <li
   className="gds-snackbar__notification"
 >
@@ -66,7 +78,7 @@ exports[`Expect <SnackbarNotification> to render a child component 1`] = `
 </li>
 `;
 
-exports[`Expect <SnackbarNotification> to render the component 1`] = `
+exports[`Expect <SnackbarNotification> to render properly 1`] = `
 <li
   className="gds-snackbar__notification gds-snackbar__notification--info"
 >
