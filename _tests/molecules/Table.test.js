@@ -99,3 +99,26 @@ test('Expect <Table> to manually set sort direction', () => {
     const heading = getByText('Foo');
     expect(heading).toHaveClass('gds-table__header--sort-asc');
 });
+
+
+test('Expect <Table> to render with expandable rows', () => {
+    const props = {
+        ...defaultProps,
+        columns: [
+            {
+                key: 'foo',
+                children: 'Foo',
+                headingProps: { style: { width: 100, onClick: jest.fn() } }
+            },
+            {
+                key: 'bar',
+                children: 'Bar',
+                renderExpandableColumn(cellData) {
+                    return <div>Expandable - {cellData}</div>;
+                }
+            }
+        ]
+    };
+    const tree = renderer.create(<Table {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
+});

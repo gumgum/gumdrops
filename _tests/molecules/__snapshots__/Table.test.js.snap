@@ -101,3 +101,61 @@ exports[`Expect <Table> to render using advanced configs 1`] = `
   </tbody>
 </table>
 `;
+
+exports[`Expect <Table> to render with expandable rows 1`] = `
+<table
+  className="gds-table custom-class gds-table--lg gds-table--expandable"
+>
+  <tbody
+    className=""
+  >
+    <tr
+      className="gds-table__row -cursor--pointer"
+      onClick={[Function]}
+    >
+      <td
+        className=""
+      >
+        Foo
+      </td>
+      <td
+        className="chevron-expander collapsed"
+        onClick={[Function]}
+      >
+        <i
+          className="-cursor--pointer -color-tx-lt-4 fas fa-chevron-down  "
+          style={
+            {
+              "fontSize": 22,
+            }
+          }
+        />
+      </td>
+    </tr>
+    <tr
+      className="gds-table__row gds-table--expandable-row"
+    >
+      <td
+        className=""
+        colSpan={2}
+      >
+        <div
+          className="gds-table--collapsible"
+          style={
+            {
+              "height": "0px",
+            }
+          }
+        >
+          <div>
+            <div>
+              Expandable - 
+              Bar
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
