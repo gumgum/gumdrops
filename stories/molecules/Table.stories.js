@@ -53,6 +53,33 @@ const columnsAdvanced = [
     }
 ];
 
+const columnsExpandable = [
+    ...columnsAdvanced,
+    {
+        key: 'age',
+        children: 'Row Data',
+        renderExpandableColumn(cellData, key, rowData, column) {
+            return (<div>
+                <pre>{JSON.stringify({
+                    cellData,
+                    key,
+                    rowData,
+                    column
+                }, null, 2)}</pre>
+            </div>)
+        }
+    },
+    {
+        key: 'summary',
+        children: ' Summary',
+        renderExpandableColumn(cellData, key, rowData, column) {
+            return (<div>
+                <p>Hi, my name is {rowData.name} and I am {rowData.age} years old and I work as a {rowData.title} and i am {rowData.height} tall.</p>
+            </div>)
+        }
+    },
+]
+
 const jobTitles = [
     'Motel Maid',
     'Twister Operator',
@@ -172,3 +199,11 @@ Advanced.args = {
     numOfRows: 10
 };
 Advanced.parameters = { controls: { exclude: ['children', 'data'] } };
+
+export const Expandable = Template.bind({});
+Expandable.args = {
+    columns: columnsExpandable,
+    numOfRows: 10,
+    customRowKey: 'id'
+};
+Expandable.parameters = { controls: { exclude: ['children', 'data'] } };
