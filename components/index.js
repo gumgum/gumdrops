@@ -8,6 +8,7 @@ export { default as FormGroupLabel } from './atoms/FormGroupLabel';
 export { default as FormGroupTextHelp } from './atoms/FormGroupTextHelp';
 export { default as FormInputWrapper } from './atoms/FormInputWrapper';
 export { default as Icon } from './atoms/Icon';
+export { default as ImagePreview } from './atoms/ImagePreview';
 export { default as LoadingDots } from './atoms/LoadingDots';
 export { default as ModalBody } from './atoms/ModalBody';
 export { default as ModalFooter } from './atoms/ModalFooter';
