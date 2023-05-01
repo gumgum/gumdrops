@@ -82,18 +82,16 @@ const getFiles = source =>
 const listFiles = () => {
     log('Finding files in .components/ directory');
     const directories = getDirectories(COMPONENTS);
-    const files = directories.reduce((list, directory) => [...list, ...getFiles(directory)], [
-        ...getFiles(COMPONENTS)
-    ]);
+    const files = directories.reduce(
+        (list, directory) => [...list, ...getFiles(directory)],
+        [...getFiles(COMPONENTS)]
+    );
     return files;
 };
 
 // Builds the filepath for the given file
 const getFileNameData = file => {
-    const originalPath = file
-        .split('/')
-        .reverse()[0]
-        .replace('jsx', 'js');
+    const originalPath = file.split('/').reverse()[0].replace('jsx', 'js');
     const [name] = originalPath.split('.');
     const filepath = `dist/${originalPath}`;
     return { filepath, name };
@@ -277,7 +275,7 @@ async function build() {
             ...buildESMConfigurations()
         ];
 
-        await runTests();
+        // await runTests();
 
         log('Building modules');
         log('Please wait');

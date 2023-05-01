@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Installation" />
+
+# Gumdrops Installation
+
+[Gumdrops](https://github.com/gumgum/gumdrops) is an [npm package](https://www.npmjs.com/package/gumdrops).
+Run `yarn add gumdrops` or `npm install gumdrops` in your project folder.
+
+To add a specific version, you can use `yarn add gumdrops@1.0.0` (replace 1.0.0 with whatever version you want, or omit it to get the latest version) or `npm install gumdrops@1.0.0`
+
+The current and previous versions can be found in [CHANGELOG.md](https://github.com/gumgum/gumdrops/blob/master/CHANGELOG.md)
+
+## Concrete Design System
+
+Gumdrops must be used with the GumGum Design System (Concrete), which handles all of the styles.
+
+Add [gumgum-design](https://www.npmjs.com/package/gumgum-design) and [sass](https://www.npmjs.com/package/sass) to your project:
+
+Note: [node-sass](https://www.npmjs.com/package/node-sass) has been deprecated.
+
+```
+yarn add gumgum-design sass
+```
+
+Create and import your main Sass file in main App component:
+
+```jsx
+import React, { Component } from 'react';
+import './main.scss';
+
+class App extends Component {
+    render() {
+        return (...);
+    }
+}
+
+export default App;
+```
+
+In main.scss, import the theme first to declare all color variables:
+
+```scss
+@import '~gumgum-design/styles/scss/index';
+```
+
+The theme file contains variables for every color used in Design System, along with 5 shades darker and lighter of each color.
+The prime slots defines theme-specific colors, while the component slots defines component-specific colors.
+
+[See the Concrete Design System documentation](https://concrete.gumgum.com) for design system specific documentation.

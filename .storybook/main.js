@@ -1,16 +1,30 @@
 module.exports = {
-    stories: ['../_stories/**/*.stories.@(js|mdx)'],
+    stories: [
+        '../stories/**/*.mdx',
+        '../stories/**/*.stories.mdx',
+        '../stories/**/*.stories.@(js|jsx|ts|tsx)'
+    ],
     addons: [
-        '@storybook/addon-knobs/register',
+        '@storybook/addon-links',
+        '@storybook/addon-essentials',
         {
-            name: '@storybook/addon-docs',
+            name: '@storybook/addon-styling',
             options: {
-                configureJSX: true,
-                babelOptions: {},
-                sourceLoaderOptions: null
+                sass: {
+                    // Require your Sass preprocessor here
+                    implementation: require('sass')
+                }
             }
-        },
-        '@storybook/addon-options/register',
-        '@storybook/addon-actions/register'
-    ]
+        }
+    ],
+    framework: {
+        name: '@storybook/react-webpack5',
+        options: {}
+    },
+    features: {
+        interactionsDebugger: true
+    },
+    docs: {
+        autodocs: true
+    }
 };

@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect <ImagePreview> to render in loading state 1`] = `
+<span
+  className="gds-image-preview gds-image-preview--show-arrow"
+  data-testid="image-preview-hover-element"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    {
+      "cursor": "pointer",
+      "display": "inline-block",
+      "position": "relative",
+    }
+  }
+>
+  <input
+    type="text"
+  />
+  <div
+    className="gds-flex gds-flex--content-center gds-flex--justify-center"
+    data-testid="image-preview-tooltip"
+    style={
+      {
+        "backgroundColor": "rgba(0, 0, 0, 0.8)",
+        "borderRadius": 3,
+        "color": "#fff",
+        "opacity": 0,
+        "padding": "5px",
+        "position": "absolute",
+        "transform": "scale(0)",
+        "transformOrigin": "bottom center",
+        "transition": "0.4s ease",
+        "transitionProperty": "transform, opacity, padding",
+        "zIndex": 9999,
+      }
+    }
+  >
+    <div
+      className="gds-loading__dot gds-loading__dot--sm gds-loading__dot--white"
+      style={
+        {
+          "left": "auto",
+          "position": "relative",
+          "top": "auto",
+        }
+      }
+    />
+    <span
+      data-testid="image-preview-arrow"
+      style={
+        {
+          "borderLeft": "5px solid transparent",
+          "borderRight": "5px solid transparent",
+          "borderTop": "5px solid rgba(0, 0, 0, 0.8)",
+          "height": 0,
+          "left": "50%",
+          "position": "absolute",
+          "top": "100%",
+          "transform": "translateX(-50%)",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+</span>
+`;

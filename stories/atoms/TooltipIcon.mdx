@@ -1,0 +1,46 @@
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as TooltipIconStories from './TooltipIcon.stories';
+import TooltipIcon from '../../components/atoms/TooltipIcon';
+import Tooltip from '../../components/atoms/Tooltip';
+import Icon from '../../components/atoms/Icon';
+
+# TooltipIcon
+
+`<TooltipIcon>` combines `<Tooltip>` and `<Icon>` into one.
+
+The `<Icon>` component displays an item from the <a href="https://fontawesome.com/v5/search" target="_blank">Font Awesome</a> library.
+
+Any other props that are passed in are also accepted and passed to the `button` element.
+
+This can be used to trigger an action when the user clicks on the `<TooltipIcon>`
+
+```
+<TooltipIcon
+    name="my-icon"
+    icon="trash"
+    label="Delete"
+    onClick={() => deleteThis(someId)}
+/>
+```
+
+Alternatively, instead of using the `onClick` property of the button, `<TooltipIcon>` can be wrapped in a `<Link>`
+
+```
+<Link to="/new-page">
+    <TooltipIcon icon="arrow" label="Go to the new page" />
+</Link>
+```
+
+## Component Example
+
+<Canvas of={TooltipIconStories.Default} />
+
+## Component Example Source
+
+<Source of={TooltipIconStories.Default} />
+
+## TooltipIcon Props
+
+<ArgsTable of={TooltipIcon} />

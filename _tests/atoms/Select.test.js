@@ -1,9 +1,8 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import Select from '../../components/atoms/Select';
 
 const defaultProps = {
-    className: 'modal-class',
     context: 'success',
     size: 'lg',
     text: '100',
@@ -19,9 +18,7 @@ const defaultProps = {
     ]
 };
 
-describe('Expect <Select>', () => {
-    it('to render', () => {
-        const wrapper = mount(<Select {...defaultProps} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <Select> to render properly', () => {
+    const tree = renderer.create(<Select {...defaultProps} />).toJSON();
+    expect(tree).toMatchSnapshot();
 });

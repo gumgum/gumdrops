@@ -1,4 +1,4 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import ModalFooter from '../../components/atoms/ModalFooter';
 
@@ -7,13 +7,13 @@ const defaultProps = {
     style: { width: '100px' }
 };
 
-describe('Expect <ModalFooter>', () => {
-    it('to render', () => {
-        const wrapper = mount(
+test('Expect <ModalFooter> to render properly', () => {
+    const tree = renderer
+        .create(
             <ModalFooter {...defaultProps}>
                 <div>My modal content</div>
             </ModalFooter>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
 });

@@ -1,4 +1,4 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import ModalForm from '../../components/atoms/ModalForm';
 
@@ -7,13 +7,13 @@ const defaultProps = {
     style: { width: '100px' }
 };
 
-describe('Expect <ModalForm>', () => {
-    it('to render', () => {
-        const wrapper = mount(
+test('Expect <ModalForm> to render properly', () => {
+    const tree = renderer
+        .create(
             <ModalForm {...defaultProps}>
-                <div>My form content</div>
+                <div>My modal content</div>
             </ModalForm>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
 });

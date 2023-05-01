@@ -1,22 +1,22 @@
-/* globals mount */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import LoginForm from '../../components/molecules/LoginForm';
 
 const defaultProps = {
     capText: 'Text',
     logoText: 'Logo Text',
-    onSubmit: () => {},
-    recoveryFn: () => {},
+    onSubmit: jest.fn(),
+    recoveryFn: jest.fn(),
     recoveryText: 'Recovery message'
 };
 
-describe('Expect <LoginForm>', () => {
-    it('to render', () => {
-        const wrapper = mount(
+test('Expect <LoginForm> to render properly', () => {
+    const tree = renderer
+        .create(
             <LoginForm {...defaultProps}>
                 <input type="text" />
             </LoginForm>
-        );
-        expect(wrapper).toMatchSnapshot();
-    });
+        )
+        .toJSON();
+    expect(tree).toMatchSnapshot();
 });

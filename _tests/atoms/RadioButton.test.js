@@ -1,4 +1,4 @@
-/* globals shallow */
+import renderer from 'react-test-renderer';
 import React from 'react';
 import RadioButton from '../../components/atoms/RadioButton';
 
@@ -8,13 +8,11 @@ const defaultProps = {
     className: 'custom-class',
     context: 'success',
     name: 'radio-buttons',
-    onBlur: () => {},
-    onChange: () => {}
+    onBlur: jest.fn(),
+    onChange: jest.fn()
 };
 
-describe('Expect <RadioButton>', () => {
-    it('to render', () => {
-        const wrapper = shallow(<RadioButton {...defaultProps} />);
-        expect(wrapper).toMatchSnapshot();
-    });
+test('Expect <RadioButton> to render properly', () => {
+    const tree = renderer.create(<RadioButton {...defaultProps} />).toJSON();
+    expect(tree).toMatchSnapshot();
 });

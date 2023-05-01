@@ -1,0 +1,40 @@
+import { Canvas, Source } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/addon-docs';
+
+import * as DividerStories from './Divider.stories';
+import Divider from '../../components/molecules/Divider';
+
+# Divider
+
+The standard `<Divider>` component is used to separate distinct segments of content.
+
+If the divider is collapsible, pass in a callback function that sets the state, and include the state in your component.
+
+## Full Example
+
+```jsx
+const [isOpen, setIsOpen] = useState(false);
+return (
+    <div>
+        <Divider
+            label="Collapsible Label"
+            collapsible
+            open={isOpen}
+            callback={() => setIsOpen(!isOpen)}
+        />
+        {isOpen && <div>Content to show when toggled open</div>}
+    </div>
+);
+```
+
+## Component Example
+
+<Canvas of={DividerStories.Default} />
+
+## Component Example Source
+
+<Source of={DividerStories.Default} />
+
+## Divider Props
+
+<ArgsTable of={Divider} />
