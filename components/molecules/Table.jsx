@@ -233,6 +233,7 @@ class Table extends Component {
                                             const isExpanded = this._isColumnExpanded(columnIdentifier);
                                             return (<Data
                                                 key={columnKey}
+                                                data-testid={columnKey}
                                                 onClick={() => {
                                                     const expanded = !this.state.expandable[columnIdentifier]?.expanded;
                                                     this.setState({
@@ -272,7 +273,7 @@ class Table extends Component {
                                         );
                                     })}
                                 </Row>
-                                {columns.some(this._columnIsExpandable) && <Row className="gds-table--expandable-row">
+                                {columns.some(this._columnIsExpandable) && <Row className="gds-table--expandable-row" data-testid={`expandable-row-${rowKey}`}>
                                     <Data colSpan={columns.length}>
                                         {columns.map((column) => {
                                             const columnIdentifier = this._getColumnKey(rowKey, column.key || column);

@@ -4,10 +4,10 @@ import cx from 'classnames';
 
 const TableData = ({ className, children, context, ...otherProps }) => (
     <td
+        {...otherProps}
         className={cx(className, {
             [`gds-table__cell--${context}`]: context
-        })}
-        {...otherProps}>
+        })}>
         {children}
     </td>
 );

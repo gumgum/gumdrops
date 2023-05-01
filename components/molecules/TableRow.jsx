@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-const TableRow = ({ className, children, isInverse, isStriped, onClick }) => (
+const TableRow = ({ className, children, isInverse, isStriped, onClick, ...otherProps }) => (
     <tr
+        {...otherProps}
         onClick={onClick}
         className={cx('gds-table__row', className, {
             'gds-table__row--inverse': isInverse,

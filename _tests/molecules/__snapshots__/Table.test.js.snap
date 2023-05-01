@@ -120,6 +120,7 @@ exports[`Expect <Table> to render with expandable rows 1`] = `
       </td>
       <td
         className="chevron-expander collapsed"
+        data-testid="row-0-key-1"
         onClick={[Function]}
       >
         <i
@@ -134,6 +135,7 @@ exports[`Expect <Table> to render with expandable rows 1`] = `
     </tr>
     <tr
       className="gds-table__row gds-table--expandable-row"
+      data-testid="expandable-row-0"
     >
       <td
         className=""
