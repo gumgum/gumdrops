@@ -5892,10 +5892,10 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   resolved "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
 
-gumgum-design@2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/gumgum-design/-/gumgum-design-2.1.2.tgz#1e92dd935bb72c96572346537bfc34fffd962eec"
-  integrity sha512-YLo98yuUTnsvZQaCfAGprhzdIZp3R9w6xF+u6aFTFjDutgmYcILrSziInyaNbfw4+jkXeuOSI/rDXfUNQHeK6w==
+gumgum-design@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/gumgum-design/-/gumgum-design-2.1.4.tgz#5c3baf9c218255f19bcb32ea15a79abfd22acbea"
+  integrity sha512-EAfJsPFVPZXc+hUwj4Fpx+skEbmE1kT8sKP6McY34mEb6DmEKpe8RZn92vBAICTvK8QIVRT+mZEXGDar273zZQ==
   dependencies:
     "@fontsource/public-sans" "^4.5.0"
     "@fortawesome/fontawesome-free" "^6.1.1"
