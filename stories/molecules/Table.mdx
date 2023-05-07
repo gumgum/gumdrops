@@ -164,12 +164,11 @@ const People = () => <Table columns={columns} data={data} customRowKey="id" />;
 
 ### Custom Expandable Column
 
-Each column can take a renderExpandableColumn function which will render a row underneath the column in question which wil allow the user to show
+Each column can take a renderExpandableColumn function which will render a row underneath the column and will allow the user to show
 an expandable section below when toggled.
 
-Note: You can have more than one renderExpandableColumn, they're handled independently.
-Note: If you have sorting enabled and expand the expanded section to sort alongside the table data, you'll need to provide a `customRowKey` to the table
-to allow the expanding section to sort alongside the data.
+Note: You can have more than one renderExpandableColumn per row and they're handled independently.
+Note: If you have sorting enabled, you'll need to provide a `customRowKey` to the table to allow the expanded section to link to the row correctly.
 
 The following example will produce a table with 2 rows and every row's first column will contain a "chevron" that the user
 can click to expand the content.
