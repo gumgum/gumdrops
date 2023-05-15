@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-const TableData = ({ className, children, context }) => (
+const TableData = ({ className, children, context, ...otherProps }) => (
     <td
+        {...otherProps}
         className={cx(className, {
             [`gds-table__cell--${context}`]: context
         })}>
