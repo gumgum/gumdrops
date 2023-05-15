@@ -1,6 +1,5 @@
 import { Canvas, Source } from '@storybook/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
-
 import * as TableStories from './Table.stories';
 import Table from '../../components/molecules/Table';
 import TableData from '../../components/molecules/TableData';
@@ -37,15 +36,16 @@ const People = () => <Table columns={columns} data={data} />;
 
 The `columns` prop config can take a number of more advanced configurations as seen above. For more advanced configuration you can supply additional properties to the `columns` array:
 
-| property          | type       | description                                                                                                                                             |
-| ----------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key               | `String`   | Key representing the corresponding data property.                                                                                                       |
-| children          | `Node`     | Custom markup to render in the column heading [See example](#custom-column-markup)                                                                      |
-| disableSorting    | `Boolean`  | Disables ability to sort column data                                                                                                                    |
-| dataCellDecorator | `Function` | Customize cell markup with a decorator, a function that is called with the cell data, a React key, and the row data. [See example](#custom-cell-markup) |
-| headingProps      | `Object`   | Props object to be passed to the `<TableHeading>` component. [See example](#custom-heading-props)                                                       |
-| sortCompareAsc    | `Function` | Custom ascending sort compare function. [See example](#custom-sorting)                                                                                  |
-| sortCompareDesc   | `Function` | Custom descending sort compare function. [See example](#custom-sorting)                                                                                 |
+| property               | type       | description                                                                                                                                             |
+| ---------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key                    | `String`   | Key representing the corresponding data property.                                                                                                       |
+| children               | `Node`     | Custom markup to render in the column heading [See example](#custom-column-markup-example)                                                                      |
+| disableSorting         | `Boolean`  | Disables ability to sort column data                                                                                                                    |
+| dataCellDecorator      | `Function` | Customize cell markup with a decorator, a function that is called with the cell data, a React key, and the row data. [See example](#custom-cell-markup-example) |
+| headingProps           | `Object`   | Props object to be passed to the `<TableHeading>` component. [See example](#custom-heading-props-example)                                                       |
+| sortCompareAsc         | `Function` | Custom ascending sort compare function. [See example](#custom-sorting-example)                                                                                  |
+| sortCompareDesc        | `Function` | Custom descending sort compare function. [See example](#custom-sorting-example)                                                                                 |
+| renderExpandableColumn | `Function` | Convert the cell to contain a button that will expand the returned content returned from this method. [See example](#custom-expandable-column)            |
 
 ### Custom Column Markup Example
 
@@ -162,6 +162,37 @@ const data = [
 const People = () => <Table columns={columns} data={data} customRowKey="id" />;
 ```
 
+### Custom Expandable Column
+
+Each column can take a renderExpandableColumn function which will render a row underneath the column and will allow the user to show
+an expandable section below when toggled.
+
+Note: You can have more than one renderExpandableColumn per row and they're handled independently.
+Note: If you have sorting enabled, you'll need to provide a `customRowKey` to the table to allow the expanded section to link to the row correctly.
+
+The following example will produce a table with 2 rows and every row's first column will contain a "chevron" that the user
+can click to expand the content.
+
+```jsx
+const data = [
+    { name: 'Alice', age: 20, id: 'x123' },
+    { name: 'Bob', age: 20, id: 'y456' }
+];
+const columns = [{
+    key: 'name',
+    children: 'Name',
+    renderExpandableColumn(cellData, key, rowData, column) {
+        return <p>Hi my name is {cellData} and I'm {rowData.age} years old.</p>
+    }
+}, {
+    key: 'age',
+    children: 'Age',
+}]
+
+const People = () => <Table columns={columns} data={data} customRowKey="id" />;
+```
+
+
 ## Component Example Simple
 
 <Canvas of={TableStories.Simple} />
@@ -185,6 +216,14 @@ const People = () => <Table columns={columns} data={data} customRowKey="id" />;
 ## Component Example Source Custom
 
 <Source of={TableStories.Custom} />
+
+## Component Example Expandable
+
+<Canvas of={TableStories.Expandable} />
+
+## Component Example Source Expandable
+
+<Source of={TableStories.Expandable} />
 
 ## Table Props
 

@@ -24,6 +24,23 @@ const defaultProps = {
     size: 'lg'
 };
 
+const mockAnimate = function([from, to]) {
+    this.style.height = to.height;
+    return {
+        onFinish: jest.fn(),
+    }
+}
+
+Object.defineProperty(HTMLElement.prototype, 'animate', {
+  value: mockAnimate,
+  writable: true
+});
+
+Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+    value: 100,
+    writable: true
+});
+
 test('Expect <Table> to render properly', () => {
     const tree = renderer.create(<Table {...defaultProps} />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -98,4 +115,76 @@ test('Expect <Table> to manually set sort direction', () => {
 
     const heading = getByText('Foo');
     expect(heading).toHaveClass('gds-table__header--sort-asc');
+});
+
+
+test('Expect <Table> to render with expandable rows', () => {
+    const props = {
+        ...defaultProps,
+        columns: [
+            {
+                key: 'foo',
+                children: 'Foo',
+                headingProps: { style: { width: 100, onClick: jest.fn() } }
+            },
+            {
+                key: 'bar',
+                children: 'Bar',
+                renderExpandableColumn(cellData) {
+                    return <div>Expandable - {cellData}</div>;
+                }
+            }
+        ]
+    };
+    const tree = renderer.create(<Table {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
+    const { queryByTestId } = render(<Table {...props} />);
+    expect(queryByTestId('expandable-row-0')).toBeInTheDocument();
+});
+
+test('Expect <Table> not to render collapsible element when no renderExpandableColumn method is provided', () => {
+    const props = {
+        ...defaultProps,
+        columns: [
+            {
+                key: 'foo',
+                children: 'Foo',
+                headingProps: { style: { width: 100, onClick: jest.fn() } }
+            },
+            {
+                key: 'bar',
+                children: 'Bar',
+            }
+        ]
+    };
+    const { queryByTestId } = render(<Table {...props} />);
+    expect(queryByTestId('expandable-row-0')).not.toBeInTheDocument();
+});
+
+test('Expect <Table> to expand the row when the chevron is clicked', () => {
+    const props = {
+        ...defaultProps,
+        customRowKey: 'foo',
+        columns: [
+            {
+                key: 'foo',
+                children: 'Foo',
+                headingProps: { style: { width: 100, onClick: jest.fn() } }
+            },
+            {
+                key: 'bar',
+                children: 'Bar',
+                renderExpandableColumn(cellData) {
+                    return <div>Expandable - {cellData}</div>;
+                }
+            }
+        ]
+    };
+    const { queryByTestId, debug } = render(<Table {...props} />);
+    debug();
+    const expandableRow = queryByTestId('expandable-row-Foo');
+    expect(expandableRow.querySelector('.gds-table--collapsible').style.height).toEqual('0px');
+    fireEvent.click(queryByTestId('row-Foo-key-1'));
+    expect(queryByTestId('row-Foo-key-1')).toBeInTheDocument();
+    expect(expandableRow.querySelector('.gds-table--collapsible').style.height).toEqual('100px');
 });
