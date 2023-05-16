@@ -102,6 +102,22 @@ exports[`Expect <Table> to render using advanced configs 1`] = `
 </table>
 `;
 
+exports[`Expect <Table> to render when used without columns prop 1`] = `
+<table
+  className="gds-table"
+>
+  <tbody
+    className=""
+  >
+    <td
+      className=""
+    >
+      Foo
+    </td>
+  </tbody>
+</table>
+`;
+
 exports[`Expect <Table> to render with expandable rows 1`] = `
 <table
   className="gds-table custom-class gds-table--lg gds-table--expandable"
