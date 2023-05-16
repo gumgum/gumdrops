@@ -413,7 +413,8 @@ Table.propTypes = {
 };
 
 Table.defaultProps = {
-    hasHeader: true
+    hasHeader: true,
+    columns: [],
 };
 
 export default Table;

@@ -5,6 +5,8 @@ import renderer from 'react-test-renderer';
 import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
 import Table from '../../components/molecules/Table';
+import TableBody from '../../components/molecules/TableBody';
+import TableData from '../../components/molecules/TableData';
 
 const defaultProps = {
     data: [
@@ -115,6 +117,17 @@ test('Expect <Table> to manually set sort direction', () => {
 
     const heading = getByText('Foo');
     expect(heading).toHaveClass('gds-table__header--sort-asc');
+});
+
+test('Expect <Table> to render when used without columns prop', () => {
+    const tree = renderer.create(<Table>
+        <TableBody>
+            <TableData>
+                Foo
+            </TableData>
+        </TableBody>
+    </Table>).toJSON();
+    expect(tree).toMatchSnapshot();
 });
 
 
