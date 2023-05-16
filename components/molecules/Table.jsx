@@ -147,7 +147,7 @@ class Table extends Component {
     }
 
     renderTableContent({
-        columns = [],
+        columns,
         isStriped,
         isInverse,
         hasHeader,
@@ -301,7 +301,7 @@ class Table extends Component {
     }
 
     renderTable() {
-        const { data, className, children, size, isStriped, isInverse, columns = [] } = this.props;
+        const { data, className, children, size, isStriped, isInverse, columns } = this.props;
         return (
             <table
                 className={cx('gds-table', className, {
@@ -413,7 +413,8 @@ Table.propTypes = {
 };
 
 Table.defaultProps = {
-    hasHeader: true
+    hasHeader: true,
+    columns: [],
 };
 
 export default Table;
