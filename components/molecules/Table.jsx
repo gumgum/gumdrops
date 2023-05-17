@@ -124,14 +124,14 @@ class Table extends Component {
         };
     };
 
-    _getColumnData(column, rowData) {
+    _getColumnData(column, rowData, columnKey) {
         const isString = typeof column === 'string';
         const cellData = isString
             ? rowData[column]
             : rowData[column.key];
         return [
             cellData,
-            column.key,
+            columnKey,
             rowData,
             column,
         ]
@@ -216,6 +216,7 @@ class Table extends Component {
                         return (
                             <React.Fragment key={`row-${rowKey}`}>
                                 <Row
+                                    key={`row-${rowKey}`}
                                     className={onRowClick && '-cursor--pointer'}
                                     isInverse={isInverse}
                                     isStriped={isStriped}
@@ -265,7 +266,7 @@ class Table extends Component {
                                             </Data>)
                                         }
                                         const decorator = column.dataCellDecorator;
-                                        const columnData = this._getColumnData(column, rowData);
+                                        const columnData = this._getColumnData(column, rowData, columnKey);
                                         return typeof decorator === 'function' ? (
                                             decorator.apply(this, [...columnData])
                                         ) : (
