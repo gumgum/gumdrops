@@ -1,0 +1,161 @@
+import { Story, Props } from '@storybook/addon-docs/blocks';
+import SearchMultiSelectExtended from '../../../components/molecules/SearchMultiSelectExtended';
+
+# SearchMultiSelectExtended
+
+The `<SearchMultiSelectExtended>` is similar to the `<MultiSelect>` component, but it is tailored for situations where there are way too many options that the `<MultiSelect>` becomes impractical.
+
+As the name suggests, the `<SearchMultiSelectExtended>` comes with a case insensitive term matching, and a small tag indicator to show you how many options were selected, as well a small balloon where you can quickly see what options you have selected so far.
+
+Search-Multi-select also supports nested options [See Nested Options](#nested-options). When a parent option is selected, all children will be selected. If all children are selected, the parent will be selected too.
+
+
+# Full Example
+```jsx
+import pets from './pets';
+
+state = {
+    options: pets
+};
+
+componentDidMount() {
+    if (this._inputRef.current) {
+        this._inputRef.current.focus();
+    }
+}
+
+_inputRef = React.createRef()
+
+_updateOptions = newOptions => {
+        this.setState({options: newOptions});
+        action('SearchMultiSelectExtended Updated')(options);
+    };
+
+_handleInputChange = (value) => autocompleteRequest(value);
+
+render() {
+    return (
+        <FormGroup>
+           <FormGroupLabel text="options" />
+           <SearchMultiSelectExtended
+               inputRef={this._inputRef}
+               placeholder="some placeholder text"
+               options={ this.state.options }
+               update={ this._updateOptions }
+               onChange={ this._handleInputChange }
+               context="primary"
+               size="sm"
+               multiTerm
+               searchKeys
+               termDivider="-"
+           />
+        </FormGroup>
+    );
+}
+```
+
+## Options
+The format of the options must be an array of objects that contains at least three properties: `name`, `isSelected`, and `value`.
+
+| property   | description                                               |
+| ---------- | --------------------------------------------------------- |
+| name       | the text displayed on the dropdown                        |
+| isSelected | boolean that determines if the option is selected or not  |
+| value      | uniquely identifies each options (value must be \`unique\`) |
+
+```
+[
+    {
+        name: 'Rexona',
+        isSelected: true,
+        value: 0
+    },
+    ...
+]
+```
+
+Here's an example of a possible set of options:
+```js
+const people = [
+    {
+        name: 'John',
+        value: 'john',
+        selected: true
+    },
+    {
+        name: 'Sam',
+        value: 'sam',
+        selected: false
+    },
+    {
+        name: 'Jane',
+        value: 'jane',
+        selected: true
+    },
+    {
+        name: 'Sara',
+        value: 'sara',
+        selected: false
+    }
+];
+```
+
+### Nested Options
+You may also have nested options. Here's an example:
+```js
+const pets = [
+    {
+        name: 'All Pets',
+        value: 0,
+        selected: false
+    },
+    {
+        name: 'Dogs',
+        value: 1,
+        selected: false,
+        options: [
+            {
+                name: 'Lassie',
+                value: 1,
+                selected: true
+            },
+            {
+                name: 'Snoopy',
+                value: 2,
+                selected: true
+            }
+        ]
+    },
+    {
+        name: 'Cats',
+        value: 'cats',
+        selected: false,
+        options: [
+            {
+                name: 'Grumpy Cat',
+                value: 1,
+                selected: true
+            },
+            {
+                name: 'Lil Bub',
+                value: 2,
+                selected: true
+            }
+        ]
+    }
+];
+```
+
+## Keybindings
+| key   | description                              |
+| ----- | ---------------------------------------- |
+| esc   | closes the dropdown                      |
+
+
+## Component Example
+<Story
+    id="molecules-searchmultiselectextended--default"
+/>
+
+## Props
+<Props of={SearchMultiSelectExtended} />
