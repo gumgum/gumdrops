@@ -1,52 +1,49 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withKnobs, select, text, boolean } from '@storybook/addon-knobs/react';
-import { action } from '@storybook/addon-actions';
-
-import mdx from './SearchMultiSelectExtended.mdx';
-import FormGroupLabel from '../../components/atoms/FormGroupLabel';
-import FormGroup from '../../components/molecules/FormGroup';
 import SearchMultiSelectExtended from '../../components/molecules/SearchMultiSelectExtended';
 
-// Props data
 const optionsA = [
     {
         name: 'Lassie',
-        value: 11,
-        isSelected: false
+        value: 1,
+        isSelected: true
     },
     {
         name: 'Snoopy',
-        value: 21,
-        isSelected: false
+        value: 2,
+        isSelected: true
     },
     {
         name: 'Toto',
-        value: 31,
+        value: 3,
         isSelected: false
     },
     {
         name: 'Brian Griffin',
-        value: 41,
+        value: 3,
         isSelected: false
     }
 ];
 
 const optionsB = [
     {
+        name: 'All Pets',
+        value: 0,
+        isSelected: false
+    },
+    {
         name: 'Dogs',
-        value: 'Dogs',
+        value: 1,
         isSelected: false,
         options: [
             {
                 name: 'Lassie',
                 value: 1,
-                isSelected: false
+                isSelected: true
             },
             {
                 name: 'Snoopy',
                 value: 2,
-                isSelected: false
+                isSelected: true
             },
             {
                 name: 'Toto',
@@ -55,132 +52,67 @@ const optionsB = [
             },
             {
                 name: 'Brian Griffin',
-                value: 4,
+                value: 3,
                 isSelected: false
             }
         ]
     },
     {
         name: 'Cats',
-        value: 'Cats',
+        value: 'cats',
         isSelected: false,
         options: [
             {
                 name: 'Grumpy Cat',
-                value: 5,
-                isSelected: false
+                value: 1,
+                isSelected: true
             },
             {
                 name: 'Lil Bub',
-                value: 6,
-                isSelected: false
+                value: 2,
+                isSelected: true
             },
             {
                 name: 'Hello Kitty',
-                value: 7,
+                value: 3,
                 isSelected: false
             }
         ]
     }
 ];
 
-const configSelect = {
-    Normal: 'A',
-    Nested: 'B'
-};
-
-const options = {
-    A: optionsA,
-    B: optionsB,
-};
-
-const contextOptions = [
-    'primary',
-    'secondary',
-    'success',
-    'warning',
-    'danger',
-    'blue',
-    'gold',
-    'green',
-    'orange',
-    'purple',
-    'red',
-    'darkblue',
-    'darkgreen',
-    'darkred',
-    'primary-dark',
-    'success-dark',
-    'warning-dark',
-    'danger-dark',
-    'blue-dark',
-    'gold-dark',
-    'green-dark',
-    'orange-dark',
-    'purple-dark',
-    'red-dark',
-    'darkblue-dark',
-    'darkgold-dark',
-    'darkgreen-dark',
-    'darkred-dark'
-];
-
-class SearchMultiSelectExtendedStory extends React.Component {
-    static propTypes = {
-        options: PropTypes.object
-    };
-
-    state = {
-        options: this.props.options
-    };
-
-    componentDidUpdate(prevProps) {
-        const { options } = this.props;
-        if (prevProps.options != options) {
-            this._updateOptions(options);
-        }
-    }
-
-    _inputRef = React.createRef();
-
-    _updateOptions = newOptions => {
-        this.setState({options: newOptions});
-        action('SearchMultiSelectExtended Updated')(newOptions);
-    };
-
-    _handleInputChange = value => action('SearchMultiSelect current value')(value);
-
-    render() {
-        return (
-            <FormGroup>
-                <FormGroupLabel text="options" />
-                <SearchMultiSelectExtended
-                    placeholder={text('Placeholder', 'My placeholder')}
-                    options={this.state.options}
-                    update={this._updateOptions}
-                    onChange={this._handleInputChange}
-                    context={select('Context', contextOptions, 'primary')}
-                    size={select('Size', ['xs', 'sm', 'md'], 'md')}
-                    multiTerm={boolean('Multiple Terms', false)}
-                    searchKeys={boolean('Search Keys', false)}
-                    termDivider={text('Term Divider')}
-                />
-            </FormGroup>
-        );
-    }
-}
+const sizeOptions = ['', 'xs', 'sm'];
 
 export default {
-    component: SearchMultiSelectExtended,
     title: 'Molecules/SearchMultiSelectExtended',
-    decorators: [withKnobs],
-    parameters: {
-        docs: { page: mdx }
+    component: SearchMultiSelectExtended,
+    argTypes: {
+        placeholder: { control: 'text' },
+        onChange: { action: 'change' },
+        size: {
+            options: sizeOptions,
+            control: { type: 'select' }
+        }
     }
 };
 
-export const Default = () => {
-    const selectedOptions = select('Options Config', configSelect, 'A');
-    return <SearchMultiSelectExtendedStory options={options[selectedOptions]} />;
+
+const Template = args => {
+    return <SearchMultiSelectExtended {...args} />;
 };
+
+export const Default = Template.bind({});
+export const Nested = Template.bind({});
+
+Default.args = {
+    options: optionsA,
+    placeholder: 'Select an option',
+    size: 'md'
+};
+
+Nested.args = {
+    options: optionsB,
+    placeholder: 'Select an option'
+};
+
 
