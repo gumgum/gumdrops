@@ -7,6 +7,8 @@ import React from 'react';
 import Table from '../../components/molecules/Table';
 import TableBody from '../../components/molecules/TableBody';
 import TableData from '../../components/molecules/TableData';
+import TableFooter from '../../components/molecules/TableFooter';
+import TableRow from '../../components/molecules/TableRow';
 
 const defaultProps = {
     data: [
@@ -193,11 +195,72 @@ test('Expect <Table> to expand the row when the chevron is clicked', () => {
             }
         ]
     };
-    const { queryByTestId, debug } = render(<Table {...props} />);
-    debug();
+    const { queryByTestId } = render(<Table {...props} />);
     const expandableRow = queryByTestId('expandable-row-Foo');
     expect(expandableRow.querySelector('.gds-table--collapsible').style.height).toEqual('0px');
     fireEvent.click(queryByTestId('row-Foo-key-1'));
     expect(queryByTestId('row-Foo-key-1')).toBeInTheDocument();
     expect(expandableRow.querySelector('.gds-table--collapsible').style.height).toEqual('100px');
+});
+
+
+test('Expect <Table> to render the table footer component as an object', () => {
+    const props = {
+        ...defaultProps,
+        customRowKey: 'foo',
+        columns: [
+            {
+                key: 'foo',
+                children: 'Foo',
+                headingProps: { style: { width: 100, onClick: jest.fn() } }
+            },
+            {
+                key: 'bar',
+                children: 'Bar',
+                renderExpandableColumn(cellData) {
+                    return <div>Expandable - {cellData}</div>;
+                }
+            }
+        ],
+        footer: {
+            foo: 'Bar Footer',
+            bar: 'Foo Footer'
+        }
+    };
+    const { queryByTestId, debug } = render(<Table {...props} />);
+    debug();
+    const footer = queryByTestId('table-footer');
+    expect(footer).toBeInTheDocument();
+    expect(footer).toMatchSnapshot();
+});
+
+test('Expect <Table> to render the table footer component as a JSX.Element', () => {
+    const props = {
+        ...defaultProps,
+        customRowKey: 'foo',
+        columns: [
+            {
+                key: 'foo',
+                children: 'Foo',
+                headingProps: { style: { width: 100, onClick: jest.fn() } }
+            },
+            {
+                key: 'bar',
+                children: 'Bar',
+                renderExpandableColumn(cellData) {
+                    return <div>Expandable - {cellData}</div>;
+                }
+            }
+        ],
+        footer: <TableFooter data-testid="table-footer-manual">
+            <TableRow>
+                <TableData colspan={2}>Footer!</TableData>
+            </TableRow>
+        </TableFooter>
+    };
+    const { queryByTestId, debug } = render(<Table {...props} />);
+    debug();
+    const footer = queryByTestId('table-footer-manual');
+    expect(footer).toBeInTheDocument();
+    expect(footer).toMatchSnapshot();
 });

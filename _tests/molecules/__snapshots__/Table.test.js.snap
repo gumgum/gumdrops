@@ -76,6 +76,46 @@ exports[`Expect <Table> to render properly 1`] = `
 </table>
 `;
 
+exports[`Expect <Table> to render the table footer component as a JSX.Element 1`] = `
+<tfoot
+  class=""
+  data-testid="table-footer-manual"
+>
+  <tr
+    class="gds-table__row"
+  >
+    <td
+      class=""
+      colspan="2"
+    >
+      Footer!
+    </td>
+  </tr>
+</tfoot>
+`;
+
+exports[`Expect <Table> to render the table footer component as an object 1`] = `
+<tfoot
+  class=""
+  data-testid="table-footer"
+>
+  <tr
+    class="gds-table__row"
+  >
+    <td
+      class=""
+    >
+      Bar Footer
+    </td>
+    <td
+      class=""
+    >
+      Foo Footer
+    </td>
+  </tr>
+</tfoot>
+`;
+
 exports[`Expect <Table> to render using advanced configs 1`] = `
 <table
   className="gds-table custom-class gds-table--lg"

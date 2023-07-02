@@ -299,7 +299,7 @@ class Table extends Component {
                         );
                     })}
                 </Body>
-                {typeof footer === 'undefined' ? null : typeof footer === 'object' && !React.isValidElement(footer) ? <Footer>
+                {typeof footer === 'undefined' ? null : typeof footer === 'object' && !React.isValidElement(footer) ? <Footer data-testid="table-footer">
                     <Row>
                         {columns.map((column, k) => {
                             const rowKey = this._getRowKey(footer, k);
