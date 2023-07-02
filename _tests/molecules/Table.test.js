@@ -258,8 +258,7 @@ test('Expect <Table> to render the table footer component as a JSX.Element', () 
             </TableRow>
         </TableFooter>
     };
-    const { queryByTestId, debug } = render(<Table {...props} />);
-    debug();
+    const { queryByTestId } = render(<Table {...props} />);
     const footer = queryByTestId('table-footer-manual');
     expect(footer).toBeInTheDocument();
     expect(footer).toMatchSnapshot();
