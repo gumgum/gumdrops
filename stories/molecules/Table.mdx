@@ -191,6 +191,62 @@ const columns = [{
 
 const People = () => <Table columns={columns} data={data} customRowKey="id" />;
 ```
+### Table Footer
+
+The table footer can be used to display totals or other summary information. The footer is rendered as a `<tfoot>` element.
+
+The footer will allow you to have a "static" row at the bottom of the table that will not be affected by sorting.
+
+The footer prop can accept JSX or an object containing a key/value pair object where the "keys" are the column keys.
+
+The following example will create a table with a footer that will display the total age of all the people in the table.
+
+```jsx
+const columns = [
+    { key: 'name', children: 'First Name' },
+    { key: 'age', children: 'Age (years)' },
+];
+const data = [
+    { name: 'Alice', age: 20, id: 'x123' },
+    { name: 'Bob', age: 24, id: 'y456' }
+];
+const footer = {
+    name: 'Total Age',
+    age: data.reduce((acc, row) => acc + row.age, 0) // -> 44
+}
+const People = () => <Table columns={columns} data={data} footer={footer} customRowKey="id" />;
+```
+
+
+### Custom Table Footer
+
+We can also include JSX to render a custom table footer by importing the components manually.
+
+```jsx
+import TableFooter from 'gumdrops/TableFooter';
+import TableRow from 'gumdrops/TableRow';
+import TableData from 'gumdrops/TableData';
+const columns = [
+    { key: 'name', children: 'First Name' },
+    { key: 'age', children: 'Age (years)' },
+];
+const data = [
+    { name: 'Alice', age: 20, id: 'x123' },
+    { name: 'Bob', age: 24, id: 'y456' }
+];
+
+function CustomFooter() {
+    return <TableFooter>
+        <TableRow>
+            <TableData colspan={2}>
+                The average age is {data.reduce((acc, row) => acc + row.age, 0) / data.length}
+            </TableData>
+        </TableRow>
+    </TableFooter>
+}
+const People = () => <Table columns={columns} data={data} footer={CustomFooter} customRowKey="id" />;
+
+```
 
 
 ## Component Example Simple
