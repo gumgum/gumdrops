@@ -115,10 +115,8 @@ function ImagePreview({
                     break;
             }
             if (
-                typeof tooltipX === 'number' &&
-                typeof tooltipY === 'number' &&
-                !isNaN(tooltipY) &&
-                !isNaN(tooltipX)
+                isFinite(tooltipY) &&
+                isFinite(tooltipX)
             ) {
                 return {
                     left: tooltipX,

@@ -1,5 +1,6 @@
 import Table from '../../components/molecules/Table';
 import TableData from '../../components/molecules/TableData';
+import TableFooter from '../../components/molecules/TableFooter';
 import ToolTip from '../../components/atoms/Tooltip';
 
 const columnsSimple = ['id', 'name', 'title', 'age', 'height'];
@@ -179,6 +180,7 @@ const Template = args => {
     );
 };
 
+
 export const Simple = Template.bind({});
 Simple.args = {
     columns: columnsSimple,
@@ -196,7 +198,7 @@ Custom.parameters = { controls: { exclude: ['children', 'data'] } };
 export const Advanced = Template.bind({});
 Advanced.args = {
     columns: columnsAdvanced,
-    numOfRows: 10
+    numOfRows: 10,
 };
 Advanced.parameters = { controls: { exclude: ['children', 'data'] } };
 
@@ -207,3 +209,17 @@ Expandable.args = {
     customRowKey: 'id'
 };
 Expandable.parameters = { controls: { exclude: ['children', 'data'] } };
+
+export const Footer = Template.bind({});
+
+Footer.args = {
+    columns: columnsAdvanced,
+    numOfRows: 5,
+    footer: {
+        id: '123',
+        name: '',
+        title: '',
+        age: 'Average Age: 30',
+        height: 'Average Height: 5\'8"',
+    }
+}

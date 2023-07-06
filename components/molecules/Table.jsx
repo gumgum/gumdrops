@@ -8,6 +8,7 @@ import Heading from './TableHeading';
 import Body from './TableBody';
 import Row from './TableRow';
 import Data from './TableData';
+import Footer from './TableFooter';
 import Icon from '../atoms/Icon';
 import { deprecateLog } from '../utils/deprecate';
 
@@ -153,6 +154,7 @@ class Table extends Component {
         hasHeader,
         onRowClick,
         isSecondary,
+        footer,
     }) {
         const { sortBy, data } = this.state;
         return (
@@ -297,6 +299,17 @@ class Table extends Component {
                         );
                     })}
                 </Body>
+                {typeof footer === 'undefined' ? null : typeof footer === 'object' && !React.isValidElement(footer) ? <Footer data-testid="table-footer">
+                    <Row>
+                        {columns.map((column, k) => {
+                            const rowKey = this._getRowKey(footer, k);
+                            // generate a column key based on the row key
+                            const columnKey = this._getColumnKey(rowKey, k);
+                            const [columnData] = this._getColumnData(column, footer, columnKey);
+                            return <Data key={`${columnKey}--footer`}>{columnData}</Data>
+                        })}
+                    </Row>
+                </Footer> : React.isValidElement(footer) ? footer : null}
             </Fragment>
         );
     }
@@ -328,6 +341,23 @@ class Table extends Component {
 }
 
 Table.propTypes = {
+    /** An `Object` matching the column keys or JSX element */
+    footer: function(props, propName, componentName) {
+        const propValue = props[propName];
+        // not a required value so if undefined, don't throw an error
+        // If undefined, don't throw an error
+        if (typeof propValue === 'undefined') {
+            return;
+        }
+        const isObject = typeof propValue === 'object';
+        // Validate the prop value
+        if (!React.isValidElement(propValue) || !isObject) {
+            return new Error(
+                `Invalid prop ${propName} supplied to ${componentName}. 
+                Expected undefined, a JSX element, or an object matching keys of columns.`
+            );
+        }
+    },
     // necessary for controlled tables
     /** An `Array` of `Objects` with simple key/value pairs. */
     data: function(props, propName, componentName) {
