@@ -1,5 +1,10 @@
 # GumDrops Changelog
 
+# 1.16.1
+
+-   Introduce TableFooter component for tables
+-   Fixed bug with ImagePreview component
+
 # 1.16.0
 
 -   Upgrade Storybook version to 7 - requires react and react-dom be added as dev dependencies
