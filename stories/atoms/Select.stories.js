@@ -65,7 +65,6 @@ export const Default = Template.bind({});
 Default.args = {
     options,
     name: 'fruit',
-    value: '2',
     customName: 'name',
     customValue: 'value'
 };
