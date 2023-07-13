@@ -24,7 +24,7 @@ const MultiSelect = ({
   onChange,
   size,
   className,
-  style,
+  ulStyle,
   ...otherProps
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -119,7 +119,7 @@ const MultiSelect = ({
               className="gds-multi-select__menu"
               id={regionId}
               role="region"
-              style={isOpen ? style : {}}>
+              style={isOpen ? ulStyle : {}}>
               {options.map(({ name, value, selected, options: subOptions }, index) =>
                   subOptions ? (
                       <MultiSelectSubMenu
@@ -172,14 +172,14 @@ MultiSelect.propTypes = {
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', '']),
   className: PropTypes.string,
-  style: PropTypes.object,
+  ulStyle: PropTypes.object,
 };
 
 MultiSelect.defaultProps = {
   placeholder: '',
   className: '',
   onChange: () => {}, // Placeholder for the default onChange prop
-  style: {}
+  ulStyle: {}
 };
 
 export default MultiSelect;
