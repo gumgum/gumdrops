@@ -107,11 +107,11 @@ export const Nested = Template.bind({});
 Default.args = {
     options: optionsA,
     placeholder: 'Select an option',
-    style: { maxHeight: '250px', overflowY: 'auto', position: 'relative' },
+    ulStyle: { maxHeight: '250px', overflowY: 'auto', position: 'relative' },
 };
 
 Nested.args = {
     options: optionsB,
     placeholder: 'Select an option',
-    style: { maxHeight: '250px', overflowY: 'auto', position: 'relative' },
+    ulStyle: { maxHeight: '250px', overflowY: 'auto', position: 'relative' },
 };
