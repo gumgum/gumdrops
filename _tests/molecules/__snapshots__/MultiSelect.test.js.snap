@@ -2,15 +2,16 @@
 
 exports[`Expect <MultiSelect> to render properly 1`] = `
 <div
+  callback={[MockFunction]}
   className="gds-multi-select custom-class gds-multi-select--xs"
   placeholder="placeholder"
 >
   <button
-    aria-controls="MultiSelect_region_TXVsdGlTZWxlY3Q=0"
+    aria-controls="MultiSelect_region_T2JqZWN00"
     aria-expanded={false}
     aria-pressed={false}
     className="gds-multi-select__button gds-multi-select__button--xs"
-    id="MultiSelect_label_TXVsdGlTZWxlY3Q=0"
+    id="MultiSelect_label_T2JqZWN00"
     name="multiselectMenu"
     onClick={[Function]}
     tabIndex={0}
@@ -24,10 +25,11 @@ exports[`Expect <MultiSelect> to render properly 1`] = `
   </button>
   <ul
     aria-hidden={true}
-    aria-labelledby="MultiSelect_label_TXVsdGlTZWxlY3Q=0"
+    aria-labelledby="MultiSelect_label_T2JqZWN00"
     className="gds-multi-select__menu"
-    id="MultiSelect_region_TXVsdGlTZWxlY3Q=0"
+    id="MultiSelect_region_T2JqZWN00"
     role="region"
+    style={{}}
   >
     <li
       className="gds-multi-select__menu-item"

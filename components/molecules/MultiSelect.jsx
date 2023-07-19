@@ -1,189 +1,185 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import MultiSelectSubMenu from './MultiSelectSubMenu';
 import MultiSelectMenuItem from './MultiSelectMenuItem';
-import cx from 'classnames';
+
 import generateUID from '../utils/generateUID';
 import updateOptions from '../utils/updateMultiSelectOptions';
-import { deprecateFunction } from '../utils/deprecate';
+import cx from 'classnames';
 
-const getSelectedOptions = options => {
-    const selected = options.reduce((acc, cur) => {
-        if (cur.options) {
-            return [...acc, ...getSelectedOptions(cur.options)];
-        }
-        return cur.selected ? [...acc, cur] : acc;
-    }, []);
 
-    return selected;
+const getSelectedOptions = (options) => {
+  const selected = options.reduce((acc, cur) => {
+    if (cur.options) {
+      return [...acc, ...getSelectedOptions(cur.options)];
+    }
+    return cur.selected ? [...acc, cur] : acc;
+  }, []);
+
+  return selected;
 };
 
-class MultiSelect extends Component {
-    state = {
-        isOpen: false
+const MultiSelect = ({
+  options,
+  onChange,
+  size,
+  className,
+  ulStyle,
+  ...otherProps
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef();
+
+  const uid = generateUID(containerRef);
+
+  const regionId = `MultiSelect_region_${uid}`;
+  const labelId = `MultiSelect_label_${uid}`;
+
+  useEffect(() => {
+    const closeOnClickOutside = ({ target }) => {
+      const el = containerRef.current;
+      if (!el.contains(target)) {
+        setIsOpen(false);
+      }
     };
 
-    componentDidMount() {
-        window.addEventListener('click', this._closeOnClickOutside);
-    }
+    window.addEventListener('click', closeOnClickOutside);
 
-    componentWillUnmount() {
-        window.removeEventListener('click', this._closeOnClickOutside);
-    }
+    return () => {
+      window.removeEventListener('click', closeOnClickOutside);
+    };
+  }, []);
 
-    uid = generateUID(this);
+  const toggleDropdown = () => setIsOpen((prevState) => !prevState);
 
-    regionId = `MultiSelect_region_${this.uid}`;
+  const getPlaceholder = () => {
+    const { placeholder } = otherProps;
+    const selectedOptions = getSelectedOptions(options);
+    return selectedOptions.map((x) => x.name).join(', ') || placeholder;
+  };
 
-    labelId = `MultiSelect_label_${this.uid}`;
-
-    _closeOnClickOutside = ({ target }) => {
-        const el = this.container;
-        if (!el.contains(target)) {
-            this.setState({ isOpen: false });
+  const handleSubChange = (index) => (subItem) => {
+    const updatedOptions = options.map((item, i) => {
+      const shouldUpdate = i === index;
+      if (shouldUpdate) {
+        const subOptions = updateOptions(item.options, subItem);
+        if (subOptions) {
+          const allSelected = !subOptions.map((opt) => opt.selected).includes(false);
+          return {
+            ...item,
+            selected: allSelected,
+            options: subOptions
+          };
         }
-    };
+      }
+      return item;
+    });
 
-    _toggleDropdown = () => this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+    onChange(updatedOptions);
+  };
 
-    _getPlaceholder = () => {
-        const { placeholder, options } = this.props;
-        const selectedOptions = getSelectedOptions(options);
-        return selectedOptions.map(x => x.name).join(', ') || placeholder;
-    };
+  const handleChange = (item) => {
+    const updatedOptions = updateOptions(options, item);
+    onChange(updatedOptions);
+  };
 
-    _handleSubChange = index => subItem => {
-        const options = this.props.options.map((item, i) => {
-            const shouldUpdate = i === index;
-            if (shouldUpdate) {
-                // sub options
-                const subOptions = updateOptions(item.options, subItem);
-                if (subOptions) {
-                    // update parent if all are selected/unselected
-                    const allSelected = !subOptions.map(opt => opt.selected).includes(false);
-                    return {
-                        ...item,
-                        selected: allSelected,
-                        options: subOptions
-                    };
-                }
-            }
-            return item;
-        });
-        this.props.onChange(options);
-    };
+  const { options: _, ...restProps } = otherProps;
 
-    _handleChange = item => {
-        const options = updateOptions(this.props.options, item);
-        this.props.onChange(options);
-    };
+  const isSmall = size === 'sm';
+  const isExtraSmall = size === 'xs';
 
-    render() {
-        const { options, callback, onChange, size, className, ...otherProps } = this.props; // eslint-disable-line no-unused-vars
-        const { isOpen } = this.state;
+  const rootClass = cx('gds-multi-select', className, {
+    'gds-multi-select--sm': isSmall,
+    'gds-multi-select--xs': isExtraSmall,
+    'gds-button-dropdown--active': isOpen
+  });
 
-        const deprecatedCallback = deprecateFunction(
-            callback,
-            'The `callback` handler has been deprecated and will be removed in the next major version. Use `onChange` instead. See https://github.com/gumgum/gumdrops/blob/master/_stories/molecules/MultiSelect/README.md'
-        );
+  const btnClass = cx('gds-multi-select__button', {
+    'gds-multi-select__button--sm': isSmall,
+    'gds-multi-select__button--xs': isExtraSmall
+  });
 
-        const isSmall = size === 'sm';
-        const isExtraSmall = size === 'xs';
-
-        const rootClass = cx('gds-multi-select', className, {
-            'gds-multi-select--sm': isSmall,
-            'gds-multi-select--xs': isExtraSmall,
-            'gds-button-dropdown--active': isOpen
-        });
-
-        const btnClass = cx('gds-multi-select__button', {
-            'gds-multi-select__button--sm': isSmall,
-            'gds-multi-select__button--xs': isExtraSmall
-        });
-
-        return (
-            <div className={rootClass} {...otherProps} ref={ref => (this.container = ref)}>
-                <button
-                    aria-expanded={isOpen}
-                    aria-pressed={isOpen}
-                    aria-controls={this.regionId}
-                    tabIndex={0}
-                    className={btnClass}
-                    id={this.labelId}
-                    name="multiselectMenu"
-                    type="button"
-                    onClick={this._toggleDropdown}>
-                    <div className="-ellipsis">{this._getPlaceholder()}</div>
-                </button>
-                <ul
-                    aria-labelledby={this.labelId}
-                    aria-hidden={!isOpen}
-                    className="gds-multi-select__menu"
-                    id={this.regionId}
-                    role="region">
-                    {options.map(
-                        ({ name, value, selected, options: subOptions }, index) =>
-                            subOptions ? (
-                                <MultiSelectSubMenu
-                                    key={`menu-item-${index}`}
-                                    name={name}
-                                    index={index}
-                                    value={value}
-                                    selected={selected}
-                                    options={subOptions}
-                                    onChange={this._handleChange}
-                                    onSubChange={this._handleSubChange(index)}
-                                    size={size}
-                                />
-                            ) : (
-                                <MultiSelectMenuItem
-                                    key={`menu-item-${index}`}
-                                    name={name}
-                                    index={index}
-                                    value={value}
-                                    selected={selected}
-                                    callback={deprecatedCallback}
-                                    onChange={this._handleChange}
-                                    size={size}
-                                />
-                            )
-                    )}
-                </ul>
-            </div>
-        );
-    }
-}
+  return (
+      <div className={rootClass} {...restProps} ref={containerRef}>
+          <button
+              aria-expanded={isOpen}
+              aria-pressed={isOpen}
+              aria-controls={regionId}
+              tabIndex={0}
+              className={btnClass}
+              id={labelId}
+              name="multiselectMenu"
+              type="button"
+              onClick={toggleDropdown}>
+              <div className="-ellipsis">{getPlaceholder()}</div>
+          </button>
+          <ul
+              aria-labelledby={labelId}
+              aria-hidden={!isOpen}
+              className="gds-multi-select__menu"
+              id={regionId}
+              role="region"
+              style={isOpen ? ulStyle : {}}>
+              {options.map(({ name, value, selected, options: subOptions }, index) =>
+                  subOptions ? (
+                      <MultiSelectSubMenu
+                          key={`menu-item-${index}`}
+                          name={name}
+                          index={index}
+                          value={value}
+                          selected={selected}
+                          options={subOptions}
+                          onChange={handleChange}
+                          onSubChange={handleSubChange(index)}
+                          size={size}
+                      />
+                  ) : (
+                      <MultiSelectMenuItem
+                          key={`menu-item-${index}`}
+                          name={name}
+                          index={index}
+                          value={value}
+                          selected={selected}
+                          onChange={handleChange}
+                          size={size}
+                      />
+                  )
+              )}
+          </ul>
+      </div>
+  );
+};
 
 MultiSelect.displayName = 'MultiSelect';
 
 MultiSelect.propTypes = {
-    /** `Array` of `Objects` */
-    options: PropTypes.arrayOf(
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.any,
+      selected: PropTypes.bool,
+      options: PropTypes.arrayOf(
         PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            value: PropTypes.any,
-            selected: PropTypes.bool,
-            options: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string.isRequired,
-                    value: PropTypes.any, // eslint-disable-line react/forbid-prop-types
-                    selected: PropTypes.bool
-                })
-            )
+          name: PropTypes.string.isRequired,
+          value: PropTypes.any,
+          selected: PropTypes.bool
         })
-    ).isRequired,
-    callback: PropTypes.func,
-    /** Change handler will be called with the updated list of `option` based on user selection. */
-    onChange: PropTypes.func,
-    /** Text that appears before any options are selected */
-    placeholder: PropTypes.string,
-    size: PropTypes.oneOf(['xs', 'sm', '']),
-    className: PropTypes.string
+      )
+    })
+  ).isRequired,
+  callback: PropTypes.func,
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  size: PropTypes.oneOf(['xs', 'sm', '']),
+  className: PropTypes.string,
+  ulStyle: PropTypes.object,
 };
 
 MultiSelect.defaultProps = {
-    placeholder: '',
-    className: ''
+  placeholder: '',
+  className: '',
+  onChange: () => {}, // Placeholder for the default onChange prop
+  ulStyle: {}
 };
 
 export default MultiSelect;
