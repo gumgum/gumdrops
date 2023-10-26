@@ -2,16 +2,16 @@ import { Story, Props } from '@storybook/addon-docs/blocks';
 import { Canvas, Source } from '@storybook/blocks';
 import { ArgsTable } from '@storybook/addon-docs';
 
-import * as SearchMultiSelectExtendedStories from './SearchMultiSelectExtended.stories';
-import SearchMultiSelectExtended from '../../components/molecules/SearchMultiSelectExtended';
+import * as SearchMultiSelectGroupsStories from './SearchMultiSelectGroups.stories';
+import SearchMultiSelectGroups from '../../components/molecules/SearchMultiSelectGroups';
 
-# SearchMultiSelectExtended
+# SearchMultiSelectGroups
 
-The `<SearchMultiSelectExtended>` is similar to the `<MultiSelect>` component, but this component can display hierarchical tree data. In addition, it shows the selection in grouped and allows user to search the options for quick filtering and selection.
+The `<SearchMultiSelectGroups>` is an option list which can also contain groups. It shows the selection grouped as a tree and allows user to search the options for quick filtering and selection.
 
-As the name suggests, the `<SearchMultiSelectExtended>` comes with a case insensitive term matching, and a small tag indicator to show you how many options were selected, as well a small balloon where you can quickly see what options you have selected so far.
+As the name suggests, the `<SearchMultiSelectGroups>` comes with a small tag indicator to show you how many options were selected, as well a small balloon where you can quickly see what options you have selected so far.
 
-Search-Multi-select supports nested options [See Nested Options](#nested-options). When a parent option is selected, all children will be selected. If all children are selected, the parent will be selected too.
+Search-Multi-Select-Groups supports nested options [See Nested Options](#nested-options). When a parent option is selected, all children will be selected. If all children are selected, the parent will be selected too.
 
 ## Options
 
@@ -104,7 +104,7 @@ const pets = [
 ```jsx
 
 const [pets, setPets] = useState(initialPetsObject);
-return <SearchMultiSelectExtended onChange={newPets => setPets(newPets)} options={pets} size="md" />;
+return <SearchMultiSelectGroups onChange={newPets => setPets(newPets)} options={pets} size="md" />;
 ```
 
 
@@ -114,12 +114,12 @@ return <SearchMultiSelectExtended onChange={newPets => setPets(newPets)} options
 | esc   | closes the dropdown                      |
 ## Component Example
 
-<Canvas of={SearchMultiSelectExtendedStories.Default} />
+<Canvas of={SearchMultiSelectGroupsStories.Default} />
 
 ## Component Example Source
 
-<Source of={SearchMultiSelectExtendedStories.Default} />
+<Source of={SearchMultiSelectGroupsStories.Default} />
 
-## SearchMultiSelectExtended Props
+## SearchMultiSelectGroups Props
 
-<ArgsTable of={SearchMultiSelectExtended} />
+<ArgsTable of={SearchMultiSelectGroups} />

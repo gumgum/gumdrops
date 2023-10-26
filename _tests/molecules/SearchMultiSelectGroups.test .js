@@ -1,6 +1,6 @@
 /* globals mount */
 import React from 'react';
-import SearchMultiSelectExtended from '../../components/molecules/SearchMultiSelectExtended';
+import SearchMultiSelectGroups from '../../components/molecules/SearchMultiSelectGroups';
 
 const defaultProps = {
     options: [
@@ -20,9 +20,9 @@ const defaultProps = {
     multiTerm: false
 };
 
-describe('Expect <SearchMultiSelectExtended>', () => {
+describe('Expect <SearchMultiSelectGroups>', () => {
     it('to render', () => {
-        const wrapper = mount(<SearchMultiSelectExtended {...defaultProps} />);
+        const wrapper = mount(<SearchMultiSelectGroups {...defaultProps} />);
         expect(wrapper).toMatchSnapshot();
     });
 });

@@ -9,7 +9,7 @@ import Checkbox from './Checkbox';
 import arraysEqual from '../utils/arraysEqual';
 import escapeRegExp from '../utils/escapeRegExp';
 
-const SearchMultiSelectExtended = ({
+const SearchMultiSelectGroups = ({
     options,
     searchKeys,
     multiTerm,
@@ -369,9 +369,9 @@ const getMatchingIndexes = (options, query, config) => {
     return matchingOptionsIndex.length > 0 ? matchingOptionsIndex : matchingSingleIndex;
 };
 
-SearchMultiSelectExtended.displayName = 'SearchMultiSelectExtended';
+SearchMultiSelectGroups.displayName = 'SearchMultiSelectGroups';
 
-SearchMultiSelectExtended.defaultProps = {
+SearchMultiSelectGroups.defaultProps = {
     context: 'primary',
     placeholder: '',
     size: 'md',
@@ -381,7 +381,7 @@ SearchMultiSelectExtended.defaultProps = {
     termDivider: /[ ,]+/,
 };
 
-SearchMultiSelectExtended.propTypes = {
+SearchMultiSelectGroups.propTypes = {
     /** List of options {array of objects} */
     options: PropTypes.array.isRequired,
     /** Function that returns the latest change on options */
@@ -402,4 +402,4 @@ SearchMultiSelectExtended.propTypes = {
     inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
-export default SearchMultiSelectExtended;
+export default SearchMultiSelectGroups;

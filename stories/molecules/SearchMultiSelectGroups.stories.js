@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchMultiSelectExtended from '../../components/molecules/SearchMultiSelectExtended';
+import SearchMultiSelectGroups from '../../components/molecules/SearchMultiSelectGroups';
 
 const optionsA = [
     {
@@ -84,8 +84,8 @@ const optionsB = [
 const sizeOptions = ['', 'xs', 'sm'];
 
 export default {
-    title: 'Molecules/SearchMultiSelectExtended',
-    component: SearchMultiSelectExtended,
+    title: 'Molecules/SearchMultiSelectGroups',
+    component: SearchMultiSelectGroups,
     argTypes: {
         placeholder: { control: 'text' },
         onChange: { action: 'change' },
@@ -98,7 +98,7 @@ export default {
 
 
 const Template = args => {
-    return <SearchMultiSelectExtended {...args} />;
+    return <SearchMultiSelectGroups {...args} />;
 };
 
 export const Default = Template.bind({});
