@@ -6,53 +6,104 @@ import SearchMultiSelect from '../../components/molecules/SearchMultiSelect';
 
 # SearchMultiSelect
 
-The `<SearchMultiSelect>` is similar to the `<MultiSelect>` component, but it is tailored for situations where there are way too many options that the `<MultiSelect>` becomes impractical.
+The `<SearchMultiSelect>` is an option list which can also contain groups. It shows the selection grouped as a tree and allows user to search the options for quick filtering and selection.
 
-As the name suggests, the `<SearchMultiSelect>` comes with a case insensitive term matching, and a small tag indicator to show you how many options were selected, as well a small balloon where you can quickly see what options you have selected so far.
+As the name suggests, the `<SearchMultiSelect>` comes with a small tag indicator to show you how many options were selected, as well a small balloon where you can quickly see what options you have selected so far.
 
-## Full Example
+Search-Multi-Select supports nested options [See Nested Options](#nested-options). When a parent option is selected, all children will be selected. If all children are selected, the parent will be selected too.
 
+# Full Example
 ```jsx
-const [names, setNames] = useState(initialNames);
-const _handleInputChange = value => autocompleteRequest(value); // your autocomplete function
 
-return (
-    <FormGroup>
-        <FormGroupLabel text="names" />
-        <SearchMultiSelect
-            placeholder="some placeholder text"
-            options={names}
-            update={newNames => setNames(newNames)}
-            onChange={_handleInputChange}
-            context="primary"
-            size="sm"
-            multiTerm
-            searchKeys
-            termDivider="-"
-        />
-    </FormGroup>
-);
+const [pets, setPets] = useState(initialPetsObject);
+return <SearchMultiSelect onChange={newPets => setPets(newPets)} options={pets} size="md" />;
 ```
 
 ## Options
 
-The format of the options must be an array of objects that contains at least three properties: `name`, `isSelected`, and `key`.
+Options determine the construction of the multi-select menu. It takes an `Array` of `Objects` with the following shape:
 
-| property   | description                                               |
-| ---------- | --------------------------------------------------------- |
-| name       | the text displayed on the dropdown                        |
-| isSelected | boolean that determines if the option is selected or not  |
-| key        | uniquely identifies each options (key must be \`unique\`) |
-
+```js
+{
+    name: 'John', // label displayed next to the checkbox
+    value: 'john', // value associated with the option
+    isSelected: true // current selected state
+}
 ```
-[
+
+Here's an example of a possible set of options:
+
+```js
+const people = [
     {
-        name: 'Jose Santos',
-        isSelected: true,
-        key: 0
+        name: 'John',
+        value: 'john',
+        isSelected: true
     },
-    ...
-]
+    {
+        name: 'Sam',
+        value: 'sam',
+        isSelected: false
+    },
+    {
+        name: 'Jane',
+        value: 'jane',
+        isSelected: true
+    },
+    {
+        name: 'Sara',
+        value: 'sara',
+        isSelected: false
+    }
+];
+```
+
+### Nested Options
+
+You may also have nested options. Here's an example:
+
+```js
+const pets = [
+    {
+        name: 'All Pets',
+        value: 0,
+        isSelected: true, 
+    },
+    {
+        name: 'Dogs',
+        value: 1,
+        isSelected: true,
+        options: [
+            {
+                name: 'Lassie',
+                value: 1,
+                isSelected: true
+            },
+            {
+                name: 'Snoopy',
+                value: 2,
+                isSelected: true
+            }
+        ]
+    },
+    {
+        name: 'Cats',
+        value: 'cats',
+        isSelected: true,
+        options: [
+            {
+                name: 'Grumpy Cat',
+                value: 1,
+                isSelected: true
+            },
+            {
+                name: 'Lil Bub',
+                value: 2,
+                isSelected: true
+            }
+        ]
+    }
+];
 ```
 
 ## Keybindings

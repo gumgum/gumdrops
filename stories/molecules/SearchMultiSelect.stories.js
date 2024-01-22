@@ -5,40 +5,88 @@ import FormGroupLabel from '../../components/atoms/FormGroupLabel';
 import FormGroup from '../../components/molecules/FormGroup';
 
 const contextOptions = ['', 'success', 'warning', 'danger'];
-const sizeOptions = ['', 'xs', 'sm', 'md'];
 
-const namesList = [
+const optionsA = [
     {
-        name: 'Jose Santos',
-        isSelected: true,
-        key: 0
+        name: 'Lassie',
+        value: 1,
+        isSelected: true
     },
     {
-        name: 'Michele Larson',
-        isSelected: true,
-        key: 1
+        name: 'Snoopy',
+        value: 2,
+        isSelected: true
     },
     {
-        name: 'Serge Basile',
-        isSelected: false,
-        key: 2
+        name: 'Toto',
+        value: 3,
+        isSelected: false
     },
     {
-        name: 'Eder "Quesarito" Sanchez',
-        isSelected: false,
-        key: 3
-    },
-    {
-        name: 'David "Henry" Mejorado',
-        isSelected: false,
-        key: 4
-    },
-    {
-        name: 'Mahdiye \\ Maddie Jamali',
-        isSelected: false,
-        key: 5
+        name: 'Brian Griffin',
+        value: 3,
+        isSelected: false
     }
 ];
+
+const optionsB = [
+    {
+        name: 'All Pets',
+        value: 0,
+        isSelected: true,
+    },
+    {
+        name: 'Dogs',
+        value: 1,
+        isSelected: false,
+        options: [
+            {
+                name: 'Lassie',
+                value: 1,
+                isSelected: true
+            },
+            {
+                name: 'Snoopy',
+                value: 2,
+                isSelected: true
+            },
+            {
+                name: 'Toto',
+                value: 3,
+                isSelected: false
+            },
+            {
+                name: 'Brian Griffin',
+                value: 3,
+                isSelected: false
+            }
+        ]
+    },
+    {
+        name: 'Cats',
+        value: 'cats',
+        isSelected: true,
+        options: [
+            {
+                name: 'Grumpy Cat',
+                value: 1,
+                isSelected: true
+            },
+            {
+                name: 'Lil Bub',
+                value: 2,
+                isSelected: true
+            },
+            {
+                name: 'Hello Kitty',
+                value: 3,
+                isSelected: true
+            }
+        ]
+    }
+];
+
+const sizeOptions = ['', 'xs', 'sm'];
 
 export default {
     title: 'Molecules/SearchMultiSelect',
@@ -76,9 +124,15 @@ const Template = args => {
 };
 
 export const Default = Template.bind({});
+export const Nested = Template.bind({});
 
 Default.args = {
-    placeholder: 'My placeholder',
-    options: namesList,
+    options: optionsA,
+    placeholder: 'Select an option',
     size: 'md'
+};
+
+Nested.args = {
+    options: optionsB,
+    placeholder: 'Select an option'
 };
