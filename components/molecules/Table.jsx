@@ -121,7 +121,9 @@ class Table extends Component {
             easing: 'ease-in-out'
         }).onfinish = () => {
             // always set the height after finish to the last value on the animatable properties
-            ref.style.height = toFrom[1].height;
+            // when expanded, we should set the height to auto to automatically account
+            // for dynamic changes to the content when resizing or changing the content based on state
+            ref.style.height = shouldExpand ? 'auto' : toFrom[1].height;
         };
     };
 
