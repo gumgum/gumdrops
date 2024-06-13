@@ -35,6 +35,7 @@ export const Default = Template.bind({});
 
 Default.args = {
     type: 'text',
+    value:"",
     size: 'md',
     name: 'username',
     placeholder: 'My placeholder'
