@@ -200,6 +200,8 @@ const columns = [{
 
 const People = () => <Table columns={columns} data={data} customRowKey="id" />;
 ```
+Note: custom triggers will automatically receive the `chevron-expander` class so they match the default expand animation.
+
 ### Table Footer
 
 The table footer can be used to display totals or other summary information. The footer is rendered as a `<tfoot>` element.
@@ -264,7 +266,7 @@ const data = [
 function CustomFooter() {
     return <TableFooter>
         <TableRow>
-            <TableData colspan={2}>
+            <TableData colSpan={2}>
                 The average age is {data.reduce((acc, row) => acc + row.age, 0) / data.length}
             </TableData>
         </TableRow>
