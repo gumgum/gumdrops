@@ -46,6 +46,7 @@ The `columns` prop config can take a number of more advanced configurations as s
 | sortCompareAsc         | `Function` | Custom ascending sort compare function. [See example](#custom-sorting-example)                                                                                  |
 | sortCompareDesc        | `Function` | Custom descending sort compare function. [See example](#custom-sorting-example)                                                                                 |
 | renderExpandableColumn | `Function` | Convert the cell to contain a button that will expand the returned content returned from this method. [See example](#custom-expandable-column)            |
+| renderExpandableTrigger | `Function` | Customize the cell used to trigger expansion. Called with the cell data, key, row data, column object, and an object containing `isExpanded` and `onToggle`. The returned element will automatically receive the `chevron-expander` class. |
 
 ### Custom Column Markup Example
 
@@ -184,6 +185,14 @@ const columns = [{
     renderExpandableColumn(cellData, key, rowData, column) {
         return <p>Hi my name is {cellData} and I'm {rowData.age} years old.</p>
     }
+    ,
+    renderExpandableTrigger(cellData, key, rowData, column, { isExpanded, onToggle }) {
+        return (
+            <TableData key={key} onClick={onToggle}>
+                {cellData} <i className={`fa fa-chevron-${isExpanded ? 'up' : 'down'}`} />
+            </TableData>
+        );
+    }
 }, {
     key: 'age',
     children: 'Age',
@@ -197,7 +206,7 @@ The table footer can be used to display totals or other summary information. The
 
 The footer will allow you to have a "static" row at the bottom of the table that will not be affected by sorting.
 
-The footer prop can accept JSX or an object containing a key/value pair object where the "keys" are the column keys.
+The footer prop can accept JSX, an object, or an array of objects containing key/value pairs where the "keys" are the column keys.
 
 The following example will create a table with a footer that will display the total age of all the people in the table.
 
@@ -215,6 +224,23 @@ const footer = {
     age: data.reduce((acc, row) => acc + row.age, 0) // -> 44
 }
 const People = () => <Table columns={columns} data={data} footer={footer} customRowKey="id" />;
+```
+
+Multiple footer rows can be provided by passing an array of objects:
+
+```jsx
+const multiFooter = [
+    {
+        name: 'Average Age',
+        age: data.reduce((acc, row) => acc + row.age, 0) / data.length
+    },
+    {
+        name: 'Total Count',
+        age: data.length
+    }
+];
+
+const People = () => <Table columns={columns} data={data} footer={multiFooter} customRowKey="id" />;
 ```
 
 

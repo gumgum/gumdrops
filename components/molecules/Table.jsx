@@ -233,41 +233,65 @@ class Table extends Component {
                                         const columnIdentifier = this._getColumnKey(rowKey, column.key || column);
                                         // check if the current column has a renderExpandableColumn method
                                         const hasExpandableColumn = this._columnIsExpandable(column);
-                                        // if it does, render the custom Data element which will trigger the expand
                                         if (hasExpandableColumn) {
                                             const isExpanded = this._isColumnExpanded(columnIdentifier);
-                                            return (<Data
-                                                key={columnKey}
-                                                data-testid={columnKey}
-                                                onClick={() => {
-                                                    const expanded = !this.state.expandable[columnIdentifier]?.expanded;
-                                                    this.setState({
-                                                        expandable: {
-                                                            ...this.state.expandable,
-                                                            ...Object.entries(this.state.expandable).reduce((acc, next) => ({
-                                                                ...acc,
-                                                                // reset all other expandable sections for this row so we only "show"
-                                                                // one per row, all other rows will remain open if expanded already
-                                                                [next[0]]: next[1].rowKey !== rowKey ? next[1] : {
-                                                                    ...next[1],
-                                                                    expanded: false,
-                                                                },
-                                                            }), {}),
-                                                            [columnIdentifier]: {
-                                                                columnIdentifier,
-                                                                rowKey,
-                                                                expanded,
+                                            const toggle = () => {
+                                                const expanded = !this.state.expandable[columnIdentifier]?.expanded;
+                                                this.setState({
+                                                    expandable: {
+                                                        ...this.state.expandable,
+                                                        ...Object.entries(this.state.expandable).reduce((acc, next) => ({
+                                                            ...acc,
+                                                            [next[0]]: next[1].rowKey !== rowKey ? next[1] : {
+                                                                ...next[1],
+                                                                expanded: false,
                                                             },
+                                                        }), {}),
+                                                        [columnIdentifier]: {
+                                                            columnIdentifier,
+                                                            rowKey,
+                                                            expanded,
                                                         },
-                                                    }, () => this._shouldExpandColumnContent(columnIdentifier, expanded));
-                                                }}
-                                                className={`chevron-expander ${isExpanded ? 'expanded' : 'collapsed'}`}>
-                                                <Icon
-                                                    icon={isExpanded ? 'chevron-up' : 'chevron-down'}
-                                                    fontSize={22}
-                                                    className="-cursor--pointer -color-tx-lt-4"
-                                                />
-                                            </Data>)
+                                                    },
+                                                }, () => this._shouldExpandColumnContent(columnIdentifier, expanded));
+                                            };
+                                            const columnData = this._getColumnData(column, rowData, columnKey);
+                                            if (typeof column.renderExpandableTrigger === 'function') {
+                                                const trigger = column.renderExpandableTrigger.apply(this, [
+                                                    ...columnData,
+                                                    {
+                                                        isExpanded,
+                                                        onToggle: toggle,
+                                                        columnIdentifier,
+                                                    },
+                                                ]);
+                                                if (React.isValidElement(trigger)) {
+                                                    const classes = cx(
+                                                        'chevron-expander',
+                                                        trigger.props.className,
+                                                        isExpanded ? 'expanded' : 'collapsed'
+                                                    );
+                                                    return React.cloneElement(trigger, {
+                                                        className: classes,
+                                                        'data-testid': columnKey,
+                                                    });
+                                                }
+                                                return trigger;
+                                            }
+                                            return (
+                                                <Data
+                                                    key={columnKey}
+                                                    data-testid={columnKey}
+                                                    onClick={toggle}
+                                                    className={`chevron-expander ${isExpanded ? 'expanded' : 'collapsed'}`}
+                                                >
+                                                    <Icon
+                                                        icon={isExpanded ? 'chevron-up' : 'chevron-down'}
+                                                        fontSize={22}
+                                                        className="-cursor--pointer -color-tx-lt-4"
+                                                    />
+                                                </Data>
+                                            );
                                         }
                                         const decorator = column.dataCellDecorator;
                                         const columnData = this._getColumnData(column, rowData, columnKey);
@@ -301,17 +325,26 @@ class Table extends Component {
                         );
                     })}
                 </Body>
-                {typeof footer === 'undefined' ? null : typeof footer === 'object' && !React.isValidElement(footer) ? <Footer data-testid="table-footer">
-                    <Row>
-                        {columns.map((column, k) => {
-                            const rowKey = this._getRowKey(footer, k);
-                            // generate a column key based on the row key
-                            const columnKey = this._getColumnKey(rowKey, k);
-                            const [columnData] = this._getColumnData(column, footer, columnKey);
-                            return <Data key={`${columnKey}--footer`}>{columnData}</Data>
-                        })}
-                    </Row>
-                </Footer> : React.isValidElement(footer) ? footer : null}
+                {typeof footer === 'undefined'
+                    ? null
+                    : React.isValidElement(footer)
+                    ? footer
+                    : typeof footer === 'object'
+                    ? (
+                          <Footer data-testid="table-footer">
+                              {(Array.isArray(footer) ? footer : [footer]).map((footerRow, rIndex) => (
+                                  <Row key={`footer-row-${rIndex}`}>
+                                      {columns.map((column, k) => {
+                                          const rowKey = this._getRowKey(footerRow, k);
+                                          const columnKey = this._getColumnKey(rowKey, k);
+                                          const [columnData] = this._getColumnData(column, footerRow, columnKey);
+                                          return <Data key={`${columnKey}--footer`}>{columnData}</Data>;
+                                      })}
+                                  </Row>
+                              ))}
+                          </Footer>
+                      )
+                    : null}
             </Fragment>
         );
     }
@@ -343,20 +376,16 @@ class Table extends Component {
 }
 
 Table.propTypes = {
-    /** An `Object` matching the column keys or JSX element */
+    /** An `Object` or `Array` matching the column keys or a JSX element */
     footer: function(props, propName, componentName) {
         const propValue = props[propName];
-        // not a required value so if undefined, don't throw an error
-        // If undefined, don't throw an error
         if (typeof propValue === 'undefined') {
             return;
         }
         const isObject = typeof propValue === 'object';
-        // Validate the prop value
-        if (!React.isValidElement(propValue) || !isObject) {
+        if (!isObject) {
             return new Error(
-                `Invalid prop ${propName} supplied to ${componentName}. 
-                Expected undefined, a JSX element, or an object matching keys of columns.`
+                `Invalid prop ${propName} supplied to ${componentName}. Expected undefined, a JSX element, or an object/array matching keys of columns.`
             );
         }
     },
@@ -419,6 +448,8 @@ Table.propTypes = {
                 headingProps: PropTypes.object,
                 /** when provided, this column will render a chevron which will expand content returned in the method */
                 renderExpandableColumn: PropTypes.func,
+                /** Customize the cell used to trigger expansion. Receives the same args as `dataCellDecorator` plus an object with `isExpanded` and `onToggle`. */
+                renderExpandableTrigger: PropTypes.func,
                 // callback: PropTypes.func,
                 // A callback could be used to request sorted data from the server,
                 // for instance paginated items sorted by data.
