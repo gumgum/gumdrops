@@ -36,17 +36,15 @@ const People = () => <Table columns={columns} data={data} />;
 
 The `columns` prop config can take a number of more advanced configurations as seen above. For more advanced configuration you can supply additional properties to the `columns` array:
 
-| property               | type       | description                                                                                                                                             |
-| ---------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key                    | `String`   | Key representing the corresponding data property.                                                                                                       |
-| children               | `Node`     | Custom markup to render in the column heading [See example](#custom-column-markup-example)                                                                      |
-| disableSorting         | `Boolean`  | Disables ability to sort column data                                                                                                                    |
-| dataCellDecorator      | `Function` | Customize cell markup with a decorator, a function that is called with the cell data, a React key, and the row data. [See example](#custom-cell-markup-example) |
-| headingProps           | `Object`   | Props object to be passed to the `<TableHeading>` component. [See example](#custom-heading-props-example)                                                       |
-| sortCompareAsc         | `Function` | Custom ascending sort compare function. [See example](#custom-sorting-example)                                                                                  |
-| sortCompareDesc        | `Function` | Custom descending sort compare function. [See example](#custom-sorting-example)                                                                                 |
-| renderExpandableColumn | `Function` | Convert the cell to contain a button that will expand the returned content returned from this method. [See example](#custom-expandable-column)            |
-| renderExpandableTrigger | `Function` | Customize the cell used to trigger expansion. Called with the cell data, key, row data, column object, and an object containing `isExpanded` and `onToggle`. The returned element will automatically receive the `chevron-expander` class. |
+- `key`: Key representing the corresponding data property.
+- `children`: Custom markup to render in the column heading [See example](#custom-column-markup-example).
+- `disableSorting`: Disables ability to sort column data.
+- `dataCellDecorator`: Customize cell markup using a decorator—a function that receives cell data, a React key, and row data. [See example](#custom-cell-markup-example).
+- `headingProps`: Props object to be passed to the `<TableHeading>` component. [See example](#custom-heading-props-example).
+- `sortCompareAsc`: Custom ascending sort compare function. [See example](#custom-sorting-example).
+- `sortCompareDesc`: Custom descending sort compare function. [See example](#custom-sorting-example).
+- `renderExpandableColumn`: Convert the cell to contain a button that will expand the returned content from this method. [See example](#custom-expandable-column).
+- `renderExpandableTrigger`: Customize the cell used to trigger expansion. Called with the cell data, key, row data, column object, and an object containing `isExpanded` and `onToggle`. The returned element will automatically receive the `chevron-expander` class.
 
 ### Custom Column Markup Example
 
