@@ -76,6 +76,42 @@ exports[`Expect <Table> to render properly 1`] = `
 </table>
 `;
 
+exports[`Expect <Table> to render multiple footer rows 1`] = `
+<tfoot
+  class=""
+  data-testid="table-footer"
+>
+  <tr
+    class="gds-table__row"
+  >
+    <td
+      class=""
+    >
+      Bar Footer 1
+    </td>
+    <td
+      class=""
+    >
+      Foo Footer 1
+    </td>
+  </tr>
+  <tr
+    class="gds-table__row"
+  >
+    <td
+      class=""
+    >
+      Bar Footer 2
+    </td>
+    <td
+      class=""
+    >
+      Foo Footer 2
+    </td>
+  </tr>
+</tfoot>
+`;
+
 exports[`Expect <Table> to render the table footer component as a JSX.Element 1`] = `
 <tfoot
   class=""
@@ -217,3 +253,4 @@ exports[`Expect <Table> to render with expandable rows 1`] = `
   </tbody>
 </table>
 `;
+

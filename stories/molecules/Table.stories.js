@@ -68,6 +68,13 @@ const columnsExpandable = [
                     column
                 }, null, 2)}</pre>
             </div>)
+        },
+        renderExpandableTrigger(cellData, key, rowData, column, { isExpanded, onToggle }) {
+            return (
+                <TableData key={key} onClick={onToggle}>
+                    {cellData} <i className={`fa fa-chevron-${isExpanded ? 'up' : 'down'}`} />
+                </TableData>
+            );
         }
     },
     {
@@ -215,11 +222,20 @@ export const Footer = Template.bind({});
 Footer.args = {
     columns: columnsAdvanced,
     numOfRows: 5,
-    footer: {
-        id: '123',
-        name: '',
-        title: '',
-        age: 'Average Age: 30',
-        height: 'Average Height: 5\'8"',
-    }
+    footer: [
+        {
+            id: '123',
+            name: '',
+            title: '',
+            age: 'Average Age: 30',
+            height: 'Average Height: 5\'8"',
+        },
+        {
+            id: 'total',
+            name: 'Total Rows',
+            title: '',
+            age: 'Rows: 5',
+            height: ''
+        }
+    ]
 }

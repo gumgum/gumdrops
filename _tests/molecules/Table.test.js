@@ -254,7 +254,7 @@ test('Expect <Table> to render the table footer component as a JSX.Element', () 
         ],
         footer: <TableFooter data-testid="table-footer-manual">
             <TableRow>
-                <TableData colspan={2}>Footer!</TableData>
+                <TableData colSpan={2}>Footer!</TableData>
             </TableRow>
         </TableFooter>
     };
@@ -262,4 +262,76 @@ test('Expect <Table> to render the table footer component as a JSX.Element', () 
     const footer = queryByTestId('table-footer-manual');
     expect(footer).toBeInTheDocument();
     expect(footer).toMatchSnapshot();
+});
+
+test('Expect <Table> to render multiple footer rows', () => {
+    const props = {
+        ...defaultProps,
+        customRowKey: 'foo',
+        columns: [
+            {
+                key: 'foo',
+                children: 'Foo',
+                headingProps: { style: { width: 100, onClick: jest.fn() } }
+            },
+            {
+                key: 'bar',
+                children: 'Bar',
+                renderExpandableColumn(cellData) {
+                    return <div>Expandable - {cellData}</div>;
+                }
+            }
+        ],
+        footer: [
+            {
+                foo: 'Bar Footer 1',
+                bar: 'Foo Footer 1'
+            },
+            {
+                foo: 'Bar Footer 2',
+                bar: 'Foo Footer 2'
+            }
+        ]
+    };
+    const { queryByTestId } = render(<Table {...props} />);
+    const footer = queryByTestId('table-footer');
+    expect(footer).toBeInTheDocument();
+    expect(footer.querySelectorAll('tr')).toHaveLength(2);
+    expect(footer).toMatchSnapshot();
+});
+
+test('Expect <Table> to use a custom expandable trigger', () => {
+    const props = {
+        ...defaultProps,
+        customRowKey: 'foo',
+        columns: [
+            {
+                key: 'foo',
+                children: 'Foo',
+                headingProps: { style: { width: 100, onClick: jest.fn() } }
+            },
+            {
+                key: 'bar',
+                children: 'Bar',
+                renderExpandableColumn(cellData) {
+                    return <div>Expandable - {cellData}</div>;
+                },
+                renderExpandableTrigger(cellData, key, rowData, column, { isExpanded, onToggle }) {
+                    return (
+                        <TableData key={key} onClick={onToggle}>
+                            {cellData} <i className={`fa fa-chevron-${isExpanded ? 'up' : 'down'}`} />
+                        </TableData>
+                    );
+                }
+            }
+        ]
+    };
+    const { queryByTestId } = render(<Table {...props} />);
+    const expandableRow = queryByTestId('expandable-row-Foo');
+    const triggerCell = queryByTestId('row-Foo-key-1');
+    expect(triggerCell).toHaveClass('chevron-expander');
+    expect(triggerCell).toHaveClass('collapsed');
+    fireEvent.click(triggerCell);
+    expect(triggerCell).toHaveClass('expanded');
+    expect(expandableRow.querySelector('.gds-table--collapsible').style.height).toEqual('100px');
 });
