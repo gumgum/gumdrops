@@ -25,6 +25,8 @@ const pkg = require('../package.json');
 const shouldPublish = !!parseInt(process.env.PUBLISH_PACK);
 // check if a version tag is provided
 const hasVersionTag = !!process.env.TAG;
+// check if this is a dry run
+const isDryRun = !!process.env.DRY_RUN;
 
 // Define reusable constants
 const COMPONENTS = 'components';
@@ -76,7 +78,12 @@ const getDirectories = source =>
 const getFiles = source =>
     readdirSync(source)
         .map(name => join(source, name))
-        .filter(f => !isDirectory(f));
+        .filter(f => !isDirectory(f))
+        .filter(f => {
+            // Only include JavaScript and JSX files, exclude system files
+            const fileName = f.split('/').pop();
+            return /\.(js|jsx)$/.test(fileName) && !fileName.startsWith('.');
+        });
 
 // Lists all files inside the components/ directory
 const listFiles = () => {
@@ -239,13 +246,24 @@ async function packDistDir() {
 }
 
 // Publish package to NPM
-// only if PUBLISH_PACK env var is set to true
 function publishDist() {
     log('Running NPM publish');
     if (hasVersionTag) {
         const versionTag = process.env.TAG;
         log(`Publishing version: ${versionTag} / ${pkg.version}`);
-        return runNPMProcess('publish', '--tag', versionTag);
+        
+        if (isDryRun) {
+            log('DRY RUN MODE: Creating tarball for inspection');
+            // First create a tarball so you can inspect it
+            return runNPMProcess('pack').then(() => {
+                log('DRY RUN: Tarball created successfully');
+                log('DRY RUN: Now simulating publish...');
+                // Then do the dry-run publish
+                return runNPMProcess('publish', '--tag', versionTag, '--dry-run');
+            });
+        } else {
+            return runNPMProcess('publish', '--tag', versionTag);
+        }
     } else {
         return Promise.reject(
             '---- Version tag must be provided as an ENV VAR: env TAG=latest yarn run publish-pack ----'
@@ -295,9 +313,16 @@ async function build() {
         await createExtraFiles();
 
         if (shouldPublish) {
-            // publish dist dir to npm
-            const message = await publishDist();
-            log('Built version:\n' + message.trim());
+            if (isDryRun) {
+                log('DRY RUN: Creating tarball for inspection');
+                await packDistDir();
+                log('DRY RUN: Tarball created successfully');
+                log('DRY RUN: Run "npm run publish-pack" to actually publish');
+            } else {
+                // publish dist dir to npm
+                const message = await publishDist();
+                log('Built version:\n' + message.trim());
+            }
         } else {
             // package dist dir in tarball (npm pack)
             await packDistDir();

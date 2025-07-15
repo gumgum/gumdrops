@@ -1,6 +1,6 @@
 {
   "name": "gumdrops",
-  "version": "1.18.0",
+  "version": "1.18.1",
   "description": "GumGum's React Components Library",
   "license": "MIT",
   "files": [
@@ -15,6 +15,7 @@
     "build": "node tools/build",
     "buildstorybook": "storybook build -c .storybook -o build",
     "publish-pack": "env PUBLISH_PACK=1 node tools/build",
+    "publish-pack-dry-run": "env PUBLISH_PACK=1 env DRY_RUN=1 node tools/build",
     "prepare": "npm run build",
     "lint": "eslint . --ext .js,jsx --color",
     "test": "NODE_ENV='test' jest",
